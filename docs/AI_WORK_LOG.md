@@ -179,3 +179,11 @@
   3. PR #18 は最新 main への更新と、`scripts/seo_audit.py` の `BASE_URL` 修正が必要（PR #19 のマージ後）。
   4. Google Search Console・X の共有カード検証など、公開環境での確認（ユーザー側の操作が必要な部分を含む）。
   5. Search Console で旧URLのプロパティを使っている場合は、新URLのプロパティ追加が必要になる可能性がある（Claude からは操作できない）。
+
+### 2026-10-11 — Claude：旧URL置換の再確認（PR #19／#20 は未マージのまま、ユーザー確認待ち）
+
+- **作業AI：** Claude（前項の続きのセッション）
+- **ログとGitHubの照合：** GitHub の REST API で確認。main は `76c3ed5` のまま。PR #19（`fix/replace-old-account-url`、mergeable）・PR #20（#19 の上に積み重ね、mergeable）・PR #9・PR #18・PR #1 はいずれも open。前項の記載と一致しており、訂正なし。
+- **再確認（ソース）：** ブランチ上で旧ホスト `teruluce07-cmd` は本ログ以外にゼロ件。全記事・index・profile に canonical／og:url／og:image／twitter:card／twitter:image が揃い、ローカルリンク・画像参照の切れなし、og:image のファイル実在を確認。`World bazaar.html` は旧URL用のリダイレクトページのため OGP 系なし（意図どおり）。
+- **公開確認：** この環境からは公開サイトに直接接続できず（接続不可）、今回は公開サイトの確認は未実施。PR 未マージのため、公開側は旧ホストのままのはず。
+- **状態：** レビュー待ち。残作業は前項の「残作業／引き継ぎ」のとおり。
