@@ -206,5 +206,6 @@
 - **対象外:** `World bazaar.html` は既存のリダイレクト用ページでヘッダーがないため変更せず。通常ページではない Google 検証ファイルも変更せず。
 - **検証:** 20 HTMLページに導線を追加。リンクに `target="_blank" rel="noopener noreferrer"` を設定。画像保護の既存ルールは変更していない。ソースレベルの更新のみ確認し、実ブラウザ・スマホ表示・公開反映は未確認。
 - **ブランチ:** `feature/cross-site-navigation`
-- **状態:** PR作成前。公開サイト未確認。
-- **次の作業:** Disney Discovery側と合わせてPRを作成し、相互リンク先とモバイル表示を確認する。
+- **PR:** https://github.com/teruluce/disney-bgs/pull/22
+- **状態:** PR #22 作成済み、open・未マージ。作成直後のAPI応答では mergeable=false のため、競合判定を再確認する。公開サイト未確認。
+- **次の作業:** Claudeレビュー後、差分・競合・モバイル表示を確認してからマージ可否を判断。Disney Discovery側PR #9とのリンク先も確認する。
