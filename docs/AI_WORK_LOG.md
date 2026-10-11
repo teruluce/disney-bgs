@@ -187,3 +187,12 @@
 - **再確認（ソース）：** ブランチ上で旧ホスト `teruluce07-cmd` は本ログ以外にゼロ件。全記事・index・profile に canonical／og:url／og:image／twitter:card／twitter:image が揃い、ローカルリンク・画像参照の切れなし、og:image のファイル実在を確認。`World bazaar.html` は旧URL用のリダイレクトページのため OGP 系なし（意図どおり）。
 - **公開確認：** この環境からは公開サイトに直接接続できず（接続不可）、今回は公開サイトの確認は未実施。PR 未マージのため、公開側は旧ホストのままのはず。
 - **状態：** レビュー待ち。残作業は前項の「残作業／引き継ぎ」のとおり。
+
+### 2026-10-11 — Claude：PR #19／#20 マージ、PR #9 クローズ、公開確認
+
+- **作業AI：** Claude（ユーザーの明示的な指示により実行）
+- **実施：** PR #19（旧URL置換）をマージ（マージコミット `9a5b518`）。PR #20（プロフィール共有カード画像）のマージ先を `main` に付け替えてマージ（`e7dbe9f`）。PR #9 は現行 main との競合と、最近の改善を戻す内容のためクローズ（コメント付き）。
+- **デプロイ：** `e7dbe9f` の「pages build and deployment」は success。`9a5b518` の実行は、直後の `e7dbe9f` に置き換えられて cancelled（異常ではない）。
+- **公開確認（実施した範囲）：** 公開サイトの `profile.html` を取得ツールで2回取得したが、canonical・og:image・twitter:image は旧ホスト `teruluce07-cmd.github.io`、画像も `teru-profile.jpg`（新しい共有カード `teru-profile-card.jpg` ではない）と表示された。マージ・デプロイ成功後の内容と食い違うため、取得ツール側のキャッシュ（または CDN の反映遅れ）の可能性が高いが、原因は未特定。**公開サイトでの新URL反映は未確認。**ブラウザ表示・モバイル・X の共有プレビューも未確認。
+- **状態：** マージ済み（公開確認済みではない）。
+- **残作業：** (1) 時間をおいて公開ページの canonical／og:image を再確認。(2) PR #18 は最新 main への作り直しと `scripts/seo_audit.py` の `BASE_URL` 修正が必要。(3) 旧URLのSearch Consoleプロパティ使用時は新URLのプロパティ追加（ユーザー操作）。(4) X Card Validator 等での共有プレビュー確認（ユーザー操作を含む）。
