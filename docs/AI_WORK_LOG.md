@@ -196,3 +196,15 @@
 - **公開確認（実施した範囲）：** 公開サイトの `profile.html` を取得ツールで2回取得したが、canonical・og:image・twitter:image は旧ホスト `teruluce07-cmd.github.io`、画像も `teru-profile.jpg`（新しい共有カード `teru-profile-card.jpg` ではない）と表示された。マージ・デプロイ成功後の内容と食い違うため、取得ツール側のキャッシュ（または CDN の反映遅れ）の可能性が高いが、原因は未特定。**公開サイトでの新URL反映は未確認。**ブラウザ表示・モバイル・X の共有プレビューも未確認。
 - **状態：** マージ済み（公開確認済みではない）。
 - **残作業：** (1) 時間をおいて公開ページの canonical／og:image を再確認。(2) PR #18 は最新 main への作り直しと `scripts/seo_audit.py` の `BASE_URL` 修正が必要。(3) 旧URLのSearch Consoleプロパティ使用時は新URLのプロパティ追加（ユーザー操作）。(4) X Card Validator 等での共有プレビュー確認（ユーザー操作を含む）。
+
+
+### 2026-10-11 — ChatGPT：Disney Discovery との相互ナビゲーション
+- **対象ファイル:** `index.html`、`profile.html)、全18 HTMLページ中のトップ・プロフィール・全BGS記事・関連ページ（計20 HTML）、本ログ。
+- **変更内容:** 各ページのヘッダー直下に Disney Discovery への関連サイトリンクを追加。新聞・アーカイブ調の紙色、ボルドー、セリフ体に合わせた小さな導線とし、既存のページ構成・画像保護CSSには手を加えていない。
+- **リンク先:** `https://teruluce.github.io/disney-discovery/`
+- **理由:** BGS Chronicles で背景設定や物語を読んだ人が、Disney Discovery のパーク基本情報・キャラクター・作品雑学へ移動できるようにするため。
+- **対象外:** `World bazaar.html` は既存のリダイレクト用ページでヘッダーがないため変更せず。通常ページではない Google 検証ファイルも変更せず。
+- **検証:** 20 HTMLページに導線を追加。リンクに `target="_blank" rel="noopener noreferrer"` を設定。画像保護の既存ルールは変更していない。ソースレベルの更新のみ確認し、実ブラウザ・スマホ表示・公開反映は未確認。
+- **ブランチ:** `feature/cross-site-navigation`
+- **状態:** PR作成前。公開サイト未確認。
+- **次の作業:** Disney Discovery側と合わせてPRを作成し、相互リンク先とモバイル表示を確認する。
