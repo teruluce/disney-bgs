@@ -218,3 +218,17 @@
 - **検証:** ソース上で修正箇所を確認。HTMLのタグ構造とブロックの対応はPR作成前に再確認する。実ブラウザ・スマートフォン・公開反映は未確認。
 - **ブランチ:** `fix/world-bazaar-layout`
 - **状態:** 修正をブランチにコミット。PR作成後にレビュー・マージ待ち。
+
+
+### 2026-10-12 — ChatGPT：Instagram向け二サイト案内ページを追加（PR準備）
+
+- **作業AI：** ChatGPT
+- **目的：** Instagramのプロフィールリンクから、BGS ChroniclesとDisney Discoveryのどちらにも移動できる共通入口を用意する。
+- **変更ファイル：** `sites.html`（新規）、`sitemap.xml`、本ログ。
+- **デザイン：** BGSの新聞・アーカイブ調（紙色、ボルドー、セリフ体）と、DDの明るく開放的な配色を左右のパネルで共存。モバイルでは縦積みに切り替え、選択ボタンを大きく表示。
+- **リンク先：** `https://teruluce.github.io/disney-bgs/`、`https://teruluce.github.io/disney-discovery/`。
+- **SEO／共有：** title、description、canonical、OGP、Xカードを設定し、sitemapにURLを追加。共有画像は既存の `tot-exterior.jpg` を指定。
+- **検証：** GitHub APIで新規ページとsitemapのブランチ更新成功を確認。実ブラウザ、スマートフォン、GitHub Pages公開反映、SNS共有プレビューは未確認。画像保護の既存ルールは他ページでは変更していない。
+- **ブランチ：** `feature/site-selection-portal`
+- **状態：** PR作成前／未マージ。
+- **次の作業：** HTML構造とリンク先を再確認し、PRを作成。マージ後に公開URL `https://teruluce.github.io/disney-bgs/sites.html` の表示と共有プレビューを確認する。
