@@ -242,3 +242,17 @@
 - **検証：** 文言の置換とHTML内の該当セクションを確認。公開反映・実機表示は未確認。
 - **ブランチ：** `polish/site-portal-personal-tone`
 - **状態：** PR作成前／未マージ。
+
+
+### 2026-10-14 — ChatGPT：SEO基盤の初期修正（レビュー待ち）
+
+- **作業AI：** ChatGPT
+- **対象ファイル：** `bgs-fs.html`、`cinderella-castle.html`、`sitemap.xml`
+- **変更内容：** `bgs-fs.html` の title・OGP title・Twitter title を日本語の検索意図に合わせて調整。Article JSON-LD を `bgs-fs.html` と `cinderella-castle.html` に追加し、著者プロフィール、canonical に対応する mainEntityOfPage、画像、説明文、更新日を記載。サイトマップでは変更した2記事に限り `lastmod=2026-10-14` を追加。
+- **変更理由：** 構造化データが未設定だった記事を補い、更新していないページに誤った更新日を設定しないため。
+- **検証結果：** GitHub API で対象ファイルを取得し、変更を専用ブランチ `seo/technical-seo-foundation` にコミット。サイトマップは21 URLを維持し、更新した2ページだけに lastmod を追加。公開ブラウザでの表示、Google Rich Results Test、GitHub Pages のデプロイは未確認。
+- **コミット：** `e083aa5`（ファンタジースプリングス JSON-LD・title）、`6bf1f64`（シンデレラ城 JSON-LD）、`37d7d39`（サイトマップ更新日）
+- **PR：** [#27](https://github.com/teruluce/disney-bgs/pull/27)
+- **状態：** PR #27 作成済み・ドラフト・レビュー待ち（未マージ）
+- **公開状況：** 未公開確認。main へのマージおよび Pages 反映は未実施。
+- **残作業／次の担当への引き継ぎ：** 全21 HTMLの canonical・title・description・h1・OGP・構造化データ・画像alt・内部リンクを最終監査。サイト全体の非公式ファンサイト表記、記事公開日・最終更新日の実データ、孤立ページ・リンク切れを確認。lastmod は実際に内容を更新した場合のみ追加する。Search Console 登録と sitemap 送信はサイト所有者による操作が必要。
