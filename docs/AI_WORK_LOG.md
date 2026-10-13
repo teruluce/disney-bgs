@@ -270,3 +270,10 @@
 - **状態：** レビュー待ち（PR作成後）
 - **公開状況：** 未マージ・未デプロイ確認
 - **残作業／引き継ぎ：** 全ページのタイトル・説明文を再点検。PRマージ後に公開サイトのトップページタイトル、Pagesデプロイ、Search Consoleサイトマップ取得を確認する。公開HTMLが期待どおりなら、Googleが古いタイトルを保持している可能性も含めて再クロールを待つ。
+
+### 2026-10-13 — Claude：PR #18（SEO検証）を最新のmainに合わせて取り込み直し
+- **担当:** Claude
+- **内容:** PR #18の静的SEO検査（`scripts/seo_audit.py`、GitHub Actions、`docs/SEO_BASELINE.md`）を最新のmainに取り込んだ。公開URLが `teruluce.github.io` に変わっていたため、スクリプトと資料のURLを新URLに更新した。
+- **取り込まなかったもの:** PR #18の `profile.html` 構造化データの変更。旧URLのままで、現在のmainと競合していた。名前の表記・SNSリンクを載せるかは運営者の判断が必要なため見送った。
+- **検証:** ローカルで `python scripts/seo_audit.py` を実行し、21ページでエラー0（JSON-LD未設定の警告3件：bgs-fs、cinderella-castle、sites）。GitHub Actions上の実行と公開サイトへの反映は未確認。
+- **状態:** 新しいPRとして作成。PR #18は置き換え対象だが、閉じる操作は行っていない。

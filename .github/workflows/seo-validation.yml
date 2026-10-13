@@ -1,0 +1,35 @@
+name: Static SEO validation
+
+on:
+  pull_request:
+    paths:
+      - "**.html"
+      - "sitemap.xml"
+      - "robots.txt"
+      - "scripts/seo_audit.py"
+      - ".github/workflows/seo-validation.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "**.html"
+      - "sitemap.xml"
+      - "robots.txt"
+      - "scripts/seo_audit.py"
+      - ".github/workflows/seo-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  seo-smoke-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate static SEO essentials
+        run: python scripts/seo_audit.py
