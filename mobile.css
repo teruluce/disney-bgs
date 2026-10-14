@@ -1,0 +1,249 @@
+/* ============================================================
+   BGS Chronicles — Mobile optimisation layer
+   全ページ共通。各ページのインラインCSSの「後」に読み込み、
+   スマホ幅でだけ読みやすさ・タップしやすさを底上げする。
+   新聞アーカイブ調の見た目（紙色・ボルドー・セリフ体）は変えない。
+   ============================================================ */
+
+/* ---------- 全幅共通の安全策 ---------- */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { -webkit-tap-highlight-color: rgba(107, 30, 42, 0.12); }
+img, video { max-width: 100%; height: auto; }
+
+@media (max-width: 640px) {
+
+  /* ---------- ベース ---------- */
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow-wrap: anywhere;
+    line-break: strict;
+  }
+
+  /* ---------- 本文：日本語の長文を読みやすく ---------- */
+  body .article-p,
+  body .article-body p,
+  body .intro-text,
+  body .article-lead {
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.95;
+    text-align: left;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.15em;
+  }
+  body .article-p strong { font-size: inherit; }
+  body li { font-size: 15px; line-height: 1.85; }
+  body blockquote,
+  body .blockquote { font-size: 14.5px; line-height: 1.9; }
+
+  /* 小見出し */
+  body .sub-heading,
+  body h3 { font-size: 16.5px; line-height: 1.6; }
+  body .port-heading { font-size: 15px; }
+
+  /* ---------- 英字ラベル（装飾）の下限を 11px に ---------- */
+  body .masthead-kicker,
+  body .masthead-subtitle,
+  body .masthead-dateline,
+  body .back-link,
+  body .footer-link,
+  body .footer-copy,
+  body .last-edited,
+  body .site-share-note,
+  body time,
+  body figcaption,
+  body .photo-caption,
+  body .card-cat,
+  body .card-time,
+  body .card-role,
+  body .toc-num,
+  body .toc-action,
+  body .toc-group-label,
+  body .article-h2-sub,
+  body .sec-num,
+  body .m-num,
+  body .scene-label,
+  body .info-label,
+  body .infocard-head,
+  body .related-label,
+  body .related-card-tag,
+  body .realm-card-tag,
+  body .port-heading-label,
+  body .port-water-tag,
+  body .note-callout-label,
+  body .column-box-label,
+  body .hud-tag,
+  body .hud-id,
+  body .page-eyebrow,
+  body .hero-section-label,
+  body .gold-entry-banner-text,
+  body .modal-copyright,
+  body .logo-sub,
+  body .sources-summary,
+  body .pagination-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  body .crest-motto { font-size: 10px; }
+
+  /* ---------- 追加：ページ固有の小さな文字を 11px 以上に ---------- */
+  body .last-edited time,
+  body .hero-caption-text,
+  body .hero-photo-credit,
+  body .intro-drop-cap-line,
+  body .tdl-name,
+  body .tdl-est,
+  body .sea-motto,
+  body .profile-intro-kicker,
+  body .links-divider em,
+  body .edition,
+  body .manifest-head,
+  body .toc-title,
+  body .related-title,
+  body .card-note,
+  body .scene-label,
+  body .page-footer p,
+  body .foot a,
+  body li > a[href]:not(.toc-link),
+  body .sources-body h4,
+  body .chronicle-body p,
+  body .footer-notice-btn,
+  body .modal-sns-link,
+  body footer span,
+  body footer a {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+  body .badge-new { font-size: 10px; }
+  body .footer-notice-btn,
+  body .modal-sns-link,
+  body .foot a,
+  body footer a { min-height: 44px; display: inline-flex; align-items: center; }
+  body .chronicle-body p { font-size: 13px; letter-spacing: 0; }
+  body figcaption { font-size: 11px; }
+  body svg text { font-size: max(11px, 1em); }
+
+  /* ---------- 日本語の補助テキスト（12→13px以上） ---------- */
+  body .toc-text { font-size: 14px; line-height: 1.7; }
+  body .card-ja,
+  body .card-desc,
+  body .related-link-desc,
+  body .related-card-desc,
+  body .realm-card-body,
+  body .column-box-meta,
+  body .water-cycle-jp,
+  body .water-cycle-note,
+  body .page-tagline,
+  body .info-value,
+  body .choice-kicker { font-size: 13px; line-height: 1.75; }
+  body .related-link-title,
+  body .related-card-title,
+  body .m-title { font-size: 14px; line-height: 1.6; }
+  body .card-cta { font-size: 12px; }
+
+  /* ---------- タップしやすさ（44px 目安） ---------- */
+  body .toc-link {
+    min-height: 48px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    align-items: center;
+  }
+  body .back-link,
+  body .back-btn,
+  body .footer-link,
+  body .profile-link,
+  body .filter-btn,
+  body .btn,
+  body .chronicle-open-btn,
+  body .modal-close-btn,
+  body .modal-close,
+  body summary.sources-summary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 12px;
+  }
+  body .related-link,
+  body .related-card,
+  body .realm-card,
+  body .card { min-height: 44px; }
+
+  /* ---------- 表：横スクロールできると分かるように ---------- */
+  body .data-table-wrap,
+  body .compare-table-wrap,
+  body [class$="-table-wrap"] {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin-left: -4px;
+    margin-right: -4px;
+    background:
+      linear-gradient(to right, var(--paper, #F5EDD8) 30%, rgba(245,237,216,0)) left center / 28px 100% no-repeat local,
+      linear-gradient(to left,  var(--paper, #F5EDD8) 30%, rgba(245,237,216,0)) right center / 28px 100% no-repeat local,
+      radial-gradient(farthest-side at 0 50%,  rgba(60,40,15,.28), rgba(60,40,15,0)) left center / 10px 100% no-repeat scroll,
+      radial-gradient(farthest-side at 100% 50%, rgba(60,40,15,.28), rgba(60,40,15,0)) right center / 10px 100% no-repeat scroll;
+  }
+  body .data-table { min-width: 0 !important; width: 100%; }
+  body .compare-table { min-width: 520px; width: 100%; }
+  body .data-table th,
+  body .data-table td,
+  body .compare-table th,
+  body .compare-table td {
+    font-size: 13px;
+    line-height: 1.7;
+    padding: 10px 10px;
+    vertical-align: top;
+  }
+  body .data-table th,
+  body .compare-table th { font-size: 11.5px; letter-spacing: 0.08em; }
+  body caption { font-size: 12px; }
+
+  /* ---------- 前後記事ナビ ---------- */
+  body .article-pagination .pagination-title { font-size: 12.5px; line-height: 1.55; }
+  body .article-pagination .pagination-prev,
+  body .article-pagination .pagination-next { min-height: 64px; }
+
+  /* ---------- 写真・図 ---------- */
+  body figure { margin-left: 0; margin-right: 0; }
+  body figcaption,
+  body .photo-caption { line-height: 1.7; }
+
+  /* ---------- 余白：左右ガターを揃える ---------- */
+  body .container,
+  body .article-wrap,
+  body .article-container,
+  body main {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+
+  /* ---------- 後から読み込まれるインラインCSSに負けないための最終調整 ---------- */
+  body p.last-edited,
+  body p.last-edited time,
+  body .photo-frame figcaption,
+  body .page-footer p,
+  body .m-num,
+  body .scene-label,
+  body .companion-link span,
+  body a > span[class=""] { font-size: 11px !important; }
+  body .chronicle-body p { font-size: 13px !important; }
+  body .badge-new { font-size: 10px !important; }
+  body a[href*="disney-discovery"] { min-height: 44px; padding: 6px 0; }
+  body a[href*="disney-discovery"] > span:first-child { font-size: 11px !important; }
+}
+
+/* 超小型端末（〜360px） */
+@media (max-width: 360px) {
+  body .article-p { font-size: 15px; }
+  body .toc-text { font-size: 13.5px; }
+}
+
+/* 動きを減らす設定を尊重 */
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}
