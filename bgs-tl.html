@@ -613,6 +613,61 @@ p strong { color: var(--text); font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   .fade { opacity: 1; transform: none; transition: none; }
 }
+
+/* Tomorrowland identity: keep the BGS editorial layout, but let the future-facing setting show through. */
+.hud-header {
+  background: linear-gradient(118deg, #102432 0%, #18384a 58%, #24485a 100%);
+  border-color: rgba(82, 190, 220, .58);
+  box-shadow: inset 0 0 0 4px rgba(190, 220, 228, .035);
+}
+.hud-header::before, .hud-header::after,
+.hud-header .c-tr, .hud-header .c-bl {
+  border-color: #74cbe2;
+}
+.hud-header h1 {
+  color: #f5fbff;
+  font-family: 'Orbitron', 'Noto Serif JP', serif;
+  letter-spacing: .055em;
+  text-shadow: 0 0 22px rgba(94, 205, 232, .18);
+}
+.hud-header .sub { color: #c1d9e2; }
+.hud-tag {
+  color: #8cdef0;
+  background: rgba(93, 192, 220, .12);
+  border-color: rgba(93, 192, 220, .42);
+}
+.hud-line { background: rgba(140, 213, 232, .3); }
+.hud-id { color: #a4c2cf; }
+.manifest-head {
+  color: #285d75;
+  background: linear-gradient(90deg, #dcebf0, #eef4f3);
+  border-bottom-color: rgba(47, 111, 143, .35);
+}
+.manifest-head::before { color: #367e9b; }
+.manifest-list .m-num, .sec-num { color: #367e9b; }
+.manifest-list a { color: #52798b; }
+.manifest-list li:hover a, .back-btn:hover, .foot a:hover { color: #287d9c; }
+.photo-wrap { border-color: rgba(47, 111, 143, .38); }
+.photo-wrap::before, .photo-wrap::after { border-color: #6aaec5; }
+.sec-dot, .div-dot { background: #4e9ab7; }
+h2 { border-bottom-color: rgba(47, 111, 143, .34); }
+.divider::before, .divider::after, .div-line { background: rgba(47, 111, 143, .32); }
+.div-sq { border-color: #4e9ab7; }
+.infocard::after { background: #367e9b; }
+.infocard-head {
+  color: #285d75;
+  background: linear-gradient(90deg, #e1edf0, #f3f6ef);
+}
+.infocard.gold .infocard-head { color: #80601d; }
+.site-share-link:hover {
+  background: #18384a;
+  border-color: #18384a;
+}
+.last-edited time { color: #367e9b !important; }
+@media (max-width: 640px) {
+  .hud-header h1 { letter-spacing: .025em; }
+}
+
 </style>
 
 </head>
