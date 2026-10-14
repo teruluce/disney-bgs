@@ -382,6 +382,32 @@ body.light h2{color:var(--text)}
 .site-share-link:focus-visible{outline:2px solid var(--bordeaux,#8a2535);outline-offset:4px}
 .site-share-mark{font-family:Arial,sans-serif;font-weight:700;font-size:1.15rem;line-height:1;letter-spacing:0}
 .site-share-note{margin:10px 0 0;color:var(--muted,#7a6048);font-size:.72rem;letter-spacing:.04em;line-height:1.7}
+  
+/* Image-specific framing: landscape presentation without losing each photo's subject. */
+.photo-wrap.photo-crop {
+  aspect-ratio: 4 / 3;
+  background: #07101b;
+}
+.photo-wrap.photo-crop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo-wrap.photo-crop-night img {
+  object-position: center 43%;
+}
+.photo-wrap.photo-crop-station img {
+  object-position: center 48%;
+}
+.photo-wrap.photo-crop-buzz img {
+  object-position: center 34%;
+}
+@media (max-width: 640px) {
+  .photo-wrap.photo-crop {
+    aspect-ratio: 4 / 3;
+  }
+}
+
   </style>
   <noscript><style>.reveal,.reveal *,.fade,.fade *{opacity:1 !important;transform:none !important;}</style></noscript>
 
@@ -741,10 +767,10 @@ h2 { border-bottom-color: rgba(47, 111, 143, .34); }
     <p>ゲストが乗り込むのは、ステーションにドッキングされている「新型ロケット」です。搭乗プラットフォームで未知の宇宙エネルギーがロケットへと急速充填され、そのエネルギーを一気に解放することで、カウントダウンとともにロケットは大気圏を脱出し、超高速の宇宙旅行へと旅立ちます。2024年7月31日に多くのゲストに惜しまれながら一度クローズし、現在は2027年のリニューアルに向けて新たなロケットの準備が進んでいます。</p>
     <p>この物語の面白さは、ドームを単なるライドの建物ではなく、宇宙旅行を支える運航施設として捉えられるところにあります。搭乗場所や頭上のオブジェクト、発進を思わせる光の演出が一つの流れをつくり、ゲストは乗車前から「これから宇宙へ向かう乗客」という気分に導かれます。施設の外観だけでなく、内部の設備を物語の一部として見ると、スペース・マウンテンの世界観がより立体的になります。</p>
 
-    <div class="photo-wrap fade">
+    <div class="photo-wrap fade photo-crop photo-crop-night">
       <img src="tl-space-night.jpeg" alt="Space Mountain Night View" loading="lazy" decoding="async">
     </div>
-    <div class="photo-wrap fade">
+    <div class="photo-wrap fade photo-crop photo-crop-station">
       <img src="tl-space-station.jpeg" alt="Space Mountain Queue Interior Station Object" loading="lazy" decoding="async">
     </div>
 
@@ -835,7 +861,7 @@ h2 { border-bottom-color: rgba(47, 111, 143, .34); }
     <h2>バズ・ライトイヤー：帝王ザーグと結晶の遺産</h2>
     <p>2024年10月に20年の歴史を終えた「バズ・ライトイヤーのアストロブラスター」。このアトラクションは、おもちゃのバズが主人公として活躍する劇中劇アニメの世界を舞台にしていました。</p>
 
-    <div class="photo-wrap fade">
+    <div class="photo-wrap fade photo-crop photo-crop-buzz">
       <img src="tl-buzz.jpeg" alt="Buzz Lightyear's Astro Blasters Entrance" loading="lazy" decoding="async">
     </div>
 
