@@ -436,6 +436,7 @@
     .modal-copyright { color: var(--muted, #7A6048); }
 
   
+    .sub-heading { font-family:var(--f-jp); font-size:clamp(.88rem,2.2vw,.95rem); font-weight:500; padding-left:12px; margin:34px 0 14px; border-left:2px solid var(--gold); color:var(--bordeaux); letter-spacing:.03em; line-height:1.6; }
     .photo-cap { margin:-36px 0 40px; font-family:var(--f-type,'Courier New',monospace); font-size:clamp(.58rem,1.5vw,.66rem); line-height:1.8; letter-spacing:.05em; color:var(--muted); text-align:center; }
     .source-note { font-family:var(--f-type); font-size:clamp(.62rem,1.6vw,.68rem); color:var(--muted); line-height:1.95; letter-spacing:.04em; margin-top:28px; padding-top:14px; border-top:1px solid var(--border); }
     .source-note a { color:var(--bordeaux); text-decoration:underline; text-underline-offset:3px; }
@@ -455,9 +456,9 @@
   </div>
 
   <header class="masthead reveal">
-    <span class="masthead-kicker">Background Story</span>
+    <span class="masthead-kicker">Port Discovery Archive Document</span>
     <h1 class="masthead-title">Port Discovery</h1>
-    <span class="masthead-subtitle">未来の港の研究施設と、水面を走ったヴィークルたち</span>
+    <span class="masthead-subtitle">未来の港が夢見た科学と、水面を走ったヴィークルたちの記録</span>
   </header>
   <div class="sister-site-switch" aria-label="関連サイト" style="position:relative;z-index:2;text-align:center;padding:9px 16px 11px;background:rgba(245,237,216,.94);border-bottom:1px solid rgba(138,104,32,.42);font-family:'Noto Serif JP',serif;font-size:12px;letter-spacing:.06em;line-height:1.8">
     <a href="https://teruluce.github.io/disney-discovery/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px 10px;color:#2e1f10;text-decoration:none"><span style="font-family:'Special Elite','Courier New',monospace;font-size:10px;letter-spacing:.14em;color:#7a6048">COMPANION SITE</span><strong style="font-family:'Playfair Display',Georgia,serif;font-size:14px;color:#6b1e2a">Disney Discovery</strong><span style="color:#7a6048">パークの基本・キャラクター・作品の雑学を読む</span><span aria-hidden="true" style="color:#8a6820">↗</span></a>
@@ -469,13 +470,14 @@
       <span class="toc-head-title">Index</span>
     </div>
     <ul class="toc-list">
-      <li><a href="#prologue" class="toc-link"><span class="toc-text">I. 「20世紀初頭が夢見た未来」の港</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#cwc" class="toc-link"><span class="toc-text">II. 気象コントロールセンターとストームライダー</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#aquatopia" class="toc-link"><span class="toc-text">III. アクアトピア――祝祭に開かれた実験プール</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#props" class="toc-link"><span class="toc-text">IV. 水面に並ぶ研究設備を読む</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#tech" class="toc-link"><span class="toc-text">V. 技術メモ：レールなしで走る仕組み</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#mli" class="toc-link"><span class="toc-text">VI. 海洋生物研究所とニモ＆フレンズ・シーライダー</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#closing" class="toc-link"><span class="toc-text">VII. 2026年9月14日、役目を終えた研究施設</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#prologue" class="toc-link"><span class="toc-text">I. Retro Future — 20世紀初頭が夢見た未来の港</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#cwc" class="toc-link"><span class="toc-text">II. Weather Control — 嵐に挑んだ研究所とストームライダー</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#aquatopia" class="toc-link"><span class="toc-text">III. Aquatopia — 祝祭に開かれた実験プール</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#props" class="toc-link"><span class="toc-text">IV. Details — 水面に並ぶ研究設備を読む</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#tech" class="toc-link"><span class="toc-text">V. Technology — レールなしで走る仕組み</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#mli" class="toc-link"><span class="toc-text">VI. Marine Life Institute — 嵐から海へ、物語のバトン</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#trivia" class="toc-link"><span class="toc-text">VII. Trivia — 駅に貼られた、港のポスター</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#closing" class="toc-link"><span class="toc-text">VIII. Last Voyage — 2026年9月14日、役目を終えた研究施設</span><span class="toc-action">Read →</span></a></li>
     </ul>
   </nav>
 
@@ -486,77 +488,98 @@
 
   <!-- I -->
   <section class="article-block reveal" id="prologue">
-    <h2 class="article-h2">I. 「20世紀初頭が夢見た未来」の港</h2>
-    <p class="article-p">東京ディズニーシーのポートディスカバリーは、「未来の港」をテーマにしたエリアです。ただし、ここで描かれる未来は、いまの私たちが思い浮かべる近未来とは少し違います。20世紀のはじめ、人々が「科学の力で世界はもっと豊かになる」と信じて思い描いた未来、いわゆる<strong>レトロフューチャー</strong>の世界です。流線型の建物、銅色と金色の金属、真鍮のランプ、貝殻のような形をした装置。写真に写る管制塔を眺めても、無機質でツルリとした未来ではなく、どこか手仕事の温もりが残る「昔の人が夢見た未来」に見えてきます。</p>
+    <h2 class="article-h2">I. Retro Future — 20世紀初頭が夢見た未来の港</h2>
+    <p class="article-p">みなさんは「ポートディスカバリー」を歩いているとき、どんな時代にいるような気持ちになりますか？ 「未来の港」と聞くと、真っ白でツルリとした近未来を思い浮かべるかもしれません。けれど、ここに広がっているのは少し違う景色です。流線型の建物、銅色と金色の金属、真鍮のランプ、貝殻のような形をした装置。<strong>20世紀のはじめに人々が「科学の力で世界はもっと豊かになる」と信じて描いた未来</strong>、いわゆるレトロフューチャーの世界が、静かに息づいているのです。</p>
+
+    <h3 class="sub-heading">① 未完のプラン「ディスカバリー・ベイ」から続く系譜</h3>
     <p class="article-p">このエリアの源流としてよく語られるのが、1970年代にイマジニアのトニー・バクスターらが構想したとされる、カリフォルニアのディズニーランド向けの未完のプラン「ディスカバリー・ベイ」です。ジュール・ヴェルヌに代表される19世紀のSF的な想像力を土台にした港町で、実現こそしませんでしたが、その発想はパリのディスカバリーランドなど、のちのパークに受け継がれていったと言われています。ポートディスカバリーは、そこに「海」というテーマを強く打ち出して、水辺の研究港へと姿を変えた場所、と見ることもできます。</p>
-    <p class="article-p">隣のミステリアスアイランドが19世紀末のスチームパンクの世界だとすれば、ポートディスカバリーは20世紀前半から中盤にかけての工業デザインと、科学への明るい信頼の世界。同じ「科学の物語」でも、時代の空気が違う。パークの中を少し歩くだけで、時間を越えたような感覚が生まれるのは、こうした時代設定のずらし方が効いているからです。</p>
+
+    <h3 class="sub-heading">② 隣のミステリアスアイランドとの「時代のずらし」</h3>
+    <p class="article-p">隣のミステリアスアイランドが19世紀末のスチームパンクの世界だとすれば、ポートディスカバリーは20世紀前半から中盤にかけての工業デザインと、科学への明るい信頼の世界。同じ「科学の物語」でも、時代の空気が違う。パークの中を少し歩くだけで、時間を越えたような感覚が生まれるのは、こうした時代設定のずらし方が効いているからなのです。</p>
 
     <div class="column-box reveal">
-      <h4>📜 この記事で扱うこと</h4>
+      <h4>📜 この記事で辿ること</h4>
       <p>ポートディスカバリー全体の物語を押さえたうえで、2026年9月14日に営業を終了した「アクアトピア」を中心に、乗り場の意匠や、無軌道で走る仕組みまでを辿ります。技術的な部分は公式に詳細が公表されているわけではないため、特許資料や解説記事で紹介されている内容と、ファンの間での読み解きを交えながらまとめています。</p>
     </div>
   </section>
 
   <!-- II -->
   <section class="article-block reveal" id="cwc">
-    <h2 class="article-h2">II. 気象コントロールセンターとストームライダー</h2>
+    <h2 class="article-h2">II. Weather Control — 嵐に挑んだ研究所とストームライダー</h2>
     <p class="article-p">2001年の開園当初、ポートディスカバリーの物語の中心にいたのが「気象コントロールセンター（CWC）」でした。嵐を観測し、コントロールするための研究機関で、その成果として生まれたのが気象観測飛翔体「ストームライダー」です。ゲストは、巨大な嵐の中へ飛び込むストームライダーの試験飛行に招かれた人々、という立場でした。</p>
-    <p class="article-p">海辺の港町にとって、嵐は避けられない脅威です。その嵐を科学の力で鎮めてしまおうという発想は、まさに「科学は人類の味方」と信じられていた時代のものです。ポートディスカバリーの建物や設備に漂う、少し誇らしげで、どこか楽観的な空気は、この「嵐をも乗り越える」という物語の土台から生まれていたと言えます。</p>
-    <p class="article-p">ストームライダーは2016年に営業を終えましたが、エリアの物語そのものが消えたわけではありません。その続きは、第VI章で触れる海洋生物研究所へと引き継がれていきます。</p>
+    <p class="article-p">海辺の港町にとって、嵐は避けられない脅威です。その嵐を科学の力で鎮めてしまおうという発想は、まさに「科学は人類の味方」と信じられていた時代のもの。ポートディスカバリーの建物や設備に漂う、少し誇らしげで、どこか楽観的な空気は、この「嵐をも乗り越える」という物語の土台から生まれていたと言えます。</p>
+    <p class="article-p">ストームライダーは2016年に営業を終えましたが、エリアの物語そのものが消えたわけではありません。その続きは、第VI章で触れる海洋生物研究所へと、そっと引き継がれていきます。</p>
   </section>
 
   <!-- III -->
   <section class="article-block reveal" id="aquatopia">
-    <h2 class="article-h2">III. アクアトピア――祝祭に開かれた実験プール</h2>
+    <h2 class="article-h2">III. Aquatopia — 祝祭に開かれた実験プール</h2>
     <p class="article-p">ストームライダーが「外の嵐」へ飛び出していくアトラクションだったのに対して、同じエリアにあった<strong>アクアトピア</strong>は、研究施設の「内側」をのぞかせてくれるアトラクションでした。2001年9月4日の開園から、およそ25年。水面にヴィークルが行き交う景色は、ポートディスカバリーを象徴する風景のひとつでした。</p>
+
+    <h3 class="sub-heading">① 私たちは「実験に立ち会う参加者」だった</h3>
     <p class="article-p">設定として語られているのは、こうです。ポートディスカバリーの科学者たちが開発している、自律航行する小型のウォーター・ヴィークル。その実験を行うための施設がアクアトピアで、ゲストは完成を祝うフェスティバルに招待され、ふだんは立ち入れない研究施設でテスト走行に参加している――。つまり私たちは、ただの乗客ではなく、<strong>実験に立ち会う特別な参加者</strong>という役割を与えられていたわけです。</p>
-    <p class="article-p">実験プールには、岩、滝、渦潮などの障害物が配置されています。ヴィークルがそれらに近づくと、急に向きを変えたり、後ろへ下がったりする。あの予測できない動きは、「ヴィークルに積まれた自動ナビゲーションシステムが、障害物を検知して回避している様子」を見せているのだと読むことができます。思わず「ぶつかる！」と身構えてしまう場面こそ、研究者にとっての「テスト項目」だった、という見方です。</p>
+
+    <h3 class="sub-heading">② 「ぶつかる！」は、テスト項目だった</h3>
+    <p class="article-p">実験プールには、岩、滝、渦潮などの障害物が配置されています。ヴィークルがそれらに近づくと、急に向きを変えたり、後ろへ下がったりする。あの予測できない動きは、「ヴィークルに積まれた自動ナビゲーションシステムが、障害物を検知して回避している様子」を見せているのだと読むことができます。思わず身構えてしまうあの瞬間こそ、研究者にとっての「テスト項目」だった、という見方です。</p>
 
     <div class="photo-frame reveal" style="--ar:1600/1200">
       <img src="aquatopia-boarding.jpeg" alt="アクアトピアの乗り場でポンチョを着て乗車するゲストと、青緑色の制服のキャスト" width="1600" height="1200" decoding="async" loading="lazy">
     </div>
     <p class="photo-cap">乗り場の様子。背後には海洋生物研究所の建物と、ディズニーシー・エレクトリックレールウェイが見える</p>
 
+    <h3 class="sub-heading">③ 一枚の写真に同居する、二つの研究所</h3>
     <p class="article-p">乗り場に目を向けると、座席は金属パイプのフレームに囲まれたベンチ型で、灰色のシートカバーとオレンジ色のベルトが取り付けられています。キャストの青緑色の制服も、研究所の職員が着ているような雰囲気です。背景には「MARINE LIFE INSTITUTE」の文字が見え、一枚の写真の中に、アクアトピアの実験施設としての世界と、のちに加わった海洋生物研究所の世界が同居しているのがわかります。</p>
   </section>
 
   <!-- IV -->
   <section class="article-block reveal" id="props">
-    <h2 class="article-h2">IV. 水面に並ぶ研究設備を読む</h2>
-    <p class="article-p">アクアトピアの魅力は、乗っている間だけにとどまりません。プールのまわりに置かれた設備のひとつひとつが、「ここは本当に動いている研究施設なのだ」と感じさせる小道具になっています。写真を手がかりに、BGSの読みどころを拾ってみます。</p>
+    <h2 class="article-h2">IV. Details — 水面に並ぶ研究設備を読む</h2>
+    <p class="article-p">アクアトピアの魅力は、乗っている間だけにとどまりません。プールのまわりに置かれた設備のひとつひとつが、「ここは本当に動いている研究施設なのだ」と感じさせる小道具になっています。みなさんは、あの水面に立つ細いポールや、乗り場の上の塔を、じっくり眺めたことはありますか？ 写真を手がかりに、BGSの読みどころを拾ってみます。</p>
 
     <div class="photo-frame reveal" style="--ar:1600/1200">
       <img src="aquatopia-pool.jpeg" alt="岩や渦潮が配された実験プールを走るアクアトピアのヴィークル" width="1600" height="1200" decoding="async" loading="lazy">
     </div>
     <p class="photo-cap">実験プール。右奥の水面には渦潮が見える</p>
 
-    <p class="article-p"><strong>乗り場上部の管制塔。</strong>円形のドームの上には、コンパスをかたどったエンブレムと「AQUATOPIA」の文字、そして細い尖塔とアンテナが立っています。プールの中を動き回るヴィークルの位置を把握し、走行を管制している塔、と受け取るのが自然な造形です。「見張り台」ではなく「司令塔」の雰囲気があるところが、研究施設らしさを出しています。</p>
-    <p class="article-p"><strong>プールに立つ青緑色の支柱。</strong>はしごが取り付けられた太い柱や、先端にホーン型のスピーカーを並べた塔が、水の中に立っています。観測や通信のための設備のようにも見え、実験が行われる現場に作業員が上がっていくための動線を感じさせます。</p>
-    <p class="article-p"><strong>水面の棒、ブイ、渦。</strong>細いポールとオレンジ色のブイは、実験コースの目印のよう。そして岩の間に現れる渦潮は、障害物のひとつとして用意された「テスト用の仕掛け」と考えると、動きの理由がすっと腑に落ちます。夜の写真では、左手に金色のドーム状の装置が水面に連なって光っています。ファンの間では、水を整える設備のようなものと読み解かれることもあります。</p>
+    <h3 class="sub-heading">① 乗り場上部の管制塔</h3>
+    <p class="article-p">円形のドームの上には、コンパスをかたどったエンブレムと「AQUATOPIA」の文字、そして細い尖塔とアンテナが立っています。プールの中を動き回るヴィークルの位置を把握し、走行を管制している塔、と受け取るのが自然な造形です。「見張り台」ではなく「司令塔」の雰囲気があるところが、研究施設らしさを出しています。</p>
+
+    <h3 class="sub-heading">② プールに立つ青緑色の支柱</h3>
+    <p class="article-p">はしごが取り付けられた太い柱や、先端にホーン型のスピーカーを並べた塔が、水の中に立っています。観測や通信のための設備のようにも見え、実験が行われる現場に作業員が上がっていくための動線を感じさせます。</p>
+
+    <h3 class="sub-heading">③ 水面の棒、ブイ、そして渦</h3>
+    <p class="article-p">細いポールとオレンジ色のブイは、実験コースの目印のよう。そして岩の間に現れる渦潮は、障害物のひとつとして用意された「テスト用の仕掛け」と考えると、動きの理由がすっと腑に落ちます。夜の写真では、左手に金色のドーム状の装置が水面に連なって光っています。ファンの間では、水を整える設備のようなものと読み解かれることもあります。</p>
 
     <div class="photo-frame reveal" style="--ar:1200/1600;--maxw:480px">
       <img src="aquatopia-vehicles.jpeg" alt="ターコイズ色の車体にえんじ色の浮き輪状の船体を持つ、番号付きのヴィークルが並ぶ様子" width="1200" height="1600" decoding="async" loading="lazy">
     </div>
     <p class="photo-cap">乗り場に並ぶヴィークル。遠くの一台には「55」の番号と丸窓のランプが見える</p>
 
-    <p class="article-p"><strong>ヴィークルそのもの。</strong>ターコイズ色の車体に、浮き輪のようなえんじ色の船体。前面には丸窓風のランプがあり、車体には番号が振られています（写真の一台は55番）。背もたれの上には、赤と緑のランプが付いた棒が通っています。赤と緑は、船の進行方向を示す航行灯と同じ配色で、「これは乗り物であると同時に、研究用の試作機でもある」という二重の意味づけを思わせます。</p>
-    <p class="article-p">ちなみに、ファンの間ではこれらの設備に、気象制御や海洋研究の機材を重ねて読む解釈もさまざまに語られています。同じ設備でも、見る人によって「研究室の備品」にも「観測機器」にも見えてくる。これが、ポートディスカバリーのデザインが長く愛された理由のひとつなのかもしれません。</p>
+    <h3 class="sub-heading">④ ヴィークルそのものに込められた、二重の意味</h3>
+    <p class="article-p">ターコイズ色の車体に、浮き輪のようなえんじ色の船体。前面には丸窓風のランプがあり、車体には番号が振られています（写真の一台は55番）。背もたれの上には、赤と緑のランプが付いた棒が通っています。赤と緑は、船の進行方向を示す航行灯と同じ配色で、「これは乗り物であると同時に、研究用の試作機でもある」という二重の意味づけを思わせます。</p>
+    <p class="article-p">ファンの間では、これらの設備に気象制御や海洋研究の機材を重ねて読む解釈もさまざまに語られています。同じ設備でも、見る人によって「研究室の備品」にも「観測機器」にも見えてくる。これが、ポートディスカバリーのデザインが長く愛された理由のひとつなのかもしれません。</p>
   </section>
 
   <!-- V -->
   <section class="article-block reveal" id="tech">
-    <h2 class="article-h2">V. 技術メモ：レールなしで走る仕組み</h2>
+    <h2 class="article-h2">V. Technology — レールなしで走る仕組み</h2>
     <p class="article-p">ここで少しだけ、技術の話をさせてください。アクアトピアが「レールもなく自由に走っているように見える」のは、「プーさんのハニーハント」などで知られる<strong>トラックレス・ライド</strong>の考え方を、水の上に持ち込んだものだと言われています。</p>
+
+    <h3 class="sub-heading">① 床の目印と「自分の位置」の計算</h3>
     <p class="article-p">解説でよく紹介されている仕組みは、おおむね次のようなものです。床（アクアトピアの場合はプールの底）に、位置を示す目印が格子状に埋め込まれている。乗り物は車輪の回転数や向きのセンサーから、自分がどれだけ動いたかを計算し続ける（デッドレコニング）。ただ、この方法は時間が経つほど少しずつ誤差が積もるため、床の目印の上を通った瞬間に、中央のコンピュータとのやり取りで位置のズレをリセットする。そして全体を見ている中央のコンピュータが、乗り物同士がぶつからないように指示を出す。ディズニーが出願した特許としては、US6377888B1などが紹介されることがあります。</p>
 
+    <h3 class="sub-heading">② なぜ「水の上」に見えるのか</h3>
     <div class="column-box reveal">
-      <h4>💧 なぜ「水の上」に見えるのか</h4>
+      <h4>💧 水面のイリュージョン</h4>
       <p>アクアトピアのヴィークルは、解説では、水に浮かぶ船ではなく、ごく浅いプールの底を車輪で走る乗り物だと言われています。水深は数センチ程度とされることが多く、プールの中では大量のポンプが水流、波、泡、渦をつくり続けています。水面が絶えず揺れ動くことで底が見えず、光の反射も加わって、実際より深く見える。その結果、ヴィークルがふわりと水面を漂っているように感じられる、という仕組みです。写真でも、船体の周りに白い波と青い水流の筋が立っているのがわかります。</p>
     </div>
 
+    <h3 class="sub-heading">③ 浅さは、安全のための設計でもある</h3>
     <p class="article-p">水深が浅いことは、見た目の工夫であると同時に、<strong>安全のための設計</strong>でもあると言われています。万が一ゲストが転落しても、深い水に沈み込むことがない。そして緊急時には、キャストが防水の長靴を履いてプールに入り、乗車したゲストの降車を手助けする、と紹介されています。ダークライドとは違う、水上ならではの安全対策です。</p>
+
+    <h3 class="sub-heading">④ 「ゆらぎ」を楽しむための設計</h3>
     <p class="article-p">もうひとつ面白いのは、「なぜアクアトピアはあの動きだったのか」という点です。ハニーハントのように屋内で音楽やシーンに合わせて動きを作り込むのに比べ、アクアトピアは屋外。雨、日差し、水の抵抗、タイヤの滑りなど、変わり続ける環境の中で、乗り物同士の動きを細かく同期させるのは簡単ではありません。そのためアクアトピアでは、動きをぴったり揃えるのではなく、<strong>予測できない巡航そのものを楽しむ</strong>というキネティック・アートのような設計に落ち着いた、という見方があります。</p>
-    <p class="article-p">その後のトラックレス・ライドは、屋内の大型ライドで、より高度な同期を実現する方向へ進みました。「美女と野獣“魔法のものがたり”」では、多くの乗り物が音楽に合わせて一斉に舞うような動きを見せます。同じ系譜の技術が、屋外ではあえて「ゆらぎ」を楽しみ、屋内では「ぴったり揃える」という形に枝分かれした。そう考えると、アクアトピアの動きにも、技術の歴史が刻まれていたのだと感じられます。</p>
+    <p class="article-p">その後のトラックレス・ライドは、屋内の大型ライドで、より高度な同期を実現する方向へ進みました。「美女と野獣“魔法のものがたり”」では、多くの乗り物が音楽に合わせて一斉に舞うような動きを見せます。同じ系譜の技術が、屋外ではあえて「ゆらぎ」を楽しみ、屋内では「ぴったり揃える」という形に枝分かれした。そう考えると、アクアトピアの動きにも、技術の歴史が静かに刻まれていたのだと感じられます。</p>
 
     <div class="data-table-wrap reveal">
       <table class="data-table">
@@ -600,15 +623,27 @@
 
   <!-- VI -->
   <section class="article-block reveal" id="mli">
-    <h2 class="article-h2">VI. 海洋生物研究所とニモ＆フレンズ・シーライダー</h2>
+    <h2 class="article-h2">VI. Marine Life Institute — 嵐から海へ、物語のバトン</h2>
     <p class="article-p">2016年5月にストームライダーが営業を終えたあと、2017年5月にオープンしたのが「ニモ＆フレンズ・シーライダー」です。ピクサー映画『ファインディング・ドリー』の世界観を取り入れたこのアトラクションとともに、ポートディスカバリーの物語も更新されました。</p>
+
+    <h3 class="sub-heading">① 海洋生物研究所（MLI）の分所が加わった</h3>
     <p class="article-p">新たな設定は、CWCの研究成果に加えて、<strong>海洋生物研究所（Marine Life Institute／MLI）</strong>がポートディスカバリーに分所を設立した、というもの。電気を通すと魚のサイズまで小さくなる特殊な金属を使った潜水艇「シーライダー」で、海の生き物を観察する研究が始まった――という筋書きです。</p>
-    <p class="article-p">テーマの軸は「天候のコントロール」から「海の生き物との調和と観察」へと移りました。それでも、「最先端の科学技術を展示し、実際に乗って確かめる研究港」というポートディスカバリーの骨格は変わっていません。アクアトピアは、その移り変わりの間もずっと、実験プールとして水面を走り続けていました。乗り場から見える景色にMLIの建物が加わっても、物語の中ではそのまま「同じ研究所の一角」として違和感なく並んでいたのです。</p>
+
+    <h3 class="sub-heading">② 変わったもの、変わらなかったもの</h3>
+    <p class="article-p">テーマの軸は「天候のコントロール」から「海の生き物との調和と観察」へと移りました。それでも、「最先端の科学技術を展示し、実際に乗って確かめる研究港」というポートディスカバリーの骨格は変わっていません。アクアトピアは、その移り変わりの間もずっと、実験プールとして水面を走り続けていました。乗り場から見える景色にMLIの建物が加わっても、物語の中ではそのまま「同じ研究所の一角」として、違和感なく並んでいたのです。</p>
   </section>
 
   <!-- VII -->
+  <section class="article-block reveal" id="trivia">
+    <h2 class="article-h2">VII. Trivia — 駅に貼られた、港のポスター</h2>
+    <p class="article-p">ここで、ちょっとした豆知識をひとつ。みなさんは、アメリカンウォーターフロントのニューヨーク側にある、ディズニーシー・エレクトリックレールウェイの駅で、<strong>ポートディスカバリーを象徴するポスター</strong>を目にしたことはありますか？</p>
+    <p class="article-p">エレクトリックレールウェイは、アメリカンウォーターフロントとポートディスカバリーを結ぶ路線です。ニューヨークの駅に、遠くにある「未来の港」を宣伝するようなポスターが貼られている――。そう考えると、あの駅の風景は、単なる背景ではなくなってきます。ニューヨークの人々が電車を待ちながら、「次の休日は、科学の最先端が集まる港へ出かけてみようか」と話している。そんな声が聞こえてきそうな、さりげない演出です。</p>
+    <p class="article-p">パークの別々のエリアが、「同じ世界の中の別の場所」としてつながっている。ポートディスカバリーの物語は、エリアの中だけでなく、移動する電車の駅にもそっと顔を出しているのです。現地で駅に立ち寄ったときは、ぜひ探してみてください。</p>
+  </section>
+
+  <!-- VIII -->
   <section class="article-block reveal" id="closing">
-    <h2 class="article-h2">VII. 2026年9月14日、役目を終えた研究施設</h2>
+    <h2 class="article-h2">VIII. Last Voyage — 2026年9月14日、役目を終えた研究施設</h2>
     <p class="article-p">2026年9月14日、アクアトピアは再開発計画の一環として営業を終了しました。2001年9月4日のオープンから、およそ25年。水面を走るヴィークルは、パークの風景から姿を消しました。</p>
 
     <div class="data-table-wrap reveal">
@@ -640,6 +675,7 @@
       </table>
     </div>
 
+    <h3 class="sub-heading">① BGSの中で読む「閉幕」</h3>
     <p class="article-p">パークの外側から見れば、これは再開発のための閉幕です。ただ、BGSの世界の中で読むとしたら、BGS Chroniclesではこんなふうに受け止めたいと思います。完成記念のフェスティバルで繰り返されたテスト走行を経て、ヴィークルの自律航行システムは、障害物だらけの実験プールで十分な成果を出した。<strong>実験施設としての役割を、無事に終えた</strong>のだ、と。</p>
     <p class="article-p">再開発の背景について、ファンの間では、悪天候でも運営できる大きな屋内施設へのニーズや、一度に体験できるゲストの数など、パーク全体の運営面から見た理由が語られることもあります。いずれにしても、広い水面があった場所に、次の物語が生まれていくことは確かです。これからポートディスカバリーがどのように姿を変えていくのか、続報を見守りたいと思います。</p>
 
@@ -648,9 +684,10 @@
     </div>
     <p class="photo-cap">夜のアクアトピア。ヴィークルの足元が青く光り、管制塔がオレンジ色に浮かび上がる</p>
 
+    <h3 class="sub-heading">② 夜の港が見せた、もうひとつの顔</h3>
     <p class="article-p">夜になると、アクアトピアはまったく別の顔を見せました。管制塔のドームは金色に染まり、銅色の装置が影を伸ばし、ヴィークルの足元は青い光で縁取られる。水面にはその色が揺れて映り込む。昼の「実験プール」が、夜には「祝祭の会場」に変わるようでした。</p>
     <p class="article-p">レールを持たない乗り物は、決められた道をたどるのではなく、その場の状況を読みながら進みます。アクアトピアが積み重ねた25年は、そうした技術の進化と、ポートディスカバリーという物語の移り変わりを、水の上でそっと見届けた時間でもありました。その知見は、のちのトラックレス・ライドにも受け継がれていると言われています。</p>
-    <p class="article-p">管制塔の灯りも、水面の波も、渦潮も、もう現地で見ることはできません。けれど、この港が夢見た「科学が人を楽しませる未来」の記憶は、これからもこの場所に残り続けるはずです。</p>
+    <p class="article-p">管制塔の灯りも、水面の波も、渦潮も、もう現地で見ることはできません。けれど、この港が夢見た「科学が人を楽しませる未来」の記憶は、これからもこの場所に静かに残り続けるはずです。</p>
 
     <p class="source-note">参考：
       <a href="https://note.com/tsukito_0904/n/ne5decd2ef09d?hl=en" target="_blank" rel="noopener noreferrer">note「Thank You Aquatopia」</a> ／
@@ -665,7 +702,6 @@
   <div class="footer-link-wrap reveal">
     <a href="index.html" class="footer-link">← HOMEへ戻る</a>
   </div>
-
 </div><!-- /content-box -->
 </div><!-- /site-wrap -->
 
