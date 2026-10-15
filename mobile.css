@@ -233,8 +233,6 @@ img, video { max-width: 100%; height: auto; }
   body a > span[class=""] { font-size: 11px !important; }
   body .chronicle-body p { font-size: 13px !important; }
   body .badge-new { font-size: 10px !important; }
-  body a[href*="disney-discovery"] { min-height: 44px; padding: 6px 0; }
-  body a[href*="disney-discovery"] > span:first-child { font-size: 11px !important; }
 }
 
 /* 超小型端末（〜360px） */
