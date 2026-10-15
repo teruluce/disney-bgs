@@ -50,6 +50,14 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 
+/* ── 画像保護（長押し保存・ドラッグ・選択を無効化） ── */
+img {
+  -webkit-user-select: none; user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
 body {
   font-family:'Noto Serif JP',serif;
   background-color:var(--bg);

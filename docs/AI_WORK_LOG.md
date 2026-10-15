@@ -410,3 +410,15 @@
 - **PR：** [#40](https://github.com/teruluce/disney-bgs/pull/40)
 - **状態：** マージ済み（2026-10-15、ユーザー指示）。マージコミット 8798e17。公開サイトでの表示は未確認。
 - **残作業／引き継ぎ：** 公開後にスマホ実機で見え方を確認し、気になる写真があれば構図を再調整する（原本は履歴から復元可能）。
+
+
+### 2026-10-15 — Claude：画像保護の抜けを修正（トゥモローランド記事ほか）
+
+- **作業AI：** Claude（ユーザー依頼：画像を保存できないようにしたいが、一部のページで保護がかかっていない。確認できたのはトゥモローランド）
+- **原因：** `bgs-tl.html` だけ、他の記事にある画像保護CSS（`img { pointer-events: none; user-select: none; -webkit-touch-callout: none; -webkit-user-drag: none; }`）が丸ごと無かった。JS（右クリック・ドラッグ禁止）は入っていたが、スマホの長押し保存（`-webkit-touch-callout`）を防ぐのはCSS側のため、特にスマホで保存できる状態だった。
+- **対象ファイル：** `bgs-tl.html`、`bgs-smallworld.html`、本ログ
+- **変更内容：** `bgs-tl.html` に画像保護CSSを追加。`bgs-smallworld.html` は `.img-wrapper img` に `-webkit-user-drag: none` が抜けていたため追加。
+- **検証結果：** 全HTMLページをPlaywright（Chromium、390px／1200px）で確認し、全記事・profile・cinderella-castle の全画像で `pointer-events: none` と `user-select: none` が効いていることを確認。`seo_audit.py` エラー0（警告1件は既存の sites.html）。トゥモローランド記事は表示崩れ・横スクロール・JSエラーなし。実機（iPhone／Android）での長押し確認と公開サイトでの確認は未実施。
+- **意図的に変更しなかったもの：** `index.html`（トップのカード画像）は、既存CSSで `pointer-events: auto` になっている。`-webkit-touch-callout: none`・`user-select: none`・`-webkit-user-drag: none` とJSの右クリック禁止は効いているため、そのままにした。`sites.html` は画像なし。
+- **状態：** 検証待ち（PR作成後に更新）
+- **残作業／引き継ぎ：** 公開後にスマホ実機でトゥモローランド記事の画像を長押しして保存メニューが出ないことを確認する。なお、スクリーンショットや開発者ツールからの取得までは防げない（ブラウザの仕組み上、完全な保存防止はできない）。
