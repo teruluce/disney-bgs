@@ -407,4 +407,6 @@
 - **意図的に変更しなかったもの：** `bgs-fs.html` のファンタジースプリングス写真と `tdl-ep-chipdale.jpeg`（縦枠のまま構図に問題なし）、地図・ロゴ・コンセプトアート（`tds-map`／`tot-logo`／`new-space-mountain`）、記事で未使用の `blue-bayou-restaurant-sign`／`donald-duck-stage-performance`。
 - **構図の判断メモ：** `bb-dance` はふたりを全身で入れると16:9に収まらないため、頭〜スカート中程を優先。`btm-exterior` は山頂より機関車を優先（山の上部は入らない）。`haunted-exterior` は原本が傾いているが補正はしていない。
 - **検証結果：** `seo_audit.py` エラー0（警告1件は既存の sites.html）。Playwright（Chromium）で390px／1200pxのトップカード、15記事の全写真枠を確認（切れ・横スクロール・JSエラーなし）。公開サイト・実機は未確認。
+- **PR：** [#40](https://github.com/teruluce/disney-bgs/pull/40)
+- **状態：** マージ済み（2026-10-15、ユーザー指示）。マージコミット 8798e17。公開サイトでの表示は未確認。
 - **残作業／引き継ぎ：** 公開後にスマホ実機で見え方を確認し、気になる写真があれば構図を再調整する（原本は履歴から復元可能）。
