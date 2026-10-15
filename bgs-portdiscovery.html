@@ -438,8 +438,13 @@
   
     .sub-heading { font-family:var(--f-jp); font-size:clamp(.88rem,2.2vw,.95rem); font-weight:500; padding-left:12px; margin:34px 0 14px; border-left:2px solid var(--gold); color:var(--bordeaux); letter-spacing:.03em; line-height:1.6; }
     .photo-cap { margin:-36px 0 40px; font-family:var(--f-type,'Courier New',monospace); font-size:clamp(.58rem,1.5vw,.66rem); line-height:1.8; letter-spacing:.05em; color:var(--muted); text-align:center; }
-    .source-note { font-family:var(--f-type); font-size:clamp(.62rem,1.6vw,.68rem); color:var(--muted); line-height:1.95; letter-spacing:.04em; margin-top:28px; padding-top:14px; border-top:1px solid var(--border); }
-    .source-note a { color:var(--bordeaux); text-decoration:underline; text-underline-offset:3px; }
+    .source-note { margin-top:28px; padding-top:10px; border-top:1px solid var(--border); color:var(--muted); font-family:var(--f-type); font-size:clamp(.58rem,1.45vw,.64rem); line-height:1.8; letter-spacing:.035em; opacity:.82; }
+    .source-note summary { display:inline-block; cursor:pointer; list-style:none; padding:2px 0; border-bottom:1px dotted var(--border-strong); }
+    .source-note summary::-webkit-details-marker { display:none; }
+    .source-note summary::before { content:'＋ '; font-size:.8em; }
+    .source-note[open] summary::before { content:'－ '; }
+    .source-note ul { margin:8px 0 0 1.2em; padding:0; }
+    .source-note li { margin:3px 0; overflow-wrap:anywhere; }
     .real-timeline th:first-child, .real-timeline td:first-child { white-space:nowrap; }
     .data-table { min-width: 560px; }
     .article-block .photo-frame { margin:40px auto; }
@@ -689,14 +694,17 @@
     <p class="article-p">レールを持たない乗り物は、決められた道をたどるのではなく、その場の状況を読みながら進みます。アクアトピアが積み重ねた25年は、そうした技術の進化と、ポートディスカバリーという物語の移り変わりを、水の上でそっと見届けた時間でもありました。その知見は、のちのトラックレス・ライドにも受け継がれていると言われています。</p>
     <p class="article-p">管制塔の灯りも、水面の波も、渦潮も、もう現地で見ることはできません。けれど、この港が夢見た「科学が人を楽しませる未来」の記憶は、これからもこの場所に静かに残り続けるはずです。</p>
 
-    <p class="source-note">参考：
-      <a href="https://note.com/tsukito_0904/n/ne5decd2ef09d?hl=en" target="_blank" rel="noopener noreferrer">note「Thank You Aquatopia」</a> ／
-      <a href="https://disney.wooc.co/?p=20508" target="_blank" rel="noopener noreferrer">ポートディスカバリーのバックグラウンドストーリー</a> ／
-      <a href="https://en.wikipedia.org/wiki/Port_Discovery_(Tokyo_DisneySea)" target="_blank" rel="noopener noreferrer">Wikipedia「Port Discovery (Tokyo DisneySea)」</a> ／
-      <a href="https://disneyparks.fandom.com/wiki/Aquatopia" target="_blank" rel="noopener noreferrer">Disney Parks Wiki「Aquatopia」</a> ／
-      <a href="https://note.com/yamako_disney36/n/n66e2e0f5ca25?hl=en" target="_blank" rel="noopener noreferrer">note（ヤマコ）「Pooh's Hunny Hunt: How does it move without tracks?」</a> ／
-      <a href="https://parklore.com/main/discovery-bay/5/" target="_blank" rel="noopener noreferrer">Parklore「Discovery Bay」</a>
-    </p>
+    <details class="source-note">
+      <summary>参考資料</summary>
+      <ul>
+        <li>note「Thank You Aquatopia」</li>
+        <li>「ポートディスカバリーのバックグラウンドストーリー」</li>
+        <li>Wikipedia「Port Discovery (Tokyo DisneySea)」</li>
+        <li>Disney Parks Wiki「Aquatopia」</li>
+        <li>note（ヤマコ）「Pooh's Hunny Hunt: How does it move without tracks?」</li>
+        <li>Parklore「Discovery Bay」</li>
+      </ul>
+    </details>
   </section>
 
   <div class="footer-link-wrap reveal">
