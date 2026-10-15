@@ -420,5 +420,8 @@
 - **変更内容：** `bgs-tl.html` に画像保護CSSを追加。`bgs-smallworld.html` は `.img-wrapper img` に `-webkit-user-drag: none` が抜けていたため追加。
 - **検証結果：** 全HTMLページをPlaywright（Chromium、390px／1200px）で確認し、全記事・profile・cinderella-castle の全画像で `pointer-events: none` と `user-select: none` が効いていることを確認。`seo_audit.py` エラー0（警告1件は既存の sites.html）。トゥモローランド記事は表示崩れ・横スクロール・JSエラーなし。実機（iPhone／Android）での長押し確認と公開サイトでの確認は未実施。
 - **意図的に変更しなかったもの：** `index.html`（トップのカード画像）は、既存CSSで `pointer-events: auto` になっている。`-webkit-touch-callout: none`・`user-select: none`・`-webkit-user-drag: none` とJSの右クリック禁止は効いているため、そのままにした。`sites.html` は画像なし。
-- **状態：** 検証待ち（PR作成後に更新）
+- **コミット：** [ab464dd](https://github.com/teruluce/disney-bgs/commit/ab464dd7d77221d4a48803e154afefc595628ca1)
+- **PR：** [#42](https://github.com/teruluce/disney-bgs/pull/42)
+- **状態：** マージ済み（2026-10-15、ユーザーがマージ）。マージコミット 44eb7e4。
+- **公開状況：** GitHub Pagesのデプロイ完了・公開サイトでの反映、スマホ実機での長押し確認は未確認。
 - **残作業／引き継ぎ：** 公開後にスマホ実機でトゥモローランド記事の画像を長押しして保存メニューが出ないことを確認する。なお、スクリーンショットや開発者ツールからの取得までは防げない（ブラウザの仕組み上、完全な保存防止はできない）。
