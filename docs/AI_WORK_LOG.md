@@ -391,3 +391,20 @@
 - **マージコミット：** [1b0cf2801cc9a3ca8d696d0548c45e5a93e89c12](https://github.com/teruluce/disney-bgs/commit/1b0cf2801cc9a3ca8d696d0548c45e5a93e89c12)
 - **公開状況：** mainへの反映を確認。GitHub Pagesのデプロイ完了・公開サイトでの表示は未確認。
 - **残作業／次の担当への引き継ぎ：** GitHub Pagesのデプロイ完了後、公開ページで折りたたみ表示と外部リンク除去を確認する。
+
+
+### 2026-10-15 — Claude：記事写真のトリミング（横長化・不要部分の除去）
+
+- **作業AI：** Claude（ユーザー依頼：写真が変な位置で切り抜かれていたり不要な部分が写っていたりするので、写真を見ながらトリミングする。できれば記事に合わせて横長）
+- **背景：** 多くの写真が縦長（3:4）の原本のまま、記事内では `--ar` 指定の縦長の小さな枠（最大幅360〜512px）に入っており、トップページのカード（4:3）では中央付近が機械的に切り抜かれていた。
+- **対象ファイル：** 写真48枚（`bb-*`／`btm-exterior`／`haunted-exterior`／`indy-*`／`raging-*`／`sm-*`／`arabian-coast-market-street`／`smallworld-*`／`soarin-*`／`tot-exterior`／`world-bazaar-seasonal`／`aquatopia-*`／`cinderella-*`（城内含む）／`tl-*`（`new-space-mountain` を除く）／`tdl-*`／`tdl-ep-bluefairy`・`tdl-ep-chipdale.jpg`・`tdl-ep-donald`・`tdl-ep-train`）、記事HTML（12記事＋`bgs-tot`／`bgs-smallworld`／`bgs-tl`／`bgs-worldbazaar`）、`index.html`、本ログ
+- **変更内容：** 各写真を1枚ずつ目視し、被写体が切れない範囲で不要部分（前景の人混み・手前の枝葉・ぼやけた通行人など）を外して、記事の枠に合わせてトリミング。画像ファイルは同名で上書き（リサイズなし）。原本は git 履歴に残っている。
+  - 16:9（多くの記事の標準枠）：ビーストの城、ビッグサンダー、ホーンテッド、インディ、レイジング、スプラッシュ、アラビアンコースト、スモワ、ソアリン、タワテラ、ワールドバザール、アクアトピア5枚、TDL入口、ドリームライツ・トレイン ほか
+  - 4:3：シンデレラ城記事の7枚、スペースマウンテン／バズ記事（トゥモローランド）の4枚
+  - 3:4（縦のまま不要部分だけ除去）：エレクトリカルパレードのフロート3枚、TDL歴史の城リボン・ダンサー
+  - 記事HTMLの枠比率（`--ar`）・`--maxw`・img の width/height、OGP画像サイズ（`og:image:width/height`）、JSON-LD 画像サイズをトリミング後の寸法に更新。横長になった `tdl-entrance-sunset` と `tdl-ep-train` は縦枠クラスを外した。
+  - `index.html`：ホーンテッド（`25% 50%`）とタワテラ（`12% 50%`）のカード表示位置を調整。
+- **意図的に変更しなかったもの：** `bgs-fs.html` のファンタジースプリングス写真と `tdl-ep-chipdale.jpeg`（縦枠のまま構図に問題なし）、地図・ロゴ・コンセプトアート（`tds-map`／`tot-logo`／`new-space-mountain`）、記事で未使用の `blue-bayou-restaurant-sign`／`donald-duck-stage-performance`。
+- **構図の判断メモ：** `bb-dance` はふたりを全身で入れると16:9に収まらないため、頭〜スカート中程を優先。`btm-exterior` は山頂より機関車を優先（山の上部は入らない）。`haunted-exterior` は原本が傾いているが補正はしていない。
+- **検証結果：** `seo_audit.py` エラー0（警告1件は既存の sites.html）。Playwright（Chromium）で390px／1200pxのトップカード、15記事の全写真枠を確認（切れ・横スクロール・JSエラーなし）。公開サイト・実機は未確認。
+- **残作業／引き継ぎ：** 公開後にスマホ実機で見え方を確認し、気になる写真があれば構図を再調整する（原本は履歴から復元可能）。
