@@ -425,3 +425,16 @@
 - **状態：** マージ済み（2026-10-15、ユーザーがマージ）。マージコミット 44eb7e4。
 - **公開状況：** GitHub Pagesのデプロイ完了・公開サイトでの反映、スマホ実機での長押し確認は未確認。
 - **残作業／引き継ぎ：** 公開後にスマホ実機でトゥモローランド記事の画像を長押しして保存メニューが出ないことを確認する。なお、スクリーンショットや開発者ツールからの取得までは防げない（ブラウザの仕組み上、完全な保存防止はできない）。
+
+
+### 2026-10-16 — Claude：Disney Discoveryへの導線をトップページのみに整理
+
+- **作業AI：** Claude（ユーザー依頼：各ページのDisney Discoveryへの飛びリンクは不要かもしれず、トップページだけにしたい。どちらにせよ目立ちすぎないように）
+- **対象ファイル：** 全記事・`profile.html`・`cinderella-castle.html`（ヘッダー直下の「COMPANION SITE」バナーを削除）、`index.html`、`mobile.css`、`bgs-tdlhistory.html`、`bgs-sea.html`、`bgs-fs.html`、本ログ
+- **変更内容：** ① ヘッダー直下の `sister-site-switch` バナーをトップ以外の全19ページから削除。② `index.html` のバナーも削除し、フッターに小さな文字リンク「関連サイト：Disney Discovery」（薄い色・小さめ・下線のみ）を設置。③ Disney Discovery側と対応する3記事（TDL歴史／S.E.A.／ファンタジースプリングス）だけ、記事末尾の共有ボタン手前に「関連記事（Disney Discovery）：○○」の小さな一行リンクを追加（リンク先は `articles/tokyo-disneyland-history.html`、`tokyo-disneysea-history.html`、`fantasy-springs-guide.html`）。④ 不要になった `mobile.css` のバナー用ルールを削除。
+- **意図的に変更しなかったもの：** `sites.html`（二つのサイトの入口ページ）。`bgs-tl.html` に残る未使用の `.sister-site-switch` CSS（動作に影響なし）。
+- **検証結果：** `seo_audit.py` エラー0（警告1件は既存の sites.html）。Playwright（Chromium、390px）でトップのフッター・ファンタジースプリングス記事の末尾・タワテラ記事のヘッダー周りを確認（横スクロールなし・JSエラーなし）。Disney Discovery側のリンク先URLは公開サイトの記事一覧から確認。公開サイト・実機は未確認。
+- **コミット：** [e82f584](https://github.com/teruluce/disney-bgs/commit/e82f584)
+- **PR：** [#44](https://github.com/teruluce/disney-bgs/pull/44)
+- **状態：** レビュー待ち（未マージ。マージはユーザーが実施）。
+- **残作業／引き継ぎ：** 公開後にスマホ実機でトップのフッターと3記事末尾の見え方を確認する。
