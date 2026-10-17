@@ -1,0 +1,122 @@
+/* ============================================================
+   archive.css — BGS Chronicles 共通の「資料」表現
+   資料番号（File No.）・スタンプ・要点欄・出典番号
+   色や書体は各ページの :root 変数（--bordeaux, --f-type など）を使う。
+   小さな文字はスマホでも読めるよう 11px（.7rem）以上にしている。
+   ============================================================ */
+
+/* ---------- 記事ページ：見出し直下の資料票 ---------- */
+.file-strip {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  max-width: 560px;
+  margin: 18px auto 0;
+  padding: 8px 4px;
+  border-top: 1px solid var(--border-strong, rgba(138, 104, 32, 0.5));
+  border-bottom: 1px solid var(--border-strong, rgba(138, 104, 32, 0.5));
+  font-family: var(--f-type, 'Courier New', monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: var(--muted, #7A6048);
+}
+.file-strip .file-no { color: var(--bordeaux, #6B1E2A); }
+
+/* ---------- スタンプ（記事ページ・トップのカード共通） ---------- */
+.file-stamp-row { margin: 18px 0 0; }
+.file-stamp,
+.card-stamp {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 2px double var(--bordeaux, #6B1E2A);
+  color: var(--bordeaux, #6B1E2A);
+  font-family: var(--f-type, 'Courier New', monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+.file-stamp { opacity: 0.88; }
+
+/* トップのカード：写真の左上に重ねる（紙色の下地で写真の上でも読める） */
+.card-stamp {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  z-index: 3;
+  background: rgba(245, 237, 216, 0.9);
+  transform: rotate(-5deg);
+}
+
+/* ---------- 要点欄 ---------- */
+.file-brief {
+  margin: 0 0 28px;
+  padding: clamp(14px, 3vw, 20px) clamp(14px, 3vw, 22px);
+  border: 1px solid var(--border-strong, rgba(138, 104, 32, 0.5));
+  border-left: 3px solid var(--bordeaux, #6B1E2A);
+  background: rgba(245, 237, 216, 0.6);
+}
+.file-brief-label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--f-sc, 'Georgia', serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--bordeaux, #6B1E2A);
+}
+.file-brief ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: brief;
+}
+.file-brief li {
+  position: relative;
+  margin: 0 0 8px;
+  padding-left: 2em;
+  counter-increment: brief;
+  font-family: var(--f-jp, serif);
+  font-size: clamp(0.82rem, 2vw, 0.88rem);
+  line-height: 1.9;
+  color: var(--ink-soft, #3D2D1A);
+}
+.file-brief li:last-child { margin-bottom: 0; }
+.file-brief li::before {
+  content: counter(brief);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-family: var(--f-type, 'Courier New', monospace);
+  font-size: 0.8rem;
+  color: var(--bordeaux, #6B1E2A);
+}
+
+/* ---------- 出典欄：番号付きの一覧 ---------- */
+.source-note ol {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  counter-reset: src;
+}
+.source-note ol li {
+  position: relative;
+  margin: 3px 0;
+  padding-left: 2.8em;
+  counter-increment: src;
+  overflow-wrap: anywhere;
+}
+.source-note ol li::before {
+  content: '[' counter(src) ']';
+  position: absolute;
+  left: 0;
+  color: var(--muted-2, #9C7E58);
+}
