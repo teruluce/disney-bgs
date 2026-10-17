@@ -416,7 +416,16 @@ body.light h2{color:var(--text)}
     .last-edited time, .article-meta time, .post-meta time, .updated-at time { font-family: var(--f-jp, serif); color: var(--bordeaux, #6B1E2A); font-size: .96em; letter-spacing: .035em; }
     .modal-copyright { color: var(--muted, #7A6048); }
 
+  
+    /* 資料票（archive.css）をHUDの配色に合わせる */
+    .hud-header .file-strip {
+      border-color: rgba(93, 192, 220, 0.42);
+      color: rgb(164, 194, 207);
+      margin-bottom: 4px;
+    }
+    .hud-header .file-strip .file-no { color: rgb(140, 222, 240); }
   </style>
+  <link rel="stylesheet" href="archive.css">
   <link rel="stylesheet" href="mobile.css">
 
 <style id="tomorrowland-editorial-redesign">
@@ -713,7 +722,22 @@ h2 { border-bottom-color: rgba(47, 111, 143, .34); }
     </div>
     <h1>Tomorrowland</h1>
     <div class="sub">未来へ繋ぐスペースポートと、星空の記憶</div>
+      <div class="file-strip">
+      <span class="file-no">File No. 007</span>
+      <span>Story · TDL</span>
+      <span>Reading · 3 min</span>
+    </div>
   </header>
+  <!-- 要点 -->
+  <aside class="file-brief fade" aria-label="この記事の要点">
+    <span class="file-brief-label">File Brief — この記事の要点</span>
+    <ol>
+      <li>トゥモローランドは、白く幾何学的な未来都市。エリアが背負う「宿命」から、物語を読み始めます。</li>
+      <li>スペース・マウンテン、スター・ツアーズ、モンスターズ・インク、バズ・ライトイヤーのアストロブラスター、スティッチ・エンカウンターの設定を順に紹介します。</li>
+      <li>2024年に営業を終えたスペース・マウンテンとアストロブラスターのその後の物語にも触れます。</li>
+    </ol>
+  </aside>
+
   <!-- 目次 -->
   <nav class="manifest fade" aria-label="目次">
     <div class="manifest-head">Mission Manifest</div>
