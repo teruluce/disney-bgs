@@ -17,7 +17,7 @@
   border-top: 1px solid var(--border-strong, rgba(138, 104, 32, 0.5));
   border-bottom: 1px solid var(--border-strong, rgba(138, 104, 32, 0.5));
   font-family: var(--f-type, 'Courier New', monospace);
-  font-size: 0.7rem;
+  font-size: max(11px, 0.7rem);
   letter-spacing: 0.14em;
   line-height: 1.7;
   text-transform: uppercase;
@@ -34,7 +34,7 @@
   border: 2px double var(--bordeaux, #6B1E2A);
   color: var(--bordeaux, #6B1E2A);
   font-family: var(--f-type, 'Courier New', monospace);
-  font-size: 0.7rem;
+  font-size: max(11px, 0.7rem);
   letter-spacing: 0.14em;
   line-height: 1.5;
   text-align: center;
@@ -68,7 +68,7 @@
   display: block;
   margin-bottom: 10px;
   font-family: var(--f-sc, 'Georgia', serif);
-  font-size: 0.7rem;
+  font-size: max(11px, 0.7rem);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--bordeaux, #6B1E2A);
