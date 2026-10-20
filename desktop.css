@@ -51,6 +51,9 @@
     aspect-ratio: auto;
     min-height: 420px;
   }
+  /* 枠が縦長に近いので、中央基準だと塔の左側と右のランプが途中で切れる。
+     左基準にして、タワー・オブ・テラー全体を見せる（スマホの切り抜きは別） */
+  .front-page .hero-photo-frame img { object-position: 0% 50%; }
   .front-page .hero-caption-block { border-bottom: 3px double var(--border-strong); }
   .front-page .hero-section-label { font-size: 0.66rem; margin-bottom: 8px; }
 
