@@ -1,0 +1,153 @@
+/* ============================================================
+   BGS Chronicles — Desktop layout layer (トップページ用)
+   1100px以上の画面でだけ読み込まれる（index.html の media 指定）。
+   スマホ・タブレット幅の見た目には影響しない。
+   紙色・ボルドー・セリフ体の新聞アーカイブ調はそのまま、
+   PCでは「新聞の第一面」のように写真と案内を横に並べる。
+   ============================================================ */
+
+@media (min-width: 1100px) {
+
+  :root {
+    --max-w: 1280px;
+    --pad-x: 56px;
+  }
+
+  .content-box {
+    padding-top: 32px;
+    padding-bottom: 120px;
+  }
+
+  /* ---------- 題字まわり ---------- */
+  .masthead { padding: 26px 0 22px; }
+  .masthead-dateline { font-size: 0.68rem; letter-spacing: 0.14em; }
+  .masthead-kicker { font-size: 0.66rem; letter-spacing: 0.5em; margin-bottom: 14px; }
+  .masthead-title { font-size: 6.6rem; margin-bottom: 8px; }
+  .masthead-subtitle { font-size: 0.82rem; letter-spacing: 0.4em; margin-top: 12px; }
+  .masthead-bottom-rules { margin-top: 20px; }
+
+  /* ---------- 第一面：写真（左）＋ご案内・目次（右） ---------- */
+  .front-page {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(340px, 1fr);
+    column-gap: 44px;
+    align-items: stretch;
+    margin-top: 30px;
+  }
+
+  /* 縦並び用の飾り罫は、2カラムでは不要 */
+  .front-page > .rule-deco,
+  .front-page > .double-rule { display: none; }
+
+  .front-page > .hero-section {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .front-page .hero-photo-frame {
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+    min-height: 420px;
+  }
+  .front-page .hero-caption-block { border-bottom: 3px double var(--border-strong); }
+  .front-page .hero-section-label { font-size: 0.66rem; margin-bottom: 8px; }
+
+  /* 右カラム：ご案内 */
+  .front-page > .intro-col {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: none;
+    margin: 0;
+    padding: 6px 0 22px;
+    text-align: left;
+    border-top: 3px double var(--border-strong);
+    padding-top: 20px;
+  }
+  .front-page .intro-drop-cap-line {
+    font-size: 0.66rem;
+    letter-spacing: 0.34em;
+    margin-bottom: 14px;
+  }
+  .front-page .intro-body {
+    font-size: 0.92rem;
+    line-height: 2.1;
+    text-wrap: pretty;
+  }
+  .front-page .intro-body br { display: none; }
+  .front-page .intro-body .sbr { display: block; height: 0.9em; }
+
+  /* 右カラム：目次を「索引」風の番号付きリストに */
+  .front-page > .toc-wrap {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    counter-reset: toc;
+    padding: 18px 20px 20px;
+    background: rgba(255, 252, 245, 0.55);
+    box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--border);
+  }
+  .front-page .toc-head { margin-bottom: 14px; padding-bottom: 12px; }
+  .front-page .toc-head-title { font-size: 0.74rem; }
+  .front-page .toc-group { margin-bottom: 16px; }
+  .front-page .toc-group-label { margin-bottom: 6px; font-size: 0.6rem; }
+
+  .front-page .toc-links {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 0;
+  }
+  .front-page .toc-links a {
+    counter-increment: toc;
+    gap: 10px;
+    justify-content: flex-start;
+    min-height: 34px;
+    padding: 4px 2px;
+    border: 0;
+    border-bottom: 1px dotted var(--border-strong);
+    background: transparent;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .front-page .toc-links a::before {
+    content: counter(toc, decimal-leading-zero);
+    flex: 0 0 auto;
+    font-family: var(--f-type);
+    font-size: 0.64rem;
+    letter-spacing: 0.04em;
+    color: var(--bordeaux);
+  }
+  .front-page .toc-links a:hover {
+    background: transparent;
+    color: var(--bordeaux);
+    border-bottom-color: var(--bordeaux);
+  }
+
+  /* ---------- 記事一覧 ---------- */
+  .controls-bar { margin-top: 4px; }
+  .controls-heading { font-size: 2.2rem; }
+  .filter-row { margin-bottom: 28px; }
+
+  .article-grid {
+    overflow: hidden; /* カード右端・下端の罫線を外枠に重ねて二重線を防ぐ */
+    background:
+      repeating-linear-gradient(135deg, transparent 0 7px, rgba(60, 40, 15, 0.07) 7px 8px),
+      var(--paper-2);
+  }
+  .article-grid > a.card {
+    margin: 0 -1px -1px 0;
+    border-right: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .card-body { padding-bottom: 22px; }
+}
+
+/* 横幅に余裕がある画面では4列にして、一覧性を上げる */
+@media (min-width: 1280px) {
+  .article-grid { grid-template-columns: repeat(4, 1fr); }
+}
