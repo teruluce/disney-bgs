@@ -1,6 +1,6 @@
 # BGS Chronicles — Editorial & Collaboration Guide
 
-Updated: 2026-10-17
+Updated: 2026-10-21
 
 ## Product identity
 
@@ -23,13 +23,13 @@ BGS Chronicles is an independent Disney Parks fan publication presented as a car
 - Prefer thin rules, double rules, small caps/letter spacing, and measured spacing to pills, heavy boxes, or generic modern UI.
 - Keep body text comfortable to read, especially on mobile. Newspaper styling must not compromise contrast, tap targets, or line length.
 
-## Archive file numbers, stamps, briefs
+## Archive file numbers and stamps
 
-Shared styles live in `archive.css` (linked before `mobile.css`). Rolled out on 2026-10-17: `index.html` cards and all 19 articles have File No. and a file brief; only Port Discovery has a stamp so far. New articles should get the next File No., a `file-strip`, and a `file-brief` written from the article text.
+Shared styles live in `archive.css` (linked before `mobile.css`). Rolled out on 2026-10-17: `index.html` cards and all 19 articles have a File No.; only Port Discovery has a stamp so far. New articles should get the next File No. and a `file-strip`.
 
 - **File No.** is a permanent three-digit number per article, shown on the home cards ("No. 019 · Story · TDS") and in the article's `file-strip`. Numbers are never reused or renumbered. New articles take the next number. Current assignment (home-page order at the time of numbering): 001 Splash Mountain, 002 Big Thunder Mountain, 003 Haunted Mansion, 004 Beauty and the Beast, 005 World Bazaar, 006 Cinderella Castle, 007 Tomorrowland, 008 It's a Small World, 009 Tokyo Disneyland (chronicle), 010 Electrical Parade, 011 TDS Spatial Epic, 012 Tower of Terror, 013 Sindbad's Voyage, 014 Fantasy Springs, 015 Soarin', 016 S.E.A. Archives, 017 Raging Spirits, 018 Indiana Jones, 019 Port Discovery.
 - **Stamps** (`file-stamp` / `card-stamp`) state only facts the article itself already supports (for example a closure date). Do not stamp anything that is unconfirmed.
-- **File Brief** (`file-brief`) is a 3-item summary written only from what the article says. Keep fan interpretation attributed as in the article, and do not add new claims.
+- **No per-article summary box.** The "File Brief" (要点欄) was removed on 2026-10-21 at the owner's request because it broke the in-world newspaper/archive feel. Do not add summary boxes to articles.
 - **Sources** stay in the folded `source-note` list, numbered `[1]`, `[2]`… with no external links (decision of 2026-10-15). Do not add in-text footnote numbers unless the claim-to-source mapping has been checked against the sources.
 
 ## Technical working rules
