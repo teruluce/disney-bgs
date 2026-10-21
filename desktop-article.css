@@ -1,0 +1,83 @@
+/* ============================================================
+   BGS Chronicles — Desktop layout layer (記事ページ用)
+   1100px以上の画面でだけ読み込まれる（各記事の media 指定）。
+   スマホ・タブレット幅の見た目には影響しない。
+   紙色・ボルドー・セリフ体の新聞アーカイブ調はそのまま、
+   PCでは「左に索引（スクロールに追従）、右に本文」の資料集風にする。
+   本文の幅は読みやすい長さ（約42文字前後）を保つ。
+   ============================================================ */
+
+@media (min-width: 1100px) {
+
+  /* 既定の overflow-x:hidden だと body がスクロール容器になり、索引の sticky が効かない。
+     clip なら横はみ出しを抑えたまま sticky が使える */
+  html, body { overflow-x: clip; overflow-y: visible; }
+
+  .content-box {
+    --max-w: 1180px;
+    --pad-x: 48px;
+    max-width: var(--max-w);
+    padding-top: 40px;
+    padding-bottom: 120px;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 720px);
+    justify-content: center;
+    column-gap: 64px;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  /* 既定は本文カラム。余白は各要素が持っている margin を使う */
+  .content-box > * { grid-column: 2; min-width: 0; }
+
+  /* 戻るリンクと題字は全幅 */
+  .content-box > .back-link-wrap,
+  .content-box > .masthead { grid-column: 1 / -1; }
+
+  /* ---------- 題字 ---------- */
+  .masthead { padding-top: 12px; padding-bottom: 28px; }
+  .masthead .file-strip { max-width: 640px; }
+
+  /* ---------- 左：索引（スクロールに追従） ---------- */
+  .content-box > .toc-wrap {
+    grid-column: 1;
+    grid-row: 3 / span 60;   /* 本文の行すべてにまたがり、sticky が最後まで効くようにする */
+    align-self: start;
+    position: sticky;
+    top: 24px;
+    margin: 0;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 16px 16px 8px;
+    background: rgba(255, 252, 245, 0.55);
+    box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--border);
+  }
+  .toc-wrap .toc-head { margin-bottom: 8px; padding-bottom: 10px; }
+  .toc-wrap .toc-link {
+    display: block;
+    padding: 9px 2px;
+  }
+  .toc-wrap .toc-text { display: block; font-size: 0.78rem; line-height: 1.55; }
+  .toc-wrap .toc-action { display: none; } /* 「Read →」は狭い索引では不要 */
+
+  /* ---------- 本文カラム ---------- */
+  .article-block { margin-bottom: 64px; }
+  .article-p { line-height: 2.05; }
+
+  /* 写真・表は本文カラムいっぱいに */
+  .photo-frame { max-width: 100%; }
+
+  /* 本文の下の「HOMEへ戻る」も本文カラムに収める（全幅だと、追従する索引と重なる） */
+  .content-box > .footer-link-wrap { max-width: 100%; margin-left: 0; margin-right: 0; }
+
+  /* 本文の外にある「最終編集日」は、ページ送り（幅1040px）の位置にそろえる */
+  .last-edited {
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+}
