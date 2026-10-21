@@ -539,3 +539,6 @@
 - **検証結果：** Playwright（Chromium）で、画像の読み込み完了を待って全画面を撮影し、390／768／1099pxで変更前と**ピクセル完全一致**（差分なし）。1100／1280／1440／1920pxで横スクロールなし、JSエラーなし。1440pxでスクロール中も目次が上端に追従すること、ページ末尾で本文の終わりとともに外れることを確認。公開サイト・実機・Webフォントは未確認（ローカルのファイル表示のみ）。
 - **状態：** PR作成後、ユーザーの確認待ち。
 - **残作業／引き継ぎ：** 他の18記事へは、`<link rel="stylesheet" href="desktop-article.css" media="(min-width: 1100px)">` を `mobile.css` の次の行に足すだけで展開できる構成。記事ごとにインラインCSSが少しずつ違う（表の幅、独自の見出し枠など）ため、数記事ずつ確認しながら進める。`bgs-tl.html`（HUD調）、`bgs-smallworld.html` などは個別調整が必要になる可能性が高い。
+
+- **追記（同日・展開その1）：** ユーザー指示（制限が来るまで一気に進める）で、標準構造の16記事（`bgs-bb`, `bgs-btm`, `bgs-electricalparade`, `bgs-fs`, `bgs-haunted`, `bgs-indy`, `bgs-raging`, `bgs-sea`, `bgs-sindbad`, `bgs-sm`, `bgs-soarin`, `bgs-spatial-epic`, `bgs-tdlhistory`, `bgs-tot`, `bgs-worldbazaar`, `cinderella-castle`）に `desktop-article.css` の読み込み1行を追加した（HTML・本文は変更なし）。検証：各記事で390／768／1099pxが変更前とピクセル完全一致、1440pxで横スクロールなし・本文カラムからのはみ出しなし・JSエラーなし・スクロール中も目次が追従（上端24px）。電気パレード・フォレスト（fs）を目視確認。公開サイト・実機は未確認。
+- **残り：** `bgs-smallworld.html`・`bgs-tl.html`（`content-box` を使わない別構造）。
