@@ -1,0 +1,55 @@
+/* ============================================================
+   BGS Chronicles — Desktop layout layer（トゥモローランド記事用）
+   1100px以上の画面でだけ読み込まれる。スマホ・タブレット幅には影響しない。
+   HUD調の題字は全幅のまま、目次（Mission Manifest）を左の追従カラムにし、
+   本文は右の720pxカラムに収める（desktop-article.css と同じ考え方）。
+   ============================================================ */
+
+@media (min-width: 1100px) {
+
+  /* body が横スクロール容器になると sticky が効かないため、clip にする */
+  html, body { overflow-x: clip; overflow-y: visible; }
+
+  .wrap {
+    max-width: 1180px;
+    padding-left: 48px;
+    padding-right: 48px;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 720px);
+    justify-content: center;
+    column-gap: 64px;
+    row-gap: 0;
+    align-items: start;
+  }
+  .wrap > * { grid-column: 2; min-width: 0; }
+
+  .wrap > .back-btn { grid-column: 1 / -1; justify-self: start; }
+  .wrap > .hud-header { grid-column: 1 / -1; }
+
+  /* 左：目次（スクロールに追従） */
+  .wrap > .manifest {
+    grid-column: 1;
+    grid-row: 3 / span 60;
+    align-self: start;
+    position: sticky;
+    top: 24px;
+    margin: 26px 0 0;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .manifest-list li { position: relative; padding: 11px 14px; gap: 10px; }
+  .manifest-list .m-title { font-size: .8rem; line-height: 1.6; }
+  /* 「ENTER →」は狭い索引では見せず、行全体をリンクにする（文字はDOMに残るので読み上げは変わらない）。
+     font-size:0 は mobile 側の指定に負けるため、文字を枠の外へ追い出して隠す */
+  .manifest-list a {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    text-indent: -9999px;
+    white-space: nowrap;
+    font-size: 0.7rem;
+    color: transparent;
+  }
+}

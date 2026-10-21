@@ -542,3 +542,6 @@
 
 - **追記（同日・展開その1）：** ユーザー指示（制限が来るまで一気に進める）で、標準構造の16記事（`bgs-bb`, `bgs-btm`, `bgs-electricalparade`, `bgs-fs`, `bgs-haunted`, `bgs-indy`, `bgs-raging`, `bgs-sea`, `bgs-sindbad`, `bgs-sm`, `bgs-soarin`, `bgs-spatial-epic`, `bgs-tdlhistory`, `bgs-tot`, `bgs-worldbazaar`, `cinderella-castle`）に `desktop-article.css` の読み込み1行を追加した（HTML・本文は変更なし）。検証：各記事で390／768／1099pxが変更前とピクセル完全一致、1440pxで横スクロールなし・本文カラムからのはみ出しなし・JSエラーなし・スクロール中も目次が追従（上端24px）。電気パレード・フォレスト（fs）を目視確認。公開サイト・実機は未確認。
 - **残り：** `bgs-smallworld.html`・`bgs-tl.html`（`content-box` を使わない別構造）。
+
+- **追記（同日・展開その2）：** `bgs-tl.html`（トゥモローランド）用に `desktop-tl.css` を新規作成し、1100px以上でだけ読み込む1行を追加。題字は全幅のまま、目次（Mission Manifest）を左の追従カラム、本文を右の720pxカラムにした。「ENTER →」は狭い索引では隠し、行全体をリンクにした。1440pxで目次の追従（上端24px）、横スクロールなし、JSエラーなし、目次クリックで該当章へ移動することを確認。**未確認：** 390／768／1099pxが変更前と一致するかの画像比較（検証の途中でユーザーが中断し、プッシュを指示したため）。CSSは media 指定で1100px以上にしか効かない作りだが、比較は未実施。
+- **残り：** `bgs-smallworld.html`（`.wrap`・`.toc` 構造、パステル配色の別デザイン）。
