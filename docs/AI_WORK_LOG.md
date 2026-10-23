@@ -572,3 +572,17 @@
 - **状態：** レビュー待ち
 - **公開状況：** 未マージ。公開サイトへの反映なし。
 - **残作業／引き継ぎ：** favicon.svg の公開取得とGoogle向けクロール可能性、Google Search ConsoleでのURL検査を確認。検索結果のサイト名はGoogle側の再クロール後に確認する。
+
+
+### 2026-10-24 — ChatGPT：公開URLとSEO参照先の統一
+
+- **作業AI：** ChatGPT
+- **対象ファイル：** トップページ・記事ページ・プロフィール等のHTML、`sitemap.xml`、`robots.txt`、`scripts/seo_audit.py`
+- **変更内容：** 公開サイトとして実際に確認できた `https://teruluce07-cmd.github.io/disney-bgs/` に合わせ、HTML内のcanonical、OGP/X画像・URL、構造化データなどに含まれる旧ホスト `https://teruluce.github.io/disney-bgs/` を新ホストへ統一。サイトマップ、robots.txt のサイトマップURL、SEO監査スクリプトの基準URLも同じホストへ更新。
+- **変更理由：** 実際の公開URLと検索エンジンに伝えていた正規URL・サイトマップが食い違っていたため。Googleが正規URLを正しく選び、クロール対象を一貫して把握できるようにする。
+- **検証結果：** 公開サイト `https://teruluce07-cmd.github.io/disney-bgs/` は外部取得で確認。GitHub上のHTML・サイトマップ・robots.txt・監査スクリプトに含まれる旧ホストを検索し、対象のURL参照を更新。GitHub Actions の監査実行とマージ後の公開反映は未確認。
+- **コミット：** PR ブランチの各ファイル更新コミットを参照。
+- **PR：** 作成後に追記予定。
+- **状態：** レビュー待ち
+- **公開状況：** 未マージ。公開サイトの実ファイルには未反映。
+- **残作業／引き継ぎ：** PR内で旧ホストの残存箇所とSEO監査結果を確認。Google Search Consoleでサイトマップを再送信し、トップページのURL検査・インデックス登録リクエストを行う。検索結果のサイト名・ファビコンは再クロール後に別途確認する。
