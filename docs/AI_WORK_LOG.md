@@ -577,10 +577,10 @@
 ### 2026-10-24 — ChatGPT：公開URLとSEO参照先の統一
 
 - **作業AI：** ChatGPT
-- **対象ファイル：** トップページ・記事ページ・プロフィール等のHTML、`sitemap.xml`、`robots.txt`、`scripts/seo_audit.py`
-- **変更内容：** 公開サイトとして実際に確認できた `https://teruluce07-cmd.github.io/disney-bgs/` に合わせ、HTML内のcanonical、OGP/X画像・URL、構造化データなどに含まれる旧ホスト `https://teruluce.github.io/disney-bgs/` を新ホストへ統一。サイトマップ、robots.txt のサイトマップURL、SEO監査スクリプトの基準URLも同じホストへ更新。
+- **対象ファイル：** トップページ・記事ページ・プロフィール等のHTML、`favicon.png`、`sitemap.xml`、`robots.txt`、`scripts/seo_audit.py`
+- **変更内容：** 公開サイトとして実際に確認できた `https://teruluce07-cmd.github.io/disney-bgs/` に合わせ、HTML内のcanonical、OGP/X画像・URL、構造化データなどに含まれる旧ホスト `https://teruluce.github.io/disney-bgs/` を新ホストへ統一。サイトマップ、robots.txt のサイトマップURL、SEO監査スクリプトの基準URLも同じホストへ更新。Google検索でサポートされるPNG形式の64×64pxファビコンを追加し、トップページのアイコン指定をSVGからPNGへ変更。
 - **変更理由：** 実際の公開URLと検索エンジンに伝えていた正規URL・サイトマップが食い違っていたため。Googleが正規URLを正しく選び、クロール対象を一貫して把握できるようにする。
-- **検証結果：** 公開サイト `https://teruluce07-cmd.github.io/disney-bgs/` は外部取得で確認。GitHub上のHTML・サイトマップ・robots.txt・監査スクリプトに含まれる旧ホストを検索し、対象のURL参照を更新。GitHub Actions の監査実行とマージ後の公開反映は未確認。
+- **検証結果：** 公開サイト `https://teruluce07-cmd.github.io/disney-bgs/` は外部取得で確認。GitHub上のHTML・サイトマップ・robots.txt・監査スクリプトに含まれる旧ホストを検索し、対象のURL参照を更新。PNGファビコンを追加し、トップページのアイコン指定がそのファイルを指すことを確認。GitHub Actions の監査実行とマージ後の公開反映は未確認。
 - **コミット：** PR ブランチの各ファイル更新コミットを参照。
 - **PR：** 作成後に追記予定。
 - **状態：** レビュー待ち
