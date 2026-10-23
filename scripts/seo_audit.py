@@ -131,7 +131,7 @@ def main():
             for node in tree.findall(".//sm:loc", ns):
                 url = (node.text or "").strip()
                 parsed = urlparse(url)
-                if parsed.scheme != "https" or parsed.netloc != "teruluce.github.io":
+                if parsed.scheme != "https" or parsed.netloc != urlparse(BASE_URL).netloc:
                     errors.append(f"sitemap.xml: unexpected URL host/scheme: {url}")
                     continue
                 prefix = "/disney-bgs"
