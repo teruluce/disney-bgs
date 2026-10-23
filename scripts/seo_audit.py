@@ -8,7 +8,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_URL = "https://teruluce.github.io/disney-bgs/"
+BASE_URL = "https://teruluce07-cmd.github.io/disney-bgs/"
 REQUIRED_META = (
     ("property", "og:title"),
     ("property", "og:description"),
@@ -131,7 +131,7 @@ def main():
             for node in tree.findall(".//sm:loc", ns):
                 url = (node.text or "").strip()
                 parsed = urlparse(url)
-                if parsed.scheme != "https" or parsed.netloc != "teruluce.github.io":
+                if parsed.scheme != "https" or parsed.netloc != urlparse(BASE_URL).netloc:
                     errors.append(f"sitemap.xml: unexpected URL host/scheme: {url}")
                     continue
                 prefix = "/disney-bgs"
