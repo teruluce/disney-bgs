@@ -1,0 +1,79 @@
+/* ============================================================
+   BGS Chronicles — Desktop layout layer（It's a Small World 記事用）
+   1100px以上の画面でだけ読み込まれる。スマホ・タブレット幅には影響しない。
+   パステル調の配色・セクションごとのテーマ色の切り替えはそのまま、
+   題字は全幅、目次（Archives Index）を左の追従カラム、本文を右の720pxカラムにする
+   （desktop-article.css / desktop-tl.css と同じ考え方）。
+   ============================================================ */
+
+@media (min-width: 1100px) {
+
+  /* html, body が横スクロール容器になると sticky が効かないため、clip にする */
+  html, body { overflow-x: clip; overflow-y: visible; }
+
+  .wrap {
+    max-width: 1180px;
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-bottom: 96px;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 720px);
+    justify-content: center;
+    column-gap: 64px;
+    row-gap: 0;
+    align-items: start;
+  }
+  .wrap > * { grid-column: 2; min-width: 0; }
+
+  /* ロゴ・戻るリンク・題字・最初の区切りは全幅 */
+  .wrap > .site-logo,
+  .wrap > .page-header,
+  .wrap > .page-header + .divider { grid-column: 1 / -1; }
+  .wrap > .back-btn { grid-column: 1 / -1; justify-self: start; }
+
+  /* 左：目次（スクロールに追従）。本文の行すべてにまたがり、sticky が最後まで効くようにする */
+  .wrap > .toc {
+    grid-column: 1;
+    grid-row: 5 / span 60;
+    align-self: start;
+    position: sticky;
+    top: 24px;
+    margin: 0;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 18px 16px 10px;
+  }
+  .toc-title { margin-bottom: 8px; }
+  .toc-list li { position: relative; padding: 10px 2px; gap: 0; flex-direction: column; align-items: stretch; }
+  .toc-list li span { font-size: .78rem; line-height: 1.6; }
+  /* 「Explore →」は狭い索引では見せず、行全体をリンクにする（文字はDOMに残るので読み上げは変わらない）。
+     文字を枠の外へ追い出して隠す */
+  .toc-list a {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    text-indent: -9999px;
+    white-space: nowrap;
+    color: transparent;
+    border: 0;
+    background: transparent;
+    padding: 0;
+  }
+  .toc-list a:hover { background: rgba(195, 155, 80, 0.08); color: transparent; }
+
+  /* 題字の下の区切りは余白を詰める */
+  .wrap > .page-header + .divider { margin: 4px 0 36px; }
+  /* 目次の下の区切り飾りは、目次が左に出るため不要（本文の先頭を目次の上端にそろえる） */
+  .wrap > .toc + .divider { display: none; }
+
+  /* 本文の外にある「最終編集日」は、ページ送り（幅1040px）の位置にそろえる。
+     この記事では要素に style 属性があるため !important で上書きする（1100px以上のみ） */
+  .last-edited {
+    max-width: 1040px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box;
+  }
+}
