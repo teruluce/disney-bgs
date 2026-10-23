@@ -586,3 +586,16 @@
 - **状態：** レビュー待ち
 - **公開状況：** 未マージ。公開サイトの実ファイルには未反映。
 - **残作業／引き継ぎ：** PR内で旧ホストの残存箇所とSEO監査結果を確認。Google Search Consoleでサイトマップを再送信し、トップページのURL検査・インデックス登録リクエストを行う。検索結果のサイト名・ファビコンは再クロール後に別途確認する。
+
+
+### 2026-10-24 — ChatGPT：PR #55 のSEO検証失敗を修正
+
+- **作業AI：** ChatGPT
+- **対象ファイル：** `scripts/seo_audit.py`、本ログ
+- **変更内容：** PR #55 のGitHub Actions「Static SEO validation」が失敗したため、実行結果と監査コードを確認。サイトマップのホスト検査だけが旧ホスト `teruluce.github.io` に固定されていたことを特定し、`BASE_URL` から期待ホストを取得する方式に修正。
+- **変更理由：** 今回の正規URL統一後も、監査スクリプトが古いホストを要求していたため。
+- **検証結果：** 失敗ジョブは `seo-smoke-check` の「Validate static SEO essentials」。スクリプト上の不整合を修正した。修正コミット後にGitHub Actionsを再確認する。
+- **PR：** [#55](https://github.com/teruluce/disney-bgs/pull/55)
+- **状態：** 検証待ち
+- **公開状況：** 未マージのため公開サイトへの反映なし。
+- **残作業／引き継ぎ：** PR #55 のActions再実行結果を確認。成功後も、マージ・Pages公開・Search Consoleの再送信は別工程として記録する。
