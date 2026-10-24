@@ -2,6 +2,13 @@
 
 このファイルは ChatGPT と Claude が共通で参照する作業履歴です。最新の記録と GitHub の実際の差分・コミット・PR を照合してから作業してください。過去の記録は削除せず、追記してください。
 
+## 公開URLの正（最重要・ChatGPT／Claude共通）
+
+- **BGS Chronicles の正しい公開URLは `https://teruluce.github.io/disney-bgs/` です。** リポジトリは `teruluce/disney-bgs`、本番ブランチは `main`。
+- 旧ホスト `https://teruluce07-cmd.github.io/disney-bgs/` は**現在は使われておらず、アクセスできません**。canonical・OGP・X共有URL・構造化データ・サイトマップ・robots.txt・`scripts/seo_audit.py` の `BASE_URL` に、旧ホストを**絶対に書かないこと**。
+- 「外部取得で確認できた」というだけで公開URLを変更しないこと。取得ツールの結果が古い・誤っている可能性があるため、URLの変更が必要に見える場合は、運営者（teru_luce）に確認してから作業する。
+- 2026-10-24 に PR #55 で旧ホストへ戻してしまったが、同日に新ホストへ修正した（下の履歴参照）。
+
 ## 運用ルール
 
 - 作業開始時：このログ、対象ブランチ、関連 PR の差分・コミットを確認し、未完了タスクと競合を確認する。
@@ -599,3 +606,13 @@
 - **状態：** 検証待ち
 - **公開状況：** 未マージのため公開サイトへの反映なし。
 - **残作業／引き継ぎ：** PR #55 のActions再実行結果を確認。成功後も、マージ・Pages公開・Search Consoleの再送信は別工程として記録する。
+
+
+### 2026-10-24 — Claude：公開URLを `teruluce.github.io` に戻す（PR #55 の訂正）
+
+- **作業AI：** Claude（ユーザー依頼：正しい公開URLに修正し、ChatGPTにも正しい情報が伝わるようログに記録する）
+- **原因：** PR #55 が公開URLを `teruluce07-cmd.github.io` と判断し、canonical・OGP・サイトマップ等をすべてそちらへ書き換えていた。実際の公開サイトは `https://teruluce.github.io/disney-bgs/`（運営者が変更済み）で、旧ホストは取得に失敗した。そのため存在しないURLを検索エンジンに正規URLとして伝えている状態だった。
+- **対象ファイル：** 全HTML（`World bazaar.html` を含む22ページ）、`sitemap.xml`、`robots.txt`、`scripts/seo_audit.py`、本ログ
+- **変更内容：** `teruluce07-cmd.github.io` を `teruluce.github.io` に一括置換（X共有URLのエンコード版を含む）。本ログ冒頭に「公開URLの正」を追記。本文・デザインは変更なし。履歴内の過去記述はそのまま残した。
+- **検証結果：** 旧ホストは本ログ以外にゼロ件。`seo_audit.py` エラー0（警告1件は既存の sites.html）。canonical（index／bgs-tl）とrobots.txtのSitemap行が新ホストであることを確認。公開サイト・Search Consoleは未確認。
+- **残作業／引き継ぎ：** マージ・Pages反映後に、運営者がSearch Consoleでサイトマップ再送信とトップページのURL検査を行う。

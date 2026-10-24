@@ -8,7 +8,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_URL = "https://teruluce07-cmd.github.io/disney-bgs/"
+BASE_URL = "https://teruluce.github.io/disney-bgs/"
 REQUIRED_META = (
     ("property", "og:title"),
     ("property", "og:description"),
