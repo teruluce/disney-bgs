@@ -13,6 +13,7 @@ BGS Chronicles is an independent Disney Parks fan publication presented as a car
 - Never present speculation as confirmed canon. Use subtle attribution (“〜と考察するファンもいます”, “〜という見方もあります”) rather than repeated warning boxes.
 - Prefer official sources for hard factual claims. If a point is uncertain, qualify only that point gracefully and continue the story; do not make the whole page read like a reference database.
 - Never invent sources, quotes, production history, dates, or designer intent. Separate verified facts from interpretation by phrasing, not disruptive disclaimers.
+- Keep research and sourcing out of the narrative voice (owner's rule, 2026-10-25). Do not write "公式ブログによると", "公式サイトでは〜と紹介されています", "今回確認した範囲では見つかりませんでした" or similar phrases about how the facts were checked. Say it in the story's own voice, and put sources in the folded source note at the end. Details and exceptions are in `docs/AI_WORK_LOG.md`.
 - Keep headlines aligned with the actual story and section content. Avoid generic headings that promise information the section does not deliver.
 
 ## Visual typography
