@@ -425,7 +425,12 @@
     @media(max-width:600px){.last-edited{margin-top:12px;padding-top:10px;font-size:.56rem;}}
   /* 写真の枠は各写真の縦横比に合わせる（中途半端な切り抜きを防ぐ）。縦長は幅を抑えて中央に置く */
   .photo-frame[style*="--ar"],.img-wrapper[style*="--ar"]{aspect-ratio:var(--ar);max-width:min(100%,var(--maxw,100%));margin-left:auto;margin-right:auto}
-</style>
+    .source-note { margin-top:28px; padding-top:10px; border-top:1px solid var(--border); color:var(--muted); font-family:var(--f-type); font-size:clamp(.58rem,1.45vw,.64rem); line-height:1.8; letter-spacing:.035em; opacity:.82; }
+    .source-note summary { display:inline-block; cursor:pointer; list-style:none; padding:2px 0; border-bottom:1px dotted var(--border-strong); }
+    .source-note summary::-webkit-details-marker { display:none; }
+    .source-note summary::before { content:'＋ '; font-size:.8em; }
+    .source-note[open] summary::before { content:'－ '; }
+  </style>
   <noscript><style>.reveal,.reveal *{opacity:1 !important;transform:none !important;}</style></noscript>
 
   
@@ -456,7 +461,7 @@
       <div class="file-strip">
       <span class="file-no">File No. 015</span>
       <span>Story · TDS</span>
-      <span>Reading · 4 min</span>
+      <span>Reading · 7 min</span>
     </div>
   </header>
   <!-- 目次 -->
@@ -466,10 +471,14 @@
     </div>
     <ul class="toc-list">
       <li><a href="#prologue" class="toc-link"><span class="toc-text">I. 現代SFから「歴史ロマン」への大改変</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#conflict" class="toc-link"><span class="toc-text">II. カメリアとハイタワー三世をめぐるファン考察</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#meiji" class="toc-link"><span class="toc-text">III. 日本の使節団を描いたとされる絵画</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#rotunda" class="toc-link"><span class="toc-text">IV. 常設展示室に響く、空への祈り</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#magic" class="toc-link"><span class="toc-text">V. 絵画に命が吹き込まれるイマジニアの魔法</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#engineering" class="toc-link"><span class="toc-text">II. 空飛ぶ劇場はこうして生まれた</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#worldwide" class="toc-link"><span class="toc-text">III. 世界のソアリン、4つの空</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#falco" class="toc-link"><span class="toc-text">IV. ファルコ家と博物館の年代記</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#conflict" class="toc-link"><span class="toc-text">V. カメリアとハイタワー三世をめぐるファン考察</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#meiji" class="toc-link"><span class="toc-text">VI. 日本の使節団を描いたとされる絵画</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#rotunda" class="toc-link"><span class="toc-text">VII. 常設展示室に響く、空への祈り</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#magic" class="toc-link"><span class="toc-text">VIII. 絵画に命が吹き込まれるイマジニアの魔法</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#harbor" class="toc-link"><span class="toc-text">IX. 港に重なる3つの時代</span><span class="toc-action">Read →</span></a></li>
     </ul>
   </nav>
 
@@ -518,14 +527,78 @@
     </div>
   </section>
 
-  <!-- II. カメリア vs ハイタワー三世 -->
+  <!-- II. 空飛ぶ劇場の誕生 -->
+  <section class="article-block reveal" id="engineering">
+    <h2 class="article-h2">II. 空飛ぶ劇場はこうして生まれた</h2>
+    <p class="article-p">ソアリンの出発点は、物語ではなく「大勢のゲストをどうやって空に浮かべるか」という、ひとつの工学上の難題でした。当初の構想は「ウルトラ・フライト」と呼ばれていましたが、費用がかさむとして見送られます。代わりに道を開いたのが、エンジニアのマーク・サムナー氏が、玩具の「エレクター・セット」と糸で組み上げた作業用の模型だったと伝えられています。</p>
+    <p class="article-p">この模型が示したのは、<strong>ゲストを一つの階層で乗せたあと、座席ごと前方のドームスクリーンへ向けて持ち上げる</strong>という発想です。三つの階層に分けて乗せる必要がなくなったことで、建設費を大きく抑えられたといいます。いまや世界の4つのパークで愛されるアトラクションの土台は、金属の組み立て玩具とひと巻きの糸から始まったことになります。</p>
+    <div class="column-box reveal">
+      <h4>🛠 技術メモ：映像と動きの仕組み</h4>
+      <p>映像が映し出されるのは、直径約24メートル（80フィート）、180度の広がりをもつ凹面のドームスクリーンです。撮影はIMAX HDの毎秒48フレームで行われ、2015年の改修で、当初のIMAXの投影システムからレーザー光源のデジタル投影へ切り替えられました。動きの面では、座席の上下動と映像の回転を組み合わせることで、横方向へ進む感覚を生み出しているとされています。</p>
+    </div>
+    <p class="article-p">ところが、この「最新の飛行機械」をそのまま持ち込むわけにはいかないのが、1815年創設という設定の博物館です。鉄骨も油圧も見せられない場所で、巨大な機械をどう物語に溶かすのか。その答えとして生まれたのが、カメリア・ファルコの最新にして最大の研究成果、「ドリームフライヤー」という設定でした。</p>
+  </section>
+
+  <!-- III. 世界のソアリン -->
+  <section class="article-block reveal" id="worldwide">
+    <h2 class="article-h2">III. 世界のソアリン、4つの空</h2>
+    <p class="article-p">「ソアリン」は、東京ディズニーシーが4つ目の開業地です。同じ飛行体験を共有しながら、舞台となる建物や案内人、そして映像の一部は、パークごとに作り替えられてきました。</p>
+    <div class="data-table-wrap reveal">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>パーク</th>
+            <th>名称</th>
+            <th>開業</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ディズニー・カリフォルニア・アドベンチャー</td>
+            <td>Soarin' Over California</td>
+            <td>2001年2月8日</td>
+          </tr>
+          <tr>
+            <td>エプコット（ウォルト・ディズニー・ワールド）</td>
+            <td>Soarin'</td>
+            <td>2005年5月5日</td>
+          </tr>
+          <tr>
+            <td>上海ディズニーランド</td>
+            <td>Soaring Over the Horizon</td>
+            <td>2016年6月16日</td>
+          </tr>
+          <tr>
+            <td>東京ディズニーシー</td>
+            <td>ソアリン：ファンタスティック・フライト</td>
+            <td>2019年7月23日</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="article-p">東京版の映像は、海外で上映されている世界巡りの映像をベースにしつつ、パリのシーンが<strong>夕暮れの東京と富士山</strong>に差し替えられています。フィナーレで飛んでいくのは、ほかならぬ東京ディズニーシーの上空です。ゲストが博物館を出たあと、すぐ目の前に広がる景色へ帰ってくる構成は、ここが「この場所の物語」であることを静かに示しています。</p>
+  </section>
+
+  <!-- IV. ファルコ家と博物館の年代記 -->
+  <section class="article-block reveal" id="falco">
+    <h2 class="article-h2">IV. ファルコ家と博物館の年代記</h2>
+    <p class="article-p">公式ブログによれば、ファンタスティック・フライト・ミュージアムの開館は<strong>1815年</strong>。創設者で初代館長のチェッリーノ・ファルコは、ザンビーニ家から土地を購入し、「空を飛ぶという人類の永遠の夢」を称える博物館を建てました。ザンビーニという姓は、すぐ手前のレストラン「ザンビーニ・ブラザーズ・リストランテ」にも通じていて、この港の土地の歴史が地続きであることを感じさせます。</p>
+    <p class="article-p">チェッリーノの妻ジュリアーナは、鳥への愛情に満ちた人物と紹介されています。二人の娘であるカメリアは、幼いころからハヤブサの「アレッタ」を相棒にして育ちました。エントランスの像は、このアレッタをモデルにしたものとされています。のちにカメリアは世界中を旅して飛ぶ生き物を調べ、飛行にまつわる芸術や科学を研究し、S.E.A.に認められた初めての女性会員となりました。</p>
+    <p class="article-p">父から館長を引き継いだカメリアは、世界中から彫刻や絵画、道具を集めてコレクションを広げます。その最新にして最大の研究成果が、特別展の目玉でもある「ドリームフライヤー」です。いまゲストが訪れているのは、彼女の<strong>生誕100周年を記念した特別展</strong>という設定です。</p>
+    <div class="column-box reveal">
+      <h4>🗂 ファンサイトが整理する、S.E.A.認定の記録</h4>
+      <p>ファンが運営するS.E.A.関連のサイトやwikiでは、カメリアが1851年にS.E.A.の会員となり、その前年の1850年に父の跡を継いで館長になったと整理されています。1851年付けの認定証には書記としてジェイソン・チャンドラーの名があり、当時の会長はヴィターレ・ロブステルリ、認定の場面にはヘンリー・ミスティック卿が居合わせているとも語られています。ただし、これらの年号や人物は公式ブログでは確認できておらず、コミュニティによる整理として紹介します。</p>
+    </div>
+  </section>
+
+  <!-- V. カメリア vs ハイタワー三世 -->
   <section class="article-block reveal" id="conflict">
-    <h2 class="article-h2">II. カメリアとハイタワー三世をめぐるファン考察</h2><p class="article-p">ソアリンの物語を『タワー・オブ・テラー』と結びつけ、カメリア・ファルコとハリソン・ハイタワー三世の関係を読み解くファン考察があります。ただし、今回確認した東京ディズニーリゾート公式ブログ（2020年4月・2021年7月・2022年7月の記事）では、二人の確執や設計図をめぐる対立は確認できませんでした。</p><p class="article-p">カメリアが飛行への夢を広めようとした人物であることや、ハイタワー三世が独自のコレクションを築いたことを手がかりに、二人の価値観を対照的に見る解釈もあります。ここでは公式設定と混同しないよう、ファンによる読み解きとして紹介します。</p><div class="column-box reveal"><h4>🔎 ファンの考察：待ち列の集合写真</h4><p>博物館のロビーに飾られた集合写真を、カメリアとハイタワー三世の関係を考える手がかりとして見るファンもいます。ただし、写真が二人の確執を示す証拠だと公式に説明された資料は、今回確認した範囲では見つかっていません。写真から読み取れるという解釈は、断定ではなくファン考察として楽しむのが適切です。</p></div>
+    <h2 class="article-h2">V. カメリアとハイタワー三世をめぐるファン考察</h2><p class="article-p">ソアリンの物語を『タワー・オブ・テラー』と結びつけ、カメリア・ファルコとハリソン・ハイタワー三世の関係を読み解くファン考察があります。ただし、今回確認した東京ディズニーリゾート公式ブログ（2020年4月・2021年7月・2022年7月の記事）では、二人の確執や設計図をめぐる対立は確認できませんでした。</p><p class="article-p">カメリアが飛行への夢を広めようとした人物であることや、ハイタワー三世が独自のコレクションを築いたことを手がかりに、二人の価値観を対照的に見る解釈もあります。ここでは公式設定と混同しないよう、ファンによる読み解きとして紹介します。</p><div class="column-box reveal"><h4>🔎 ファンの考察：待ち列の集合写真</h4><p>博物館のロビーに飾られた集合写真を、カメリアとハイタワー三世の関係を考える手がかりとして見るファンもいます。ただし、写真が二人の確執を示す証拠だと公式に説明された資料は、今回確認した範囲では見つかっていません。写真から読み取れるという解釈は、断定ではなくファン考察として楽しむのが適切です。</p></div>
   </section>
 
   <!-- III. 「岩倉使節団」が訪れた博物館 -->
   <section class="article-block reveal" id="meiji">
-    <h2 class="article-h2">III. 日本の使節団を描いたとされる絵画</h2><p class="article-p">博物館内には、カメリアが日本から訪れたとされる紳士たちを迎える場面を描いた絵画があります。キャプションに記された1872年という年号から、明治初期の日本使節団を描いたのではないかと考えるファンもいます。</p><p class="article-p">ただし、絵画の人物が岩倉使節団であることや、岩倉具視・木戸孝允・伊藤博文・大久保利通が描かれていることは、今回確認した公式ブログでは確認できませんでした。特定の人物や年齢を断定せず、展示のキャプションを手がかりにしたファンの解釈として紹介します。</p>
+    <h2 class="article-h2">VI. 日本の使節団を描いたとされる絵画</h2><p class="article-p">博物館内には、カメリアが日本から訪れたとされる紳士たちを迎える場面を描いた絵画があります。キャプションに記された1872年という年号から、明治初期の日本使節団を描いたのではないかと考えるファンもいます。</p><p class="article-p">この絵には、髷を結った和装の男性と、洋装の男性が並んで描かれていると紹介されています。日本では1871年に散髪脱刀令が出されており、髷を切って洋装に改める人が増えていった時期です。二つの装いが同じ画面に収まった光景を、文明開化のただなかにあった日本と西洋の出会いとして味わう見方もあります。1872年という年は、公式ブログの開館年（1815年）とは別のものなので、絵に描かれた出来事の年と受け取るのが自然ですが、その意味づけが公式に語られているわけではありません。</p><p class="article-p">ただし、絵画の人物が岩倉使節団であることや、岩倉具視・木戸孝允・伊藤博文・大久保利通が描かれていることは、今回確認した公式ブログでは確認できませんでした。特定の人物や年齢を断定せず、展示のキャプションを手がかりにしたファンの解釈として紹介します。</p>
 
     <div class="column-box reveal">
       <h4>🔎 ファンの間の見方：この絵は何を描いているのか</h4>
@@ -535,7 +608,7 @@
 
   <!-- IV. 常設展示室に響く、空への祈り -->
   <section class="article-block reveal" id="rotunda">
-    <h2 class="article-h2">IV. 常設展示室に響く、空への祈り</h2>
+    <h2 class="article-h2">VII. 常設展示室に響く、空への祈り</h2>
     <p class="article-p">博物館の奥へと進むと広がる、息を呑むほどに美しい大天井のドーム型ロビー。ここには、カメリアの父チェッリーノ・ファルコが世界中で集め、描いた「人類が太古より夢見た空への歴史画」が、東洋から西洋、中東の神話に至るまで、ドームを囲むように飾られています。</p>
     
     <div class="photo-frame reveal" style="--ar:1350/759">
@@ -544,6 +617,8 @@
 
     <p class="article-p">壁画をよく見ると、神話に登場する「空飛ぶカーペット」や「翼を持った馬（ペガサス）」、ダ・ヴィンチの飛行設計図、さらには空を飛ぼうとする「ゾウ」や「ライオン」の姿など、人類が抱いた空への憧れがユーモアと芸術性たっぷりに描き込まれています。このロビーで、頭上の美しい青空の天井画を見上げながら、世界中の歴史や魔法を感じる時間こそが、私たちの「イマジネーション（想像力）」を高め、次の部屋でドリームフライヤーを起動するための最も重要なプロローグなのです。</p>
 
+    <p class="article-p">ロビーの中央に据えられたオベリスクには、S.E.A.が大切にする4つの理念、「冒険」「発見」「発明」「ロマンス」を表すモチーフがあしらわれています。大きな壁画に目を移すと、船に乗って空を飛ぶバイキング、羽ばたくゾウ、空を駆ける忍者など、時代も文化もばらばらの「飛ぶ夢」が同じ壁に並んでいます。</p>
+    <p class="article-p">壁沿いの絵画は、博物館そのものの年代記でもあります。メディアの紹介記事では、チェッリーノが開館式でテープカットをする絵（隣の額縁には実物のハサミとテープが飾られているといいます）、黄色いドレス姿の幼いカメリアの絵、起工式や定礎式を描いた連作などが挙げられています。ひとつひとつの絵に目を留めていくと、ロビーはそのまま、ファルコ家の物語を読み進める回廊になっています。</p>
     <div class="column-box reveal">
       <h4>🧥 案内役のキャストはS.E.A.のメンバー</h4>
       <p>公式ブログによると、博物館を案内するキャストはS.E.A.のメンバーという設定です。青緑色を基調にした衣装には、ベストに鳥の羽をモチーフにしたジャカード織りが使われ、ボルドーレッドのアスコットタイには鳥の柄があしらわれています。胸元にはS.E.A.の紋章があり、空を飛ぶ夢への期待感を表した装いとされています。</p>
@@ -552,9 +627,28 @@
 
   <!-- V. 絵画に命が吹き込まれるイマジニアの魔法 -->
   <section class="article-block reveal" id="magic">
-    <h2 class="article-h2">V. 絵画に命が吹き込まれるイマジニアの魔法</h2>
+    <h2 class="article-h2">VIII. 絵画に命が吹き込まれるイマジニアの魔法</h2>
     <p class="article-p">カメリアの肖像画が飾られた「特別回顧室」で、白黒の絵から彼女が立体的に動き出すあの瞬間。ここにはイマジニアによる驚異的な最新プロジェクションマッピング技術が使われています。単に動画を絵の上に写すのではなく、<strong>「油絵のキャンバスに描かれた独特の絵の具の凹凸や筆跡（キャンバスの質感）」</strong>を完璧に維持したまま、彼女のスピリットを美しく動かしているのです。</p>
     <p class="article-p">また、彼女が放った愛鳥ハヤブサ「アレッタ」の影が天井を飛び回る演出では、立体的なサラウンド音響と同期させることで、本当にハヤブサの風が頭上を駆け抜けるような「リアルな気配」を五感に訴えかけています。すべては、科学ではなく、ゲストの「想像力」という名の魔法を信じさせるための、緻密な計算の結晶なのです。</p>
+    <p class="article-p">アレッタの影が部屋を横切り、止まっていた肖像画が動き出すのは、扉が閉まったあとのひとときです。そこでカメリアは自らドリームフライヤーを紹介し、ゲストを次の空へ誘います。博物館で見てきた絵画や展示は、いわばこの瞬間のための長い助走だったのだと気づかされます。</p>
+  </section>
+
+  <!-- IX. 港に重なる3つの時代 -->
+  <section class="article-block reveal" id="harbor">
+    <h2 class="article-h2">IX. 港に重なる3つの時代</h2>
+    <p class="article-p">メディテレーニアンハーバーには、時代の異なる物語がいくつも重なっています。南欧の港町を思わせるポルト・パラディーゾ、大航海時代の空気をまとう要塞「フォートレス・エクスプロレーション」、そして19世紀の博物館であるファンタスティック・フライト・ミュージアム。なかでも要塞とミュージアムは、S.E.A.という一本の糸でつながっています。</p>
+    <p class="article-p">海の向こうの未知を目指した探険家たちの精神は、時代が進むにつれて、やがて空を見上げる夢へと姿を変えました。ミュージアムの扉をくぐる前に港を一周してみると、「探険」が「飛翔」へ受け継がれていく流れが、エリア全体の景色として見えてきます。S.E.A.そのものの歴史は<a href="bgs-sea.html" style="color:inherit;border-bottom:1px dotted var(--border-strong);text-decoration:none;">「S.E.A. Archives」</a>もあわせてご覧ください。</p>
+
+    <details class="source-note">
+      <summary>参考資料（5件）</summary>
+      <ol>
+        <li>東京ディズニーリゾート公式ブログ（2020年4月・2021年7月・2022年7月の記事）</li>
+        <li>ねとらぼ（ITmedia）「もっと『ソアリン』が楽しくなる！アトラクションに秘められた…」</li>
+        <li>Wikipedia「Soarin'」</li>
+        <li>Society of Explorers and Adventurers Wiki「Soaring: Fantastic Flight」</li>
+        <li>Jungle Skipper「Camellia Falco」</li>
+      </ol>
+    </details>
   </section>
 
   <div class="footer-link-wrap reveal">
@@ -591,7 +685,7 @@
 </script>
 
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=%E3%82%BD%E3%82%A2%E3%83%AA%E3%83%B3%EF%BC%9A%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B9%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%83%95%E3%83%A9%E3%82%A4%E3%83%88%E3%81%AEBGS%EF%BC%88%E8%83%8C%E6%99%AF%E8%A8%AD%E5%AE%9A%EF%BC%89%EF%BD%9C%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%82%B7%E3%83%BC%20%E2%80%94%20BGS%20Chronicles%20%23BGSChronicles&url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-soarin.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
-<p class="last-edited">最終編集日：<time datetime="2026-10-17">2026年10月17日</time></p>
+<p class="last-edited">最終編集日：<time datetime="2026-10-24">2026年10月24日</time></p>
 
 <nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-fs.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Fantasy Springs</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-sea.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">S.E.A. Archives</span></a></nav>
 </body>
