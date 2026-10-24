@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://teruluce07-cmd.github.io/disney-bgs/sitemap.xml
+Sitemap: https://teruluce.github.io/disney-bgs/sitemap.xml
