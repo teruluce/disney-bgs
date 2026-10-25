@@ -16,6 +16,15 @@ BGS Chronicles is an independent Disney Parks fan publication presented as a car
 - Keep research and sourcing out of the narrative voice (owner's rule, 2026-10-25). Do not write "公式ブログによると", "公式サイトでは〜と紹介されています", "今回確認した範囲では見つかりませんでした" or similar phrases about how the facts were checked. Say it in the story's own voice, and put sources in the folded source note at the end. Details and exceptions are in `docs/AI_WORK_LOG.md`.
 - Keep headlines aligned with the actual story and section content. Avoid generic headings that promise information the section does not deliver.
 
+## Narrative immersion and written Japanese
+
+- The article's purpose is not merely to explain facts, but to help readers uncover the story carried by the place. Use verified facts as the foundation for a narrative that moves through architecture, props, landscape, history, and show details.
+- Prefer composed written Japanese over casual conversational phrasing. In context, use forms such as 「しかし」「一方で」「ただし」 rather than casual 「けれど」「でも」. Do not mechanically replace every connector; choose the wording that best preserves the sentence's meaning and rhythm.
+- Avoid addressing readers with repeated opening questions or interrupting the narrative with meta headings and phrases such as 「この記事では〜を解説します」「この記事で辿ること」「写真でもわかるように」「解説によると」. Introduce the subject through a detail, a contrast, or a narrative question instead.
+- Keep interpretations legible as interpretations. Avoid turning a visual resemblance into a confirmed production intention, or calling a detail a 「伏線」「決定的な証拠」 unless the evidence supports that level of certainty. Atmospheric writing should deepen the story, not inflate the claim.
+- Favor precise, restrained endings over repeated emphatic formulations such as 「〜なのです」. Poetic language is welcome when it grows naturally from the place and its details; avoid generic sentiment or grand conclusions that could fit any article.
+- Make small, local edits first. Preserve the existing article's facts, structure, voice, and design unless a specific inconsistency or clarity issue calls for a change.
+
 ## Visual typography
 
 - Treat the entire site as a printed publication, including dates, update notices, credits, navigation, copyright, and contact/operational details.
