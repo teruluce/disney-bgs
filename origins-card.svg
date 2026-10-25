@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="paper" cx="40%" cy="35%" r="85%">
+      <stop offset="0" stop-color="#F7EFDB"/>
+      <stop offset="0.65" stop-color="#EDE0C4"/>
+      <stop offset="1" stop-color="#D9C6A0"/>
+    </radialGradient>
+    <radialGradient id="globe" cx="38%" cy="32%" r="80%">
+      <stop offset="0" stop-color="#F5EDD8"/>
+      <stop offset="0.7" stop-color="#E4D3AE"/>
+      <stop offset="1" stop-color="#CDB68A"/>
+    </radialGradient>
+    <clipPath id="globeClip"><circle cx="1010" cy="440" r="200"/></clipPath>
+    <pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#3D2D1A" stroke-width="1.6" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#paper)"/>
+
+  <!-- frame -->
+  <rect x="36" y="36" width="1528" height="828" fill="none" stroke="#6B1E2A" stroke-width="3" opacity="0.85"/>
+  <rect x="50" y="50" width="1500" height="800" fill="none" stroke="#8A6820" stroke-width="1.4" opacity="0.8"/>
+
+  <!-- horizon + sea strokes -->
+  <g stroke="#3D2D1A" fill="none" stroke-linecap="round">
+    <line x1="120" y1="660" x2="1480" y2="660" stroke-width="2.2" opacity="0.75"/>
+    <g stroke-width="1.5" opacity="0.5">
+      <path d="M140 700 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0"/>
+      <path d="M200 738 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0"/>
+      <path d="M140 776 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0"/>
+    </g>
+  </g>
+
+  <!-- lighthouse (the idea that was set aside): faded, dashed -->
+  <g opacity="0.55" stroke="#3D2D1A" stroke-width="2.4" fill="none" stroke-linejoin="round" stroke-dasharray="10 7">
+    <path d="M520 660 L548 300 L612 300 L640 660 Z" fill="url(#hatch)"/>
+    <rect x="536" y="262" width="88" height="38"/>
+    <path d="M530 262 L580 214 L630 262 Z"/>
+    <line x1="580" y1="214" x2="580" y2="190"/>
+    <line x1="530" y1="470" x2="630" y2="470"/>
+    <line x1="526" y1="560" x2="634" y2="560"/>
+    <path d="M488 660 L672 660 L660 628 L500 628 Z"/>
+  </g>
+  <!-- faint beam -->
+  <path d="M624 280 L800 220 L800 340 Z" fill="#B08A30" opacity="0.18"/>
+
+  <!-- globe (the idea that was chosen) -->
+  <g>
+    <ellipse cx="1010" cy="672" rx="230" ry="16" fill="#3D2D1A" opacity="0.14"/>
+    <circle cx="1010" cy="440" r="200" fill="url(#globe)" stroke="#2E1F10" stroke-width="3.2"/>
+    <g clip-path="url(#globeClip)" fill="none" stroke="#3D2D1A" stroke-width="1.7" opacity="0.7">
+      <ellipse cx="1010" cy="440" rx="200" ry="70"/>
+      <ellipse cx="1010" cy="440" rx="200" ry="140"/>
+      <line x1="810" y1="440" x2="1210" y2="440"/>
+      <ellipse cx="1010" cy="440" rx="70" ry="200"/>
+      <ellipse cx="1010" cy="440" rx="140" ry="200"/>
+      <line x1="1010" y1="240" x2="1010" y2="640"/>
+      <!-- flowing water lines -->
+      <path d="M850 300 q60 40 20 100 t30 110 t-10 100" stroke="#6B1E2A" stroke-width="2.2" opacity="0.8"/>
+      <path d="M950 262 q50 50 10 110 t20 120 t-8 100" stroke="#6B1E2A" stroke-width="2.2" opacity="0.8"/>
+      <path d="M1060 255 q40 60 0 120 t20 120 t-6 100" stroke="#6B1E2A" stroke-width="2.2" opacity="0.8"/>
+      <path d="M1150 300 q30 60 -4 110 t16 110" stroke="#6B1E2A" stroke-width="2.2" opacity="0.8"/>
+    </g>
+    <path d="M880 320 q40 -70 130 -86" fill="none" stroke="#FFF8E6" stroke-width="10" stroke-linecap="round" opacity="0.55"/>
+    <!-- stand -->
+    <path d="M900 640 q110 40 220 0" fill="none" stroke="#2E1F10" stroke-width="3.2"/>
+    <path d="M960 664 L1060 664" stroke="#2E1F10" stroke-width="3.2"/>
+  </g>
+
+  <!-- compass mark -->
+  <g transform="translate(1340 190)" stroke="#8A6820" fill="none" stroke-width="2">
+    <circle r="44"/>
+    <circle r="36" opacity="0.5"/>
+    <path d="M0 -52 L8 0 L0 52 L-8 0 Z" fill="#6B1E2A" fill-opacity="0.85" stroke="#6B1E2A"/>
+    <path d="M-52 0 L0 8 L52 0 L0 -8 Z" fill="#B08A30" fill-opacity="0.35"/>
+  </g>
+</svg>
