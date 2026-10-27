@@ -825,3 +825,12 @@
 - **解消：** 最新main `e4070dc` をPR #70のブランチへ統合。ClaudeのAI名ルール・作業記録とCodexのX共有文改善記録を、どちらも削除せず残した。サイトのコード・共有文は変更していない。
 - **検証：** 両方のログ内容の保持、競合記号なし、SEO監査、共有文22件チェック、回帰テスト12件、JS構文と差分を再確認。GitHub上のマージ可否とCIは更新後に確認する。
 - **PR：** [#70](https://github.com/teruluce/disney-bgs/pull/70)。未マージ。
+
+### 2026-10-27 — Codex-BGS-20261027：PR #70のマージ・公開反映確認
+
+- **作業AI：** Codex-BGS-20261027。
+- **マージ：** 運営者がPR #70をマージ。マージコミット `889a759deea3d3bd5cad4f293cec1362901bdeff`。
+- **CI／デプロイ：** 同コミットのStatic SEO validation #40555827901と[Pages #40555826433](https://github.com/teruluce/disney-bgs/actions/runs/40555826433)がsuccess。
+- **公開確認：** 正しい公開ホスト `https://teruluce.github.io/disney-bgs/` の全22共有ページをHTTPS取得。公開HTMLの共有リンクをデコードし、share-captions.jsonの紹介文・6タグ・canonical URLと22/22一致。反映前は旧文面だったため、デプロイ完了後に再確認した。
+- **状態：** マージ済み・共有リンクの公開HTML反映確認済み。これはX実サービスでの投稿画面・実投稿・OGPプレビュー・実機確認を意味しない。投稿操作は行っていない。
+- **記録方法：** 完了状態のみの文書追記。サイトコードの変更なし。
