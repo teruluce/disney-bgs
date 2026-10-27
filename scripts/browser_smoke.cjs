@@ -3,6 +3,7 @@ const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const shareCopy = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'share-captions.json'), 'utf8'));
 const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
 
 (async () => {
@@ -34,6 +35,13 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
         });
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${file} overflow at ${width}`);
         assert.equal(await page.locator('.site-share-link').count(), file === 'sites.html' ? 0 : 1, `${file} share count`);
+        if (shareCopy[file]) {
+          const share = new URL(await page.locator('.site-share-link').getAttribute('href'));
+          const entry = shareCopy[file];
+          assert.equal(share.origin + share.pathname, 'https://x.com/intent/tweet');
+          assert.equal(share.searchParams.get('text'), entry.caption + '\n\n' + entry.hashtags.map(tag => '#' + tag).join(' '));
+          assert.equal(share.searchParams.get('url'), await page.locator('link[rel="canonical"]').getAttribute('href'));
+        }
         const navigation = page.locator('.article-pagination');
         if (await navigation.count()) {
           for (const href of await navigation.locator('a').evaluateAll(links => links.map(link => link.getAttribute('href')))) {

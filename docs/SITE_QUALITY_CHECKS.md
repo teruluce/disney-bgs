@@ -6,6 +6,7 @@ Maintainer: **Codex-BGS-20261027**. These checks complement the editorial guide;
 
 ```sh
 python scripts/seo_audit.py
+python scripts/update_share_links.py --check
 python -m unittest discover -s scripts -p 'test_*.py'
 node --check site.js
 ```
@@ -33,7 +34,7 @@ Override `BGS_TEST_URL` (trailing slash required) and `BGS_CHROMIUM` if needed. 
 ## Shared components
 
 - `site-components.css`: identical share and article-pagination styles extracted from the pages. Load before page-specific styles and mobile/desktop layers.
-- `site.js`: deferred, used only on pages needing filters, dialogs or canonical-based share initialization. Article-specific member text remains in the article and is passed through `window.BGSCreatorMembers`. The shared controller handles focus containment/return, Escape, background inert state and scroll restoration.
+- `site.js`: deferred, used only on pages needing filters or dialogs. X share links are static HTML generated from `share-captions.json` (see `docs/X_SHARE_COPY.md`). Article-specific member text remains in the article and is passed through `window.BGSCreatorMembers`. The shared controller handles focus containment/return, Escape, background inert state and scroll restoration.
 - Preserve the existing article-specific CSS, colors, page URLs, permanent file numbers and original images.
 
 ## Display image variants

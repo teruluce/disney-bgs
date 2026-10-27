@@ -2,14 +2,6 @@
 (() => {
   'use strict';
 
-  document.querySelectorAll('[data-x-share]').forEach(link => {
-    const canonical = document.querySelector('link[rel="canonical"]');
-    const url = canonical ? canonical.href : window.location.href;
-    link.href = 'https://x.com/intent/tweet?text=' +
-      encodeURIComponent((document.title || 'BGS Chronicles') + ' #BGSChronicles') +
-      '&url=' + encodeURIComponent(url);
-  });
-
   const buttons = [...document.querySelectorAll('.filter-btn')];
   const cards = [...document.querySelectorAll('.card[data-cat]')];
   if (buttons.length) {
