@@ -5,27 +5,50 @@
   const buttons = [...document.querySelectorAll('.filter-btn')];
   const cards = [...document.querySelectorAll('.card[data-cat]')];
   if (buttons.length) {
+    const search = document.getElementById('archive-query');
+    const status = document.getElementById('archive-search-status');
+    const empty = document.getElementById('archive-search-empty');
+    let activeCategory = 'all';
+    const normalize = value => value.normalize('NFKC').toLocaleLowerCase('ja').replace(/[\s・.．]/g, '');
+    const cardTerms = new Map(cards.map(card => [card, normalize(card.textContent + ' ' + (card.querySelector('img')?.alt || ''))]));
+    function updateCards() {
+      const query = normalize(search?.value.trim() || '');
+      let shown = 0;
+      cards.forEach(card => {
+        const match = (activeCategory === 'all' || card.dataset.cat === activeCategory) && cardTerms.get(card).includes(query);
+        card.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+      if (status) status.textContent = `${shown}件の記録`;
+    }
     function setFilter(category) {
+      activeCategory = category;
       buttons.forEach(button => {
         const selected = button.dataset.filter === category;
         button.classList.toggle('on', selected);
         button.setAttribute('aria-pressed', String(selected));
       });
-      cards.forEach(card => {
-        card.style.display = category === 'all' || card.dataset.cat === category ? '' : 'none';
-      });
+      updateCards();
     }
     function revealHashTarget() {
       const id = window.location.hash.slice(1);
       const card = cards.find(item => item.id === id);
-      if (card && card.style.display === 'none') setFilter(card.dataset.cat);
+      if (card && card.style.display === 'none') {
+        if (search) search.value = '';
+        setFilter(card.dataset.cat);
+      }
       return card;
     }
+    search?.addEventListener('input', updateCards);
     buttons.forEach(button => button.addEventListener('click', () => setFilter(button.dataset.filter)));
     document.querySelectorAll('#toc a[href^="#"]').forEach(link => {
       link.addEventListener('click', () => {
         const card = cards.find(item => '#' + item.id === link.getAttribute('href'));
-        if (card && card.style.display === 'none') setFilter(card.dataset.cat);
+        if (card && card.style.display === 'none') {
+          if (search) search.value = '';
+          setFilter(card.dataset.cat);
+        }
         // Let the native anchor action scroll, update history and preserve normal link behavior.
       });
     });
@@ -33,6 +56,7 @@
       const card = revealHashTarget();
       if (card) card.scrollIntoView();
     });
+    updateCards();
     revealHashTarget();
   }
 
