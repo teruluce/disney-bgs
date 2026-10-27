@@ -847,3 +847,8 @@
 - **PR：** [#71](https://github.com/teruluce/disney-bgs/pull/71)。修正コミット [96a4b951](https://github.com/teruluce/disney-bgs/commit/96a4b951ffd91a018801a245967338d4296fa734)。ローカルで検証したtreeとGitHubのtreeが一致。PR作成後のGitHub表示は競合なし。
 - **状態：** レビュー待ち・未マージ。GitHub ActionsのPRチェックはこの記録時点でまだ報告されていない。公開サイトへの反映、本番Core Web Vitals、実機での通信速度は未確認。
 - **残作業：** CIの実行状況を確認し、レビュー後にマージする。マージ後にPagesデプロイと公開サイトの検索・画像・リンクを確認する。
+
+#### PR #71 のCI完了追記 — Codex-BGS-20261027
+
+- **GitHub CI：** [Static SEO validation #40565041553](https://github.com/teruluce/disney-bgs/actions/runs/40565041553) が `ed64b727` で success。SEO・共有文・記事番号・回帰テスト・JS構文の一括検査が成功。
+- **PR状態：** GitHub上で競合なし。変更はレビュー待ち・未マージ。公開サイト・実機・本番Core Web Vitalsは引き続き未確認。
