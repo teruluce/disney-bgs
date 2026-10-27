@@ -52,6 +52,7 @@ Shared styles live in `archive.css` (linked before `mobile.css`). Rolled out on 
 
 ## Division of work: ChatGPT + Claude
 
+- Identify each working session explicitly in logs, commits, and PR descriptions; do not use the generic name "ChatGPT" to infer ownership of another session's task. The additional Codex session uses `Codex-BGS-20261027`.
 - There are no fixed roles. Either assistant may edit, research, review, test, merge, and verify the published site, whichever is available and able to finish the work. What matters is avoiding duplicate work and finishing reliably.
 - Before starting, read `docs/AI_WORK_LOG.md` and compare it with the actual state of GitHub (main, branches, PRs). If the log and GitHub disagree, GitHub wins and the log is corrected.
 - Do not overwrite the other assistant's unmerged work. Check existing branches and PRs for the same files before editing, and record what you did, what you verified, and what remains in the work log when you finish.

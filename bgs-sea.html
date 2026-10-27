@@ -45,6 +45,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap">
   </noscript>
 
+  <link rel="stylesheet" href="site-components.css">
+  <script src="site.js" defer></script>
   <style>
     /* ============================================================
        DESIGN TOKENS (Synced with index.html)
@@ -736,13 +738,7 @@
     ============================================================ */
     :focus-visible { outline: 2px solid var(--bordeaux); outline-offset: 3px; }
   
-  .site-share{max-width:1100px;margin:34px auto 22px;padding:0 20px;text-align:center;position:relative;z-index:1}
-.site-share-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:10px 24px;border:1px solid var(--gold-rule,rgba(138,104,32,.5));background:transparent;color:var(--ink,#1c1209);font-family:inherit;font-size:.88rem;letter-spacing:.06em;text-decoration:none;transition:background .22s,border-color .22s,color .22s,transform .22s;box-shadow:inset 0 0 0 3px var(--paper, #f5edd8),inset 0 0 0 4px var(--gold-dim,rgba(138,104,32,.1))}
-.site-share-link:hover{background:var(--ink,#1c1209);border-color:var(--ink,#1c1209);color:var(--paper,#f5edd8);transform:translateY(-1px)}
-.site-share-link:focus-visible{outline:2px solid var(--bordeaux,#8a2535);outline-offset:4px}
-.site-share-mark{font-family:Arial,sans-serif;font-weight:700;font-size:1.15rem;line-height:1;letter-spacing:0}
-.site-share-note{margin:10px 0 0;color:var(--muted,#7a6048);font-size:.72rem;letter-spacing:.04em;line-height:1.7}
-  
+
     /* Edit metadata integrated into the page footer */
     .last-edited { max-width:640px; margin:16px auto 22px; padding:12px clamp(16px,5vw,40px) 0; border-top:1px solid var(--border,rgba(60,40,15,.22)); color:var(--muted,#7A6048); font-family:var(--f-type,'Courier New',monospace); font-size:.58rem; line-height:1.8; letter-spacing:.08em; text-align:left; opacity:.86; }
     .last-edited time { font-family:var(--f-jp,serif); letter-spacing:.04em; }
@@ -753,7 +749,7 @@
   <noscript><style>.reveal,.reveal *{opacity:1 !important;transform:none !important;}</style></noscript>
 
   
-<style>.article-pagination{max-width:1040px;margin:30px auto 26px;padding:14px clamp(12px,3vw,24px);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:stretch;border-top:3px double var(--border-strong,rgba(80,55,30,.45));border-bottom:1px solid var(--border,rgba(80,55,30,.25));font-family:var(--f-type,monospace)}.article-pagination a{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:10px 12px;color:var(--ink,#30251c);text-decoration:none;border:1px solid var(--border,rgba(80,55,30,.25));background:rgba(245,237,216,.45);transition:background .2s,color .2s}.article-pagination a:hover,.article-pagination a:focus-visible{background:var(--ink,#30251c);color:var(--paper,#f5edd8)}.article-pagination .pagination-home{text-align:center;align-items:center;min-width:104px;border-color:var(--border-strong,rgba(80,55,30,.45))}.pagination-label{font-size:.58rem;letter-spacing:.08em;opacity:.8}.pagination-title{font-family:var(--f-jp,serif);font-size:.76rem;line-height:1.5;overflow-wrap:anywhere}.pagination-prev{text-align:left;align-items:flex-start}.pagination-next{text-align:right;align-items:flex-end}.article-pagination .is-empty{visibility:hidden;border:0;background:transparent}@media(max-width:600px){.article-pagination{grid-template-columns:1fr 1fr;gap:8px;margin:22px 10px;padding:12px 0}.article-pagination .pagination-home{grid-column:1/-1;grid-row:1;min-width:0;min-height:44px}.article-pagination .pagination-prev,.article-pagination .pagination-next{min-height:58px;padding:9px}.pagination-title{font-size:.7rem}.pagination-label{font-size:.56rem}}@media(prefers-reduced-motion:reduce){.article-pagination a{transition:none}}
+<style>
     /* Editorial finish: dates and operational notes should read like newspaper colophon/type. */
     .last-edited,
     .footer-copy,
@@ -955,73 +951,73 @@
 
     <div class="creator-grid">
       <!-- 1. ヘンリー・ミスティック卿 -->
-      <div class="creator-card" tabindex="0" data-member="mystic" aria-label="ヘンリー・ミスティック卿の詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="mystic" aria-label="ヘンリー・ミスティック卿の詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Lord Henry Mystic</div>
         <div class="card-ja">ヘンリー・ミスティック卿</div>
         <div class="card-role">美術収集家 / ミスティック・マナー主</div>
       </div>
       <!-- 2. ハリソン・ハイタワー三世 -->
-      <div class="creator-card" tabindex="0" data-member="hightower" aria-label="ハリソン・ハイタワー三世の詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="hightower" aria-label="ハリソン・ハイタワー三世の詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Harrison Hightower III</div>
         <div class="card-ja">ハリソン・ハイタワー三世</div>
         <div class="card-role">実業家 / 収集家 / ホテルオーナー</div>
       </div>
       <!-- 3. カメリア・ファルコ -->
-      <div class="creator-card" tabindex="0" data-member="falco" aria-label="カメリア・ファルコの詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="falco" aria-label="カメリア・ファルコの詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Camellia Falco</div>
         <div class="card-ja">カメリア・ファルコ</div>
         <div class="card-role">初の女性正会員 / 飛行研究家</div>
       </div>
       <!-- 4. バーナバス・T・ブリオン -->
-      <div class="creator-card" tabindex="0" data-member="bullion" aria-label="バーナバス・T・ブリオンの詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="bullion" aria-label="バーナバス・T・ブリオンの詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Barnabas T. Bullion</div>
         <div class="card-ja">バーナバス・T・ブリオン</div>
         <div class="card-role">BTMC社長 / フロンティア実業家</div>
       </div>
       <!-- 5. メアリー・オーシャニア船長 -->
-      <div class="creator-card" tabindex="0" data-member="oceaneer" aria-label="メアリー・オーシャニア船長の詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="oceaneer" aria-label="メアリー・オーシャニア船長の詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Captain Mary Oceaneer</div>
         <div class="card-ja">メアリー・オーシャニア船長</div>
         <div class="card-role">海洋探検家 / M.S.ソルティ船長</div>
       </div>
       <!-- 6. ジェイソン・チャンドラー -->
-      <div class="creator-card" tabindex="0" data-member="chandler" aria-label="ジェイソン・チャンドラーの詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="chandler" aria-label="ジェイソン・チャンドラーの詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Jason Chandler</div>
         <div class="card-ja">ジェイソン・チャンドラー</div>
         <div class="card-role">都市設計者 / 錬金術科学者</div>
       </div>
       <!-- 7. アルバート・フォールズ博士 -->
-      <div class="creator-card" tabindex="0" data-member="falls" aria-label="アルバート・フォールズ博士の詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="falls" aria-label="アルバート・フォールズ博士の詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Dr. Albert Falls</div>
         <div class="card-ja">アルバート・フォールズ博士</div>
         <div class="card-role">JNC創設者 / 考古地理学者</div>
       </div>
       <!-- 8. コン・チュウノスケ博士 -->
-      <div class="creator-card" tabindex="0" data-member="chunosuke" aria-label="コン・チュウノスケ博士の詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="chunosuke" aria-label="コン・チュウノスケ博士の詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Dr. Kon Chunosuke</div>
         <div class="card-ja">コン・チュウノスケ博士</div>
         <div class="card-role">昆虫学者 / 学術調査員</div>
       </div>
       <!-- 9. アヤ・コアメ＝ボーシエル -->
-      <div class="creator-card" tabindex="0" data-member="aya" aria-label="アヤ・コアメ＝ボーシエルの詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="aya" aria-label="アヤ・コアメ＝ボーシエルの詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Aya Koame-Beausoleil</div>
         <div class="card-ja">アヤ・コアメ＝ボーシエル</div>
         <div class="card-role">新進天文学者 / 研究員</div>
       </div>
       <!-- 10. メリウェザー・A・プレジャー -->
-      <div class="creator-card" tabindex="0" data-member="pleasure" aria-label="メリウェザー・A・プレジャーの詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="pleasure" aria-label="メリウェザー・A・プレジャーの詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">M. A. Pleasure</div>
         <div class="card-ja">メリウェザー・A・プレジャー</div>
         <div class="card-role">アドベンチャラーズ・クラブ創設者</div>
       </div>
       <!-- 11. R・ブラウアーヒメル教授 -->
-      <div class="creator-card" tabindex="0" data-member="brauerhimmel" aria-label="R・ブラウアーヒメル教授の詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="brauerhimmel" aria-label="R・ブラウアーヒメル教授の詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Prof. R. Brauerhimmel</div>
         <div class="card-ja">ブラウアーヒメル教授</div>
         <div class="card-role">地理言語学者 / ペルー探検家</div>
       </div>
       <!-- 12. ヴィターレ・ロブステッリ -->
-      <div class="creator-card" tabindex="0" data-member="robustelli" aria-label="ヴィターレ・ロブステッリの詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="robustelli" aria-label="ヴィターレ・ロブステッリの詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Vitale Robustelli</div>
         <div class="card-ja">ヴィターレ・ロブステッリ</div>
         <div class="card-role">1850年代学会会長 / 地理学者</div>
@@ -1409,7 +1405,7 @@
 </div><!-- /site-wrap -->
 
 <!-- メンバープロフィールモーダル -->
-<div class="modal-wrap" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modal-name-en">
+<div class="modal-wrap" id="modalBg" aria-hidden="true" inert role="dialog" aria-modal="true" aria-labelledby="modal-name-en">
   <div class="modal-panel">
     <button class="modal-close-btn" id="modalClose" aria-label="閉じる">✕ Close</button>
     <div class="modal-name-en" id="modal-name-en"></div>
@@ -1503,37 +1499,7 @@
   }, 50);
 
   /* ─── モーダル ─── */
-  const modalBg = document.getElementById('modalBg');
-  const modalClose = document.getElementById('modalClose');
-
-  function openModal(id) {
-    const d = members[id];
-    if (!d) return;
-    document.getElementById('modal-name-en').textContent = d.en;
-    document.getElementById('modal-name-ja').textContent = d.ja;
-    document.getElementById('modal-desc').textContent = d.desc;
-    modalBg.classList.add('open');
-    /* 表示アニメーション中はまだ非表示扱いのため、フォーカスが移るまで短い間隔で数回試す */
-    (function tryFocus(n) {
-      if (!modalBg.classList.contains('open')) return;
-      modalClose.focus();
-      if (document.activeElement !== modalClose && n > 0) setTimeout(() => tryFocus(n - 1), 40);
-    })(10);
-  }
-  function closeModal() { modalBg.classList.remove('open'); }
-
-  document.querySelectorAll('.creator-card').forEach(card => {
-    card.addEventListener('click', () => openModal(card.dataset.member));
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openModal(card.dataset.member);
-      }
-    });
-  });
-  modalClose.addEventListener('click', closeModal);
-  modalBg.addEventListener('click', e => { if (e.target === modalBg) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  window.BGSCreatorMembers = members;
 
   /* Image protection */
   document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
