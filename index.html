@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap">
   </noscript>
 
+  <link rel="stylesheet" href="site-components.css">
+  <script src="site.js" defer></script>
   <style>
     /* ============================================================
        DESIGN TOKENS
@@ -993,12 +995,6 @@
        FOCUS STYLES
     ============================================================ */
     :focus-visible { outline: 2px solid var(--bordeaux); outline-offset: 3px; }
-.site-share{max-width:1100px;margin:34px auto 22px;padding:0 20px;text-align:center;position:relative;z-index:1}
-.site-share-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:10px 24px;border:1px solid var(--gold-rule,rgba(138,104,32,.5));background:transparent;color:var(--ink,#1c1209);font-family:inherit;font-size:.88rem;letter-spacing:.06em;text-decoration:none;transition:background .22s,border-color .22s,color .22s,transform .22s;box-shadow:inset 0 0 0 3px var(--paper, #f5edd8),inset 0 0 0 4px var(--gold-dim,rgba(138,104,32,.1))}
-.site-share-link:hover{background:var(--ink,#1c1209);border-color:var(--ink,#1c1209);color:var(--paper,#f5edd8);transform:translateY(-1px)}
-.site-share-link:focus-visible{outline:2px solid var(--bordeaux,#8a2535);outline-offset:4px}
-.site-share-mark{font-family:Arial,sans-serif;font-weight:700;font-size:1.15rem;line-height:1;letter-spacing:0}
-.site-share-note{margin:10px 0 0;color:var(--muted,#7a6048);font-size:.72rem;letter-spacing:.04em;line-height:1.7}
   
     .last-edited { max-width:100%; margin:14px 0 0; padding:10px 0 0; border-top:1px solid var(--border); color:var(--muted); font-family:var(--f-type); font-size:.58rem; line-height:1.8; letter-spacing:.08em; text-align:center; opacity:.86; }
     .last-edited time { font-family:var(--f-jp); letter-spacing:.04em; }
@@ -1202,9 +1198,9 @@
   </div>
 
   <div class="filter-row reveal" role="group" aria-label="フィルター">
-    <button class="filter-btn on" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="tdl">Disneyland</button>
-    <button class="filter-btn" data-filter="tds">DisneySea</button>
+    <button class="filter-btn on" data-filter="all" aria-pressed="true">All</button>
+    <button class="filter-btn" data-filter="tdl" aria-pressed="false">Disneyland</button>
+    <button class="filter-btn" data-filter="tds" aria-pressed="false">DisneySea</button>
   </div>
 
   <!-- ===== ARTICLE GRID ===== -->
@@ -1519,86 +1515,10 @@
   }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* Filter */
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
-      btn.classList.add('on');
-      const f = btn.dataset.filter;
-      document.querySelectorAll('.card').forEach(c => {
-        if (f === 'all' || c.dataset.cat === f) {
-          c.style.display = '';
-        } else {
-          c.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  /* Accessible modal */
-  const modal = document.getElementById('modal');
-  const modalTrigger = document.getElementById('notice-trigger');
-  const modalClose = document.getElementById('modal-close');
-  const modalPanel = modal.querySelector('.modal-panel');
-  let lastFocusedElement = null;
-
-  function openModal() {
-    lastFocusedElement = document.activeElement;
-    modal.inert = false;
-    modal.setAttribute('aria-hidden', 'false');
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    /* 表示アニメーション中はまだ非表示扱いのため、フォーカスが移るまで短い間隔で数回試す */
-    (function tryFocus(n) {
-      if (!modal.classList.contains('open')) return;
-      modalClose.focus();
-      if (document.activeElement !== modalClose && n > 0) setTimeout(() => tryFocus(n - 1), 40);
-    })(10);
-  }
-
-  function closeModal() {
-    if (!modal.classList.contains('open')) return;
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-    modal.inert = true;
-    document.body.style.overflow = '';
-    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-      lastFocusedElement.focus();
-    }
-  }
-
-  modalTrigger.addEventListener('click', openModal);
-  modalClose.addEventListener('click', closeModal);
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => {
-    if (!modal.classList.contains('open')) return;
-    if (e.key === 'Escape') {
-      e.preventDefault();
-      closeModal();
-      return;
-    }
-    if (e.key === 'Tab') {
-      const focusable = modalPanel.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
-      if (!focusable.length) {
-        e.preventDefault();
-        modalPanel.focus();
-        return;
-      }
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (e.shiftKey && (document.activeElement === first || document.activeElement === modal)) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    }
-  });
 </script>
 
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" data-x-share href="https://x.com/intent/tweet" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
 
-<script>(function(){var b=document.querySelector('[data-x-share]');if(!b)return;var c=document.querySelector('link[rel="canonical"]');var u=c?c.href:window.location.href;var t=document.title||'BGS Chronicles';b.href='https://x.com/intent/tweet?text='+encodeURIComponent(t+' #BGSChronicles')+'&url='+encodeURIComponent(u);})();</script>
+
 </body>
 </html>

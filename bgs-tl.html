@@ -27,7 +27,8 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "トゥモローランドのBGS（背景設定）", "description": "東京ディズニーランド「トゥモローランド」のBGS（背景設定）。時代に追い越される宿命「同時代依存」、スペース・マウンテン、スター・ツアーズ、モンスターズ・インク、バズ・ライトイヤー、スティッチ・エンカウンターの設定を解説します。", "image": "https://teruluce.github.io/disney-bgs/tl-space-day.jpeg", "inLanguage": "ja", "author": {"@type": "Person", "name": "teru_luce_"}, "publisher": {"@type": "Organization", "name": "BGS Chronicles"}, "mainEntityOfPage": "https://teruluce.github.io/disney-bgs/bgs-tl.html"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Noto+Serif+JP:wght@200;300;400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<style>
+<link rel="stylesheet" href="site-components.css">
+  <style>
 :root {
   --bg:       #04090F;
   --surface:  #070F1A;
@@ -384,12 +385,6 @@ body.light h2{color:var(--text)}
 @media(min-width:768px){
   .wrap{padding:64px clamp(40px,8vw,80px) 120px}
 }
-.site-share{max-width:1100px;margin:34px auto 22px;padding:0 20px;text-align:center;position:relative;z-index:1}
-.site-share-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:10px 24px;border:1px solid var(--gold-rule,rgba(138,104,32,.5));background:transparent;color:var(--ink,#1c1209);font-family:inherit;font-size:.88rem;letter-spacing:.06em;text-decoration:none;transition:background .22s,border-color .22s,color .22s,transform .22s;box-shadow:inset 0 0 0 3px var(--paper, #f5edd8),inset 0 0 0 4px var(--gold-dim,rgba(138,104,32,.1))}
-.site-share-link:hover{background:var(--ink,#1c1209);border-color:var(--ink,#1c1209);color:var(--paper,#f5edd8);transform:translateY(-1px)}
-.site-share-link:focus-visible{outline:2px solid var(--bordeaux,#8a2535);outline-offset:4px}
-.site-share-mark{font-family:Arial,sans-serif;font-weight:700;font-size:1.15rem;line-height:1;letter-spacing:0}
-.site-share-note{margin:10px 0 0;color:var(--muted,#7a6048);font-size:.72rem;letter-spacing:.04em;line-height:1.7}
   
 /* Image-specific framing for portrait source photos */
 .photo-wrap.photo-crop {
@@ -410,7 +405,7 @@ body.light h2{color:var(--text)}
   <noscript><style>.reveal,.reveal *,.fade,.fade *{opacity:1 !important;transform:none !important;}</style></noscript>
 
   
-<style>.article-pagination{max-width:1040px;margin:30px auto 26px;padding:14px clamp(12px,3vw,24px);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:stretch;border-top:3px double var(--border-strong,rgba(80,55,30,.45));border-bottom:1px solid var(--border,rgba(80,55,30,.25));font-family:var(--f-type,monospace)}.article-pagination a{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:10px 12px;color:var(--ink,#30251c);text-decoration:none;border:1px solid var(--border,rgba(80,55,30,.25));background:rgba(245,237,216,.45);transition:background .2s,color .2s}.article-pagination a:hover,.article-pagination a:focus-visible{background:var(--ink,#30251c);color:var(--paper,#f5edd8)}.article-pagination .pagination-home{text-align:center;align-items:center;min-width:104px;border-color:var(--border-strong,rgba(80,55,30,.45))}.pagination-label{font-size:.58rem;letter-spacing:.08em;opacity:.8}.pagination-title{font-family:var(--f-jp,serif);font-size:.76rem;line-height:1.5;overflow-wrap:anywhere}.pagination-prev{text-align:left;align-items:flex-start}.pagination-next{text-align:right;align-items:flex-end}.article-pagination .is-empty{visibility:hidden;border:0;background:transparent}@media(max-width:600px){.article-pagination{grid-template-columns:1fr 1fr;gap:8px;margin:22px 10px;padding:12px 0}.article-pagination .pagination-home{grid-column:1/-1;grid-row:1;min-width:0;min-height:44px}.article-pagination .pagination-prev,.article-pagination .pagination-next{min-height:58px;padding:9px}.pagination-title{font-size:.7rem}.pagination-label{font-size:.56rem}}@media(prefers-reduced-motion:reduce){.article-pagination a{transition:none}}
+<style>
     /* Editorial finish: dates and operational notes should read like newspaper colophon/type. */
     .last-edited, .footer-copy, .site-share-note, .modal-copyright, .footer-note, .article-meta, .post-meta, .updated-at { font-family: var(--f-type, 'Courier New', monospace); color: var(--muted, #7A6048); font-size: clamp(.56rem, 1.3vw, .64rem); line-height: 1.85; letter-spacing: .045em; }
     .last-edited time, .article-meta time, .post-meta time, .updated-at time { font-family: var(--f-jp, serif); color: var(--bordeaux, #6B1E2A); font-size: .96em; letter-spacing: .035em; }

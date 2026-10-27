@@ -11,13 +11,13 @@
 <link rel="canonical" href="https://teruluce.github.io/disney-bgs/bgs-smallworld.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://teruluce.github.io/disney-bgs/bgs-smallworld.html">
-<meta property="og:title" content="イッツ・ア・スモールワールドのBGSとデザイン｜ディズニーBGS資料集's a Small World | 歴史とデザインを読み解くBGSコラム">
+<meta property="og:title" content="イッツ・ア・スモールワールドのBGSとデザイン｜ディズニーBGS資料集">
 <meta property="og:description" content="東京ディズニーランド「イッツ・ア・スモールワールド」のBGS（背景設定）。メアリー・ブレアの色彩設計、シャーマン兄弟の楽曲、人形たちの表現、世界各地のファサードや制作の歴史を紹介します。">
 <meta property="og:image" content="https://teruluce.github.io/disney-bgs/smallworld-exterior-day.jpeg">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="BGS Chronicles">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="イッツ・ア・スモールワールドのBGSとデザイン｜ディズニーBGS資料集's a Small World | 歴史とデザインを読み解くBGSコラム">
+<meta name="twitter:title" content="イッツ・ア・スモールワールドのBGSとデザイン｜ディズニーBGS資料集">
 <meta name="twitter:description" content="東京ディズニーランド「イッツ・ア・スモールワールド」のBGS（背景設定）。メアリー・ブレアの色彩設計、シャーマン兄弟の楽曲、人形たちの表現、世界各地のファサードや制作の歴史を紹介します。">
 <meta name="twitter:image" content="https://teruluce.github.io/disney-bgs/smallworld-exterior-day.jpeg">
 
@@ -36,7 +36,7 @@
   "url": "https://teruluce.github.io/disney-bgs/bgs-smallworld.html",
   "mainEntityOfPage": "https://teruluce.github.io/disney-bgs/bgs-smallworld.html",
   "datePublished": "2026-05-28",
-  "dateModified": "2026-06-30",
+  "dateModified": "2026-10-21",
   "image": {
     "@type": "ImageObject",
     "url": "https://teruluce.github.io/disney-bgs/smallworld-exterior-day.jpeg",
@@ -90,7 +90,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
+<link rel="stylesheet" href="site-components.css">
+  <script src="site.js" defer></script>
+  <style>
 /* ─── CSS 変数 ─── */
 :root {
   --accent: #C39B50;
@@ -671,6 +673,12 @@ a:hover { text-decoration: underline; }
   margin-bottom: 4px;
 }
 
+/* Respect reduced motion for scroll reveals, palette changes and rotating ornaments. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
 /* ─── Reveal ─── */
 .reveal {
   opacity: 0;
@@ -678,12 +686,6 @@ a:hover { text-decoration: underline; }
   transition: opacity .8s cubic-bezier(0.16, 1, 0.3, 1), transform .8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.active { opacity: 1; transform: translateY(0); }
-.site-share{max-width:1100px;margin:34px auto 22px;padding:0 20px;text-align:center;position:relative;z-index:1}
-.site-share-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:10px 24px;border:1px solid var(--gold-rule,rgba(138,104,32,.5));background:transparent;color:var(--ink,#1c1209);font-family:inherit;font-size:.88rem;letter-spacing:.06em;text-decoration:none;transition:background .22s,border-color .22s,color .22s,transform .22s;box-shadow:inset 0 0 0 3px var(--paper, #f5edd8),inset 0 0 0 4px var(--gold-dim,rgba(138,104,32,.1))}
-.site-share-link:hover{background:var(--ink,#1c1209);border-color:var(--ink,#1c1209);color:var(--paper,#f5edd8);transform:translateY(-1px)}
-.site-share-link:focus-visible{outline:2px solid var(--bordeaux,#8a2535);outline-offset:4px}
-.site-share-mark{font-family:Arial,sans-serif;font-weight:700;font-size:1.15rem;line-height:1;letter-spacing:0}
-.site-share-note{margin:10px 0 0;color:var(--muted,#7a6048);font-size:.72rem;letter-spacing:.04em;line-height:1.7}
   
     /* Edit metadata integrated into the page footer */
     .last-edited { max-width:640px; margin:16px auto 22px; padding:12px clamp(16px,5vw,40px) 0; border-top:1px solid var(--border,rgba(60,40,15,.22)); color:var(--muted,#7A6048); font-family:var(--f-type,'Courier New',monospace); font-size:.58rem; line-height:1.8; letter-spacing:.08em; text-align:left; opacity:.86; }
@@ -699,7 +701,7 @@ a:hover { text-decoration: underline; }
 </noscript>
 
   
-<style>.article-pagination{max-width:1040px;margin:30px auto 26px;padding:14px clamp(12px,3vw,24px);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:stretch;border-top:3px double var(--border-strong,rgba(80,55,30,.45));border-bottom:1px solid var(--border,rgba(80,55,30,.25));font-family:var(--f-type,monospace)}.article-pagination a{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:10px 12px;color:var(--ink,#30251c);text-decoration:none;border:1px solid var(--border,rgba(80,55,30,.25));background:rgba(245,237,216,.45);transition:background .2s,color .2s}.article-pagination a:hover,.article-pagination a:focus-visible{background:var(--ink,#30251c);color:var(--paper,#f5edd8)}.article-pagination .pagination-home{text-align:center;align-items:center;min-width:104px;border-color:var(--border-strong,rgba(80,55,30,.45))}.pagination-label{font-size:.58rem;letter-spacing:.08em;opacity:.8}.pagination-title{font-family:var(--f-jp,serif);font-size:.76rem;line-height:1.5;overflow-wrap:anywhere}.pagination-prev{text-align:left;align-items:flex-start}.pagination-next{text-align:right;align-items:flex-end}.article-pagination .is-empty{visibility:hidden;border:0;background:transparent}@media(max-width:600px){.article-pagination{grid-template-columns:1fr 1fr;gap:8px;margin:22px 10px;padding:12px 0}.article-pagination .pagination-home{grid-column:1/-1;grid-row:1;min-width:0;min-height:44px}.article-pagination .pagination-prev,.article-pagination .pagination-next{min-height:58px;padding:9px}.pagination-title{font-size:.7rem}.pagination-label{font-size:.56rem}}@media(prefers-reduced-motion:reduce){.article-pagination a{transition:none}}
+<style>
     /* Editorial finish: dates and operational notes should read like newspaper colophon/type. */
     .last-edited, .footer-copy, .site-share-note, .modal-copyright, .footer-note, .article-meta, .post-meta, .updated-at { font-family: var(--f-type, 'Courier New', monospace); color: var(--muted, #7A6048); font-size: clamp(.56rem, 1.3vw, .64rem); line-height: 1.85; letter-spacing: .045em; }
     .last-edited time, .article-meta time, .post-meta time, .updated-at time { font-family: var(--f-jp, serif); color: var(--bordeaux, #6B1E2A); font-size: .96em; letter-spacing: .035em; }
@@ -768,11 +770,11 @@ a:hover { text-decoration: underline; }
   <nav class="toc reveal" aria-label="目次" id="toc">
     <div class="toc-title">Archives Index</div>
     <ul class="toc-list">
-      <li><span>I. 平和への祈り ― 本アトラクションの核心と基本理念</span><a href="#philosophy">Explore →</a></li>
-      <li><span>II. メロディの劇的転換 ― 万博での誕生とシャーマン兄弟のドラマ</span><a href="#history">Explore →</a></li>
-      <li><span>III. 具現化された夢 ― 世界を彩色した4人のイマジニア</span><a href="#members">Explore →</a></li>
-      <li><span>IV. 期間限定の記録 ― 銀河の守護者「グルート」の地球バカンス</span><a href="#groot">Explore →</a></li>
-      <li><span>V. 世界に拡がる幸せの航路 ― 各テーマパークにおける外観表現と建築美</span><a href="#installations">Explore →</a></li>
+      <li><span id="toc-label-philosophy">I. 平和への祈り ― 本アトラクションの核心と基本理念</span><a href="#philosophy" aria-labelledby="toc-label-philosophy">Explore →</a></li>
+      <li><span id="toc-label-history">II. メロディの劇的転換 ― 万博での誕生とシャーマン兄弟のドラマ</span><a href="#history" aria-labelledby="toc-label-history">Explore →</a></li>
+      <li><span id="toc-label-members">III. 具現化された夢 ― 世界を彩色した4人のイマジニア</span><a href="#members" aria-labelledby="toc-label-members">Explore →</a></li>
+      <li><span id="toc-label-groot">IV. 期間限定の記録 ― 銀河の守護者「グルート」の地球バカンス</span><a href="#groot" aria-labelledby="toc-label-groot">Explore →</a></li>
+      <li><span id="toc-label-installations">V. 世界に拡がる幸せの航路 ― 各テーマパークにおける外観表現と建築美</span><a href="#installations" aria-labelledby="toc-label-installations">Explore →</a></li>
     </ul>
   </nav>
 
@@ -872,23 +874,23 @@ a:hover { text-decoration: underline; }
   <section class="section reveal" id="members" data-palette="green">
     <h2 class="section-heading">III. Masters of Creation — 平和を具現化した4人のイマジニア</h2>
     <p>この世界観を構築するため、ウォルトの元に集ったイマジニアたち。各ポートレートをタップすることで、それぞれの分野で発揮した細やかなこだわりと確かな足跡を覗くことができます。</p>
-    <div class="creator-grid" role="list">
-      <div class="creator-card" role="listitem" tabindex="0" data-member="mary" aria-label="メアリー・ブレアの詳細を表示">
+    <div class="creator-grid" role="group" aria-label="イマジニアの紹介">
+      <div class="creator-card" tabindex="0" data-member="mary" aria-label="メアリー・ブレアの詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Mary Blair</div>
         <div class="card-ja">メアリー・ブレア</div>
         <div class="card-role">色彩設計 / 美術デザイン</div>
       </div>
-      <div class="creator-card" role="listitem" tabindex="0" data-member="alice" aria-label="アリス・デイヴィスの詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="alice" aria-label="アリス・デイヴィスの詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Alice Davis</div>
         <div class="card-ja">アリス・デイヴィス</div>
         <div class="card-role">衣裳デザイン / 伝統織物考証</div>
       </div>
-      <div class="creator-card" role="listitem" tabindex="0" data-member="blaine" aria-label="ブレイン・ギブソンの詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="blaine" aria-label="ブレイン・ギブソンの詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Blaine Gibson</div>
         <div class="card-ja">ブレイン・ギブソン</div>
         <div class="card-role">人形造形 / 彫刻</div>
       </div>
-      <div class="creator-card" role="listitem" tabindex="0" data-member="sherman" aria-label="シャーマン兄弟の詳細を表示">
+      <div class="creator-card" tabindex="0" data-member="sherman" aria-label="シャーマン兄弟の詳細を表示" role="button" aria-haspopup="dialog" aria-controls="modalBg">
         <div class="card-en">Sherman Brothers</div>
         <div class="card-ja">シャーマン兄弟</div>
         <div class="card-role">作詞・作曲 / 音楽</div>
@@ -1001,7 +1003,7 @@ a:hover { text-decoration: underline; }
 </div><!-- /wrap -->
 
 <!-- モーダル -->
-<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalNameEn">
+<div class="modal-bg" id="modalBg" aria-hidden="true" inert role="dialog" aria-modal="true" aria-labelledby="modalNameEn">
   <div class="modal-box">
     <button class="modal-close" id="modalClose" aria-label="閉じる">✕ Close</button>
     <div class="modal-name-en" id="modalNameEn"></div>
@@ -1050,25 +1052,9 @@ const revealObserver = new IntersectionObserver((entries, ob) => {
 }, { threshold: 0.05 });
 reveals.forEach(el => revealObserver.observe(el));
 
-const modalBg = document.getElementById('modalBg');
-const modalClose = document.getElementById('modalClose');
-function openModal(id) {
-  const d = members[id]; if (!d) return;
-  document.getElementById('modalNameEn').textContent = d.en;
-  document.getElementById('modalNameJa').textContent = d.ja;
-  document.getElementById('modalDesc').textContent = d.desc;
-  modalBg.classList.add('open'); modalClose.focus();
-}
-function closeModal() { modalBg.classList.remove('open'); }
-document.querySelectorAll('.creator-card').forEach(c => {
-  c.addEventListener('click', () => openModal(c.dataset.member));
-  c.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); openModal(c.dataset.member); } });
-});
-modalClose.addEventListener('click', closeModal);
-modalBg.addEventListener('click', e => { if (e.target===modalBg) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+window.BGSCreatorMembers = members;
 
-document.querySelectorAll('img').forEach(img => {
+  document.querySelectorAll('img').forEach(img => {
   img.addEventListener('contextmenu', e => e.preventDefault());
   img.addEventListener('dragstart', e => e.preventDefault());
   img.addEventListener('touchstart', e => { img._pressTimer = setTimeout(() => e.preventDefault(), 500); }, { passive: false });
@@ -1078,7 +1064,7 @@ document.querySelectorAll('img').forEach(img => {
 </script>
 
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=It's%20a%20Small%20World%20%7C%20%E6%AD%B4%E5%8F%B2%E3%81%A8%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%92%E8%AA%AD%E3%81%BF%E8%A7%A3%E3%81%8FBGS%E3%82%B3%E3%83%A9%E3%83%A0%20%E2%80%94%20BGS%20Chronicles%20%23BGSChronicles&url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-smallworld.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
-<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);font-size:.58rem;line-height:1.8;letter-spacing:.08em;text-align:left;opacity:.86;">最終編集日：<time datetime="2026-10-09">2026年10月9日</time></p>
+<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);font-size:.58rem;line-height:1.8;letter-spacing:.08em;text-align:left;opacity:.86;">最終編集日：<time datetime="2026-10-21">2026年10月21日</time></p>
 
 
 <nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-tl.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Tomorrowland</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-tdlhistory.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Tokyo Disneyland</span></a></nav>

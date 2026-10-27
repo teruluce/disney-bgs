@@ -6,7 +6,13 @@ on:
       - "**.html"
       - "sitemap.xml"
       - "robots.txt"
-      - "scripts/seo_audit.py"
+      - "scripts/**"
+      - "**.css"
+      - "**.js"
+      - "**.jpg"
+      - "**.jpeg"
+      - "**.png"
+      - "**.svg"
       - ".github/workflows/seo-validation.yml"
   push:
     branches:
@@ -15,7 +21,13 @@ on:
       - "**.html"
       - "sitemap.xml"
       - "robots.txt"
-      - "scripts/seo_audit.py"
+      - "scripts/**"
+      - "**.css"
+      - "**.js"
+      - "**.jpg"
+      - "**.jpeg"
+      - "**.png"
+      - "**.svg"
       - ".github/workflows/seo-validation.yml"
 
 permissions:
@@ -32,4 +44,7 @@ jobs:
         with:
           python-version: "3.x"
       - name: Validate static SEO essentials
-        run: python scripts/seo_audit.py
+        run: |
+          python scripts/seo_audit.py
+          python -m unittest discover -s scripts -p "test_*.py"
+          node --check site.js

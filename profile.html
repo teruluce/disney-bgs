@@ -47,6 +47,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap">
   </noscript>
 
+  <link rel="stylesheet" href="site-components.css">
+  <script src="site.js" defer></script>
   <style>
     :root {
       --paper:       #F5EDD8;
@@ -366,12 +368,6 @@
     :focus-visible { outline: 2px solid var(--bordeaux); outline-offset: 3px; }
   
   
-.site-share{max-width:1100px;margin:34px auto 22px;padding:0 20px;text-align:center;position:relative;z-index:1}
-.site-share-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:10px 24px;border:1px solid var(--gold-rule,rgba(138,104,32,.5));background:transparent;color:var(--ink,#1c1209);font-family:inherit;font-size:.88rem;letter-spacing:.06em;text-decoration:none;transition:background .22s,border-color .22s,color .22s,transform .22s;box-shadow:inset 0 0 0 3px var(--paper, #f5edd8),inset 0 0 0 4px var(--gold-dim,rgba(138,104,32,.1))}
-.site-share-link:hover{background:var(--ink,#1c1209);border-color:var(--ink,#1c1209);color:var(--paper,#f5edd8);transform:translateY(-1px)}
-.site-share-link:focus-visible{outline:2px solid var(--bordeaux,#8a2535);outline-offset:4px}
-.site-share-mark{font-family:Arial,sans-serif;font-weight:700;font-size:1.15rem;line-height:1;letter-spacing:0}
-.site-share-note{margin:10px 0 0;color:var(--muted,#7a6048);font-size:.72rem;letter-spacing:.04em;line-height:1.7}
   
     .last-edited { max-width:100%; margin:16px 0 0; padding:12px 0 0; border-top:1px solid var(--border); color:var(--muted); font-family:var(--f-type); font-size:.58rem; line-height:1.8; letter-spacing:.08em; text-align:left; opacity:.86; }
     .last-edited time { font-family:var(--f-jp); letter-spacing:.04em; }
@@ -409,7 +405,9 @@
   <header class="masthead reveal">
     <div class="profile-img-frame">
       <img 
-        src="teru-profile.jpg" 
+        src="teru-profile-164.jpg"
+        srcset="teru-profile-164.jpg 164w, teru-profile-328.jpg 328w, teru-profile-492.jpg 492w"
+        sizes="(max-width: 413px) 124px, (max-width: 546px) 30vw, 164px"
         alt="てるのプロフィール写真" 
         width="130" height="130"
         decoding="sync" loading="eager" fetchpriority="high"
@@ -511,6 +509,6 @@
 
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" data-x-share href="https://x.com/intent/tweet" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
 
-<script>(function(){var b=document.querySelector('[data-x-share]');if(!b)return;var c=document.querySelector('link[rel="canonical"]');var u=c?c.href:window.location.href;var t=document.title||'BGS Chronicles';b.href='https://x.com/intent/tweet?text='+encodeURIComponent(t+' #BGSChronicles')+'&url='+encodeURIComponent(u);})();</script>
+
 </body>
 </html>
