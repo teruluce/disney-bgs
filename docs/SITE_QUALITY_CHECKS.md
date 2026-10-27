@@ -5,13 +5,24 @@ Maintainer: **Codex-BGS-20261027**. These checks complement the editorial guide;
 ## Source checks (standard library only)
 
 ```sh
-python scripts/seo_audit.py
-python scripts/update_share_links.py --check
-python -m unittest discover -s scripts -p 'test_*.py'
-node --check site.js
+python scripts/check_site.py
 ```
 
 The audit checks metadata, JSON-LD syntax, local HTML/asset references (including image variants and OGP images), anchors, duplicate IDs, existing Article modification dates against the displayed editorial date, and sitemap coverage/duplicates. It does not infer actual edit dates, validate external URLs, or measure Core Web Vitals. `sites.html` currently has an existing advisory warning for absent JSON-LD.
+
+The same command also checks X share copy, permanent File Nos, home-card coverage, article order/previous-next links, Python regression tests and the shared JavaScript syntax. The GitHub Actions workflow runs it for relevant pull requests.
+
+The home archive search filters article titles, descriptions and photo alt text together with the existing park buttons. It hides only when JavaScript is unavailable, leaving all cards readable. A table-of-contents link restores the target card if an active search or park filter had hidden it. Three article footers include a small related-record link; keep these links editorially relevant rather than adding them mechanically to every article.
+
+## Adding an archive article
+
+1. Give the article the next unused File No.; never renumber existing records. Add its card to `index.html` with the same number and a useful title, description, category, photo and alt text.
+2. Add the article's canonical/OGP data, article navigation and a folded source note following the editorial guide. Update the neighboring articles' previous/next links. Add the new page to `sitemap.xml` and `share-captions.json`, then run `python scripts/update_share_links.py`.
+3. Run `python scripts/check_site.py` and the browser smoke check before the PR. Check the real page on mobile and desktop. Keep any new card photo's original for articles/OGP, and add a display copy using `scripts/optimize_archive_images.py` if the photo is large.
+
+## Archive cover and card images
+
+`index.html` uses a 1200px display JPEG for the cover and 800/1200px responsive JPEGs for 16 photo cards. `scripts/optimize_archive_images.py` regenerates them from originals with Pillow. The Fantasy Springs card keeps the same 4:3 crop and 20% vertical position. `tds-map.jpg` is already small; `origins-card.png` remains its original illustration. OGP and article photography continue to use their existing originals. Check the actual crop after changing a source image.
 
 When updating an article's content, record its actual editorial date in the displayed `last-edited` time and any existing Article `dateModified` and sitemap `lastmod`. Do not substitute the date of unrelated technical maintenance. Do not add unsupported publication dates.
 

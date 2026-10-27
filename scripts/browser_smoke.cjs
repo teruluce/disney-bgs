@@ -52,6 +52,21 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
       }
 
       await page.goto(base + 'index.html');
+      await page.locator('#archive-query').fill('タワー・オブ・テラー');
+      assert.equal(await page.locator('.card:visible').count(), 1, 'Japanese article search');
+      assert.equal(await page.locator('#tot-card').isVisible(), true);
+      await page.locator('[data-filter="tdl"]').click();
+      assert.equal(await page.locator('.card:visible').count(), 0, 'search combines with park filter');
+      assert.equal(await page.locator('#archive-search-empty').isVisible(), true);
+      await page.locator('#archive-query').fill('');
+      assert.equal(await page.locator('#archive-search-empty').isVisible(), false);
+      assert.equal(await page.locator('.card:visible').count(), 10);
+      await page.locator('[data-filter="all"]').click();
+      await page.locator('#archive-query').fill('SEA');
+      assert.equal(await page.locator('#sea-card').isVisible(), true, 'punctuation-insensitive English search');
+      await page.locator('#toc a[href="#sm-card"]').click();
+      assert.equal(await page.locator('#archive-query').inputValue(), '', 'table of contents clears a conflicting search');
+      assert.equal(await page.locator('#sm-card').isVisible(), true);
       await page.locator('[data-filter="tdl"]').click();
       assert.equal(await page.locator('#tot-card').isVisible(), false);
       await page.locator('#toc a[href="#tot-card"]').click();
@@ -66,6 +81,11 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
       await page.waitForFunction(() => document.querySelector('#tot-card').style.display !== 'none');
       await page.locator('[data-filter="all"]').click();
       assert.equal(await page.locator('.card:visible').count(), 20);
+
+      for (const [source, target] of [['bgs-origins.html', 'bgs-spatial-epic.html'], ['bgs-tdlhistory.html', 'bgs-worldbazaar.html'], ['bgs-portdiscovery.html', 'bgs-tl.html']]) {
+        await page.goto(base + source);
+        assert.equal(await page.locator('.related-records a').getAttribute('href'), target);
+      }
 
       for (const file of ['index.html', 'bgs-electricalparade.html', 'bgs-sea.html', 'bgs-tdlhistory.html', 'bgs-smallworld.html']) {
         await page.goto(base + file);
@@ -125,6 +145,10 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
     for (const file of ['index.html', 'bgs-smallworld.html', 'bgs-tl.html', 'bgs-bb.html']) {
       await page.goto(base + file);
       assert.equal(await page.locator('.reveal,.fade').first().evaluate(element => getComputedStyle(element).opacity), '1', `${file}: no-JS fallback`);
+      if (file === 'index.html') {
+        assert.equal(await page.locator('#archive-query').isVisible(), false, 'no-JS search is hidden');
+        assert.equal(await page.locator('.card:visible').count(), 20, 'no-JS archive remains readable');
+      }
     }
     await nojs.close();
     assert.deepEqual(errors, []);

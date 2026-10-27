@@ -27,7 +27,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="tot-exterior.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="tot-exterior-archive.jpg" fetchpriority="high">
 
   <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap"
@@ -514,6 +514,30 @@
       background: var(--ink); color: var(--paper);
       border-color: var(--ink);
     }
+    .archive-search { display:none; }
+    .js .archive-search {
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+      margin:0 0 16px;
+      font-family:var(--f-type);
+      color:var(--muted);
+      font-size:.68rem;
+      letter-spacing:.08em;
+    }
+    .archive-search label { white-space:nowrap; }
+    .archive-search input {
+      flex:0 1 440px; min-width:0; min-height:44px;
+      border:1px solid var(--border-strong);
+      border-radius:0; background:var(--paper);
+      color:var(--ink); padding:10px 12px;
+      font:400 .82rem var(--f-jp);
+      box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--border);
+    }
+    .archive-search input:focus-visible { outline:2px solid var(--bordeaux); outline-offset:3px; }
+    .archive-search input::placeholder { color:var(--muted); opacity:.8; }
+    .archive-search-status { display:none; margin:0 0 12px; font:400 .68rem var(--f-type); color:var(--muted); }
+    .js .archive-search-status { display:block; }
+    .archive-search-empty { grid-column:1/-1; padding:24px 14px; text-align:center; font:400 .78rem/1.8 var(--f-jp); color:var(--muted); }
+    .archive-search-empty[hidden] { display:none; }
 
     /* ============================================================
        ARTICLE GRID
@@ -1121,7 +1145,7 @@
     <div class="hero-section-label">Archive Photo — Tokyo DisneySea</div>
     <div class="hero-photo-frame" id="hero-frame">
       <img
-        src="tot-exterior.jpg"
+        src="tot-exterior-archive.jpg"
         alt="東京ディズニーシー タワー・オブ・テラー外観"
         width="1200" height="400"
         decoding="sync" loading="eager" fetchpriority="high"
@@ -1202,13 +1226,19 @@
     <button class="filter-btn" data-filter="tdl" aria-pressed="false">Disneyland</button>
     <button class="filter-btn" data-filter="tds" aria-pressed="false">DisneySea</button>
   </div>
+  <div class="archive-search reveal" role="search" aria-label="記事を探す">
+    <label for="archive-query">記録を探す / Search</label>
+    <input id="archive-query" type="search" placeholder="施設名・物語の手がかり" autocomplete="off" aria-controls="article-grid" aria-describedby="archive-search-status">
+  </div>
+  <p class="archive-search-status" id="archive-search-status" role="status" aria-live="polite"></p>
 
   <!-- ===== ARTICLE GRID ===== -->
   <div class="article-grid" id="article-grid">
+    <p class="archive-search-empty" id="archive-search-empty" hidden>該当する記録はありません。別の言葉で探してみてください。</p>
 
     <a href="bgs-sm.html" class="card reveal" id="sm-card" data-cat="tdl">
       <div class="card-img">
-        <img src="sm-day.jpeg" alt="スプラッシュ・マウンテン" loading="lazy" decoding="async" style="object-position:center 40%">
+        <img src="sm-day-archive.jpg" srcset="sm-day-archive-800.jpg 800w, sm-day-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="スプラッシュ・マウンテン" loading="lazy" decoding="async" style="object-position:center 40%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 001 · Story · TDL</span><span class="card-time">4 min</span></div>
@@ -1220,7 +1250,7 @@
 
     <a href="bgs-btm.html" class="card reveal" id="btm-card" data-cat="tdl">
       <div class="card-img">
-        <img src="btm-exterior.jpeg" alt="ビッグサンダー・マウンテンの列車" loading="lazy" decoding="async" style="object-position:center 72%">
+        <img src="btm-exterior-archive.jpg" srcset="btm-exterior-archive-800.jpg 800w, btm-exterior-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="ビッグサンダー・マウンテンの列車" loading="lazy" decoding="async" style="object-position:center 72%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 002 · Story · TDL</span><span class="card-time">3 min</span></div>
@@ -1232,7 +1262,7 @@
 
     <a href="bgs-haunted.html" class="card reveal" id="haunted-card" data-cat="tdl">
       <div class="card-img">
-        <img src="haunted-exterior.jpg" alt="ホーンテッドマンション" loading="lazy" decoding="async" style="object-position:25% 50%">
+        <img src="haunted-exterior-archive.jpg" srcset="haunted-exterior-archive-800.jpg 800w, haunted-exterior-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="ホーンテッドマンション" loading="lazy" decoding="async" style="object-position:25% 50%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 003 · Featured · TDL</span><span class="card-time">5 min</span></div>
@@ -1244,7 +1274,7 @@
 
     <a href="bgs-bb.html" class="card reveal" id="bb-card" data-cat="tdl">
       <div class="card-img">
-        <img src="bb-castle.jpeg" alt="美女と野獣エリア" loading="lazy" decoding="async" style="object-position:center 22%">
+        <img src="bb-castle-archive.jpg" srcset="bb-castle-archive-800.jpg 800w, bb-castle-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="美女と野獣エリア" loading="lazy" decoding="async" style="object-position:center 22%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 004 · Story · TDL</span><span class="card-time">4 min</span></div>
@@ -1256,7 +1286,7 @@
 
     <a href="bgs-worldbazaar.html" class="card reveal" id="worldbazaar-card" data-cat="tdl">
       <div class="card-img">
-        <img src="world-bazaar-seasonal.jpeg" alt="クリスマスの飾りが輝くワールドバザール" loading="lazy" decoding="async" style="object-position:center 50%">
+        <img src="world-bazaar-seasonal-archive.jpg" srcset="world-bazaar-seasonal-archive-800.jpg 800w, world-bazaar-seasonal-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="クリスマスの飾りが輝くワールドバザール" loading="lazy" decoding="async" style="object-position:center 50%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 005 · Story · TDL</span><span class="card-time">4 min</span></div>
@@ -1268,7 +1298,7 @@
 
     <a href="cinderella-castle.html" class="card reveal" id="cinderella-card" data-cat="tdl">
       <div class="card-img">
-        <img src="cinderella-castle-sunny.jpg" alt="シンデレラ城" loading="lazy" decoding="async" style="object-position:center 62%">
+        <img src="cinderella-castle-sunny-archive.jpg" srcset="cinderella-castle-sunny-archive-800.jpg 800w, cinderella-castle-sunny-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="シンデレラ城" loading="lazy" decoding="async" style="object-position:center 62%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 006 · Story · TDL</span><span class="card-time">4 min</span></div>
@@ -1280,7 +1310,7 @@
 
     <a href="bgs-tl.html" class="card reveal" id="tl-card" data-cat="tdl">
       <div class="card-img">
-        <img src="tl-space-day.jpeg" alt="トゥモローランド" loading="lazy" decoding="async" style="object-position:center 50%">
+        <img src="tl-space-day-archive.jpg" srcset="tl-space-day-archive-800.jpg 800w, tl-space-day-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="トゥモローランド" loading="lazy" decoding="async" style="object-position:center 50%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 007 · Story · TDL</span><span class="card-time">3 min</span></div>
@@ -1292,7 +1322,7 @@
 
     <a href="bgs-smallworld.html" class="card reveal" id="smallworld-card" data-cat="tdl">
       <div class="card-img">
-        <img src="smallworld-exterior-day.jpeg" alt="イッツ・ア・スモールワールド" loading="lazy" decoding="async" style="object-position:center 40%">
+        <img src="smallworld-exterior-day-archive.jpg" srcset="smallworld-exterior-day-archive-800.jpg 800w, smallworld-exterior-day-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="イッツ・ア・スモールワールド" loading="lazy" decoding="async" style="object-position:center 40%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 008 · Story · TDL</span><span class="card-time">4 min</span></div>
@@ -1330,7 +1360,7 @@
     <!-- エレクトリカルパレード紹介カード -->
     <a href="bgs-electricalparade.html" class="card reveal" id="ep-card" data-cat="tdl">
       <div class="card-img">
-        <img src="tdl-ep-bluefairy.jpeg" alt="東京ディズニーランド・エレクトリカルパレード" loading="lazy" decoding="async" style="object-position:center 22%">
+        <img src="tdl-ep-bluefairy-archive.jpg" srcset="tdl-ep-bluefairy-archive-800.jpg 800w, tdl-ep-bluefairy-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="東京ディズニーランド・エレクトリカルパレード" loading="lazy" decoding="async" style="object-position:center 22%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 010 · Story · TDL</span><span class="card-time">5 min</span></div>
@@ -1355,7 +1385,7 @@
 
     <a href="bgs-tot.html" class="card reveal" id="tot-card" data-cat="tds">
       <div class="card-img">
-        <img src="tot-exterior.jpg" alt="タワー・オブ・テラー" loading="lazy" decoding="async" style="object-position:12% 50%">
+        <img src="tot-exterior-archive.jpg" srcset="tot-exterior-archive-800.jpg 800w, tot-exterior-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="タワー・オブ・テラー" loading="lazy" decoding="async" style="object-position:12% 50%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 012 · Story · TDS</span><span class="card-time">5 min</span></div>
@@ -1367,7 +1397,7 @@
 
     <a href="bgs-sindbad.html" class="card reveal" id="sindbad-card" data-cat="tds">
       <div class="card-img">
-        <img src="arabian-coast-market-street.jpeg" alt="アラビアンコーストの街並み" loading="lazy" decoding="async" style="object-position:center 35%">
+        <img src="arabian-coast-market-street-archive.jpg" srcset="arabian-coast-market-street-archive-800.jpg 800w, arabian-coast-market-street-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="アラビアンコーストの街並み" loading="lazy" decoding="async" style="object-position:center 35%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 013 · Story · TDS</span><span class="card-time">3 min</span></div>
@@ -1379,7 +1409,7 @@
 
     <a href="bgs-fs.html" class="card reveal" id="fs-card" data-cat="tds">
       <div class="card-img">
-        <img src="fantasy-springs-rockwork-waterfall.jpeg" alt="ファンタジースプリングス" loading="lazy" decoding="async" style="object-position:center 20%">
+        <img src="fantasy-springs-rockwork-waterfall-archive.jpg" srcset="fantasy-springs-rockwork-waterfall-archive-800.jpg 800w, fantasy-springs-rockwork-waterfall-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="ファンタジースプリングス" loading="lazy" decoding="async" style="object-position:center 20%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 014 · Story · TDS</span><span class="card-time">4 min</span></div>
@@ -1391,7 +1421,7 @@
 
     <a href="bgs-soarin.html" class="card reveal" id="soarin-card" data-cat="tds">
       <div class="card-img">
-        <img src="soarin-exterior.jpeg" alt="ソアリン：ファンタスティック・フライト" loading="lazy" decoding="async" style="object-position:center 45%">
+        <img src="soarin-exterior-archive.jpg" srcset="soarin-exterior-archive-800.jpg 800w, soarin-exterior-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="ソアリン：ファンタスティック・フライト" loading="lazy" decoding="async" style="object-position:center 45%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 015 · Story · TDS</span><span class="card-time">4 min</span></div>
@@ -1420,7 +1450,7 @@
 
     <a href="bgs-raging.html" class="card reveal" id="raging-card" data-cat="tds">
       <div class="card-img">
-        <img src="raging-altar.jpeg" alt="レイジングスピリッツ" loading="lazy" decoding="async" style="object-position:center 15%">
+        <img src="raging-altar-archive.jpg" srcset="raging-altar-archive-800.jpg 800w, raging-altar-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="レイジングスピリッツ" loading="lazy" decoding="async" style="object-position:center 15%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 017 · Story · TDS</span><span class="card-time">3 min</span></div>
@@ -1432,7 +1462,7 @@
 
     <a href="bgs-indy.html" class="card reveal" id="indy-card" data-cat="tds">
       <div class="card-img">
-        <img src="indy-temple.jpeg" alt="インディ・ジョーンズ・アドベンチャー" loading="lazy" decoding="async" style="object-position:center 30%">
+        <img src="indy-temple-archive.jpg" srcset="indy-temple-archive-800.jpg 800w, indy-temple-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="インディ・ジョーンズ・アドベンチャー" loading="lazy" decoding="async" style="object-position:center 30%">
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 018 · Story · TDS</span><span class="card-time">4 min</span></div>
@@ -1444,7 +1474,7 @@
 
     <a href="bgs-portdiscovery.html" class="card reveal" id="portdiscovery-card" data-cat="tds">
       <div class="card-img">
-        <img src="aquatopia-entrance.jpeg" alt="ポートディスカバリー：アクアトピアの乗り場と管制塔" loading="lazy" decoding="async" style="object-position:center 55%">
+        <img src="aquatopia-entrance-archive.jpg" srcset="aquatopia-entrance-archive-800.jpg 800w, aquatopia-entrance-archive.jpg 1200w" sizes="(min-width:1280px) 25vw, (min-width:900px) 33vw, (min-width:600px) 50vw, 100vw" alt="ポートディスカバリー：アクアトピアの乗り場と管制塔" loading="lazy" decoding="async" style="object-position:center 55%">
         <span class="card-stamp" aria-label="アクアトピアは2026年9月14日に営業終了">Aquatopia<br>Closed 2026.09.14</span>
       </div>
       <div class="card-body">
