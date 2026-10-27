@@ -618,7 +618,7 @@
   </section>
 
   <section class="site-share" aria-label="この記事を共有">
-    <a id="x-share-btn" class="site-share-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="この記事をXで共有する">
+    <a id="x-share-btn" class="site-share-link" href="https://x.com/intent/tweet?text=%E8%A6%8B%E6%85%A3%E3%82%8C%E3%81%9F%E3%81%8A%E5%9F%8E%E3%82%82%E3%80%81%E8%89%B2%E5%BD%A9%E3%82%84%E5%B0%96%E5%A1%94%E3%81%AB%E7%9B%AE%E3%82%92%E5%90%91%E3%81%91%E3%82%8B%E3%81%A8%E9%81%95%E3%81%A3%E3%81%A6%E8%A6%8B%E3%81%88%E3%82%8B%E3%80%82%E3%82%B7%E3%83%B3%E3%83%87%E3%83%AC%E3%83%A9%E5%9F%8E%E3%81%AE%E5%BB%BA%E7%AF%89%E3%81%A8%E3%80%81%E5%A4%A2%E3%81%AE%E6%99%AF%E8%89%B2%E3%82%92%E3%81%A4%E3%81%8F%E3%82%8B%E5%B7%A5%E5%A4%AB%E3%82%92%E8%BE%BF%E3%82%8B%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC+%23%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89+%23%E3%82%B7%E3%83%B3%E3%83%87%E3%83%AC%E3%83%A9%E5%9F%8E+%23BGS+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E5%A5%BD%E3%81%8D%E3%81%A8%E7%B9%8B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fcinderella-castle.html" target="_blank" rel="noopener noreferrer" aria-label="この記事をXで共有する">
       <span class="site-share-mark" aria-hidden="true">𝕏</span>
       <span>この記事をXで共有</span>
     </a>
@@ -638,21 +638,8 @@
         → メインスレッドのブロックを最小化
      2. 初期表示要素（index < 3）を setTimeout 0 で即時表示
      3. contextmenu / dragstart をパッシブリスナーで登録
-     4. X share ボタンのURL生成をページロード後に defer
 ============================================================ -->
 <script>
-  var SHARE_TITLE = "シンデレラ城：時を刻む魔法と、青き尖塔のファンタジー";
-  var SHARE_URL   = "https://teruluce.github.io/disney-bgs/cinderella-castle.html";
-  var SHARE_TAGS  = "#東京ディズニーランド #シンデレラ城 #BGSChronicles";
-
-  /* X share URL — defer で非同期生成 */
-  function initShare() {
-    var btn = document.getElementById('x-share-btn');
-    if (!btn) return;
-    var body = "【BGS Chronicles】" + SHARE_TITLE + "\n\n" + SHARE_URL + "\n\n" + SHARE_TAGS;
-    btn.href = "https://x.com/intent/tweet?text=" + encodeURIComponent(body);
-  }
-
   /* Reveal on scroll — rIC でアイドル時に初期化 */
   function initReveal() {
     var els = document.querySelectorAll('.reveal');
@@ -688,13 +675,11 @@
   if ('requestIdleCallback' in window) {
     requestIdleCallback(function() {
       initReveal();
-      initShare();
       initProtect();
     }, { timeout: 400 });
   } else {
     setTimeout(function() {
       initReveal();
-      initShare();
       initProtect();
     }, 0);
   }

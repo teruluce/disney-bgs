@@ -889,7 +889,7 @@
   <!-- ============ SHARE ============ -->
 <p class="related-note" style="max-width:640px;margin:20px auto 0;padding:0 clamp(16px,5vw,40px);text-align:center;font-family:'Noto Serif JP',serif;font-size:.68rem;letter-spacing:.06em;line-height:1.8;color:var(--muted);opacity:.85">関連記事（Disney Discovery）：<a href="https://teruluce.github.io/disney-discovery/articles/fantasy-springs-guide.html" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:underline;text-decoration-color:rgba(138,104,32,.35);text-underline-offset:3px;display:inline-block;padding:8px 2px">ファンタジースプリングスとは</a></p>
   <section class="site-share" aria-label="この記事を共有">
-    <a id="share-btn" class="site-share-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="この記事をXで共有する">
+    <a id="share-btn" class="site-share-link" href="https://x.com/intent/tweet?text=%E6%B3%89%E3%81%AE%E6%B0%B4%E3%81%AF%E3%80%813%E3%81%A4%E3%81%AE%E7%89%A9%E8%AA%9E%E4%B8%96%E7%95%8C%E3%82%92%E3%81%A9%E3%81%86%E3%81%A4%E3%81%AA%E3%81%90%E3%81%AE%E3%81%8B%E3%80%82%E7%B2%BE%E9%9C%8A%E3%81%AE%E4%BC%9D%E8%AA%AC%E3%81%A8%E3%83%80%E3%83%83%E3%83%81%E3%82%A7%E3%82%B9%E3%81%AE%E6%8B%9B%E5%BE%85%E7%8A%B6%E3%81%8B%E3%82%89%E8%BE%BF%E3%82%8B%E3%80%81%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC%E3%82%B9%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B9%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC+%23%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%82%B7%E3%83%BC+%23%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC%E3%82%B9%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B9+%23BGS+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E5%A5%BD%E3%81%8D%E3%81%A8%E7%B9%8B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-fs.html" target="_blank" rel="noopener noreferrer" aria-label="この記事をXで共有する">
       <span class="site-share-mark" aria-hidden="true">𝕏</span>
       <span>この記事をXで共有</span>
     </a>
@@ -923,12 +923,6 @@
       if (i < 3) el.classList.add('on');
     });
   }, 50);
-
-  /* Xシェアボタン */
-  const shareBtn = document.getElementById('share-btn');
-  shareBtn.href = 'https://twitter.com/intent/tweet?text=' +
-    encodeURIComponent('精霊の泉が遺した、3つの物語世界へ。\nファンタジースプリングスのBGS完全解説を読んだ。\n#BGSChronicles #ファンタジースプリングス #TDS') +
-    '&url=' + encodeURIComponent('https://teruluce.github.io/disney-bgs/bgs-fs.html');
 
   /* 画像保護 */
   document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });

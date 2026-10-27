@@ -5,6 +5,7 @@ on:
     paths:
       - "**.html"
       - "sitemap.xml"
+      - "share-captions.json"
       - "robots.txt"
       - "scripts/**"
       - "**.css"
@@ -20,6 +21,7 @@ on:
     paths:
       - "**.html"
       - "sitemap.xml"
+      - "share-captions.json"
       - "robots.txt"
       - "scripts/**"
       - "**.css"
@@ -46,5 +48,6 @@ jobs:
       - name: Validate static SEO essentials
         run: |
           python scripts/seo_audit.py
+          python scripts/update_share_links.py --check
           python -m unittest discover -s scripts -p "test_*.py"
           node --check site.js
