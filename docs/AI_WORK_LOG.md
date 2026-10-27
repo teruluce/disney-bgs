@@ -789,3 +789,11 @@
 - **ブラウザ／PR／CI：** 完了後の追記を参照。
 - **公開状況：** 未マージ。公開ページでの反映、Xの実際の投稿画面・SNSプレビューは未検証。Xへの投稿操作は行っていない。
 - **引き継ぎ：** `share-captions.json` の日本語をレビューし、必要なら文面を調整して生成し直す。マージ後にPagesと公開共有リンクの反映を確認する。
+
+#### X共有文改善の検証・引き継ぎ追記 — Codex-BGS-20261027
+
+- **ブラウザ：** 全23ページ×390/768/1280pxの69条件（既存の分類・履歴・モーダル・JS無効時表示を含む）成功。共有文の照合も既存ブラウザ検証へ追加した。別途、22ページ×JS有効/無効の44条件で、文面・6タグ・canonical URL・新規タブ・JSエラーなしを確認。旧ローカルHTTPサーバーの応答不良があったため、新しいサーバーで再実行して確認した。
+- **修正コミット：** [f99e0bbd0d986c43d4d5b43cf131e7664c5409a1](https://github.com/teruluce/disney-bgs/commit/f99e0bbd0d986c43d4d5b43cf131e7664c5409a1)。検証済みローカルtreeとGitHub treeが一致。
+- **PR：** [#70](https://github.com/teruluce/disney-bgs/pull/70)。文面は share-captions.json、投稿例は docs/X_SHARE_COPY.md で確認できる。
+- **GitHub CI：** [Static SEO validation #40555301815](https://github.com/teruluce/disney-bgs/actions/runs/40555301815) — success。
+- **状態：** 修正・検証完了、レビュー待ち。未マージ・本番未反映。Xへの実投稿は行っていない。公開サイト・X投稿画面の確認はマージ後に別途行う。
