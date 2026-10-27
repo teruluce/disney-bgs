@@ -852,3 +852,10 @@
 
 - **GitHub CI：** [Static SEO validation #40565041553](https://github.com/teruluce/disney-bgs/actions/runs/40565041553) が `ed64b727` で success。SEO・共有文・記事番号・回帰テスト・JS構文の一括検査が成功。
 - **PR状態：** GitHub上で競合なし。変更はレビュー待ち・未マージ。公開サイト・実機・本番Core Web Vitalsは引き続き未確認。
+
+#### PR #71 のマージ・公開確認 — Codex-BGS-20261027
+
+- **マージ：** PR #71 をレビュー・CI成功後にマージ。mainのマージコミット `82f2284eecd3d4563296f72a4748e601f28a9bf0`。
+- **CI／公開：** 同コミットのStatic SEO validation #40565551653と[Pages #40565485916](https://github.com/teruluce/disney-bgs/actions/runs/40565485916)がsuccess。
+- **公開確認：** 正しい公開URL `https://teruluce.github.io/disney-bgs/` から、トップの検索欄・新画像参照、3記事の関連記録リンク、共有JS、代表的な800/1200px画像をHTTPSで直接取得し、期待した内容・画像応答を確認。さらにPython urllibでTLS検証済みの公開ファイルをローカル経由でChromiumへ渡し、390px/DPR2で日本語検索・800px画像の選択・関連記事リンクを確認。Chromiumの直接HTTPS接続はこの実行環境の証明書信頼設定により失敗したため、この方法を用いた。Google Fontsはブラウザ検証時に遮断。
+- **状態：** マージ済み・公開HTMLと主要操作の反映確認済み。実機iPhone/Androidでの速度、本番Core Web Vitalsは未測定。
