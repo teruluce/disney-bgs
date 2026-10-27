@@ -766,3 +766,10 @@
 - **状態：** ローカルの修正・検証完了。レビュー待ち。着手時の「作業中」はこの完了記録で更新する。
 - **公開状況：** 未マージ。Pagesの本番反映・公開サイト確認は未実施。
 - **残作業／次の担当：** 最新PR差分とCIを確認してレビュー。マージ後はPagesデプロイと公開ページの実表示を別途確認する。実機iPhone／Android・本番Core Web Vitals・SNS上のOGPキャッシュは未検証。
+
+#### 完了追記 — Codex-BGS-20261027
+
+- **修正コミット：** [40aee95a3bd7508e6576800cea9b809f90810016](https://github.com/teruluce/disney-bgs/commit/40aee95a3bd7508e6576800cea9b809f90810016)。ローカル検証済みtreeとGitHubのtreeが完全一致することを確認。
+- **GitHub CI：** [Static SEO validation #40553272938](https://github.com/teruluce/disney-bgs/actions/runs/40553272938) が上記修正コミットで success。監査・12件の回帰テスト・JS構文検査が成功。
+- **PR状態：** [#68](https://github.com/teruluce/disney-bgs/pull/68) はdraft解除済み・レビュー待ち・競合なし。コード修正は完了。未マージ・本番反映なし。
+- **引き継ぎ：** レビュー後に統合する。本番Pagesのデプロイ／公開表示／実機／CWV確認は未実施。この追記は検証結果の記録のみでサイトコードは変更しない。
