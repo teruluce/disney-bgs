@@ -918,6 +918,36 @@
     }
     .footer-related { margin-top:10px; font-family:var(--f-jp); font-size:.62rem; letter-spacing:.08em; opacity:.8; }
     .footer-related a { color:var(--muted); text-decoration:underline; text-decoration-color:rgba(138,104,32,.35); text-underline-offset:3px; display:inline-block; padding:8px 4px; }
+    .photo-request {
+      max-width: 640px;
+      margin: 0 auto 22px;
+      padding: 0 0 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink-soft);
+      font-family: var(--f-jp);
+      text-align: left;
+    }
+    .photo-request h2 {
+      margin: 0 0 10px;
+      color: var(--bordeaux);
+      font-size: .95rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+    .photo-request p { margin: 0 0 8px; font-size: .85rem; line-height: 1.9; }
+    .photo-request .photo-request-links { margin: 6px 0 0; text-align: center; }
+    .photo-request-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 10px;
+      color: var(--bordeaux);
+      font-size: .82rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .photo-request-links a:focus-visible { outline: 2px solid var(--bordeaux); outline-offset: 2px; }
     .footer-notice-btn {
       display: inline-flex;
       align-items: center;
@@ -1540,6 +1570,13 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer reveal">
+    <section class="photo-request" aria-labelledby="photo-request-title">
+      <h2 id="photo-request-title">写真提供のお願い</h2>
+      <p>BGS Chroniclesでは、資料の充実に向けて、読者の皆さまから写真を募集しています。</p>
+      <p>ご自身で撮影された東京ディズニーリゾートの写真を無償でご提供いただける方は、SNSのDMよりご連絡ください。</p>
+      <p>写真の掲載にあたっては事前に許可をいただき、ご希望のお名前（匿名可）をクレジットとして明記します。著作権は撮影者に帰属し、金銭・謝礼等の授受は一切ありません。</p>
+      <p class="photo-request-links"><a href="https://www.instagram.com/teru_luce_" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/BGSChronicles" target="_blank" rel="noopener noreferrer">X（@BGSChronicles）</a></p>
+    </section>
     <p class="footer-copy">&copy; 2026 TERU_LUCE_ &nbsp;·&nbsp; BGS Chronicles &nbsp;·&nbsp; All Rights Reserved</p>
     <p class="footer-related"><a href="https://teruluce.github.io/disney-discovery/" target="_blank" rel="noopener noreferrer">関連サイト：Disney Discovery</a></p>
     <p class="last-edited">最終編集日：<time datetime="2026-10-28">2026年10月28日</time></p>
@@ -1558,7 +1595,7 @@
     <div class="modal-actions">
       <a href="https://www.instagram.com/teru_luce_" target="_blank" rel="noopener noreferrer" class="modal-sns-link">Instagram (DM)</a>
     </div>
-    <p class="modal-copyright">＊ 掲載写真データの著作権は管理者に帰属します。</p>
+    <p class="modal-copyright">＊ 掲載写真の著作権は撮影者に帰属します。</p>
     <p class="modal-copyright">＊ 当サイトは個人が運営する非公式のファンサイトです。ウォルト・ディズニー・カンパニーおよび株式会社オリエンタルランドとは関係ありません。</p>
   </div>
 </div>
