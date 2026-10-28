@@ -922,3 +922,9 @@
 - **変更：** トップ目次でシーとは別の「Worldwide / 世界のパーク」欄へ移動し、記事一覧に「世界のパーク」フィルターを追加。元から記事の分類は `history` で、今回対応するボタンを用意。PCの一面が画面内に収まるよう余白を調整。既存の文字組みカード変更（PR #77）と同じブランチにまとめた。
 - **検証：** `python scripts/check_site.py` 成功（既存のsites.htmlのJSON-LD警告1件）、Chromiumで全24ページ×390／768／1280pxの72条件、分類・目次移動、1100×640／1280×640・720／1440×900の一面の収まりを確認（代替書体）。公開・実機は未確認。
 - **状態：** [PR #77](https://github.com/teruluce/disney-bgs/pull/77) 更新、レビュー待ち・未マージ。
+
+#### PR #77 マージ・公開確認 — Codex-BGS-20261027
+
+- 運営者が[PR #77](https://github.com/teruluce/disney-bgs/pull/77)をマージ。マージコミット `9472bd62dc937f08c7b9976d839597f5f99b530f`。
+- PR CI #40652947375、main CI #40653058030、Pages #40653058138 は成功。
+- 公開の `index.html`、`desktop.css`、`bgs-genesis.html`、`stories-share-card.png` をHTTPS取得し、検証済みファイルとバイト単位で一致。公開サイトの実機表示とSNSの実プレビューは未確認。
