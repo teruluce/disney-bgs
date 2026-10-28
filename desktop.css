@@ -150,6 +150,55 @@
   .card-body { padding-bottom: 22px; }
 }
 
+/* Keep the newspaper's first page together on shorter desktop screens. */
+@media (min-width: 1100px) and (max-height: 900px) {
+  .content-box { padding-top: 14px; }
+  .masthead { padding: 10px 0 10px; }
+  .masthead-top-rule { margin-bottom: 7px; }
+  .masthead-kicker { margin-bottom: 7px; }
+  .masthead-title { font-size: clamp(3.5rem, 9vh, 5rem); margin-bottom: 3px; }
+  .masthead-subtitle { margin-top: 6px; }
+  .masthead-bottom-rules { margin-top: 9px; }
+  .profile-link { margin-top: 8px; min-height: 34px; padding: 5px 18px; }
+  .front-page {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 28px;
+    margin-top: 14px;
+  }
+  .front-page .hero-photo-frame { min-height: 0; }
+  .front-page .hero-section-label { margin-bottom: 5px; }
+  .front-page .hero-caption-block { padding: 6px 4px; }
+  .front-page > .intro-col { padding: 8px 0 10px; }
+  .front-page .intro-drop-cap-line { margin-bottom: 5px; }
+  .front-page .intro-body { font-size: .82rem; line-height: 1.65; }
+  .front-page .intro-body .sbr { height: .3em; }
+  .front-page > .toc-wrap { padding: 10px 12px 12px; }
+  .front-page .toc-head { margin-bottom: 7px; padding-bottom: 6px; }
+  .front-page .toc-group { margin-bottom: 7px; }
+  .front-page .toc-group:last-child { margin-bottom: 0; }
+  .front-page .toc-group-label { margin-bottom: 3px; }
+  .front-page .toc-links {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 10px;
+  }
+  .front-page .toc-links a { min-height: 27px; gap: 5px; font-size: .72rem; }
+}
+
+@media (min-width: 1100px) and (max-height: 700px) {
+  .masthead .profile-link {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    margin: 0;
+    background: var(--paper);
+  }
+  .masthead .profile-link:hover { background: var(--ink); }
+  .masthead-title { font-size: 3.4rem; }
+  .front-page .toc-links a { min-height: 24px; padding: 2px; }
+}
+
 /* 横幅に余裕がある画面では4列にして、一覧性を上げる */
 @media (min-width: 1280px) {
   .article-grid { grid-template-columns: repeat(4, 1fr); }
