@@ -655,6 +655,20 @@
     }
     .sea-placeholder { background: var(--ink-2); }
     .tdl-placeholder { background: linear-gradient(160deg, #0b1520 0%, #06090f 100%); }
+    .stories-typography {
+      background: var(--paper); color: var(--ink);
+      flex-direction: column; text-align: center; padding: 24px;
+      font-family: var(--f-display); line-height: 1.08;
+    }
+    .stories-typography .stories-kicker, .stories-typography .stories-number {
+      font-family: var(--f-type); color: var(--bordeaux); font-size: .62rem;
+      letter-spacing: .16em; text-transform: uppercase;
+    }
+    .stories-typography .stories-kicker { margin-bottom: 12px; }
+    .stories-typography .stories-title { font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 700; font-style: italic; }
+    .stories-typography .stories-number { border-top: 3px double var(--border-strong); margin-top: 14px; padding-top: 9px; }
+    #genesis-card .card-img::before { border-color: var(--border-strong); }
+    #genesis-card .card-img::after { background: none; }
 
     .sea-crest-box {
       border: 1px solid rgba(180,150,80,0.6);
@@ -1502,7 +1516,11 @@
     <a href="bgs-genesis.html" class="card reveal" id="genesis-card" data-cat="history">
       <span class="badge-new">New</span>
       <div class="card-img">
-        <img src="genesis-card.png" alt="断面図で描かれた城と、その地下を通るトンネルのイラスト" loading="lazy" decoding="async">
+        <div class="card-placeholder stories-typography" aria-hidden="true">
+          <span class="stories-kicker">BGS Chronicles · Archive</span>
+          <span class="stories-title">A World<br>of Stories</span>
+          <span class="stories-number">File No. 021 · Chronicle</span>
+        </div>
       </div>
       <div class="card-body">
         <div class="card-meta-row"><span class="card-cat">No. 021 · Chronicle · Worldwide</span><span class="card-time">10 min</span></div>

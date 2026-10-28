@@ -6,6 +6,8 @@ Updated: 2026-10-21
 
 BGS Chronicles is an independent Disney Parks fan publication presented as a carefully edited, early-20th-century newspaper/archive. It is an atmospheric editorial experience, not a dry encyclopedia. Preserve the existing masthead, serif headlines, fine rules, warm paper texture, ink-brown text, restrained bordeaux accents, and antique-gold details.
 
+The owner's visual reference is an early-20th-century American newspaper in the spirit of American Waterfront. Preserve the established typefaces, ink colors, paper palette, and restrained rules when adding or changing components; check changes in context.
+
 ## Editorial voice and uncertainty
 
 - Write with narrative flow, curiosity, and a sense of discovery. Do not interrupt articles with repeated defensive disclaimers such as “公式では確認できませんでした” unless the distinction is essential to avoid misleading readers.
