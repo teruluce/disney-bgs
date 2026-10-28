@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="paper" cx="40%" cy="35%" r="85%">
+      <stop offset="0" stop-color="#F7EFDB"/>
+      <stop offset="0.65" stop-color="#EDE0C4"/>
+      <stop offset="1" stop-color="#D9C6A0"/>
+    </radialGradient>
+    <linearGradient id="earth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D9C6A0" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#CDB68A" stop-opacity="0.2"/>
+    </linearGradient>
+    <pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#3D2D1A" stroke-width="1.6" opacity="0.45"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#paper)"/>
+
+  <!-- frame -->
+  <rect x="36" y="36" width="1528" height="828" fill="none" stroke="#6B1E2A" stroke-width="3" opacity="0.85"/>
+  <rect x="50" y="50" width="1500" height="800" fill="none" stroke="#8A6820" stroke-width="1.4" opacity="0.8"/>
+
+  <!-- earth below the stage -->
+  <rect x="120" y="500" width="1360" height="290" fill="url(#earth)"/>
+  <line x1="120" y1="500" x2="1480" y2="500" stroke="#3D2D1A" stroke-width="2.4" opacity="0.8"/>
+
+  <!-- castle above the stage: tiers shrink toward the top (forced perspective) -->
+  <g stroke="#3D2D1A" stroke-width="2.6" fill="none" stroke-linejoin="round">
+    <!-- keep -->
+    <path d="M690 500 L690 330 L910 330 L910 500" fill="url(#hatch)"/>
+    <!-- centre spire -->
+    <path d="M740 330 L740 230 L860 230 L860 330"/>
+    <path d="M730 230 L800 120 L870 230 Z"/>
+    <line x1="800" y1="120" x2="800" y2="84"/>
+    <path d="M800 84 L836 94 L800 104" fill="#6B1E2A" fill-opacity="0.75" stroke="#6B1E2A"/>
+    <!-- side towers -->
+    <path d="M626 500 L626 372 L690 372"/>
+    <path d="M620 372 L658 312 L696 372 Z"/>
+    <path d="M974 500 L974 372 L910 372"/>
+    <path d="M904 372 L942 312 L980 372 Z"/>
+    <!-- outer turrets -->
+    <path d="M566 500 L566 420 L626 420"/>
+    <path d="M1034 500 L1034 420 L974 420"/>
+  </g>
+  <!-- windows: scale down with height -->
+  <g stroke="#3D2D1A" stroke-width="2" fill="#F5EDD8" fill-opacity="0.9">
+    <path d="M722 500 L722 450 q18 -26 36 0 L758 500"/>
+    <path d="M842 500 L842 450 q18 -26 36 0 L878 500"/>
+    <path d="M730 410 L730 372 q14 -20 28 0 L758 410"/>
+    <path d="M842 410 L842 372 q14 -20 28 0 L870 410"/>
+    <path d="M772 300 L772 272 q8 -12 16 0 L788 300"/>
+    <path d="M812 300 L812 272 q8 -12 16 0 L828 300"/>
+  </g>
+
+  <!-- the hidden level: tunnel network under the stage -->
+  <g stroke="#3D2D1A" stroke-width="2.4" fill="none" stroke-dasharray="10 7" stroke-linejoin="round">
+    <rect x="170" y="580" width="1260" height="110" rx="14"/>
+    <line x1="170" y1="635" x2="1430" y2="635" stroke-dasharray="4 10" opacity="0.6"/>
+  </g>
+  <!-- stairways up to the stage -->
+  <g stroke="#6B1E2A" stroke-width="2.4" fill="none">
+    <path d="M360 580 L360 500"/>
+    <path d="M360 560 h-22 M360 540 h-22 M360 520 h-22" opacity="0.8"/>
+    <path d="M800 580 L800 500"/>
+    <path d="M800 560 h-22 M800 540 h-22 M800 520 h-22" opacity="0.8"/>
+    <path d="M1240 580 L1240 500"/>
+    <path d="M1240 560 h22 M1240 540 h22 M1240 520 h22" opacity="0.8"/>
+  </g>
+  <!-- carts and pipes -->
+  <g stroke="#2E1F10" stroke-width="2.2" fill="#B08A30" fill-opacity="0.35">
+    <rect x="280" y="648" width="46" height="26" rx="3"/>
+    <circle cx="292" cy="678" r="5" fill="#2E1F10"/><circle cx="314" cy="678" r="5" fill="#2E1F10"/>
+    <rect x="620" y="648" width="46" height="26" rx="3"/>
+    <circle cx="632" cy="678" r="5" fill="#2E1F10"/><circle cx="654" cy="678" r="5" fill="#2E1F10"/>
+    <rect x="1030" y="648" width="46" height="26" rx="3"/>
+    <circle cx="1042" cy="678" r="5" fill="#2E1F10"/><circle cx="1064" cy="678" r="5" fill="#2E1F10"/>
+  </g>
+  <g stroke="#3D2D1A" stroke-width="1.8" fill="none" opacity="0.65">
+    <path d="M190 600 L1410 600"/>
+    <path d="M190 610 L1410 610" stroke-dasharray="2 8"/>
+  </g>
+
+  <!-- ground-level trees / lamp posts for scale -->
+  <g stroke="#3D2D1A" stroke-width="2.2" fill="none" opacity="0.8">
+    <path d="M230 500 L230 450"/><circle cx="230" cy="436" r="16" fill="#6B1E2A" fill-opacity="0.18"/>
+    <path d="M1370 500 L1370 450"/><circle cx="1370" cy="436" r="16" fill="#6B1E2A" fill-opacity="0.18"/>
+    <path d="M460 500 L460 470"/><circle cx="460" cy="464" r="6" fill="#B08A30" fill-opacity="0.6"/>
+    <path d="M1140 500 L1140 470"/><circle cx="1140" cy="464" r="6" fill="#B08A30" fill-opacity="0.6"/>
+  </g>
+
+  <!-- compass mark -->
+  <g transform="translate(1340 190)" stroke="#8A6820" fill="none" stroke-width="2">
+    <circle r="44"/>
+    <circle r="36" opacity="0.5"/>
+    <path d="M0 -52 L8 0 L0 52 L-8 0 Z" fill="#6B1E2A" fill-opacity="0.85" stroke="#6B1E2A"/>
+    <path d="M-52 0 L0 8 L52 0 L0 -8 Z" fill="#B08A30" fill-opacity="0.35"/>
+  </g>
+</svg>
