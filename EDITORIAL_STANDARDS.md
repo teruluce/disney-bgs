@@ -16,6 +16,7 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 - Prefer official sources for hard factual claims. If a point is uncertain, qualify only that point gracefully and continue the story; do not make the whole page read like a reference database.
 - Never invent sources, quotes, production history, dates, or designer intent. Separate verified facts from interpretation by phrasing, not disruptive disclaimers.
 - Keep research and sourcing out of the narrative voice (owner's rule, 2026-10-25). Do not write "公式ブログによると", "公式サイトでは〜と紹介されています", "今回確認した範囲では見つかりませんでした" or similar phrases about how the facts were checked. Say it in the story's own voice, and put sources in the folded source note at the end. Details and exceptions are in `docs/AI_WORK_LOG.md`.
+- When adapting a research report (owner's rule, 2026-10-28), rewrite its report-style or news-style voice into the story's voice. Do not leave source-flavored phrasing such as 「〜に沿えば」「〜が発表されています」「〜と報じられています」 in the body. Never stack hedges (「設定では」 plus 「〜とされています」 in one sentence); state in-world facts about S.E.A., Hightower and the like plainly. Hedge only genuinely uncertain points, with 「〜といわれています」「〜と語り継がれています」. Before publishing, search the body for 公式|によると|によれば|に沿えば|と伝えられ|発表されています|報じられ|とされています|設定では. Details are in `docs/AI_WORK_LOG.md`.
 - Keep headlines aligned with the actual story and section content. Avoid generic headings that promise information the section does not deliver.
 
 ## Narrative immersion and written Japanese
