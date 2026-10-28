@@ -868,5 +868,7 @@
 - **方針への対応：** 運営者の指示により、リサーチ資料の内容は信頼できるものとして扱った。本文は物語の語り口で書き、調査・出典の説明は入れていない。参考資料は記事末尾の折りたたみ欄（番号のみ・外部リンクなし、12件）。要点欄・スタンプは付けていない。ジョン・ヘンチの塗料や「乗物→体験」の言い換えは、資料に沿いつつ「〜とされる」「〜と伝えられています」で断定を避けた。
 - **写真：** 後日追加の予定。本文中に `<!-- PHOTO-SLOT -->` コメントで位置の目安を5か所残した（枠そのものは未設置）。追加時は `bgs-origins.html` の `.photo-frame`／`.photo-cap` に合わせる。
 - **検証結果：** Codex の PR #71（検索・関連記録・共有文の仕組み）が先にmainへ入っていたため、それに合わせて `site-components.css` の読み込み、関連記録欄（Birth of DisneySea／S.E.A.への2リンク）、`share-captions.json` を追加。`python scripts/check_site.py` 全項目通過（SEO監査エラー0、共有リンク、File No.・前後リンク、単体テスト、JS構文）。`scripts/browser_smoke.cjs` は 72 checks PASS（記事数の期待値のみ 21 に更新）。ウェブフォントが取得できない環境のため代替書体での確認。公開サイトでの表示と実機は未確認。
-- **状態：** PR作成後に更新
+- **PR：** [#72](https://github.com/teruluce/disney-bgs/pull/72)（CI seo-smoke-check success）
+- **状態：** レビュー待ち（マージは運営者の確認後）
+- **公開状況：** マージ・Pages反映後に別途確認が必要。
 - **残作業：** 写真の追加。トップのフィルター（All／Disneyland／DisneySea）には「Worldwide」の区分がなく、本記事は All でのみ表示される（data-cat="history"）。必要ならフィルターの追加を相談。
