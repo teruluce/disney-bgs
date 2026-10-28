@@ -52,6 +52,17 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
       }
 
       await page.goto(base + 'index.html');
+      const worldLink = page.locator('.toc-group-worldwide a[href="#genesis-card"]');
+      assert.equal(await worldLink.count(), 1, 'worldwide article has its own table-of-contents group');
+      await page.locator('[data-filter="history"]').click();
+      assert.equal(await page.locator('.card:visible').count(), 1, 'worldwide filter count');
+      assert.equal(await page.locator('#genesis-card').isVisible(), true);
+      await page.locator('[data-filter="tds"]').click();
+      assert.equal(await page.locator('#genesis-card').isVisible(), false, 'worldwide article is not DisneySea');
+      await worldLink.click();
+      assert.equal(await page.locator('#genesis-card').isVisible(), true, 'toc reveals worldwide article');
+      assert.equal(await page.locator('[data-filter="history"]').getAttribute('aria-pressed'), 'true');
+      await page.locator('[data-filter="all"]').click();
       await page.locator('#archive-query').fill('タワー・オブ・テラー');
       assert.equal(await page.locator('.card:visible').count(), 1, 'Japanese article search');
       assert.equal(await page.locator('#tot-card').isVisible(), true);
