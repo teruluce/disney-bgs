@@ -863,10 +863,10 @@
 ### 2026-10-28 — Claude：新規記事「Genesis of BGS」（`bgs-genesis.html`、File No. 021）
 
 - **作業AI：** Claude（ユーザー依頼：ディープリサーチ資料「世界のディズニーパークにおける主題化空間の創出と空間叙述（BGS）の進化史」をもとに、BGS Chroniclesの世界観のまま新しいページを作る。画像は後日）
-- **対象ファイル：** 新規 `bgs-genesis.html`、`genesis-card.svg`／`genesis-card.png`（トップのカードとOGP用の自作イラスト。城と地下トンネルの断面）、`index.html`（目次リンク・カード・ItemList 21件目・最終編集日。「New」バッジは本記事へ移動）、`bgs-origins.html`（次の記事リンク）、`sitemap.xml`、`EDITORIAL_STANDARDS.md`（File No. 021 を追記）、本ログ
+- **対象ファイル：** 新規 `bgs-genesis.html`、`genesis-card.svg`／`genesis-card.png`（トップのカードとOGP用の自作イラスト。城と地下トンネルの断面）、`index.html`（目次リンク・カード・ItemList 21件目・最終編集日。「New」バッジは本記事へ移動）、`bgs-origins.html`（次の記事リンク）、`sitemap.xml`、`share-captions.json`（X共有文）、`scripts/browser_smoke.cjs`（トップの記事数 20→21）、`EDITORIAL_STANDARDS.md`（File No. 021 を追記）、本ログ
 - **内容：** ウォルトの不満とWED Enterprises、映画技法の移植、アナハイムとフロリダ、ウィニー／強制遠近法／Go Away Green・Blending Blue、ミッキーの10の戒律（表）、ユーティリドール、世界のパーク比較表（東京・パリ・香港・上海）、ディスカバリーランドとサンダー・メサ／ファントム・マニア、S.E.A.のパーク横断（タワー・オブ・テラー、ミスティック・マナー、スキッパー・カンティーン、トロピカル・ハイダウェイ）、結び。計9章。
 - **方針への対応：** 運営者の指示により、リサーチ資料の内容は信頼できるものとして扱った。本文は物語の語り口で書き、調査・出典の説明は入れていない。参考資料は記事末尾の折りたたみ欄（番号のみ・外部リンクなし、12件）。要点欄・スタンプは付けていない。ジョン・ヘンチの塗料や「乗物→体験」の言い換えは、資料に沿いつつ「〜とされる」「〜と伝えられています」で断定を避けた。
 - **写真：** 後日追加の予定。本文中に `<!-- PHOTO-SLOT -->` コメントで位置の目安を5か所残した（枠そのものは未設置）。追加時は `bgs-origins.html` の `.photo-frame`／`.photo-cap` に合わせる。
-- **検証結果：** `scripts/seo_audit.py` エラー0（警告1件は既存の sites.html）。Playwright（Chromium）で390px／1440pxを確認し、横スクロールとJSエラーなし。日本語・欧文ウェブフォントは取得できない環境のため代替書体での確認。公開サイトでの表示と実機は未確認。
+- **検証結果：** Codex の PR #71（検索・関連記録・共有文の仕組み）が先にmainへ入っていたため、それに合わせて `site-components.css` の読み込み、関連記録欄（Birth of DisneySea／S.E.A.への2リンク）、`share-captions.json` を追加。`python scripts/check_site.py` 全項目通過（SEO監査エラー0、共有リンク、File No.・前後リンク、単体テスト、JS構文）。`scripts/browser_smoke.cjs` は 72 checks PASS（記事数の期待値のみ 21 に更新）。ウェブフォントが取得できない環境のため代替書体での確認。公開サイトでの表示と実機は未確認。
 - **状態：** PR作成後に更新
 - **残作業：** 写真の追加。トップのフィルター（All／Disneyland／DisneySea）には「Worldwide」の区分がなく、本記事は All でのみ表示される（data-cat="history"）。必要ならフィルターの追加を相談。
