@@ -995,3 +995,10 @@
 | `bgs-genesis.html` | 「バックストーリー」という物語の骨格 | 「BGS」という物語の骨格 | 1 |
 | `bgs-genesis.html` | ファントム・マニア | ファントム・マナー | 1 |
 | `bgs-origins.html` | 編み上げられたバックグラウンドストーリーのネットワーク | 編み上げられたBGSのネットワーク | 1 |
+
+#### PR・初回CI確認 — Codex-BGS-20261029
+
+- **PR：** [#81](https://github.com/teruluce/disney-bgs/pull/81)。文字修正コミットは [`dcd81d42`](https://github.com/teruluce/disney-bgs/commit/dcd81d42fc77a08ecfdbaa87284416ecbe3b7abf)。
+- **照合：** GitHub上のブランチをfetchし、ローカルで検証した13ファイルと完全一致を確認。
+- **CI：** 初回PR CI [Static SEO validation #40836269030](https://github.com/teruluce/disney-bgs/actions/runs/40836269030) はsuccess。
+- **状態：** 本追記はPR作成後・マージ前の記録。最終コミットのCI成功と差分を再確認後、運営者の今回限りの明示承認に基づきマージする。最終的なマージSHAと時刻はPRタイムラインを参照。本番公開確認は別途必要。
