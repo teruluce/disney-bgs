@@ -21,6 +21,7 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 
 ## In-world narration — owner's rule, 2026-10-30
 
+- Match existing narrative articles with composed Japanese in 「です・ます」 form; retain occasional noun-ending sentences where they serve the rhythm.
 - Treat verified BGS events, people and technology as the history and reality of their world. In narrative articles, speak from inside that world.
 - Do not use world-breaking meta commentary in the body, headings, captions, illustration labels, or article share copy. This includes 「設定上」「架空の」「公式設定では」「演出として」「実際の配線ではなくBGS」 and explanations of research or verification.
 - The sole exception for meta discussion in article prose is a relevant explanation about Imagineers. Sources remain in the folded note at the end; research, artwork provenance and checks belong in maintenance records.
