@@ -19,6 +19,13 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 - When adapting a research report (owner's rule, 2026-10-28), rewrite its report-style or news-style voice into the story's voice. Do not leave source-flavored phrasing such as 「〜に沿えば」「〜が発表されています」「〜と報じられています」 in the body. Never stack hedges (「設定では」 plus 「〜とされています」 in one sentence); state in-world facts about S.E.A., Hightower and the like plainly. Hedge only genuinely uncertain points, with 「〜といわれています」「〜と語り継がれています」. Before publishing, search the body for 公式|によると|によれば|に沿えば|と伝えられ|発表されています|報じられ|とされています|設定では. Details are in `docs/AI_WORK_LOG.md`.
 - Keep headlines aligned with the actual story and section content. Avoid generic headings that promise information the section does not deliver.
 
+## In-world narration — owner's rule, 2026-10-30
+
+- Treat verified BGS events, people and technology as the history and reality of their world. In narrative articles, speak from inside that world.
+- Do not use world-breaking meta commentary in the body, headings, captions, illustration labels, or article share copy. This includes 「設定上」「架空の」「公式設定では」「演出として」「実際の配線ではなくBGS」 and explanations of research or verification.
+- The sole exception for meta discussion in article prose is a relevant explanation about Imagineers. Sources remain in the folded note at the end; research, artwork provenance and checks belong in maintenance records.
+- This rule takes precedence over older suggestions to attribute claims to fans in narrative prose. Omit unsupported material rather than inventing certainty or breaking the world to discuss it. Do not invent diary entries, quotations, signatures or technical specifications for atmosphere.
+
 ## Narrative immersion and written Japanese
 
 - The article's purpose is not merely to explain facts, but to help readers uncover the story carried by the place. Use verified facts as the foundation for a narrative that moves through architecture, props, landscape, history, and show details.
@@ -62,3 +69,4 @@ Shared styles live in `archive.css` (linked before `mobile.css`). Rolled out on 
 - Shared workflow: agree on the intended outcome, make changes in a branch, review the diff, have the other assistant inspect it where useful, merge only after review, and verify the deployed result when possible.
 - Both assistants should read this guide before significant editorial or visual changes. Avoid parallel edits to the same files without coordinating, to reduce conflicts.
 - The user's final direction takes priority over either assistant's stylistic preference.
+

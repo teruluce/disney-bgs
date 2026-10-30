@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ネモ船長の島には、なぜ電線のない照明があるのか？｜ミステリアスアイランド — BGS Chronicles</title>
+  <meta name="description" content="プロメテウス火山の地熱発電所から、電線のない灯りへ。ヴォルケイニア・レストランの変圧器と青いコイルをたどり、ネモ船長が築いた秘密基地の無線送電を読み解きます。">
+  <meta name="author" content="TERU_LUCE_">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://teruluce.github.io/disney-bgs/bgs-nemo-wireless.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://teruluce.github.io/disney-bgs/bgs-nemo-wireless.html">
+  <meta property="og:title" content="ネモ船長の島には、なぜ電線のない照明があるのか？｜ミステリアスアイランド — BGS Chronicles">
+  <meta property="og:description" content="プロメテウス火山の地熱発電所から、電線のない灯りへ。ヴォルケイニア・レストランの変圧器と青いコイルをたどり、ネモ船長が築いた秘密基地の無線送電を読み解きます。">
+  <meta property="og:image" content="https://teruluce.github.io/disney-bgs/nemo-wireless-plate.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="火山の発電所で青く光る送電用コイルと、離れた岸辺で灯る照明">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="BGS Chronicles">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ネモ船長の島には、なぜ電線のない照明があるのか？｜ミステリアスアイランド — BGS Chronicles">
+  <meta name="twitter:description" content="プロメテウス火山の地熱発電所から、電線のない灯りへ。ヴォルケイニア・レストランの変圧器と青いコイルをたどり、ネモ船長が築いた秘密基地の無線送電を読み解きます。">
+  <meta name="twitter:image" content="https://teruluce.github.io/disney-bgs/nemo-wireless-plate.png">
+  <meta name="twitter:image:alt" content="火山の発電所で青く光る送電用コイルと、離れた岸辺で灯る照明">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "ネモ船長の島には、なぜ電線のない照明があるのか？", "description": "プロメテウス火山の地熱発電所から、電線のない灯りへ。ヴォルケイニア・レストランの変圧器と青いコイルをたどり、ネモ船長が築いた秘密基地の無線送電を読み解きます。", "image": "https://teruluce.github.io/disney-bgs/nemo-wireless-plate.png", "inLanguage": "ja", "author": {"@type": "Person", "name": "teru_luce_"}, "publisher": {"@type": "Organization", "name": "BGS Chronicles"}, "mainEntityOfPage": "https://teruluce.github.io/disney-bgs/bgs-nemo-wireless.html", "dateModified": "2026-10-30"}</script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap">
+  </noscript>
+
+  <link rel="stylesheet" href="site-components.css">
+  <style>
+    /* ============================================================
+       DESIGN TOKENS (Synced with index.html)
+    ============================================================ */
+    :root {
+      --paper:       #F5EDD8;
+      --paper-2:     #EDE0C4;
+      --paper-3:     #E0CFB0;
+      --paper-dark:  #D4BF98;
+      --ink:         #1C1209;
+      --ink-2:       #2E1F10;
+      --ink-soft:    #3D2D1A;
+      --bordeaux:    #6B1E2A;
+      --bordeaux-2:  #8A2535;
+      --gold:        #8A6820;
+      --gold-2:      #B08A30;
+      --gold-rule:   rgba(138,104,32,0.5);
+      --gold-dim:    rgba(138,104,32,0.1);
+      --muted:       #7A6048;
+      --muted-2:     #9C7E58;
+      --border:      rgba(60,40,15,0.22);
+      --border-strong: rgba(60,40,15,0.45);
+      --shadow:      rgba(20,10,3,0.18);
+
+      --f-display: 'Playfair Display', 'Georgia', serif;
+      --f-sc:      'Playfair Display SC', 'Georgia', serif;
+      --f-body:    'Libre Baskerville', 'Georgia', serif;
+      --f-type:    'Special Elite', 'Courier New', monospace;
+      --f-jp:      'Noto Serif JP', serif;
+
+      /* 記事用コンテンツ幅 */
+      --max-w: 720px;
+      --pad-x: clamp(16px, 5vw, 48px);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    /* ============================================================
+       IMAGE PROTECTION
+    ============================================================ */
+    img {
+      -webkit-user-select: none; user-select: none;
+      -webkit-touch-callout: none;
+      pointer-events: none;
+      -webkit-user-drag: none;
+    }
+
+    /* ============================================================
+       BODY & BACKGROUND
+    ============================================================ */
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: var(--f-jp);
+      font-weight: 300;
+      line-height: 1.9;
+      letter-spacing: 0.025em;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent, transparent 28px,
+          rgba(100,65,20,0.028) 28px, rgba(100,65,20,0.028) 29px
+        ),
+        radial-gradient(ellipse 120% 70% at 20% 15%, rgba(255,240,200,0.45) 0%, transparent 55%),
+        radial-gradient(ellipse 90% 80% at 80% 85%, rgba(210,185,140,0.3) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 100% 100% at 50% 50%,
+        transparent 55%, rgba(50,28,8,0.14) 100%);
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .site-wrap { position: relative; z-index: 1; }
+
+    .content-box {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 64px) var(--pad-x) clamp(60px, 10vw, 100px);
+    }
+
+    /* ============================================================
+       REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+    }
+    .reveal.on { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: none; opacity: 1; transform: none; }
+    }
+
+    /* ============================================================
+       BACK LINK
+    ============================================================ */
+    .back-link-wrap {
+      margin-bottom: 24px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--f-sc);
+      font-size: clamp(0.55rem, 1.5vw, 0.6rem);
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      min-height: 40px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .back-link:hover { color: var(--bordeaux); }
+
+    /* ============================================================
+       MASTHEAD / HEADER
+    ============================================================ */
+    .masthead {
+      border-top: 4px double var(--ink);
+      border-bottom: 1px solid var(--border-strong);
+      padding: 32px 0 24px;
+      margin-bottom: 48px;
+      text-align: center;
+      position: relative;
+    }
+
+    .masthead-kicker {
+      font-family: var(--f-sc);
+      font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+      letter-spacing: 0.35em;
+      color: var(--bordeaux);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .masthead-title {
+      font-family: var(--f-display);
+      font-size: clamp(1.8rem, 7vw, 3.2rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .masthead-subtitle {
+      font-family: var(--f-jp);
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      display: block;
+    }
+
+    /* ============================================================
+       TOC (INDEX)
+    ============================================================ */
+    .toc-wrap {
+      border: 1px solid var(--border-strong);
+      background: rgba(245,237,216,0.6);
+      padding: clamp(16px, 4vw, 24px);
+      margin-bottom: 48px;
+    }
+    .toc-head {
+      text-align: center;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .toc-head-title {
+      font-family: var(--f-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--ink);
+      letter-spacing: 0.05em;
+    }
+    .toc-list { list-style: none; }
+    .toc-link {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--border);
+      text-decoration: none;
+      min-height: 44px;
+      transition: color 0.2s, opacity 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .toc-list li:last-child .toc-link { border-bottom: none; }
+    .toc-text {
+      font-family: var(--f-jp);
+      font-size: clamp(0.75rem, 2vw, 0.8rem);
+      color: var(--ink-soft);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .toc-action {
+      font-family: var(--f-body);
+      font-style: italic;
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      margin-left: 12px;
+      transition: color 0.2s;
+    }
+    .toc-link:hover .toc-text { color: var(--bordeaux); }
+    .toc-link:hover .toc-action { color: var(--bordeaux); }
+
+    /* ============================================================
+       PHOTO FRAME
+    ============================================================ */
+    .photo-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: var(--ink-2);
+      border: 1px solid var(--border-strong);
+      box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--border-strong);
+      margin: 48px 0;
+    }
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(6%) sepia(8%) contrast(1.03) brightness(0.98) saturate(1.02);
+      display: block;
+    }
+
+    /* ============================================================
+       ARTICLE BODY
+    ============================================================ */
+    .article-block { margin-bottom: 56px; }
+    
+    .article-h2 {
+      font-family: var(--f-display);
+      font-style: italic;
+      font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 16px;
+      letter-spacing: 0.02em;
+    }
+    .article-h2::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--border-strong);
+    }
+    
+    .article-p {
+      font-family: var(--f-jp);
+      font-size: clamp(0.8rem, 2vw, 0.85rem);
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 2.1;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    .article-p strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ============================================================
+       COLUMN CARD
+    ============================================================ */
+    .column-box {
+      border: 1px solid var(--border-strong);
+      border-left: 3px solid var(--bordeaux);
+      background: rgba(245,237,216,0.4);
+      padding: clamp(20px, 4vw, 28px);
+      margin: 32px 0;
+    }
+    .column-box h4 {
+      font-family: var(--f-jp);
+      font-size: clamp(0.85rem, 2vw, 0.9rem);
+      font-weight: 700;
+      color: var(--bordeaux);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .column-box p {
+      font-family: var(--f-jp);
+      font-size: clamp(0.75rem, 2vw, 0.8rem);
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 2;
+      margin-bottom: 0;
+    }
+
+    /* ============================================================
+       DATA TABLE
+    ============================================================ */
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 32px 0;
+      border: 1px solid var(--border-strong);
+      background: rgba(255,252,245,0.4);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px dashed var(--border);
+      font-family: var(--f-jp);
+      font-size: clamp(0.7rem, 2vw, 0.75rem);
+      line-height: 1.8;
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table th {
+      font-family: var(--f-sc);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--bordeaux);
+      text-transform: uppercase;
+      background: rgba(245,237,216,0.5);
+      border-bottom: 1px solid var(--border-strong);
+      font-weight: 400;
+    }
+    .data-table td strong {
+      color: var(--ink);
+      font-family: var(--f-sc);
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================================
+       FOOTER LINK
+    ============================================================ */
+    .footer-link-wrap {
+      text-align: center;
+      margin-top: 64px;
+      border-top: 1px solid var(--border-strong);
+      padding-top: 32px;
+    }
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--f-sc);
+      font-size: clamp(0.6rem, 1.5vw, 0.65rem);
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      min-height: 40px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .footer-link:hover {
+      color: var(--bordeaux);
+      border-bottom-color: var(--bordeaux);
+    }
+    
+    /* ============================================================
+       FOCUS STYLES
+    ============================================================ */
+    :focus-visible { outline: 2px solid var(--bordeaux); outline-offset: 3px; }
+
+    /* Edit metadata integrated into the page footer */
+    .last-edited { max-width:100%; margin:16px 0 0; padding:12px 0 0; border-top:1px solid var(--border,rgba(60,40,15,.22)); color:var(--muted,#7A6048); font-family:var(--f-type,'Courier New',monospace); font-size:.58rem; line-height:1.8; letter-spacing:.08em; text-align:left; opacity:.86; }
+    .last-edited time { font-family:var(--f-jp,serif); letter-spacing:.04em; }
+    @media(max-width:600px){.last-edited{margin-top:12px;padding-top:10px;font-size:.56rem;}}
+  /* 写真の枠は各写真の縦横比に合わせる（中途半端な切り抜きを防ぐ）。縦長は幅を抑えて中央に置く */
+  .photo-frame[style*="--ar"],.img-wrapper[style*="--ar"]{aspect-ratio:var(--ar);max-width:min(100%,var(--maxw,100%));margin-left:auto;margin-right:auto}
+</style>
+  <noscript><style>.reveal,.reveal *{opacity:1 !important;transform:none !important;}</style></noscript>
+
+  
+<style>
+    /* Editorial finish: dates and operational notes should read like newspaper colophon/type. */
+    .last-edited, .footer-copy, .site-share-note, .modal-copyright, .footer-note, .article-meta, .post-meta, .updated-at { font-family: var(--f-type, 'Courier New', monospace); color: var(--muted, #7A6048); font-size: clamp(.56rem, 1.3vw, .64rem); line-height: 1.85; letter-spacing: .045em; }
+    .last-edited time, .article-meta time, .post-meta time, .updated-at time { font-family: var(--f-jp, serif); color: var(--bordeaux, #6B1E2A); font-size: .96em; letter-spacing: .035em; }
+    .modal-copyright { color: var(--muted, #7A6048); }
+
+  
+    .sub-heading { font-family:var(--f-jp); font-size:clamp(.88rem,2.2vw,.95rem); font-weight:500; padding-left:12px; margin:34px 0 14px; border-left:2px solid var(--gold); color:var(--bordeaux); letter-spacing:.03em; line-height:1.6; }
+    .photo-cap { margin:-36px 0 40px; font-family:var(--f-type,'Courier New',monospace); font-size:clamp(.58rem,1.5vw,.66rem); line-height:1.8; letter-spacing:.05em; color:var(--muted); text-align:center; }
+    .source-note { margin-top:28px; padding-top:10px; border-top:1px solid var(--border); color:var(--muted); font-family:var(--f-type); font-size:clamp(.58rem,1.45vw,.64rem); line-height:1.8; letter-spacing:.035em; opacity:.82; }
+    .source-note summary { display:inline-block; cursor:pointer; list-style:none; padding:2px 0; border-bottom:1px dotted var(--border-strong); }
+    .source-note summary::-webkit-details-marker { display:none; }
+    .source-note summary::before { content:'＋ '; font-size:.8em; }
+    .source-note[open] summary::before { content:'－ '; }
+    .source-note ul { margin:8px 0 0 1.2em; padding:0; }
+    .source-note li { margin:3px 0; overflow-wrap:anywhere; }
+    .real-timeline th:first-child, .real-timeline td:first-child { white-space:nowrap; }
+    .data-table { min-width: 560px; }
+    .article-block .photo-frame { margin:40px auto; }
+</style>
+  <style>
+    .nemo-plate { margin: 38px 0 46px; }
+    .nemo-plate img { display:block; width:100%; height:auto; border:1px solid var(--border-strong); }
+    .nemo-plate figcaption { margin-top:12px; color:var(--muted); font-family:var(--f-jp); font-size:.75rem; line-height:1.9; text-align:center; }
+    .nemo-plate .plate-label { display:block; margin-bottom:4px; font-family:var(--f-type); color:var(--gold); font-size:.65rem; letter-spacing:.12em; }
+    .nemo-sources { margin-bottom:44px; opacity:1; }
+    .nemo-sources summary { min-height:44px; padding:10px 0; }
+    .nemo-sources ol { list-style:none; padding:0; margin:12px 0; }
+    .nemo-sources li { margin:10px 0; font-family:var(--f-jp); font-size:.75rem; }
+    .nemo-sources p { font-family:var(--f-jp); font-size:.7rem; }
+    .article-h2 { font-family:var(--f-jp); font-style:normal; line-height:1.7; }
+    @media(max-width:640px) { .masthead-subtitle { line-height:1.9; } .nemo-plate { margin:30px 0 36px; } }
+  </style>
+  <link rel="stylesheet" href="archive.css">
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="desktop-article.css" media="(min-width: 1100px)">
+</head>
+<body>
+<div class="site-wrap">
+<main class="content-box" id="main-content">
+  <div class="back-link-wrap reveal"><a href="index.html" class="back-link">← Back to Portal</a></div>
+  <header class="masthead reveal">
+    <span class="masthead-kicker">Mysterious Island · A Record of Discovery</span>
+    <h1 class="masthead-title">The Unseen Current</h1>
+    <span class="masthead-subtitle">ネモ船長の島には、なぜ電線のない照明があるのか？</span>
+    <div class="file-strip"><span class="file-no">File No. 022</span><span>Story · TDS</span><span>Reading · 3 min</span></div>
+  </header>
+
+  <p class="article-p reveal">プロメテウス火山の内側に、灯りがともる。岩肌を照らす光をたどると、ある照明には電線が続き、別の照明には、その線が見当たらない。背後には、青く光るコイルがある。</p>
+  <p class="article-p reveal">その小さな違いは、火山の奥に築かれた科学基地と、主であるネモ船長の発明へとつながっている。</p>
+
+  <nav class="toc-wrap reveal" aria-label="セクション目次">
+    <div class="toc-head"><span class="toc-head-title">Index</span></div>
+    <ul class="toc-list">
+      <li><a href="#invitation" class="toc-link"><span class="toc-text">I. 火山の内側にひらかれた扉</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#power-station" class="toc-link"><span class="toc-text">II. 食卓のそばの発電所</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#transmission" class="toc-link"><span class="toc-text">III. 電線を離れる電力</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#blue-coils" class="toc-link"><span class="toc-text">IV. 灯りを受け取る青いコイル</span><span class="toc-action">Read →</span></a></li>
+    </ul>
+  </nav>
+
+  <section class="article-block reveal" id="invitation">
+    <h2 class="article-h2">I. 火山の内側にひらかれた扉</h2>
+    <p class="article-p">時は1870年代。長く外界から離れていたネモ船長は、自らの発見を一部の人々に伝えるため、世界各地の科学者や研究者をこの島へ招いた。訪れた者を待つのは、地底と海底に広がる未知の世界である。</p>
+    <p class="article-p">しかし、探究すべきものは遠い海の底だけにあるのではない。足を止め、身近な灯りを見上げれば、この基地を動かす科学の一端が姿を現す。</p>
+  </section>
+
+  <section class="article-block reveal" id="power-station">
+    <h2 class="article-h2">II. 食卓のそばの発電所</h2>
+    <p class="article-p">ヴォルケイニア・レストランには、島へエネルギーを供給する地熱発電所がある。クルーの食堂を兼ねていたこの場所は、研究成果の公開に合わせ、招かれた科学者たちも食事をとれるレストランへと生まれ変わった。</p>
+    <p class="article-p">食卓のそばに置かれた発電機。その隣には、青いコイルを頂く変圧器が据えられている。洞窟の中で食事をするひとときにも、基地を支える仕事は続いている。</p>
+  </section>
+
+  <figure class="nemo-plate reveal">
+    <img src="nemo-wireless-plate.svg" width="1200" height="800" alt="火山の岩壁に囲まれた発電所のコイルと、離れた岸辺で灯る照明。" loading="lazy" decoding="async">
+    <figcaption><span class="plate-label">THE UNSEEN CURRENT</span>火山の力は、電線を離れ、青いコイルを経て灯りとなる。</figcaption>
+  </figure>
+
+  <section class="article-block reveal" id="transmission">
+    <h2 class="article-h2">III. 電線を離れる電力</h2>
+    <p class="article-p">変圧器は、発電した電力を空気中へ送り出す。島の各所へ電線を引き延ばすことなく、離れた装置へエネルギーを届ける<strong>無線送電</strong>。ネモ船長は、この技術をすでに手にしている。</p>
+    <p class="article-p">送り出す場所は食堂のすぐそばにあり、受け取る場所は島の風景に溶け込んでいる。両者のあいだに目に見える線はなくとも、同じ電力が流れている。</p>
+  </section>
+
+  <section class="article-block reveal" id="blue-coils">
+    <h2 class="article-h2">IV. 灯りを受け取る青いコイル</h2>
+    <p class="article-p">電線のない照明の背後には、受電のための青いコイルが備わっている。空気中を伝わってきた電気エネルギーをここで受け取り、光へ変える。これもまた、ネモ船長の発明品である。</p>
+    <p class="article-p">電線のある照明と、電線のない照明。同じ岩壁に灯る光も、その道筋はひとつではない。視線を照明の裏側へ移すと、発電所で見た青いコイルとのつながりに気づく。</p>
+    <p class="article-p">火山の内側で生まれた力が、空気を渡り、島を照らす。灯りをひとつ見上げるたびに、秘密基地を築いた科学者の仕事が、静かに浮かび上がる。</p>
+  </section>
+
+  <details class="source-note nemo-sources">
+    <summary>参考資料（2件）</summary>
+    <ol>
+      <li>東京ディズニーリゾート・ブログ「ミステリアスアイランドに関するちょっと細かいストーリー：その1」（2021年6月24日）</li>
+      <li>東京ディズニーリゾート「ヴォルケイニア・レストラン」施設紹介</li>
+    </ol>
+    <p>資料確認日：2026年10月30日</p>
+  </details>
+  <div class="footer-link-wrap reveal"><a href="index.html" class="footer-link">← HOMEへ戻る</a></div>
+</main>
+</div>
+<script>
+  /* Reveal on scroll */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { 
+        e.target.classList.add('on'); 
+        io.unobserve(e.target); 
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+  
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ファーストビューの要素を即時表示 */
+  setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach((el, index) => {
+      if(index < 3) el.classList.add('on');
+    });
+  }, 50);
+
+  /* Image protection */
+  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+</script>
+<section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=%E9%9B%BB%E7%B7%9A%E3%81%AE%E3%81%AA%E3%81%84%E7%81%AF%E3%82%8A%E3%81%AF%E3%80%81%E3%81%A9%E3%81%93%E3%81%8B%E3%82%89%E5%8A%9B%E3%82%92%E5%8F%97%E3%81%91%E5%8F%96%E3%82%8B%E3%81%AE%E3%81%8B%E3%80%82%E3%83%8D%E3%83%A2%E8%88%B9%E9%95%B7%E3%81%AE%E7%99%BA%E9%9B%BB%E6%89%80%E3%81%A8%E9%9D%92%E3%81%84%E3%82%B3%E3%82%A4%E3%83%AB%E3%82%92%E3%81%9F%E3%81%A9%E3%82%8B%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%82%B7%E3%83%BC+%23%E3%83%9F%E3%82%B9%E3%83%86%E3%83%AA%E3%82%A2%E3%82%B9%E3%82%A2%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89+%23BGS+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-nemo-wireless.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
+<p class="last-edited">最終編集日：<time datetime="2026-10-30">2026年10月30日</time></p>
+<nav class="related-records" aria-label="関連する記録"><h2>RELATED RECORD / 関連する記録</h2><a href="bgs-spatial-epic.html">八つの港を巡る、冒険とイマジネーションの海</a></nav>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-genesis.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">A World of Stories</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><span class="pagination-next is-empty" aria-hidden="true"></span></nav>
+</body>
+</html>
