@@ -14,8 +14,8 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
   const errors = [];
   let pageChecks = 0;
   try {
-    for (const width of [390, 767, 768, 1024, 1280]) {
-      const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+    for (const [width, height] of [[390, 900], [767, 900], [768, 900], [768, 1024], [820, 1180], [1024, 1366], [1024, 900], [1180, 820], [1280, 900]]) {
+      const page = await browser.newPage({ viewport: { width, height }, reducedMotion: 'reduce' });
       // Deterministic layout checks use installed fallback fonts. Real Google Fonts are a separate check.
       await page.route('https://fonts.**/*', route => route.abort());
       page.on('pageerror', error => errors.push(error.message));
@@ -54,13 +54,26 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
         });
         if (columns) {
           const [left, right] = columns;
-          if (width >= 768) {
+          const portraitFrontPage = file === 'index.html' && width >= 768 && width <= 1199 && height >= width;
+          if (width >= 768 && !portraitFrontPage) {
             assert.ok(left.right <= right.left + 1, `${file}: desktop columns overlap at ${width}`);
             assert.ok(right.width >= 300, `${file}: desktop text column too narrow at ${width}`);
             assert.ok(left.left >= 0 && right.right <= width + 1, `${file}: desktop columns exceed viewport at ${width}`);
           } else {
             assert.ok(left.bottom <= right.top + 1, `${file}: mobile columns must stack at ${width}`);
           }
+        }
+        if (file === 'index.html' && width >= 768 && width <= 1199 && height >= width) {
+          const layout = await page.evaluate(() => {
+            const bounds = selector => {
+              const r = document.querySelector(selector).getBoundingClientRect();
+              return { left: r.left, right: r.right, top: r.top, bottom: r.bottom, width: r.width, height: r.height };
+            };
+            return { front: bounds('.front-page'), photo: bounds('.hero-photo-frame'), intro: bounds('.intro-col'), toc: bounds('.toc-wrap') };
+          });
+          assert.ok(Math.abs(layout.photo.width - layout.front.width) <= 1, `portrait photo must fill the page at ${width}`);
+          assert.ok(Math.abs(layout.photo.width / layout.photo.height - 16 / 9) < .01, `portrait photo must retain its composition at ${width}`);
+          assert.ok(layout.photo.bottom <= layout.intro.top && layout.intro.bottom <= layout.toc.top, `portrait introduction and contents must follow the photo at ${width}`);
         }
         assert.equal(await page.locator('.site-share-link').count(), file === 'sites.html' ? 0 : 1, `${file} share count`);
         if (shareCopy[file]) {
