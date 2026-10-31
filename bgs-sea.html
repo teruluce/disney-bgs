@@ -780,8 +780,9 @@
   <link rel="stylesheet" href="archive.css">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-article.css" media="(min-width: 1100px)">
+  <link rel="stylesheet" href="article-layout.css">
 </head>
-<body>
+<body class="article-page">
 
 <div class="site-wrap">
 <div class="content-box">
@@ -818,12 +819,12 @@
       <span class="toc-head-title">Archives Index</span>
     </div>
     <ul class="toc-list">
-      <li><a href="#philosophy" class="toc-link"><span class="toc-text">I. 学会をつなぐ「見えない糸」と4つの理念</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#history" class="toc-link"><span class="toc-text">II. 歴史の歩み ― 創設期マイルストーンと学会の裏設定</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#members" class="toc-link"><span class="toc-text">III. 学会に集う探検家・冒険家たち（肖像画データベース）</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#paddles" class="toc-link"><span class="toc-text">IV. 12本の冒険用木製パドル（ハイドアウェイの秘密）</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#installations" class="toc-link"><span class="toc-text">V. パークに遺された冒険者たちの足跡と関連施設</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#behind" class="toc-link"><span class="toc-text">VI. 現実の側から見たS.E.A.と、いま進行中の物語</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#philosophy" class="toc-link"><span class="toc-num">I.</span><span class="toc-text">学会をつなぐ「見えない糸」と4つの理念</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#history" class="toc-link"><span class="toc-num">II.</span><span class="toc-text">歴史の歩み ― 創設期マイルストーンと学会の裏設定</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#members" class="toc-link"><span class="toc-num">III.</span><span class="toc-text">学会に集う探検家・冒険家たち（肖像画データベース）</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#paddles" class="toc-link"><span class="toc-num">IV.</span><span class="toc-text">12本の冒険用木製パドル（ハイドアウェイの秘密）</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#installations" class="toc-link"><span class="toc-num">V.</span><span class="toc-text">パークに遺された冒険者たちの足跡と関連施設</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#behind" class="toc-link"><span class="toc-num">VI.</span><span class="toc-text">現実の側から見たS.E.A.と、いま進行中の物語</span><span class="toc-action">Explore →</span></a></li>
     </ul>
   </nav>
 
@@ -1320,16 +1321,21 @@
     <p class="article-p">パークをつくった人々が、物語の中では学会の探検家として記録されている。そんな二重の仕掛けに気づくと、肖像画の一枚一枚が、作り手たちからゲストへの小さな挨拶のようにも見えてきます。</p>
 
     <h3 class="sub-heading">2026年、動き出した「現在進行形のS.E.A.」</h3>
-    <p class="article-p">S.E.A.の物語は、いまパークの外でも動いています。2026年8月のD23では、8月14日に「An Inside Look at the Society of Explorers and Adventurers」と題したプレゼンテーションが予定されました。学会のアーキビストが約三か月かけて収蔵品を目録化する中で見つかったという、少なくとも100年間開封されていない木箱が会場に持ち込まれると告知され、ミスティック卿のギリシャの壺や、ハイタワー三世が「入手」したとされる石棺といった再発見された遺物も紹介されています。</p>
-    <p class="article-p">8月以降は、ウォルト・ディズニー・イマジニアリングが週ごとになぞなぞを公開し、架空の泥棒と行方不明の遺物をめぐる手がかり探しが続いています。10月6日には、アーキビストのボニー・ブッカーからのメッセージとして、これまでの手がかりがまとめられました。判明している文字は T・L・A・R・O・E・E・Z の8つ。泥棒は、S.E.A.に入会を断られた過去を持ついたずら好きで少し自信過剰な人物、「タイムスキッパー」と呼ばれる装置で時間を移動し、学会ゆかりの遺物「リッジ・ジュエル」を盗んだ可能性がある——と示されています。この時点では、泥棒の正体はまだ明かされていませんでした（2026年10月14日時点）。</p>
+    <p class="article-p">S.E.A.の物語は、いまパークの外でも動いています。2026年8月のD23では、8月14日に「An Inside Look at the Society of Explorers and Adventurers」と題したプレゼンテーションが予定されました。</p>
+    <p class="article-p">学会のアーキビストが約三か月かけて収蔵品を目録化する中で見つかったという、少なくとも100年間開封されていない木箱が会場に持ち込まれると告知され、ミスティック卿のギリシャの壺や、ハイタワー三世が「入手」したとされる石棺といった再発見された遺物も紹介されています。</p>
+    <p class="article-p">8月以降は、ウォルト・ディズニー・イマジニアリングが週ごとになぞなぞを公開し、架空の泥棒と行方不明の遺物をめぐる手がかり探しが続いています。10月6日には、アーキビストのボニー・ブッカーからのメッセージとして、これまでの手がかりがまとめられました。</p>
+    <p class="article-p">判明している文字は T・L・A・R・O・E・E・Z の8つ。泥棒は、S.E.A.に入会を断られた過去を持ついたずら好きで少し自信過剰な人物、「タイムスキッパー」と呼ばれる装置で時間を移動し、学会ゆかりの遺物「リッジ・ジュエル」を盗んだ可能性がある——と示されています。この時点では、泥棒の正体はまだ明かされていませんでした（2026年10月14日時点）。</p>
     <h3 class="sub-heading">10月20日、泥棒の正体は「ハイタワー」の名を持つ人物でした</h3>
     <p class="article-p">10月20日、ウォルト・ディズニー・イマジニアリングのInstagramを通じて、アーキビストのボニー・ブッカーが一連の謎の答えを明かしました。木箱から遺物を持ち去ったのは、ヘイゼル・ルイーズ・ハイタワー。ヘイゼル自身の手紙の中で、東京ディズニーシーのタワー・オブ・テラーで語られるハリソン・ハイタワー三世の娘として綴られている人物です。</p>
     <p class="article-p">手紙によると、ヘイゼルは1881年4月1日にエジプトで生まれました。父は1899年の大晦日、呪われた像をお披露目したあとに姿を消し、そのときヘイゼルはロンドンの大学へ進む直前だったといいます。父の行いのすべてに賛成していたわけではないものの、父を愛していたこと、そして好奇心を追い、冒険に満ちた人生を送ることの価値を教わったことが語られています。</p>
     <p class="article-p">大学を卒業して進むべき道を見失った彼女は、S.E.A.への入会を申請しました。学生時代に思い描いていた時間移動装置の設計図も見せています。けれど「ハイタワー」の姓を理由に、父と同じように問題を起こす人物だと見なされ、入会は断られてしまいます。それでも彼女は数年をかけて装置「タイムスキッパー」を完成させました。公開された設計図のメモには、装着した本人だけが使えるように作られていることも記されています。</p>
-    <p class="article-p">彼女が向かった先は、ビッグサンダー・マウンテンの舞台でもある鉱山町レインボー・リッジでした。1886年、5歳だったヘイゼルは父に連れられてこの町を訪れていて、その記憶が計画の出発点になります。町の鉱山で見つかった虹色の結晶を抱く卵形のジオード「リッジ・ジュエル」は、一時は町で展示されていたものの、やがて行方不明になり、1886年のS.E.A.会報にも載っていたとされています。ヘイゼルはこのジュエルを父が持ち去り、S.E.A.の公式の木箱に隠したのだと考えました。そして過去へ戻り、木箱が封印される前にジュエルを取り出して、代わりに自分の手紙を入れたのだといいます。その木箱こそ、2026年8月のD23で開けられたものでした。奪い返したジュエルは、父がそれを持ち去った翌日の1886年のレインボー・リッジへ、そっと返されました。つまり2026年のD23で「盗まれた」とされた遺物は、もともと父が不正に手に入れたものを、娘が歴史の正しい位置へ戻したものだった、という物語です。</p>
+    <p class="article-p">彼女が向かった先は、ビッグサンダー・マウンテンの舞台でもある鉱山町レインボー・リッジでした。1886年、5歳だったヘイゼルは父に連れられてこの町を訪れていて、その記憶が計画の出発点になります。町の鉱山で見つかった虹色の結晶を抱く卵形のジオード「リッジ・ジュエル」は、一時は町で展示されていたものの、やがて行方不明になり、1886年のS.E.A.会報にも載っていたとされています。</p>
+    <p class="article-p">ヘイゼルはこのジュエルを父が持ち去り、S.E.A.の公式の木箱に隠したのだと考えました。そして過去へ戻り、木箱が封印される前にジュエルを取り出して、代わりに自分の手紙を入れたのだといいます。その木箱こそ、2026年8月のD23で開けられたものでした。</p>
+    <p class="article-p">奪い返したジュエルは、父がそれを持ち去った翌日の1886年のレインボー・リッジへ、そっと返されました。つまり2026年のD23で「盗まれた」とされた遺物は、もともと父が不正に手に入れたものを、娘が歴史の正しい位置へ戻したものだった、という物語です。</p>
 
     <h3 class="sub-heading">パークに置かれた、ヘイゼルの足跡</h3>
-    <p class="article-p">物語の舞台となったディズニーランド・パーク（カリフォルニア）では、10月20日からヘイゼルにまつわる展示が登場しました。フロンティアランドのパイオニア・マーカンタイル前にあるチケットブースの奥の棚には、虹色の結晶をたたえたリッジ・ジュエルが置かれ、机の上にはヘイゼルがジュエルを返す場面のスケッチがあります。ジュエルの展示は期間限定とされています。ブースのS.E.A.タップポイントにMagicBand+をかざすか、キャストに声をかけると、汽車の効果音とともにヘイゼルからのメッセージが裏面に印刷された記念チケットを受け取ることができます。</p>
+    <p class="article-p">物語の舞台となったディズニーランド・パーク（カリフォルニア）では、10月20日からヘイゼルにまつわる展示が登場しました。フロンティアランドのパイオニア・マーカンタイル前にあるチケットブースの奥の棚には、虹色の結晶をたたえたリッジ・ジュエルが置かれ、机の上にはヘイゼルがジュエルを返す場面のスケッチがあります。</p>
+    <p class="article-p">ジュエルの展示は期間限定とされています。ブースのS.E.A.タップポイントにMagicBand+をかざすか、キャストに声をかけると、汽車の効果音とともにヘイゼルからのメッセージが裏面に印刷された記念チケットを受け取ることができます。</p>
     <p class="article-p">アドベンチャーランドのトロピカル・ハイドアウェイには、S.E.A.のメンバーたちのオールが並ぶ一角があり、その右端にヘイゼルのオールが加わりました。木の一部は紫と黒に染められ、11時32分で止まった懐中時計と機関車の像が付いています。銘板にはS.E.A.の紋章とヘイゼルの名、「River Thames（テムズ川）」。下部の年号は1888年のように見えますが、削り取られています。時を超えた彼女の足跡の、小さな痕跡のようにも思えてきます。</p>
     <h3 class="sub-heading">父と娘、ふたりのハイタワー</h3>
     <p class="article-p">ふたりを並べてみると、同じ「好奇心と冒険心」から出発しながら、向かった先が正反対だったことが見えてきます。</p>

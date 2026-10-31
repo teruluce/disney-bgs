@@ -44,6 +44,8 @@ Override `BGS_TEST_URL` (trailing slash required) and `BGS_CHROMIUM` if needed. 
 
 ## Shared components
 
+- `article-layout.css`: common layout for the 20 newspaper articles, loaded after the mobile and desktop layers on `body.article-page`. Keep the English title, Japanese subtitle, optional introduction, File No., index and body in that order. Use separate `.toc-num` / `.toc-text` spans so wrapped index entries align. Body text is 16px on phones and 17px above 640px; the index becomes a sidebar at 1100px. Small World and Tomorrowland intentionally do not load this layer. Home, profile and the site chooser retain their distinct page functions.
+- Prefer real paragraphs for prose instead of consecutive `<br>` tags; retain intentional breaks in tables and labels. Check 320/390px phones, 768/1024px tablets and 1280px or wider desktops when changing the article layout. Confirm index numbers stay on one line and the desktop sidebar does not overlap the body.
 - `site-components.css`: identical share and article-pagination styles extracted from the pages. Load before page-specific styles and mobile/desktop layers.
 - `site.js`: deferred, used only on pages needing filters or dialogs. X share links are static HTML generated from `share-captions.json` (see `docs/X_SHARE_COPY.md`). Article-specific member text remains in the article and is passed through `window.BGSCreatorMembers`. The shared controller handles focus containment/return, Escape, background inert state and scroll restoration.
 - Preserve the existing article-specific CSS, colors, page URLs, permanent file numbers and original images.

@@ -541,8 +541,9 @@
   <link rel="stylesheet" href="archive.css">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-article.css" media="(min-width: 1100px)">
+  <link rel="stylesheet" href="article-layout.css">
 </head>
-<body>
+<body class="article-page">
 
 <div class="site-wrap">
 <div class="content-box">
@@ -553,13 +554,9 @@
 
   <header class="masthead reveal">
     <span class="masthead-kicker">Special Chronicle</span>
-    <h1 class="masthead-title">
-        <span class="masthead-title-en">Sea of Adventure &amp; Imagination</span>
-        TDS Spatial Epic：冒険とイマジネーションの海を巡る物語
-    </h1>
-    <span class="masthead-subtitle">
-        世界で唯一「海」をコンセプトとし、訪れる者を遥かなる航海へと誘う東京ディズニーシー。ここは単なる遊び場ではなく、8つの固有の「港（テーマポート）」が、歴史や人々の夢、空間の境界、そして水が持つ不思議な調停力によって結ばれた壮大な冒険の舞台です。
-    </span>
+    <h1 class="masthead-title">Sea of Adventure &amp; Imagination</h1>
+    <span class="masthead-subtitle">TDS Spatial Epic：冒険とイマジネーションの海を巡る物語</span>
+    <p class="masthead-lead">世界で唯一「海」をコンセプトとし、訪れる者を遥かなる航海へと誘う東京ディズニーシー。ここは単なる遊び場ではなく、8つの固有の「港（テーマポート）」が、歴史や人々の夢、空間の境界、そして水が持つ不思議な調停力によって結ばれた壮大な冒険の舞台です。</p>
       <div class="file-strip">
       <span class="file-no">File No. 011</span>
       <span>Chronicle · TDS</span>
@@ -572,12 +569,12 @@
       <span class="toc-head-title">Index</span>
     </div>
     <ul class="toc-list">
-      <li><a href="#prologue" class="toc-link"><span class="toc-text">I. 時空を超える8つの港（プロローグ）</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#mapping" class="toc-link"><span class="toc-text">II. 全8テーマポート・ストーリーマッピング</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#interpret" class="toc-link"><span class="toc-text">III. 航海の羅針盤：港たちが秘めた物語</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#sea-connection" class="toc-link"><span class="toc-text">IV. 秘密結社「S.E.A.」が繋ぐ航海史</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#transit" class="toc-link"><span class="toc-text">V. 時空を調停する、水と大地のトランジション</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#conclusion" class="toc-link"><span class="toc-text">VI. エピローグ：想像力の数だけ広がる海</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#prologue" class="toc-link"><span class="toc-num">I.</span><span class="toc-text">時空を超える8つの港（プロローグ）</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#mapping" class="toc-link"><span class="toc-num">II.</span><span class="toc-text">全8テーマポート・ストーリーマッピング</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#interpret" class="toc-link"><span class="toc-num">III.</span><span class="toc-text">航海の羅針盤：港たちが秘めた物語</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#sea-connection" class="toc-link"><span class="toc-num">IV.</span><span class="toc-text">秘密結社「S.E.A.」が繋ぐ航海史</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#transit" class="toc-link"><span class="toc-num">V.</span><span class="toc-text">時空を調停する、水と大地のトランジション</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#conclusion" class="toc-link"><span class="toc-num">VI.</span><span class="toc-text">エピローグ：想像力の数だけ広がる海</span><span class="toc-action">Read →</span></a></li>
     </ul>
   </nav>
 
@@ -593,7 +590,8 @@
 
     <p class="article-p">ディズニーランドの「テーマランド」は、それ自体がひとつの完結した物語の舞台です。フロンティアランドは西部開拓時代の主人公を生きる場であり、ファンタジーランドは童話の世界に迷い込む場でした。それぞれが美しい「自己完結」を持っています。</p>
 
-    <p class="article-p">対して、ディズニーシーの「テーマポート」は根本的に異なる概念を宿しています。港とは、常に「次の行き先」を持つ場所です。船が来て、荷物が降ろされ、人が上陸し、また遠くへと旅立っていく。港はそれ自体で完結せず、次の行き先へと人や物語を送り出す場所です。その視点から眺めると、ディズニーシーの8つの港は、それぞれ独自の歴史と文化を持ちながら、同じ「大いなる海」へと開かれた窓口として読むことができます。ゲストが港を訪れるたび、異なる時代や場所を結ぶ航路が、ひとつの世界として立ち上がります。</p>
+    <p class="article-p">対して、ディズニーシーの「テーマポート」は根本的に異なる概念を宿しています。港とは、常に「次の行き先」を持つ場所です。船が来て、荷物が降ろされ、人が上陸し、また遠くへと旅立っていく。港はそれ自体で完結せず、次の行き先へと人や物語を送り出す場所です。</p>
+    <p class="article-p">その視点から眺めると、ディズニーシーの8つの港は、それぞれ独自の歴史と文化を持ちながら、同じ「大いなる海」へと開かれた窓口として読むことができます。ゲストが港を訪れるたび、異なる時代や場所を結ぶ航路が、ひとつの世界として立ち上がります。</p>
 
     <p class="article-p">すべての港は、独自の時代と場所を持ちながらも、歴史的・物理的、そして精神的な深い繋がりを宿しています。何気なく通り過ぎる建物の壁や、ふと耳に届く波の音も、港ごとの歴史や文化を想像する手がかりになります。細部に目を向けるほど、それぞれの景色が大きな物語の中で響き合っていることに気づきます。</p>
 
@@ -813,7 +811,8 @@
     <h2 class="article-h2">IV. 秘密結社「S.E.A.」が繋ぐ航海史</h2>
     <p class="article-p">時代も、世界観も、まったく異なるこれら8つの美しい港たち。その一部を裏側からゆるやかに繋ぐ、興味深い要素があります。秘密結社「S.E.A.（Society of Explorers and Adventurers）」の存在です。</p>
 
-    <p class="article-p">これはディズニーシー全体を支配する絶対的な設定というよりも、異なる時代やアトラクションを横断的に結びつけ、物語に奥行きを与える魅力的なスパイスとして機能しています。16世紀の探検時代を起源とすると考えられているこの探検家・冒険家学会は、異なる時代に生きたメンバーたちのイマジネーションを繋ぎ続けているように見えます。メディテレーニアンハーバーのフォートレス・エクスプロレーションに残された紋章、アメリカンウォーターフロントの一角に隠されたメンバーの痕跡——それらを見つける喜びは、まるでパーク全体が一つの巨大な謎解きであるかのような錯覚を生みます。</p>
+    <p class="article-p">これはディズニーシー全体を支配する絶対的な設定というよりも、異なる時代やアトラクションを横断的に結びつけ、物語に奥行きを与える魅力的なスパイスとして機能しています。16世紀の探検時代を起源とすると考えられているこの探検家・冒険家学会は、異なる時代に生きたメンバーたちのイマジネーションを繋ぎ続けているように見えます。</p>
+    <p class="article-p">メディテレーニアンハーバーのフォートレス・エクスプロレーションに残された紋章、アメリカンウォーターフロントの一角に隠されたメンバーの痕跡——それらを見つける喜びは、まるでパーク全体が一つの巨大な謎解きであるかのような錯覚を生みます。</p>
 
     <div class="note-callout reveal">
       <span class="note-callout-label">Consideration Note</span>
