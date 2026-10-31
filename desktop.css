@@ -1,6 +1,6 @@
 /* ============================================================
    BGS Chronicles — Desktop layout layer (トップページ用)
-   768px以上で読み込まれ、小さめのウィンドウでもPC表示にする。
+   768px以上で読み込み、縦向きタブレットでは写真を全幅にする。
    767px以下のスマホ表示は維持する。
    紙色・ボルドー・セリフ体の新聞アーカイブ調はそのまま、
    PCでは「新聞の第一面」のように写真と案内を横に並べる。
@@ -225,6 +225,31 @@
     grid-template-rows: none;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 12px;
+  }
+}
+
+/* 縦向きのタブレットでは、目次の高さに写真を引き伸ばさない。
+   写真 → ご案内 → 目次の順に並べ、元写真の16:9の構図を保つ。 */
+@media (min-width: 768px) and (max-width: 1199px) and (orientation: portrait) {
+  .front-page {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+  }
+  .front-page > .hero-section,
+  .front-page > .intro-col,
+  .front-page > .toc-wrap {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .front-page .hero-photo-frame {
+    flex: none;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+  .front-page .hero-photo-frame img {
+    position: absolute;
+    inset: 0;
+    object-position: 50% 50%;
   }
 }
 
