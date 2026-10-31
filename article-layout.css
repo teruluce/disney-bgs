@@ -138,7 +138,7 @@
   .article-page .toc-wrap { padding: 24px; }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 768px) {
   .article-page .content-box {
     max-width: 1180px;
     grid-template-columns: 240px minmax(0, 720px);
@@ -155,4 +155,14 @@
   .article-page .related-records,
   .article-page .article-pagination,
   .article-page .site-share { max-width: 1180px; }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  .article-page .content-box {
+    padding-left: 24px;
+    padding-right: 24px;
+    grid-template-columns: 180px minmax(0, 720px);
+    column-gap: 24px;
+  }
+  .article-page .content-box > .toc-wrap { padding: 16px 12px; }
 }

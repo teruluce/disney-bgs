@@ -1,11 +1,11 @@
 /* ============================================================
    BGS Chronicles — Desktop layout layer（トゥモローランド記事用）
-   1100px以上の画面でだけ読み込まれる。スマホ・タブレット幅には影響しない。
+   768px以上で読み込まれ、767px以下のスマホ表示は維持する。
    HUD調の題字は全幅のまま、目次（Mission Manifest）を左の追従カラムにし、
    本文は右の720pxカラムに収める（desktop-article.css と同じ考え方）。
    ============================================================ */
 
-@media (min-width: 1100px) {
+@media (min-width: 768px) {
 
   /* body が横スクロール容器になると sticky が効かないため、clip にする */
   html, body { overflow-x: clip; overflow-y: visible; }
@@ -51,5 +51,14 @@
     white-space: nowrap;
     font-size: 0.7rem;
     color: transparent;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  .wrap {
+    padding-left: 24px;
+    padding-right: 24px;
+    grid-template-columns: 180px minmax(0, 720px);
+    column-gap: 24px;
   }
 }
