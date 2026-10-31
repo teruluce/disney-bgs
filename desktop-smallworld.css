@@ -1,12 +1,12 @@
 /* ============================================================
    BGS Chronicles — Desktop layout layer（It's a Small World 記事用）
-   1100px以上の画面でだけ読み込まれる。スマホ・タブレット幅には影響しない。
+   768px以上で読み込まれ、767px以下のスマホ表示は維持する。
    パステル調の配色・セクションごとのテーマ色の切り替えはそのまま、
    題字は全幅、目次（Archives Index）を左の追従カラム、本文を右の720pxカラムにする
    （desktop-article.css / desktop-tl.css と同じ考え方）。
    ============================================================ */
 
-@media (min-width: 1100px) {
+@media (min-width: 768px) {
 
   /* html, body が横スクロール容器になると sticky が効かないため、clip にする */
   html, body { overflow-x: clip; overflow-y: visible; }
@@ -69,11 +69,20 @@
   .wrap > .toc + .divider { display: none; }
 
   /* 本文の外にある「最終編集日」は、ページ送り（幅1040px）の位置にそろえる。
-     この記事では要素に style 属性があるため !important で上書きする（1100px以上のみ） */
+     この記事では要素に style 属性があるため !important で上書きする（768px以上のみ） */
   .last-edited {
     max-width: 1040px !important;
     padding-left: 24px !important;
     padding-right: 24px !important;
     box-sizing: border-box;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  .wrap {
+    padding-left: 24px;
+    padding-right: 24px;
+    grid-template-columns: 180px minmax(0, 720px);
+    column-gap: 24px;
   }
 }

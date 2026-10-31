@@ -14,7 +14,7 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
   const errors = [];
   let pageChecks = 0;
   try {
-    for (const width of [390, 768, 1280]) {
+    for (const width of [390, 767, 768, 1024, 1280]) {
       const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
       // Deterministic layout checks use installed fallback fonts. Real Google Fonts are a separate check.
       await page.route('https://fonts.**/*', route => route.abort());
@@ -34,6 +34,34 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
           }));
         });
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${file} overflow at ${width}`);
+        // Verify both sides of the desktop breakpoint, including the actual column bounds.
+        const columns = await page.evaluate(() => {
+          const pair = document.querySelector('.front-page')
+            ? ['.front-page > .hero-section', '.front-page > .intro-col']
+            : document.body.classList.contains('article-page')
+              ? ['.content-box > .toc-wrap', '.content-box > .article-block']
+              : document.querySelector('.wrap > .manifest')
+                ? ['.wrap > .manifest', '.wrap > .article']
+                : document.querySelector('.wrap > .toc')
+                  ? ['.wrap > .toc', '.wrap > .section'] : null;
+          if (!pair) return null;
+          const elements = pair.map(selector => document.querySelector(selector));
+          if (elements.some(element => !element)) throw new Error(`Missing layout column: ${pair}`);
+          return elements.map(element => {
+            const rect = element.getBoundingClientRect();
+            return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, width: rect.width };
+          });
+        });
+        if (columns) {
+          const [left, right] = columns;
+          if (width >= 768) {
+            assert.ok(left.right <= right.left + 1, `${file}: desktop columns overlap at ${width}`);
+            assert.ok(right.width >= 300, `${file}: desktop text column too narrow at ${width}`);
+            assert.ok(left.left >= 0 && right.right <= width + 1, `${file}: desktop columns exceed viewport at ${width}`);
+          } else {
+            assert.ok(left.bottom <= right.top + 1, `${file}: mobile columns must stack at ${width}`);
+          }
+        }
         assert.equal(await page.locator('.site-share-link').count(), file === 'sites.html' ? 0 : 1, `${file} share count`);
         if (shareCopy[file]) {
           const share = new URL(await page.locator('.site-share-link').getAttribute('href'));

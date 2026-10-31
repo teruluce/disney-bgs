@@ -1,13 +1,12 @@
 /* ============================================================
    BGS Chronicles — Desktop layout layer (記事ページ用)
-   1100px以上の画面でだけ読み込まれる（各記事の media 指定）。
-   スマホ・タブレット幅の見た目には影響しない。
+   768px以上で読み込まれ、767px以下のスマホ表示は維持する。
    紙色・ボルドー・セリフ体の新聞アーカイブ調はそのまま、
    PCでは「左に索引（スクロールに追従）、右に本文」の資料集風にする。
    本文の幅は読みやすい長さ（約42文字前後）を保つ。
    ============================================================ */
 
-@media (min-width: 1100px) {
+@media (min-width: 768px) {
 
   /* 既定の overflow-x:hidden だと body がスクロール容器になり、索引の sticky が効かない。
      clip なら横はみ出しを抑えたまま sticky が使える */
@@ -79,5 +78,13 @@
     padding-left: 24px;
     padding-right: 24px;
     box-sizing: border-box;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  .content-box {
+    --pad-x: 24px;
+    grid-template-columns: 180px minmax(0, 720px);
+    column-gap: 24px;
   }
 }
