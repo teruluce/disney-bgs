@@ -44,6 +44,7 @@ Override `BGS_TEST_URL` (trailing slash required) and `BGS_CHROMIUM` if needed. 
 
 ## Shared components
 
+- `print-notes.css`: print-like typefaces only for photo requests, footer information, dates, site notices and source notes. Page titles, article prose, cards and navigation retain their existing fonts. The local fonts' licenses and rebuild instructions are in `fonts/README.md`; rebuild after changing Japanese notice text. Small World and Tomorrowland do not load this layer.
 - `article-layout.css`: common layout for the 20 newspaper articles, loaded after the mobile and desktop layers on `body.article-page`. Keep the English title, Japanese subtitle, optional introduction, File No., index and body in that order. Use separate `.toc-num` / `.toc-text` spans so wrapped index entries align. Body text is 16px on phones and 17px above 640px; the index becomes a sidebar at 1100px. Small World and Tomorrowland intentionally do not load this layer. Home, profile and the site chooser retain their distinct page functions.
 - Prefer real paragraphs for prose instead of consecutive `<br>` tags; retain intentional breaks in tables and labels. Check 320/390px phones, 768/1024px tablets and 1280px or wider desktops when changing the article layout. Confirm index numbers stay on one line and the desktop sidebar does not overlap the body.
 - `site-components.css`: identical share and article-pagination styles extracted from the pages. Load before page-specific styles and mobile/desktop layers.
