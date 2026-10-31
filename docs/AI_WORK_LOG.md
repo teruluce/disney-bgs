@@ -1125,3 +1125,11 @@
 - **ソース検証：** `python scripts/check_site.py` 成功（25ページ、24共有リンク、22資料番号、Python12テスト、共有JS構文）。内部リンク・重複ID・メタ情報・JSON-LD・日付・サイトマップを確認。本文の禁止語検索、目次と見出しの対応、旧アンカー保持、`git diff --check` も成功。既存の `sites.html` JSON-LD未設定警告1件は継続。
 - **ブラウザ検証：** 既存 `browser_smoke.cjs` が125ページ／画面幅条件、検索・履歴・5ダイアログ・reduced motion・JS無効時を含め成功。記事単体を320／390／767／768／1024／1280／1536pxで確認し、目次7件の見出し対応と49件の遷移、旧6アンカーへの42件の到達、参考資料のEnter/Space開閉、画像、横はみ出しなしを検証。390／768／1280pxの本文・参考資料と390／1280pxの題字を画像で目視確認。Chromiumの実描画で参考資料にBGS Press Mincho/English、本文に既存書体が使われることを確認。「セドナ」検索から対象記事へ移動、JS無効時の本文・目次・参考資料のEnter開閉、WOFF2失敗時の可読性も成功。
 - **状態：** ローカル実装・検証済み、PR作成準備。コミットとPR URLは作成後に追記する。マージ・デプロイ・本番確認は未実施。Google Fontsは標準検証と同じく遮断し、既存の代替書体で検証。実機・他ブラウザ・実Google Fontsは未確認。
+
+
+#### PR提出・CI確認 — Codex-BGS-20261031-2
+
+- **PR：** [#93](https://github.com/teruluce/disney-bgs/pull/93)（レビュー可能な通常PR）。実装コミット：[291d5fab](https://github.com/teruluce/disney-bgs/commit/291d5fabf0dcdf385b17aafdd6b1bf397981d7b6)。
+- **照合：** 提出先ブランチをfetchし、7ファイルすべてがローカルで検証した内容とバイト単位で一致することを確認。
+- **CI：** 実装コミットの [Static SEO validation #41174997389](https://github.com/teruluce/disney-bgs/actions/runs/41174997389) はsuccess。PRはOPEN・非draft・mergeable。末尾の記録追記後も最終コミットのCIを確認する。
+- **引き継ぎ：** 本文・出典対応・掲載見送り事項をPRでレビューする。独立した他AIレビューは未実施。マージ・自動マージ・デプロイ・本番確認は行っていない。Google Fontsと実機等の未確認範囲は上記のとおり。
