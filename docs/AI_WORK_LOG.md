@@ -1153,3 +1153,10 @@
 - **ソース検証：** check_site.py成功（25ページ・24共有リンク・22記事・Python12テスト・共有JS構文）、git diff --check成功。物語本文の禁止語検索と全旧ID保持を確認。既存sites.htmlのJSON-LD警告1件は継続。補助書体は指定バージョンとSHA検証済み原本で再生成。
 - **ブラウザ検証：** 記事を320/390/767/768/1024/1280/1536pxで検証。目次と見出しの一致・70回の遷移、旧アンカー42回、参考資料のEnter/Space、写真、横はみ出しなし、検索、JS無効・WOFF2失敗時が成功。参考資料の実描画でBGS Press Mincho/English、本文に既存書体を確認。390/768/1280pxの本文・資料欄を画像で確認。標準browser_smoke.cjsの125ページ／画面幅条件、検索・履歴・5ダイアログ・reduced motion・JS無効時も成功。
 - **状態：** 加筆版は追加PRのレビュー待ちとして提出する。前回のマージ承認はPR #93に対するものとして扱い、加筆版のマージ・公開は行わない。実機・他ブラウザ・実Google Fontsは未確認。Google Fontsは標準手順に合わせ遮断したフォールバックで確認。
+
+
+#### 加筆版PR提出・CI確認 — Codex-BGS-20261031-2
+
+- **PR：** [#94](https://github.com/teruluce/disney-bgs/pull/94)。実装コミット：[5f68372d](https://github.com/teruluce/disney-bgs/commit/5f68372d00bfb480248a52858fbdfc25e391a226)。
+- **照合・CI：** 提出ブランチをfetchし、変更5ファイルがローカル検証版とバイト単位で一致。実装コミットの [Static SEO validation #41176544587](https://github.com/teruluce/disney-bgs/actions/runs/41176544587) はsuccess。記録追記後も最終headのCIを確認し、その結果はPRのチェック欄を正とする。
+- **最終状態：** 加筆版はOPENの通常PRとしてレビュー待ち。5,995字・9章・参考資料10件。未マージ・未公開。次は本文と根拠対応のレビュー、運営者の判断後のマージ・公開確認。
