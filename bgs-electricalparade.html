@@ -640,8 +640,9 @@
   <link rel="stylesheet" href="archive.css">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-article.css" media="(min-width: 1100px)">
+  <link rel="stylesheet" href="article-layout.css">
 </head>
-<body>
+<body class="article-page">
 
 <div class="site-wrap">
 <div class="content-box">
@@ -666,15 +667,15 @@
       <span class="toc-head-title">Archives Index</span>
     </div>
     <ul class="toc-list">
-      <li><a href="#genesis" class="toc-link"><span class="toc-text">I. 水上から陸上への挑戦 ― 完全なる「闇」を演出に変えた開発前史</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#engineering" class="toc-link"><span class="toc-text">II. 情熱が灯した光と音 ― 電球ひとつに心を込めた温かな技術の工夫</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#music" class="toc-link"><span class="toc-text">III. 音楽的ルーツ ― 電子音楽の黎明とディズニーパーク音楽史の交差</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#dreamlights" class="toc-link"><span class="toc-text">IV. Dreamlights Revolution ― 2001年、光の第二世代革命と「再創造」</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#fantillusion" class="toc-link"><span class="toc-text">V. The Bridge Between Two Nights ― 光と闇、炎がつないだ夜の幻想</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#family" class="toc-link"><span class="toc-text">VI. 東京版の独自性と親子の絆 ― 独自の鑑賞文化に育まれた世代のループ</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#glow" class="toc-link"><span class="toc-text">VII. 哀愁の雨と消えた魔法 ― 英語の調べと逆回りが生んだ「ナイトフォール・グロウ」の記憶</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#global" class="toc-link"><span class="toc-text">VIII. 世界の夜を巡る旅 ― 摩天楼を魔法に染めたニューヨークの奇跡</span><span class="toc-action">Explore →</span></a></li>
-      <li><a href="#trivia" class="toc-link"><span class="toc-text">IX. Light Trivia / Electrical Facts ― 夜間パレードを紐解く詳細データ</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#genesis" class="toc-link"><span class="toc-num">I.</span><span class="toc-text">水上から陸上への挑戦 ― 完全なる「闇」を演出に変えた開発前史</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#engineering" class="toc-link"><span class="toc-num">II.</span><span class="toc-text">情熱が灯した光と音 ― 電球ひとつに心を込めた温かな技術の工夫</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#music" class="toc-link"><span class="toc-num">III.</span><span class="toc-text">音楽的ルーツ ― 電子音楽の黎明とディズニーパーク音楽史の交差</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#dreamlights" class="toc-link"><span class="toc-num">IV.</span><span class="toc-text">Dreamlights Revolution ― 2001年、光の第二世代革命と「再創造」</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#fantillusion" class="toc-link"><span class="toc-num">V.</span><span class="toc-text">The Bridge Between Two Nights ― 光と闇、炎がつないだ夜の幻想</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#family" class="toc-link"><span class="toc-num">VI.</span><span class="toc-text">東京版の独自性と親子の絆 ― 独自の鑑賞文化に育まれた世代のループ</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#glow" class="toc-link"><span class="toc-num">VII.</span><span class="toc-text">哀愁の雨と消えた魔法 ― 英語の調べと逆回りが生んだ「ナイトフォール・グロウ」の記憶</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#global" class="toc-link"><span class="toc-num">VIII.</span><span class="toc-text">世界の夜を巡る旅 ― 摩天楼を魔法に染めたニューヨークの奇跡</span><span class="toc-action">Explore →</span></a></li>
+      <li><a href="#trivia" class="toc-link"><span class="toc-num">IX.</span><span class="toc-text">Light Trivia / Electrical Facts ― 夜間パレードを紐解く詳細データ</span><span class="toc-action">Explore →</span></a></li>
     </ul>
   </nav>
 
@@ -790,7 +791,8 @@
       誰もが自然と口ずさみ、思わずステップを踏んでしまうあの名テーマ曲「バロック・ホウダウン（Baroque Hoedown）」。実は、この曲はディズニーがパレードのために書き下ろしたオリジナル曲ではありません。1967年、フランスの電子音楽パイオニアであるジャン＝ジャック・ペリーとゲルション・キングスレイが、発売されたばかりの初期シンセサイザー（モーグ）を使ってレコーディングした、おもちゃのように無邪気で楽しげな一曲でした。
     </p>
     <p class="article-p">
-      この楽曲は、商業的なモーグ・シンセサイザーの極めて初期の録音例、すなわち電子音楽黎明期を象徴する作品であり、その軽快な電子音はまさに当時のデジタル新時代の到来を象徴するものでした。当初はクラシックなオーケストラ演奏を検討していたボブ・ジャニでしたが、ジャック・ワーグナーがこの楽曲を音楽チームに紹介したことが採用のきっかけになったとされています。1977年にはドン・ドーシーが新たに編曲を担当し、格式高いファンファーレや、ボコーダーを用いた電子ボイス、各ディズニー作品のメロディを散りばめた、不朽のシンセサイザー・アレンジメントが確立されました。
+      この楽曲は、商業的なモーグ・シンセサイザーの極めて初期の録音例、すなわち電子音楽黎明期を象徴する作品であり、その軽快な電子音はまさに当時のデジタル新時代の到来を象徴するものでした。当初はクラシックなオーケストラ演奏を検討していたボブ・ジャニでしたが、ジャック・ワーグナーがこの楽曲を音楽チームに紹介したことが採用のきっかけになったとされています。</p>
+    <p class="article-p">1977年にはドン・ドーシーが新たに編曲を担当し、格式高いファンファーレや、ボコーダーを用いた電子ボイス、各ディズニー作品のメロディを散りばめた、不朽のシンセサイザー・アレンジメントが確立されました。
     </p>
     <p class="article-p">
       「バロック・ホウダウン」という曲名には、17世紀のバロック音楽様式と、アメリカ南部の陽気なダンス音楽「ホウダウン」という、一見まったく相容れないふたつの要素が込められています。この格式と遊び心、伝統と革新の絶妙なバランスが、電子音楽史とディズニーパーク音楽史が交差する瞬間を鮮やかに表現しています。
@@ -854,7 +856,8 @@
       エレクトリカルパレードの系譜は、アナハイム（カリフォルニア）、フロリダ、そしてパリの各地で惜しまれつつも終了を迎えました。現在、エレクトリカルパレードの系譜を受け継ぐ大規模な夜間パレードを継続的に楽しめる存在として、東京版は極めて特別な位置を占めています。
     </p>
     <p class="article-p">
-      なぜ東京版はこれほど長きにわたり愛され、公演され続けているのでしょうか。そこには、日本独自の「パレード鑑賞文化」が密接に関わっていると考えられています。日本では、パレード開始の数時間前から場所を確保する「長時間待機文化」や、お気に入りの場所から大切に見届ける「定点鑑賞文化」、さらに「写真撮影への高い熱量」など、ゲスト側の非常に真摯な受容スタイルが存在します。これに呼応するように、フロートはどの位置から見ても、またカメラのレンズを通しても完璧に美しく調和するよう、極めて精密な角度計算を施されて運行されてきました。
+      なぜ東京版はこれほど長きにわたり愛され、公演され続けているのでしょうか。そこには、日本独自の「パレード鑑賞文化」が密接に関わっていると考えられています。日本では、パレード開始の数時間前から場所を確保する「長時間待機文化」や、お気に入りの場所から大切に見届ける「定点鑑賞文化」、さらに「写真撮影への高い熱量」など、ゲスト側の非常に真摯な受容スタイルが存在します。</p>
+    <p class="article-p">これに呼応するように、フロートはどの位置から見ても、またカメラのレンズを通しても完璧に美しく調和するよう、極めて精密な角度計算を施されて運行されてきました。
     </p>
     <p class="article-p">
       そして、1985年の東京上陸から40年以上の歳月が流れた今、パレードルートでは微笑ましい「世代交代のループ」が起きていると言われています。

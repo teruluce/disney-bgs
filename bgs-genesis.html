@@ -447,8 +447,9 @@
   <link rel="stylesheet" href="archive.css">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-article.css" media="(min-width: 1100px)">
+  <link rel="stylesheet" href="article-layout.css">
 </head>
-<body>
+<body class="article-page">
 
 <div class="site-wrap">
 <div class="content-box">
@@ -477,15 +478,15 @@
       <span class="toc-head-title">Index</span>
     </div>
     <ul class="toc-list">
-      <li><a href="#prologue" class="toc-link"><span class="toc-text">I. Prologue — ベンチから眺めた、回転木馬</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#wed" class="toc-link"><span class="toc-text">II. WED Enterprises — 映画の人々が建てた最初の夢</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#stages" class="toc-link"><span class="toc-text">III. Two Stages — アナハイムの教訓と、フロリダの広大な土地</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#craft" class="toc-link"><span class="toc-text">IV. The Craft — 見えない設計図としてのBGS</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#commandments" class="toc-link"><span class="toc-text">V. Ten Commandments — 物語を守るための十の戒律</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#utilidor" class="toc-link"><span class="toc-text">VI. Utilidor — 舞台裏を地下へ沈める</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#world" class="toc-link"><span class="toc-text">VII. Around the World — 土地ごとに変わる語り口</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#sea" class="toc-link"><span class="toc-text">VIII. S.E.A. — 世界のパークを結ぶ、ひとつの物語</span><span class="toc-action">Read →</span></a></li>
-      <li><a href="#epilogue" class="toc-link"><span class="toc-text">IX. Epilogue — 完成しない城</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#prologue" class="toc-link"><span class="toc-num">I.</span><span class="toc-text">Prologue — ベンチから眺めた、回転木馬</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#wed" class="toc-link"><span class="toc-num">II.</span><span class="toc-text">WED Enterprises — 映画の人々が建てた最初の夢</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#stages" class="toc-link"><span class="toc-num">III.</span><span class="toc-text">Two Stages — アナハイムの教訓と、フロリダの広大な土地</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#craft" class="toc-link"><span class="toc-num">IV.</span><span class="toc-text">The Craft — 見えない設計図としてのBGS</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#commandments" class="toc-link"><span class="toc-num">V.</span><span class="toc-text">Ten Commandments — 物語を守るための十の戒律</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#utilidor" class="toc-link"><span class="toc-num">VI.</span><span class="toc-text">Utilidor — 舞台裏を地下へ沈める</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#world" class="toc-link"><span class="toc-num">VII.</span><span class="toc-text">Around the World — 土地ごとに変わる語り口</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#sea" class="toc-link"><span class="toc-num">VIII.</span><span class="toc-text">S.E.A. — 世界のパークを結ぶ、ひとつの物語</span><span class="toc-action">Read →</span></a></li>
+      <li><a href="#epilogue" class="toc-link"><span class="toc-num">IX.</span><span class="toc-text">Epilogue — 完成しない城</span><span class="toc-action">Read →</span></a></li>
     </ul>
   </nav>
 
@@ -502,7 +503,8 @@
   <section class="article-block reveal" id="wed">
     <h2 class="article-h2">II. WED Enterprises — 映画の人々が建てた最初の夢</h2>
     <p class="article-p">構想を形にするため、1952年12月16日、ウォルト個人の会社として設立されたのが<strong>WED Enterprises</strong>です。名前は Walter Elias Disney の頭文字に由来し、のちのウォルト・ディズニー・イマジニアリングへ続きます。</p>
-    <p class="article-p">当時のスタジオは、『ピーター・パン』や『わんわん物語』といった大型アニメーションの制作に総力を挙げていました。契約上、スタジオの既存のアニメーターやクリエイターを新しい会社へ引き抜くことも難しい状況です。そこでWEDは、映画の世界の別の場所から人を集めます。20世紀フォックス、MGM、ワーナー・ブラザースなど、ハリウッドの大手スタジオで働いてきた美術監督、セットデザイナー、建築家たちです。リチャード・アーバイン、マービン・デイヴィス、ハーパー・ゴフ、そしてコンセプトアーティストのハーバート・ライマン。彼らが、平面のスクリーンで物語を語ってきた技術を、立体の空間へ移し替えていきました。</p>
+    <p class="article-p">当時のスタジオは、『ピーター・パン』や『わんわん物語』といった大型アニメーションの制作に総力を挙げていました。契約上、スタジオの既存のアニメーターやクリエイターを新しい会社へ引き抜くことも難しい状況です。そこでWEDは、映画の世界の別の場所から人を集めます。</p>
+    <p class="article-p">20世紀フォックス、MGM、ワーナー・ブラザースなど、ハリウッドの大手スタジオで働いてきた美術監督、セットデザイナー、建築家たちです。リチャード・アーバイン、マービン・デイヴィス、ハーパー・ゴフ、そしてコンセプトアーティストのハーバート・ライマン。彼らが、平面のスクリーンで物語を語ってきた技術を、立体の空間へ移し替えていきました。</p>
     <p class="article-p">最初の仕事は、パークの設計そのものではありませんでした。建設資金を調達するためのテレビシリーズ『Zorro』の脚本づくりです。そして1953年、ライマンがウォルトの構想を一つの週末で描き上げた鳥瞰図が、兄ロイ・O・ディズニーが建設融資を取りつけるための決め手になります。一枚の絵が、構想を現実へ押し出したのです。</p>
 
     <h3 class="sub-heading">① 映画の文法を、建築へ</h3>
@@ -534,7 +536,8 @@
     <p class="article-p">限られた敷地で建物をより高く、空間をより深く見せるために使われるのが「強制遠近法（Forced Perspective）」です。マジック・キングダムのシンデレラ城は高さ189フィート（約58メートル）。上の階へ向かうほど、扉や窓、レンガの目地、装飾のスケールが意図的に小さく設計されています。目が錯覚を起こすことで、実際の高さをはるかに超えた大きさに感じられる。壮麗な城の姿は、寸法の魔法によっても支えられています。</p>
 
     <h3 class="sub-heading">③ 「消えゆく緑」と「同化する青」</h3>
-    <p class="article-p">物語の世界を守るには、現実のインフラを視界から消す工夫も欠かせません。配電箱、避難誘導の扉、バックステージのフェンス、アトラクションの巨大な外壁。ジョン・ヘンチらが開発したとされる特殊な塗料が、「Go Away Green（消えゆく緑）」と「Blending Blue（同化する青）」です。前者は、植栽と同化して目が自動的に認識を飛ばしやすい、灰色がかった目立たない緑色。後者は、空の青さや建物のシルエットに溶け込み、巨大な上部構造の存在感を和らげます。見せたいものを際立たせるために、見せたくないものを丁寧に消していく。その色は、いわば舞台の黒子の装束です。</p>
+    <p class="article-p">物語の世界を守るには、現実のインフラを視界から消す工夫も欠かせません。配電箱、避難誘導の扉、バックステージのフェンス、アトラクションの巨大な外壁。ジョン・ヘンチらが開発したとされる特殊な塗料が、「Go Away Green（消えゆく緑）」と「Blending Blue（同化する青）」です。</p>
+    <p class="article-p">前者は、植栽と同化して目が自動的に認識を飛ばしやすい、灰色がかった目立たない緑色。後者は、空の青さや建物のシルエットに溶け込み、巨大な上部構造の存在感を和らげます。見せたいものを際立たせるために、見せたくないものを丁寧に消していく。その色は、いわば舞台の黒子の装束です。</p>
     <!-- PHOTO-SLOT（IV）: 後日追加。例：強制遠近法がわかる城の上階、ウィニーとなる建造物（火山・城など）の写真 -->
   </section>
 
@@ -606,10 +609,12 @@
     <p class="article-p">ゲストの目に、舞台裏の移動が映ってしまう。時代も世界も異なる衣装が同じ視界に並んでしまうことは、まさに第8条が戒めた矛盾そのものでした。ウォルトはこの問題を根本から解決するため、次のパークではキャストの移動や物流を、ゲストの視界から完全に切り離すことを決意します。</p>
 
     <h3 class="sub-heading">① 二階建ての都市</h3>
-    <p class="article-p">その答えが、フロリダのウォルト・ディズニー・ワールド（マジック・キングダム）に築かれた巨大な地下トンネル網、<strong>ユーティリドール（Utilidor）</strong>です。名前は「Utility Corridor」の略。ただし、建設予定地は地下水位の浅い湿地帯で、通常の地下掘削は困難でした。そこでイマジニアたちは、まず平地にトンネル網を築き、その屋根の上に盛り土をして、さらにその上へメインストリートU.S.A.や各テーマランドを築くという、二層の都市構造を採用します。ゲストが歩く地上は、実は二階にあたるのです。</p>
+    <p class="article-p">その答えが、フロリダのウォルト・ディズニー・ワールド（マジック・キングダム）に築かれた巨大な地下トンネル網、<strong>ユーティリドール（Utilidor）</strong>です。名前は「Utility Corridor」の略。ただし、建設予定地は地下水位の浅い湿地帯で、通常の地下掘削は困難でした。</p>
+    <p class="article-p">そこでイマジニアたちは、まず平地にトンネル網を築き、その屋根の上に盛り土をして、さらにその上へメインストリートU.S.A.や各テーマランドを築くという、二層の都市構造を採用します。ゲストが歩く地上は、実は二階にあたるのです。</p>
 
     <h3 class="sub-heading">② 地下を流れる、パークの血管</h3>
-    <p class="article-p">ユーティリドールには、パークの運営を支える機能が集められています。まずキャストの移動路。キャストは自分の担当するテーマランドの真下まで地下を通り、専用の階段から地上へ上がります。異なる衣装で別のランドを横切ることは、もうありません。次にAVAC（Automated Vacuum Assisted Collection）。地上のゴミ箱から、空気圧でゴミを地下の処理プラントへ吸い込む真空パイプ網です。さらに、アトラクションやオーディオアニマトロニクス、音響、照明をパーク全域で統合制御するDACS（Digital Animation Control System）の通信ケーブル網。飲食店への食材の搬入や、メンテナンスの資材の移動も、すべて地下で行われています。</p>
+    <p class="article-p">ユーティリドールには、パークの運営を支える機能が集められています。まずキャストの移動路。キャストは自分の担当するテーマランドの真下まで地下を通り、専用の階段から地上へ上がります。異なる衣装で別のランドを横切ることは、もうありません。次にAVAC（Automated Vacuum Assisted Collection）。</p>
+    <p class="article-p">地上のゴミ箱から、空気圧でゴミを地下の処理プラントへ吸い込む真空パイプ網です。さらに、アトラクションやオーディオアニマトロニクス、音響、照明をパーク全域で統合制御するDACS（Digital Animation Control System）の通信ケーブル網。飲食店への食材の搬入や、メンテナンスの資材の移動も、すべて地下で行われています。</p>
 
     <div class="column-box reveal">
       <h4>🏛 受け継がれた「都市」の思想</h4>
@@ -706,7 +711,8 @@
 
     <h3 class="sub-heading">③ サンダー・メサ — ひとつの鉱山都市として語られるフロンティア</h3>
     <p class="article-p">パリのフロンティアランドは、単なる西部開拓時代の街並みではありません。エリア全体が「サンダー・メサ」という架空の鉱山都市として、ひとつの巨大なBGSでつながっています。</p>
-    <p class="article-p">19世紀中ごろ、開拓者のヘンリー・レイヴンズウッドがビッグサンダー・マウンテンで金鉱を発見し、「サンダー・メサ・マイニング・カンパニー」を設立して街を発展させました。しかし、ネイティブ・アメリカンの伝説では、この山には雷神が宿り、金の採掘は不敬とされていました。ヘンリーの娘メラニーが鉄道技師の青年と婚約し、結婚式を迎えた当日、山の呪いが大地震となって街を襲い、ヘンリー夫妻は命を落とします。さらに現れた邪悪な霊によって新郎は殺され、花嫁のメラニーは、理由も知らされぬまま、純白のウェディングドレスで屋敷の中をさまよい、狂気へ落ちていきました。</p>
+    <p class="article-p">19世紀中ごろ、開拓者のヘンリー・レイヴンズウッドがビッグサンダー・マウンテンで金鉱を発見し、「サンダー・メサ・マイニング・カンパニー」を設立して街を発展させました。しかし、ネイティブ・アメリカンの伝説では、この山には雷神が宿り、金の採掘は不敬とされていました。</p>
+    <p class="article-p">ヘンリーの娘メラニーが鉄道技師の青年と婚約し、結婚式を迎えた当日、山の呪いが大地震となって街を襲い、ヘンリー夫妻は命を落とします。さらに現れた邪悪な霊によって新郎は殺され、花嫁のメラニーは、理由も知らされぬまま、純白のウェディングドレスで屋敷の中をさまよい、狂気へ落ちていきました。</p>
     <p class="article-p">他のパークのホーンテッドマンションが、独立した怪談の集まりとして描かれているのに対し、パリの「ファントム・マナー」は、目の前にそびえるビッグサンダー・マウンテンの鉱山開発と、物語が完全に地続きです。ひとつのアトラクションの裏側にあるのではなく、エリアの景観そのものが、ひとつの悲劇を語っているのです。</p>
 
     <h3 class="sub-heading">④ 香港と上海 — 土地に根づく物語</h3>
@@ -720,14 +726,16 @@
     <p class="article-p">ディズニーパークのBGSの歴史のなかで、もっとも大きなスケールでパークの壁を越え、物語をつないでいる架空の組織があります。<strong>S.E.A.（Society of Explorers and Adventurers／探検家・冒険家学会）</strong>です。</p>
 
     <h3 class="sub-heading">① 港の学会、東京ディズニーシーでの誕生</h3>
-    <p class="article-p">S.E.A.の原点は、かつてフロリダのプレジャー・アイランドにあった「アドベンチャーズ・クラブ」の概念にあります。その発想を受け継ぎ、2001年の東京ディズニーシー開園にあわせて、「フォートレス・エクスプロレーション」やレストラン「マゼランズ」のBGSとして、S.E.A.は正式に登場しました。1538年8月12日にイタリアのポルト・パラディーゾで設立された学会で、レオナルド・ダ・ヴィンチ、マゼラン、マルコ・ポーロ、ティコ・ブラーエといった歴史上の人物や、架空の冒険家たちが、知識の探求と世界の仕組みの解明を目指して集う場所です。</p>
+    <p class="article-p">S.E.A.の原点は、かつてフロリダのプレジャー・アイランドにあった「アドベンチャーズ・クラブ」の概念にあります。その発想を受け継ぎ、2001年の東京ディズニーシー開園にあわせて、「フォートレス・エクスプロレーション」やレストラン「マゼランズ」のBGSとして、S.E.A.は正式に登場しました。</p>
+    <p class="article-p">1538年8月12日にイタリアのポルト・パラディーゾで設立された学会で、レオナルド・ダ・ヴィンチ、マゼラン、マルコ・ポーロ、ティコ・ブラーエといった歴史上の人物や、架空の冒険家たちが、知識の探求と世界の仕組みの解明を目指して集う場所です。</p>
 
     <h3 class="sub-heading">② タワー・オブ・テラーという大きな決断</h3>
     <p class="article-p">2006年、東京ディズニーシーに「タワー・オブ・テラー」が導入される際、ひとつの課題がありました。アメリカのパークの同名アトラクションが題材にしているテレビドラマ『トワイライト・ゾーン』は、日本ではそこまで広く知られていなかったのです。そこでイマジニアリングは、『トワイライト・ゾーン』の設定を使わず、S.E.A.の世界を全面的に組み込んだ、オリジナルのBGSを創り上げました。</p>
     <p class="article-p">19世紀末のS.E.A.の会員、ハリソン・ハイタワー三世は、知識を共有するという学会の理念を破り、世界各地の文化財や聖なる品を略奪し、不当に集めていました。1899年、彼は呪われた木像「シリキ・ウトゥンドゥ」を披露する記者会見を開きますが、その夜、像の忠告を嘲笑したことで、エレベーターとともに姿を消します。一人の人物の栄光と没落が、パークの中心に据えられたのです。タワー・オブ・テラーの物語は<a href="bgs-tot.html">Tower of Terror</a>の記事で詳しく辿っています。</p>
 
     <h3 class="sub-heading">③ 世界へ散りばめられた手がかり</h3>
-    <p class="article-p">東京ディズニーシーで確立されたS.E.A.のBGSは、その後、イマジニアリングの手によって、世界各地のパークへ意図的に埋め込まれていきました。香港ディズニーランドの「ミスティック・マナー」は、S.E.A.の会員ヘンリー・ミスティック卿の邸宅が舞台で、現地の文化への配慮から、幽霊ではなく魔法のコレクションが巻き起こす騒動が描かれます。マジック・キングダムのレストラン「スキッパー・カンティーン」では、ジャングルクルーズの創始者アルバート・フォールズ博士がS.E.A.の会員とされ、店内には秘密の会議室があります。カリフォルニアのディズニーランドの「トロピカル・ハイダウェイ」には、ハイタワー三世や、新たな女性会員ヘイゼル・ハイタワーの名前が刻まれたパドルが飾られています。</p>
+    <p class="article-p">東京ディズニーシーで確立されたS.E.A.のBGSは、その後、イマジニアリングの手によって、世界各地のパークへ意図的に埋め込まれていきました。香港ディズニーランドの「ミスティック・マナー」は、S.E.A.の会員ヘンリー・ミスティック卿の邸宅が舞台で、現地の文化への配慮から、幽霊ではなく魔法のコレクションが巻き起こす騒動が描かれます。</p>
+    <p class="article-p">マジック・キングダムのレストラン「スキッパー・カンティーン」では、ジャングルクルーズの創始者アルバート・フォールズ博士がS.E.A.の会員とされ、店内には秘密の会議室があります。カリフォルニアのディズニーランドの「トロピカル・ハイダウェイ」には、ハイタワー三世や、新たな女性会員ヘイゼル・ハイタワーの名前が刻まれたパドルが飾られています。</p>
     <p class="article-p">離れた国のパークどうしが、ひとつの探検と冒険の歴史線で結ばれる。地理的な隔たりを物語がつなぎ、ゲストの探す楽しみを呼び起こす。S.E.A.は、BGSがひとつの施設を説明するものから、世界じゅうのパークを結ぶ文化の網へと広がったことを示す、象徴的な存在です。S.E.A.の全体像は<a href="bgs-sea.html">S.E.A. Archives</a>の記事に、東京ディズニーシーの誕生の経緯は<a href="bgs-origins.html">Birth of DisneySea</a>の記事にまとめています。</p>
     <!-- PHOTO-SLOT（VIII）: 後日追加。例：フォートレス・エクスプロレーション、タワー・オブ・テラー外観など -->
   </section>
