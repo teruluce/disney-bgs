@@ -1174,3 +1174,9 @@
 - **検証：** `python scripts/check_site.py` 成功（25ページ、24共有リンク、22記事、Python12テスト、共有JS構文）、`git diff --check` 成功。禁止語・資料紹介口調の検索、16項目と見出し・目次を照合。既存sites.htmlのJSON-LD未設定警告1件は継続。
 - **表示：** 標準 `node scripts/browser_smoke.cjs` の125ページ／画面幅条件、検索・履歴・5ダイアログ・reduced motion・JS無効時が成功。記事単体は320/390/767/768/1024/1280/1536pxで、目次70遷移・旧アンカー42到達・Enter/Space・全画像・横はみ出しなし・検索・JS無効・WOFF2失敗時を確認。初回はローカルサーバーの応答停止でやり直し、検索語「セドナ」がカードから落ちた点も修正して再実行し成功。本文・資料・植物コラム・トラクターを390/768/1280pxの画像で目視し、資料にBGS Press Mincho、本文に既存書体の実描画を確認。実Google Fonts・他ブラウザ・実機は未確認。
 - **提出状態：** 実装・検証済み。レビュー可能な追加PRを作成する。マージ・自動マージ・本番デプロイは実施しない。PR番号・最終CI結果は提出後に記録する。
+
+#### 再調査版PR提出 — Codex-BGS-20261031-2
+
+- **PR：** [#95](https://github.com/teruluce/disney-bgs/pull/95)（OPEN・非draft）。実装コミット：[88ae36aa](https://github.com/teruluce/disney-bgs/commit/88ae36aa4697c66b9eb41a3f87016502f1de8c23)。
+- **照合・CI：** 提出ブランチをfetchし、5ファイルすべてがローカル検証版とバイト単位で一致することを確認。実装コミットの [Static SEO validation #41180633094](https://github.com/teruluce/disney-bgs/actions/runs/41180633094) はsuccess。提出記録追記後も最終headのCIを確認し、チェック欄を正とする。
+- **引き継ぎ：** トラクターの交渉・製造年等の復活未達を含めて本文・調査記録をレビューする。6,972字、初回改稿前の約1.51倍。マージ・自動マージ・本番デプロイは行っていない。
