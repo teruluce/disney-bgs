@@ -1052,3 +1052,10 @@
 - 運営者からPR作成とマージの明示承認を受領。check_site.pyとgit diff --checkを再確認し成功。
 - GitHubのGit接続は成功するが、api.github.comへのCONNECTがHTTP 403で拒否され、REST・GraphQLとも利用不可。実行中ネットワークの許可先にapi.github.comがないことを確認。GH_TOKENは既存注入あり（値は非表示）。
 - API接続用のapi.github.comを環境設定の下書きに追加。適用後にPR作成、CI確認、マージを再開する。通信制限を回避してmainへ直接pushしない。
+
+
+#### 公開承認後の再開 — Codex-BGS-20261031
+
+- 運営者から「公開まで行っていい」と明示承認を受領。更新後の環境ではGitHub API接続が成功し、open PRは0件、mainはc65f76eで作業開始時と一致することを確認。
+- check_site.py（Python12テストを含む）とgit diff --checkを再確認し成功。前回のブラウザ検証結果は上記参照。実装の追加変更はない。
+- PR：[#87](https://github.com/teruluce/disney-bgs/pull/87)。GitHub Pagesはmainルートから自動公開される構成。PRの最終コミットのCI成功後にマージし、Pages実行と公開サイトへの反映を確認する。マージSHAと最終結果はPR・Actionsタイムラインを参照。
