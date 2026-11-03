@@ -96,5 +96,46 @@ class AuditTests(unittest.TestCase):
         self.change('href="#story"', 'href="https://teruluce.github.io/disney-discovery/"')
         self.assertEqual(self.run_audit()[0], 0)
 
+
+class HomeSchemaTests(unittest.TestCase):
+    def setUp(self):
+        self.parser = audit.PageParser()
+        self.parser.feed('<title>Archive</title><meta name="description" content="Stories">'
+                         f'<link rel="canonical" href="{audit.BASE_URL}">'
+                         '<a class="card" href="first.html">First</a>'
+                         '<a class="card" href="second.html">Second</a>')
+        self.data = {'@graph': [
+            {'@type': 'WebSite', 'url': audit.BASE_URL, 'description': 'Stories'},
+            {'@type': 'CollectionPage', 'url': audit.BASE_URL, 'name': 'Archive', 'description': 'Stories'},
+            {'@type': 'ItemList', 'itemListElement': [
+                {'url': audit.BASE_URL + 'first.html', 'position': 1},
+                {'url': audit.BASE_URL + 'second.html', 'position': 2}]}]}
+
+    def errors(self):
+        errors = []
+        audit.validate_home_schema(Path('index.html'), self.parser, self.data, errors)
+        return errors
+
+    def test_current_home_schema(self):
+        self.assertEqual(self.errors(), [])
+
+    def test_missing_or_reordered_card(self):
+        entries = self.data['@graph'][2]['itemListElement']
+        entries.reverse()
+        self.assertIn('ItemList must match archive cards in order', ' '.join(self.errors()))
+        entries.pop()
+        self.assertIn('ItemList must match archive cards in order', ' '.join(self.errors()))
+
+    def test_stale_title_description_and_url(self):
+        item = self.data['@graph'][1]
+        item.update(name='Old title', description='Old description', url=audit.BASE_URL + 'index.html')
+        errors = ' '.join(self.errors())
+        for text in ['name differs', 'description differs', 'URL differs']:
+            self.assertIn(text, errors)
+
+    def test_nonconsecutive_positions(self):
+        self.data['@graph'][2]['itemListElement'][1]['position'] = 4
+        self.assertIn('positions must be consecutive', ' '.join(self.errors()))
+
 if __name__ == '__main__':
     unittest.main()

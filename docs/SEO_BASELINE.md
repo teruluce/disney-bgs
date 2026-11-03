@@ -34,3 +34,15 @@ Reviewed the current `main` files and the shared AI work log before making chang
 ## Verification boundaries
 
 The source review found valid JSON syntax in the existing JSON-LD blocks sampled across the sitemap-listed pages. The new audit script itself is committed for automated execution; its first GitHub Actions result and live Pages behavior must be checked after the PR is opened/merged. No Search Console or GA4 account settings were changed.
+
+## 2026-11-03 — 表示を維持した構造化データの整合
+
+担当：Codex-BGS-20261103。運営者からBGS改善の優先と、見た目を変更しないことを指示された。
+
+- 提示されたSearch Console分析情報は9ページ分。クリックはトップ・ポートディスカバリー・ビッグサンダーに集まっているが、期間・クエリ・表示回数・CTR・平均順位は未提供。サイト全体の総数・成長率・検索意図は断定しない。
+- 最新main `c665e77` のトップには22資料カードがある一方、JSON-LDのItemListは21項目でミステリアスアイランドが欠落。ワールドバザールも実際の表示順と異なっていた。WebSite／CollectionPageに旧説明「決定版」等と旧タイトルが残り、CollectionPage.urlもcanonicalのルートURLと不一致だった。
+- JSON-LDだけを現在のmeta description・title・canonical・22カードの順序に整合。画面上のカード・本文・写真・見出し・日時・CSS／JSは保持。恒久File No.は変更せず、ItemList.positionだけを画面上の順序に合わせる。
+- 監査にホームの説明／名称／URL・ItemList掲載順／連番の検証を追加。壊れたフィクスチャを含む4回帰テストを追加し、全16件成功。既存sites.htmlのJSON-LD警告1件は継続し、今回の範囲には含めない。
+- JSON-LD以外のindex.htmlが基準コミットとバイト単位で一致し、全記事・CSS・JSに変更がないことを確認。Chromiumの同条件（外部Google Fontsを遮断した代替フォント）で、390／1280pxの全ページ画像が変更前後でピクセル一致。
+- 次の優先順位は、検索クエリとCTRの確認、ポートディスカバリーの出典・記述監査、ビッグサンダーの検索語との対応確認。本文や記事名の編集は検索データと一次資料を踏まえて検討し、デザイン・配置の変更とは分ける。Search Consoleの検索クリックだけではサイト内回遊の効果を測れないため、効果検証をしたとは主張しない。
+- 構造化データの整合だけで検索順位上昇やリッチリザルト表示が保証されるものではない。公開後のGoogle再取得・Search Console実データ・実機Safariは未確認。本番公開は運営者の承認後。
