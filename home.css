@@ -1,0 +1,129 @@
+/* Approved R3 homepage. Loaded only by index.html, after the shared layers. */
+.home-jumps {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+.home-jumps a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--bordeaux);
+  font: 400 12px/1.6 var(--f-jp);
+  letter-spacing: .04em;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+/* Inset outlines remain visible without entering the adjacent profile target. */
+.home-jumps a:focus-visible {
+  outline: 2px solid var(--bordeaux);
+  outline-offset: -2px;
+}
+/* The grid clips its outside borders. Keep keyboard focus inside each card. */
+.article-grid > .card:focus-visible {
+  outline: 2px solid var(--bordeaux);
+  outline-offset: -4px;
+}
+/* Photo filters create a stacking layer; paint the same ring above it too. */
+.article-grid > .card:focus-visible::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 2px solid var(--bordeaux);
+  z-index: 3;
+  pointer-events: none;
+}
+html:not(.js) .home-jumps a[href="#archive-query"] { display: none; }
+
+/* Preserve the dateline text when fallback fonts or a narrow viewport wrap it. */
+.masthead-dateline {
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+}
+body .card-cat, body .card-time { font-size: 11px; }
+body .filter-btn { font-size: 12px; }
+body .hero-photo-credit, body .card-time { color: #7a6048; }
+body .footer-related, body .last-edited { opacity: 1; }
+body .footer-related a { color: #7a6048; }
+body .archive-search input::placeholder { opacity: 1; }
+
+/* The existing 17.59375px ornament plus these margins totals 56px. */
+.front-page + .rule-deco {
+  margin-top: 19.203125px;
+  margin-bottom: 19.203125px;
+}
+@media (max-width: 640px) {
+  body .intro-body { font-size: 13px; line-height: 2; }
+}
+@media (min-width: 641px) {
+  body .card-desc { font-size: 13px; line-height: 1.85; }
+}
+@media (min-width: 768px) {
+  .controls-heading { font-size: 32px; }
+  body .card-desc { -webkit-line-clamp: 4; }
+}
+@media (max-width: 1199px) {
+  .masthead-top-rule { margin-bottom: 10px; }
+  .profile-link { margin-top: 10px; }
+  .home-jumps { margin-top: 4px; }
+}
+@media (max-width: 767px) {
+  .masthead { padding-top: 16px; padding-bottom: 14px; }
+  .hero-section { margin-top: 20px; }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .masthead { padding-top: 22px; padding-bottom: 18px; }
+  .front-page { margin-top: 26px; }
+}
+
+/* Keep R3's compact desktop composition at every desktop height. The former
+   max-height:900px split made a 1px resize move the photo by 187.5px. These
+   homepage-only overrides also keep its frame independent of the contents. */
+@media (min-width: 1200px) and (orientation: landscape) {
+  .content-box { padding-top: 3px; }
+  .masthead { padding-top: 6px; padding-bottom: 4px; }
+  .masthead-top-rule { margin-bottom: 2px; }
+  .masthead-kicker { margin-bottom: 4px; }
+  .masthead-title { font-size: clamp(3.5rem, 9vh, 5rem); margin-bottom: 2px; }
+  .masthead-subtitle { margin-top: 4px; }
+  .masthead-bottom-rules { margin-top: 5px; }
+  .profile-link { margin-top: 4px; min-height: 34px; padding: 5px 18px; }
+  .home-jumps { margin-top: 0; }
+  .front-page {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 28px;
+    margin-top: 5px;
+  }
+  .front-page .hero-photo-frame {
+    flex: 0 0 auto;
+    aspect-ratio: 570 / 378.921875;
+    min-height: 0;
+  }
+  .front-page .hero-section-label { margin-bottom: 5px; }
+  .front-page .hero-caption-block { padding: 6px 4px; }
+  .front-page > .intro-col { padding: 8px 0 10px; }
+  .front-page .intro-drop-cap-line { margin-bottom: 5px; }
+  .front-page .intro-body { font-size: .82rem; line-height: 1.65; }
+  .front-page .intro-body .sbr { height: .3em; }
+  .front-page > .toc-wrap { padding: 10px 12px 12px; }
+  .front-page .toc-head { margin-bottom: 7px; padding-bottom: 6px; }
+  .front-page .toc-group { margin-bottom: 7px; }
+  .front-page .toc-group:last-child { margin-bottom: 0; }
+  .front-page .toc-group-label { margin-bottom: 3px; }
+  .front-page .toc-links {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 10px;
+  }
+  .front-page .toc-links a { min-height: 28px; gap: 5px; font-size: .72rem; }
+  .front-page .toc-group-worldwide { padding-top: 3px; }
+}
+@media (min-width: 1200px) and (orientation: landscape) and (max-height: 700px) {
+  .masthead-title { font-size: 3.2rem; }
+  .front-page > .intro-col { padding-bottom: 6px; }
+}
