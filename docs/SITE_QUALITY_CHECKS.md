@@ -40,6 +40,8 @@ With Playwright available in your development environment and Chromium installed
 node scripts/browser_smoke.cjs
 ```
 
+The approved R3 homepage also has a focused regression check: `node scripts/homepage_smoke.cjs` (same Playwright, Chromium and `BGS_TEST_URL` setup). It checks 16 layouts, the 900/901px boundary, dateline wrapping, actual rendered keyboard-focus pixels and forced colors. See [HOMEPAGE_R3.md](HOMEPAGE_R3.md) for the implementation and verification limits.
+
 Override `BGS_TEST_URL` (trailing slash required) and `BGS_CHROMIUM` if needed. Playwright is a development-only prerequisite; the public site has no new runtime dependency or build step. The script checks 25 pages at 390/767/768/1024/1280 px, desktop column bounds and mobile stacking at the breakpoint, local asset responses, decoded images, horizontal overflow, navigation, filtering/history, modal keyboard operation, reduced motion, and no-JavaScript article visibility. It deliberately blocks Google Fonts for repeatable fallback-font checks. Verify the actual web fonts and mobile hardware separately.
 
 ## Shared components
