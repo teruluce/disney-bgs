@@ -368,7 +368,7 @@
       padding-top: clamp(18px, 4vw, 24px);
       border-top: 1px solid var(--border, rgba(60,40,15,0.22));
     }
-    .column-box h4 {
+    .column-box .aside-heading {
       margin: 0 0 clamp(12px, 3vw, 16px);
       font-family: var(--f-jp);
       font-size: clamp(0.95rem, 2.6vw, 1.02rem);
@@ -420,7 +420,7 @@
       border-top: 3px solid var(--bordeaux);
       padding: 20px;
     }
-    .philosophy-card h4 {
+    .philosophy-card .aside-heading {
       font-family: var(--f-jp);
       font-size: clamp(0.85rem, 2vw, 0.9rem);
       font-weight: 700;
@@ -782,11 +782,13 @@
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
   <link rel="stylesheet" href="print-notes.css">
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body class="article-page">
+<body class="article-page reading-page">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
 
 <div class="site-wrap">
-<div class="content-box">
+<main class="content-box">
 
   <div class="back-link-wrap reveal">
     <a href="index.html" class="back-link">← Back to Portal</a>
@@ -831,26 +833,26 @@
 
   <!-- I. 理念とメタ・ナラティブ -->
   <section class="article-block reveal" id="philosophy">
-    <h2 class="article-h2">I. Overview &amp; Philosophy — 4つの理念</h2>
+    <h2 class="article-h2 reading-start" id="reading-start" tabindex="-1">I. Overview &amp; Philosophy — 4つの理念</h2>
     <p class="article-p">私たちがディズニーのパークを歩いていると、ふと見かける「ガリオン船」や「天球儀」が美しく描かれた紋章。それこそが、世界中のアトラクションやエリアを繋ぐ秘密のネットワーク、<strong>「S.E.A.（Society of Explorers and Adventurers：探検家・冒険家学会）」</strong>の印です。</p>
     <p class="article-p">S.E.A.は、それぞれのエリアやアトラクションを個別の独立した物語として終わらせるのではなく、世界中のパークを一つの広大な「生きた歴史」として美しく繋ぎ合わせるための素晴らしい架け橋となっています。かつて 1989 年からフロリダのプレジャー・アイランドに実在した伝説の社交場『アドベンチャーズ・クラブ』のロマンを引き継ぎ、2001年の東京ディズニーシー開園とともに、あの美しい要塞『フォートレス・エクスプロレーション』から公式にその歴史が始まりました。</p>
     <p class="article-p">今日では、映画や小説、さらには新しいアトラクションにまでその世界が広がっており、まるで本当に実在する歴史であるかのように、私たちをロマンあふれる冒険の旅へと誘ってくれます。</p>
 
     <div class="philosophy-grid">
       <div class="philosophy-card">
-        <h4>ADVENTURE（冒険）</h4>
+        <h3 class="aside-heading">ADVENTURE（冒険）</h3>
         <p>過酷な自然や未知の暗闇を恐れず、勇敢に一歩を踏み出す不屈の精神。紋章には、荒波を進む「ガリオン船」として誇らしく描かれています。</p>
       </div>
       <div class="philosophy-card">
-        <h4>ROMANCE（ロマン）</h4>
+        <h3 class="aside-heading">ROMANCE（ロマン）</h3>
         <p>まだ見ぬ世界への、何物にも代えがたい憧れと純粋なときめき。夜空の星々を見つめる「アーミラリー天球儀（天球儀）」がその美しい象徴です。</p>
       </div>
       <div class="philosophy-card">
-        <h4>DISCOVERY（発見）</h4>
+        <h3 class="aside-heading">DISCOVERY（発見）</h3>
         <p>隠された真実を明らかにし、新しい知恵を得ること。世界のすべてを指し示す「羅針盤（コンパス）」が、彼らの歩むべき道をそっと教えてくれます。</p>
       </div>
       <div class="philosophy-card">
-        <h4>INVENTION（発明）</h4>
+        <h3 class="aside-heading">INVENTION（発明）</h3>
         <p>人々に夢を届け、未来を切り拓くための新しい知恵と技術。彼らのアイディアを具現化する「絵筆や彫刻道具」にその誓いが込められています。</p>
       </div>
     </div>
@@ -909,38 +911,38 @@
     <h3 class="sub-heading">★ Epics of S.E.A. — 世界の港に遺された『6つの歴史的真実と創造の記録』</h3>
     
     <div class="column-box reveal">
-      <h4>1. 港の大地主ザンビーニ家と、ミラコスタへと受け継がれた「拡張の軌跡」</h4>
+      <h3 class="aside-heading">1. 港の大地主ザンビーニ家と、ミラコスタへと受け継がれた「拡張の軌跡」</h3>
       <p>メディテレーニアンハーバーを訪れると、堂々とそびえ立つ「フォートレス・エクスプロレーション」。もともとここはスペイン国王カルロス1世の要塞でしたが、1538年にS.E.A.に譲渡されます。</p>
       <p>これに強い感銘を受けたのが、この港の大地主であった「ザンビーニ一族（ザンビーニ・ブラザーズ・リストランテの祖先）」でした。彼らは学者や探検家たちの研究を支援するため近くに別荘を建設し、それを度重なる拡張・改築を繰り返したことで、現在の美しい佇まいとなったのが、歴史あるホテル<strong>『東京ディズニーシー・ホテルミラコスタ』</strong>です。</p>
       <p>実際、ミラコスタの外壁はザンビーニ側からパラッツォ・カナル側に向けて、右へ行くほど築年数が新しくなり、装飾がだんだんと豪華になっていく「経年美化」のグラデーションがリアルに施されています。これは、港の発展を支えたザンビーニ家と、要塞に集う探検家たちの確かな交流を今に伝える物理的な証拠です。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>2. ホテル・ハイタワーの倉庫に今も遺された「S.E.A.の極秘荷札」</h4>
+      <h3 class="aside-heading">2. ホテル・ハイタワーの倉庫に今も遺された「S.E.A.の極秘荷札」</h3>
       <p>1899年12月31日のあの夜、忽然と姿を消したハリソン・ハイタワー三世（<a href="bgs-tot.html" style="color: var(--bordeaux); text-decoration: underline;">➔ 関連資料：ホテル・ハイタワーの惨劇</a>）。</p>
       <p>彼が世界中から集めてきた美術品や略奪品が眠る「タワー・オブ・テラー」の秘密の倉庫（待機エリア）には、注意深く見るといくつかの荷台や木箱に<strong>「S.E.A.（探検家・冒険家学会）」</strong>の宛先ラベルや、学会のスタンプ、送り主のサインが残されています。ハイタワー三世は学会の強大な権力や公式ルート、輸送ルートを利用して、ロストリバーデルタやアフリカから大量の貴重な美術品をニューヨークへと不正に密輸していました。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>3. 「紳士」と「略奪者」の冷徹な不和 — 肖像画に遺された確執の眼光</h4>
+      <h3 class="aside-heading">3. 「紳士」と「略奪者」の冷徹な不和 — 肖像画に遺された確執の眼光</h3>
       <p>香港ディズニーランド『ミスティック・マナー』の待合列にひっそりと飾られている、有名な「1899年のS.E.A.集合肖像画」。この絵の中で、呪いの偶像を自慢げに掲げるハイタワー三世のすぐ隣で、ヘンリー・ミスティック卿は非常に不快そうな、冷ややかな視線を彼に送っています。</p>
       <p>文化財をこよなく愛し、現地の人々に敬意を払って物々交換で収集する紳士的なミスティック卿と、武力や権力で略奪を繰り返すハイタワー三世。二人の間には根深い思想の対立（確執）があり、その冷徹な不和の瞬間がそのまま絵画として遺されています。この不穏な記録が残されたわずか数時間後、ハイタワー三世は失踪を遂げることになります。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>4. 鉱山会社をめぐる友情と、暴走の引き金となった「一通の警告書」</h4>
+      <h3 class="aside-heading">4. 鉱山会社をめぐる友情と、暴走の引き金となった「一通の警告書」</h3>
       <p>東京ディズニーランドの「ビッグサンダー・マウンテン」（<a href="bgs-btm.html" style="color: var(--bordeaux); text-decoration: underline;">➔ 関連資料：ビッグサンダー・マウンテンの全貌</a>）の駅舎は、鉱山会社「ビッグサンダー・マイニング・カンパニー」のものです。この会社を設立した実業家バーナバス・T・ブリオンは、学会の友人である天才発明家ジェイソン・チャンドラーから大型の削岩機を譲り受けて採掘を行っていました。</p>
       <p>フロリダの同鉱山に残された、チャンドラーからブリオン宛ての直筆の手紙には、『これ以上山を掘り進めると、精霊が怒り狂い、恐ろしい災いをもたらす。ただちに採掘作業を停止せよ』という強い警告が記されています。しかし、ブリオン社長はその忠告を無視。警告通り、精霊の怒りを買った金鉱山は廃坑となり、無人の列車が今も暴走し続けることになりました。この一通の手紙は、各地の鉱山会社のつながりを示す、極めて重要な歴史資料です。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>5. カメリア・ファルコの遺産と、大空への夢を紡いだハヤブサ「アレッタ」の絆</h4>
+      <h3 class="aside-heading">5. カメリア・ファルコの遺産と、大空への夢を紡いだハヤブサ「アレッタ」の絆</h3>
       <p>1851年に女性として初めてS.E.A.正会員に認められたカメリア・ファルコ。彼女の生誕100周年を記念した特別展が開催されている「ファンタスティック・フライト・ミュージアム」（<a href="bgs-soarin.html" style="color: var(--bordeaux); text-decoration: underline;">➔ 関連資料：ファンタスティック・フライト・ミュージアム</a>）の展示ロビーには、彼女の美しい肖像画が飾られています。</p>
       <p>彼女の肩に静かに羽を休めているのは、最愛の相棒であり、生涯のミューズであったメスのはやぶさ『アレッタ』です。カメリアはアレッタの「自由に大空を滑空する翼の構造」を科学的に分析したことで、伝説の空飛ぶ乗り物『ドリームフライヤー』を完成させました。カメリア亡き後も、その大空への夢はアレッタの羽ばたきとともに、私たちの元へと受け継がれています。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>6. 「ザ・レオナルドチャレンジ」：要塞に隠された、ダ・ヴィンチの入会試練</h4>
+      <h3 class="aside-heading">6. 「ザ・レオナルドチャレンジ」：要塞に隠された、ダ・ヴィンチの入会試練</h3>
       <p>東京ディズニーシーの要塞「フォートレス・エクスプロレーション」で挑戦できる「ザ・レオナルドチャレンジ」は、単なる知恵比べではありません。</p>
       <p>これは、学会の精神的支柱であり、偉大な名誉会員であるレオナルド・ダ・ヴィンチが、後世の探検家たちの知性と勇気を試すために遺した「学会への入会試験」そのものです。要塞に隠された様々な科学の仕掛けを解き明かし、見事にダ・ヴィンチからのミッションを解決すると、特別なスタンプが押され、「S.E.A.の正式なメンバー」として認められます。私たちは単なる「訪問者」ではなく、歴史に名を連ねる学会の一員として冒険を共にする特権を与えられているのです。</p>
     </div>
@@ -1408,7 +1410,7 @@
   </div>
   
 
-</div><!-- /content-box -->
+</main><!-- /content-box -->
 </div><!-- /site-wrap -->
 
 <!-- メンバープロフィールモーダル -->
@@ -1513,10 +1515,10 @@
   document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
 </script>
 
-<p class="related-note" style="max-width:640px;margin:20px auto 0;padding:0 clamp(16px,5vw,40px);text-align:center;font-family:'Noto Serif JP',serif;font-size:.68rem;letter-spacing:.06em;line-height:1.8;color:var(--muted);opacity:.85">関連記事（Disney Discovery）：<a href="https://teruluce.github.io/disney-discovery/articles/tokyo-disneysea-history.html" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:underline;text-decoration-color:rgba(138,104,32,.35);text-underline-offset:3px;display:inline-block;padding:8px 2px">東京ディズニーシーの歴史</a></p>
+<p class="related-note" style="max-width:640px;margin:20px auto 0;padding:0 clamp(16px,5vw,40px);text-align:center;font-family:'Noto Serif JP',serif;letter-spacing:.06em;line-height:1.8;color:var(--muted);">関連記事（Disney Discovery）：<a href="https://teruluce.github.io/disney-discovery/articles/tokyo-disneysea-history.html" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:underline;text-decoration-color:rgba(138,104,32,.35);text-underline-offset:3px;display:inline-block;padding:8px 2px">東京ディズニーシーの歴史</a></p>
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=%E5%88%A5%E3%80%85%E3%81%AE%E3%82%A2%E3%83%88%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E6%AE%8B%E3%82%8B%E3%80%81%E5%90%8C%E3%81%98%E5%AD%A6%E4%BC%9A%E3%81%AE%E8%B6%B3%E8%B7%A1%E3%80%82S.E.A.%E3%81%AE%E7%90%86%E5%BF%B5%E3%81%A8%E4%BA%BA%E7%89%A9%E3%81%9F%E3%81%A1%E3%81%8B%E3%82%89%E8%BE%BF%E3%82%8B%E3%80%81%E3%83%91%E3%83%BC%E3%82%AF%E3%82%92%E8%B6%8A%E3%81%88%E3%81%A6%E9%87%8D%E3%81%AA%E3%82%8B%E5%86%92%E9%99%BA%E3%81%AE%E7%89%A9%E8%AA%9E%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC+%23%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%82%B7%E3%83%BC+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E8%80%83%E5%AF%9F+%23BGS+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E5%A5%BD%E3%81%8D%E3%81%A8%E7%B9%8B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-sea.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
 <p class="last-edited">最終編集日：<time datetime="2026-10-21">2026年10月21日</time></p>
 
-<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-soarin.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Soarin'</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-raging.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Raging Spirits</span></a></nav>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-soarin.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Soarin'</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-raging.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Raging Spirits</span></a></nav>
 </body>
 </html>

@@ -692,20 +692,22 @@ h2 { border-bottom-color: rgba(47, 111, 143, .34); }
   background: #18384a;
   border-color: #18384a;
 }
-.last-edited time { color: #367e9b !important; }
+.last-edited time { color: #285d75; }
 @media (max-width: 640px) {
   .hud-header h1 { letter-spacing: .025em; }
 }
 
 </style>
 
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body>
+<body class="reading-page reading-tomorrowland">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
 
 <div class="stars" aria-hidden="true"></div>
 <div class="scanlines" aria-hidden="true"></div>
 
-<div class="wrap">
+<main class="wrap">
   <a href="index.html" class="back-btn">Back to Portal</a>
 
   <!-- ヘッダー -->
@@ -747,7 +749,7 @@ h2 { border-bottom-color: rgba(47, 111, 143, .34); }
     <div class="sec-label">
       <span class="sec-num">— 01 —</span><span class="sec-dot"></span>
     </div>
-    <h2>トゥモローランドが背負う宿命</h2>
+    <h2 id="reading-start" tabindex="-1" class="reading-start">トゥモローランドが背負う宿命</h2>
     <p>東京ディズニーランドの右奥に広がる、白く幾何学的な未来都市「トゥモローランド」。このエリアは、ファンタジーランドやウエスタンランドといった「完成された過去」を描く他の土地とは異なり、<strong>「同時代依存（Contemporary Dependency）」</strong>という美しくも過酷な宿命を背負っています。</p>
     <p>1955年にアメリカで最初のディズニーランドが誕生し、このエリアが作られた際、デザインの基盤となったのは当時のオプティミズム（楽観主義）—— 「未来への希望」でした。しかし技術が進歩し、かつて夢見た「ロケット」や「宇宙旅行」が現実のものとなった瞬間、未来都市は時代に追い越され、たちまち「色褪せた過去の残像」へと陳腐化してしまいます。「デザインは更新され続けなければならない」。この絶対的な使命を背負っているからこそ、トゥモローランドは絶えず自己変革を迫られ、常に最新の未来を模索し続ける、最もエネルギーに満ちた土地なのです。</p>
     <p>この「同時代依存」は、トゥモローランドを読み解くための視点でもあります。古い時代を舞台にするエリアでは、歴史的な様式や物語そのものが世界観を支えます。一方、未来を描くエリアでは、何を未来らしいと感じるかが時代によって変わります。だからこそ、建物やアトラクションの変化は単なる設備更新ではなく、人々が未来に託してきた期待の変化として見ることもできます。</p>
@@ -904,7 +906,7 @@ h2 { border-bottom-color: rgba(47, 111, 143, .34); }
   <footer class="foot fade">
     <a href="index.html">← HOME へ戻る</a>
   </footer>
-</div>
+</main>
 
 <button class="theme-btn" id="themeBtn" aria-label="ライトモード切替" title="Light / Dark">◐</button>
 
@@ -938,7 +940,7 @@ h2 { border-bottom-color: rgba(47, 111, 143, .34); }
 
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=%E6%9C%AA%E6%9D%A5%E3%81%AE%E8%A1%97%E3%81%8C%E3%80%81%E6%99%82%E4%BB%A3%E3%81%A8%E3%81%A8%E3%82%82%E3%81%AB%E5%A7%BF%E3%82%92%E5%A4%89%E3%81%88%E3%82%8B%E3%80%82%E5%AE%87%E5%AE%99%E6%B8%AF%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%8B%E3%82%89%E5%90%84%E6%96%BD%E8%A8%AD%E3%81%AE%E7%89%A9%E8%AA%9E%E3%81%BE%E3%81%A7%E3%80%81%E3%83%88%E3%82%A5%E3%83%A2%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89%E3%81%AE%E3%80%8C%E6%9C%AA%E6%9D%A5%E3%80%8D%E3%82%92%E8%AA%AD%E3%81%BF%E8%A7%A3%E3%81%8F%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC+%23%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89+%23%E3%83%88%E3%82%A5%E3%83%A2%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89+%23BGS+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E5%A5%BD%E3%81%8D%E3%81%A8%E7%B9%8B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-tl.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
 
-<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);font-size:.58rem;line-height:1.8;letter-spacing:.08em;text-align:left;opacity:.86;">最終編集日：<time datetime="2026-10-09">2026年10月9日</time></p>
-<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="cinderella-castle.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Cinderella Castle</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-smallworld.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">It's a Small World</span></a></nav>
+<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);line-height:1.8;letter-spacing:.08em;text-align:left;">最終編集日：<time datetime="2026-10-09">2026年10月9日</time></p>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="cinderella-castle.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Cinderella Castle</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-smallworld.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">It's a Small World</span></a></nav>
 </body>
 </html>

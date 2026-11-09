@@ -40,6 +40,8 @@ With Playwright available in your development environment and Chromium installed
 node scripts/browser_smoke.cjs
 ```
 
+The approved R3 homepage also has a focused regression check: `node scripts/homepage_smoke.cjs` (same Playwright, Chromium and `BGS_TEST_URL` setup). It checks 16 layouts, the 900/901px boundary, dateline wrapping, actual rendered keyboard-focus pixels and forced colors. See [HOMEPAGE_R3.md](HOMEPAGE_R3.md) for the implementation and verification limits.
+
 Override `BGS_TEST_URL` (trailing slash required) and `BGS_CHROMIUM` if needed. Playwright is a development-only prerequisite; the public site has no new runtime dependency or build step. The script checks 25 pages at 390/767/768/1024/1280 px, desktop column bounds and mobile stacking at the breakpoint, local asset responses, decoded images, horizontal overflow, navigation, filtering/history, modal keyboard operation, reduced motion, and no-JavaScript article visibility. It deliberately blocks Google Fonts for repeatable fallback-font checks. Verify the actual web fonts and mobile hardware separately.
 
 ## Shared components
@@ -62,3 +64,9 @@ python scripts/optimize_display_images.py
 ```
 
 The script resizes without cropping or color adjustment, preserves the profile ICC profile if present and PNG transparency, and leaves originals untouched. Compare the real rendered image before committing variants. Pillow is not needed by GitHub Pages or the SEO CI.
+
+## Reader-page quality checks
+
+`node scripts/reading_smoke.cjs` checks the 24 non-home reader pages at 320/390/640/641/767/768/1366 px. Set `BGS_BROWSER` to chromium, firefox or webkit. It covers native skip links, main landmarks, table keyboard scrolling and visible focus, no-JavaScript use, image decode, targeted axe rules and overflow. The browser CI matrix runs it with pinned development-only Playwright/axe packages and installed CJK fallback fonts. `BGS_TEST_FONTS=normal` enables a separate normal-font run; default runs block Google Fonts.
+
+For UI-only preservation checks, explicitly choose the pre-change commit: `python scripts/check_reading_preservation.py --base <SHA>`. This is an opt-in comparison for this refactor, not a ban on future editorial changes. See [READING_QUALITY.md](READING_QUALITY.md) for scope and remaining verification limits.
