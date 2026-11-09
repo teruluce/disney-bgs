@@ -299,7 +299,7 @@
       padding: clamp(20px, 4vw, 28px);
       margin: 32px 0;
     }
-    .column-box h4 {
+    .column-box .aside-heading {
       font-family: var(--f-jp);
       font-size: clamp(0.85rem, 2vw, 0.9rem);
       font-weight: 700;
@@ -324,7 +324,7 @@
       padding: clamp(18px, 4vw, 24px);
       margin: 32px 0;
     }
-    .fact-box h4 {
+    .fact-box .aside-heading {
       font-family: var(--f-sc);
       font-size: 0.68rem;
       letter-spacing: 0.12em;
@@ -419,11 +419,13 @@
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
   <link rel="stylesheet" href="print-notes.css">
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body class="article-page">
+<body class="article-page reading-page">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
 
 <div class="site-wrap">
-<div class="content-box">
+<main class="content-box">
 
   <div class="back-link-wrap reveal">
     <a href="index.html" class="back-link">← Back to Portal</a>
@@ -518,7 +520,7 @@
 
   <!-- I. プロローグ -->
   <section class="article-block reveal" id="prologue">
-    <h2 class="article-h2">I. 世界中の一品が集う場所</h2>
+    <h2 class="article-h2 reading-start" id="reading-start" tabindex="-1">I. 世界中の一品が集う場所</h2>
     <p class="article-p">パークの入口をくぐった瞬間、頭上を覆う優しいガラスの屋根と、どこか懐かしいアーケードの街並みが迎えてくれます。舞台は20世紀の幕開け、1900年代初頭のアメリカ。馬車と自動車が行き交い、ガス灯の隣に電灯が灯り始めた、古き良き時代と新しい時代がちょうど重なり合う瞬間の街です。</p>
     <p class="article-p">海外のパークではこの通りを「メインストリートUSA」と呼びますが、東京の街には別の名前が与えられました。アメリカという国への郷愁を共有していない私たちのために、世界中から一品が集められる活気ある市場——「ワールドバザール」として、独自の物語が紡がれたのです。</p>
     <p class="article-p">そしてこの街には、日本ならではの事情も静かに織り込まれています。雨や台風の多い気候から街を守るため、通り全体はガラスと鉄骨のアーケードで覆われました。屋根をかければ「屋外のアメリカの街」という設定が崩れてしまう——その矛盾を、イマジニアたちは19世紀末ヨーロッパで流行したヴィクトリア朝様式の温室建築を思わせるデザインで解決しました。20世紀初頭のアメリカの町に、当時最新のヨーロッパ風ガラス天井が架けられている。そう考えると、見上げる天井の表情がまた少し違って見えてきます。</p>
@@ -645,7 +647,7 @@
     <p class="article-p">建物そのものにも、上に行くほど窓や装飾を少しずつ小さくしていく「強制遠近法」が用いられています。実寸よりも高く、壮大に見せるこの手法は、工学的な現実を感じさせず、ただ物語としての美しさだけをゲストに届けるための、イマジニアたちのこだわりです。</p>
 
     <div class="fact-box reveal">
-      <h4>強制遠近法にまつわる数字の真偽</h4>
+      <h3 class="aside-heading">強制遠近法にまつわる数字の真偽</h3>
       <p>「1階が100%、2階が7/8、3階が5/8」というきっちりした比率が、まことしやかに語られることがあります。しかし、実際には、そこまで厳密な数値が残されているわけではありません。伝説的なイマジニア、ジョン・ヘンチが遺した言葉から読み取れるのは、もっと有機的な話——建物ひとつひとつが、見上げたときに一番美しく、一番心地よく感じられるように、感覚を頼りに微調整されてきたという事実です。数字の魔法というより、目の魔法。そう捉えるほうが、この街の在り方にはしっくりきます。</p>
     </div>
 
@@ -767,7 +769,7 @@
     </div>
 
     <div class="fact-box reveal">
-      <h4>交差点にまつわる群衆制御説の真偽</h4>
+      <h3 class="aside-heading">交差点にまつわる群衆制御説の真偽</h3>
       <p>東京だけに存在するこの十字路について、「日本人特有の混雑行動を見越した群衆制御装置だ」という説が語られることがあります。魅力的な説ではありますが、真相は定かではありません。確かなのは、ガラス屋根によって通りが「屋外の道」から「屋内の商業アーケード」へと性格を変え、その回遊性を高めるための動線として、この交差点が機能しているという建築的な事実です。</p>
     </div>
   </section>
@@ -778,7 +780,7 @@
     <p class="article-p">見上げた窓ガラスに、ふと知らない企業名や人物名を見つけることがあります。それらの多くは、この街の建設や運営に力を尽くした実在の人物たちへの、静かなオマージュです。ハリウッドの「ウォーク・オブ・フェーム」のディズニー版とも言えるこの仕掛けは、架空の法律事務所や不動産会社の「経営者」として、彼らの名前をこっそりと通りに残しています。</p>
 
     <div class="column-box reveal">
-      <h4>🕰️ 【BGS Pick Up】ガラスに刻まれた、感謝の言葉</h4>
+      <h3 class="aside-heading">🕰️ 【BGS Pick Up】ガラスに刻まれた、感謝の言葉</h3>
       <p>ウォルト・ディズニーやロイ・O・ディズニーはもちろん、この街の誘致に尽力した実在の功労者たちの名前も、こうしたウィンドウ・クレジットの中に静かに息づいています。派手な演出はなくとも、通りを見上げるたびに、この街が誰かの情熱によって生まれたことを、そっと思い出させてくれるのです。</p>
     </div>
 
@@ -789,7 +791,7 @@
     <a href="index.html" class="footer-link">← HOMEへ戻る</a>
   </div>
 
-</div>
+</main>
 </div>
 
 <script>
@@ -813,7 +815,7 @@
 
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=%E3%81%84%E3%81%A4%E3%82%82%E9%80%9A%E3%82%8A%E6%8A%9C%E3%81%91%E3%82%8B%E5%85%A5%E5%8F%A3%E3%81%AE%E8%A1%97%E3%81%AB%E3%82%82%E3%80%81%E5%BA%97%E3%81%94%E3%81%A8%E3%81%AE%E7%89%A9%E8%AA%9E%E3%81%8C%E3%81%82%E3%82%8B%E3%80%82%E3%82%AC%E3%83%A9%E3%82%B9%E5%B1%8B%E6%A0%B9%E3%81%A8%E7%AA%93%E8%BE%BA%E3%81%AE%E5%90%8D%E5%89%8D%E3%81%8B%E3%82%89%E8%BE%BF%E3%82%8B%E3%80%81%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%90%E3%82%B6%E3%83%BC%E3%83%AB%E3%81%AE%E8%83%8C%E6%99%AF%E8%A8%AD%E5%AE%9A%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC+%23%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89+%23%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%90%E3%82%B6%E3%83%BC%E3%83%AB+%23BGS+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E5%A5%BD%E3%81%8D%E3%81%A8%E7%B9%8B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-worldbazaar.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
 
-<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);font-size:.58rem;line-height:1.8;letter-spacing:.08em;text-align:left;opacity:.86;">最終編集日：<time datetime="2026-10-09">2026年10月9日</time></p>
-<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-bb.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Beauty and the Beast</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="cinderella-castle.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Cinderella Castle</span></a></nav>
+<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);line-height:1.8;letter-spacing:.08em;text-align:left;">最終編集日：<time datetime="2026-10-09">2026年10月9日</time></p>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-bb.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Beauty and the Beast</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="cinderella-castle.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Cinderella Castle</span></a></nav>
 </body>
 </html>

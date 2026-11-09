@@ -711,10 +711,12 @@ a:hover { text-decoration: underline; }
   <link rel="stylesheet" href="archive.css">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-smallworld.css?v=a389fcfeef" media="(min-width: 768px)">
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body>
+<body class="reading-page reading-smallworld">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
 
-<div class="wrap">
+<main class="wrap">
 
   <div class="site-logo reveal">
     <a href="index.html">
@@ -796,7 +798,7 @@ a:hover { text-decoration: underline; }
 
   <!-- I -->
   <section class="section reveal" id="philosophy" data-palette="pink">
-    <h2 class="section-heading">I. Core Philosophy — 平和への願いと3つの基本理念</h2>
+    <h2 class="section-heading reading-start" id="reading-start" tabindex="-1">I. Core Philosophy — 平和への願いと3つの基本理念</h2>
     <p>みなさんは「イッツ・ア・スモールワールド」を訪れたとき、どんなことを感じますか？ 一見すると子供向けの親しみやすいライドアトラクションですが、穏やかな水流と愛らしい歌声の根底には、ディズニーが紡ぐ強い平和へのメッセージと、人間への深い賛歌が静かに息づいています。</p>
     <h3 class="sub-heading">① 人形たちの「同じ顔」に込められた意味</h3>
     <p>アトラクションに登場する何百体もの子供の人形たち。よく観察してみると、実はすべて同じ一つの顔の造形で作られていることに気づいたことはありますか？ これは彫刻家ブレイン・ギブソンによる意図的なデザインです。「人種、国籍、生まれた国がどこであっても、子供たちはみな同じ人間であり、等しく尊い存在である」という平等の象徴として、あえて個々の顔の個性を排することで、隔たりのない普遍的な一体感を宿しています。</p>
@@ -996,11 +998,11 @@ a:hover { text-decoration: underline; }
 
   <footer class="page-footer reveal">
     <p>&copy; 2026 TERU_LUCE_ — BGS Chronicles</p>
-    <p style="font-size:.65rem;opacity:.6;margin-top:4px;">&copy; 1964–2026 Tokyo Disney Resort. All Archives Reserved.</p>
+    <p style="margin-top:4px;">&copy; 1964–2026 Tokyo Disney Resort. All Archives Reserved.</p>
     <a href="index.html" class="back-btn" style="margin-top:28px;margin-bottom:0;">← Back to Archive Portal</a>
   </footer>
 
-</div><!-- /wrap -->
+</main><!-- /wrap -->
 
 <!-- モーダル -->
 <div class="modal-bg" id="modalBg" aria-hidden="true" inert role="dialog" aria-modal="true" aria-labelledby="modalNameEn">
@@ -1064,9 +1066,9 @@ window.BGSCreatorMembers = members;
 </script>
 
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=%E3%81%82%E3%81%AE%E6%AD%8C%E3%81%A8%E8%89%B2%E5%BD%A9%E3%81%AB%E8%BE%BC%E3%82%81%E3%82%89%E3%82%8C%E3%81%9F%E3%80%81%E4%B8%96%E7%95%8C%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%E9%A1%98%E3%81%84%E3%80%82%E4%B8%87%E5%8D%9A%E3%81%A7%E3%81%AE%E8%AA%95%E7%94%9F%E3%81%A8%E3%82%A4%E3%83%9E%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%8B%E3%82%89%E8%BE%BF%E3%82%8B%E3%80%81%E3%82%A4%E3%83%83%E3%83%84%E3%83%BB%E3%82%A2%E3%83%BB%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%AB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC+%23%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89+%23%E3%82%A4%E3%83%83%E3%83%84%E3%82%A2%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%AB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89+%23BGS+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E5%A5%BD%E3%81%8D%E3%81%A8%E7%B9%8B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-smallworld.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
-<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);font-size:.58rem;line-height:1.8;letter-spacing:.08em;text-align:left;opacity:.86;">最終編集日：<time datetime="2026-10-21">2026年10月21日</time></p>
+<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);line-height:1.8;letter-spacing:.08em;text-align:left;">最終編集日：<time datetime="2026-10-21">2026年10月21日</time></p>
 
 
-<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-tl.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Tomorrowland</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-tdlhistory.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Tokyo Disneyland</span></a></nav>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-tl.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Tomorrowland</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-tdlhistory.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Tokyo Disneyland</span></a></nav>
 </body>
 </html>

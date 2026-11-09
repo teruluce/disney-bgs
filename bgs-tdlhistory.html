@@ -519,11 +519,13 @@
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
   <link rel="stylesheet" href="print-notes.css">
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body class="article-page">
+<body class="article-page reading-page">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
 
 <div class="site-wrap">
-<div class="content-box">
+<main class="content-box">
 
   <div class="back-link-wrap reveal">
     <a href="index.html" class="back-link">← Back to Portal</a>
@@ -555,7 +557,7 @@
 
   <!-- I. 砂上の王国 -->
   <section class="article-block reveal" id="negotiation">
-    <h2 class="article-h2">I. Muddy Ground to Holy Land</h2>
+    <h2 class="article-h2 reading-start" id="reading-start" tabindex="-1">I. Muddy Ground to Holy Land</h2>
     <h3 class="article-h3">漁民交渉と高橋政知の凄まじき人間力</h3>
     <p class="article-p">
       現在の千葉県浦安市舞浜。世界でも屈指の美しさと完成度を誇るディズニーリゾートが広がるこの場所は、1960年代初頭まで、海苔や貝類の養殖で生計を立てる血気盛んな漁師たちの広大な海でした。住民の7割近くが漁民であったこの「漁師の街」に、海を埋め立てて巨大レジャーランドを誘致するという大構想が持ち上がったところから、王国の歴史は動き出します。
@@ -713,7 +715,7 @@
     <a href="index.html" class="footer-link">← Back to Portal</a>
   </div>
 
-</div><!-- /content-box -->
+</main><!-- /content-box -->
 </div><!-- /site-wrap -->
 
 <!-- ===== MODAL ===== -->
@@ -778,11 +780,11 @@
   document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
 </script>
 
-<p class="related-note" style="max-width:640px;margin:20px auto 0;padding:0 clamp(16px,5vw,40px);text-align:center;font-family:'Noto Serif JP',serif;font-size:.68rem;letter-spacing:.06em;line-height:1.8;color:var(--muted);opacity:.85">関連記事（Disney Discovery）：<a href="https://teruluce.github.io/disney-discovery/articles/tokyo-disneyland-history.html" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:underline;text-decoration-color:rgba(138,104,32,.35);text-underline-offset:3px;display:inline-block;padding:8px 2px">東京ディズニーランドの歴史</a></p>
+<p class="related-note" style="max-width:640px;margin:20px auto 0;padding:0 clamp(16px,5vw,40px);text-align:center;font-family:'Noto Serif JP',serif;letter-spacing:.06em;line-height:1.8;color:var(--muted);">関連記事（Disney Discovery）：<a href="https://teruluce.github.io/disney-discovery/articles/tokyo-disneyland-history.html" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:underline;text-decoration-color:rgba(138,104,32,.35);text-underline-offset:3px;display:inline-block;padding:8px 2px">東京ディズニーランドの歴史</a></p>
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=%E6%B5%A6%E5%AE%89%E3%81%AE%E6%B5%B7%E3%81%8B%E3%82%89%E3%80%81%E5%A4%A2%E3%81%AE%E7%8E%8B%E5%9B%BD%E3%81%B8%E3%80%82%E5%9F%8B%E3%82%81%E7%AB%8B%E3%81%A6%E3%81%A8%E4%BA%A4%E6%B8%89%E3%80%81%E9%96%8B%E5%9C%92%E3%81%BE%E3%81%A7%E3%81%AE%E6%AD%A9%E3%81%BF%E3%81%8B%E3%82%89%E8%BE%BF%E3%82%8B%E3%80%81%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89%E3%81%8C%E7%94%9F%E3%81%BE%E3%82%8C%E3%82%8B%E3%81%BE%E3%81%A7%E3%81%AE%E7%89%A9%E8%AA%9E%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC+%23%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%81%AE%E6%AD%B4%E5%8F%B2+%23BGS+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E5%A5%BD%E3%81%8D%E3%81%A8%E7%B9%8B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-tdlhistory.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
 
-<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);font-size:.58rem;line-height:1.8;letter-spacing:.08em;text-align:left;opacity:.86;">最終編集日：<time datetime="2026-10-09">2026年10月9日</time></p>
+<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);line-height:1.8;letter-spacing:.08em;text-align:left;">最終編集日：<time datetime="2026-10-09">2026年10月9日</time></p>
 <nav class="related-records" aria-label="関連する記録"><h2>RELATED RECORD / 関連する記録</h2><a href="bgs-worldbazaar.html">開園の日から続く、ワールドバザール</a></nav>
-<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-smallworld.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">It's a Small World</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-electricalparade.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Electrical Parade</span></a></nav>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-smallworld.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">It's a Small World</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-electricalparade.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Electrical Parade</span></a></nav>
 </body>
 </html>

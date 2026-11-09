@@ -572,7 +572,7 @@
       line-height: 1.85;
       color: var(--ink-soft);
     }
-    .sources-body h4 {
+    .sources-body .aside-heading {
       font-family: var(--f-sc);
       font-size: 0.6rem;
       letter-spacing: 0.15em;
@@ -583,7 +583,7 @@
       border-bottom: 1px solid var(--border);
       padding-bottom: 4px;
     }
-    .sources-body h4:first-child { margin-top: 0; }
+    .sources-body .aside-heading:first-child { margin-top: 0; }
     .sources-body ul {
       list-style-type: square;
       padding-left: 18px;
@@ -642,11 +642,13 @@
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
   <link rel="stylesheet" href="print-notes.css">
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body class="article-page">
+<body class="article-page reading-page">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
 
 <div class="site-wrap">
-<div class="content-box">
+<main class="content-box">
 
   <div class="back-link-wrap reveal">
     <a href="index.html" class="back-link">← Back to Portal</a>
@@ -682,7 +684,7 @@
 
   <!-- I. 水上から陸上への挑戦 -->
   <section class="article-block reveal" id="genesis">
-    <h2 class="article-h2">I. From Water to Street</h2>
+    <h2 class="article-h2 reading-start" id="reading-start" tabindex="-1">I. From Water to Street</h2>
     <h3 class="article-h3">漆黒の湖畔から始まった、光の魔法の第一歩</h3>
     <p class="article-p">
       夜の帳が下りる頃、どこか懐かしく胸を躍らせるおもちゃのような電子の音色とともに、きらめく光の海が私たちの目の前にやってきます。東京ディズニーランドの夜を象徴する「エレクトリカルパレード」。その魔法の第一歩は、1971年の秋、フロリダの澄んだ湖の上にありました。
@@ -1043,28 +1045,28 @@
     <details class="sources-details">
       <summary class="sources-summary">Archive Sources<br>[ Open Library ]</summary>
       <div class="sources-body">
-        <h4>Official Sources</h4>
+        <h3 class="aside-heading">Official Sources</h3>
         <ul>
           <li>Disney Parks &amp; Resorts Historical Release Documents</li>
           <li>D23 — The Official Disney Fan Club Archives</li>
           <li>Walt Disney Imagineering Technical &amp; Design Briefs</li>
         </ul>
-        <h4>Tokyo Disney Resort</h4>
+        <h3 class="aside-heading">Tokyo Disney Resort</h3>
         <ul>
           <li>東京ディズニーリゾート公式プレスリリース（2001年 - 2026年）</li>
           <li>株式会社オリエンタルランド公開資料・年次報告書</li>
         </ul>
-        <h4>Historical Archives</h4>
+        <h3 class="aside-heading">Historical Archives</h3>
         <ul>
           <li>Disney History Institute Collection Records</li>
           <li>The Walt Disney Family Museum Archival Exhibits</li>
         </ul>
-        <h4>Music Archives</h4>
+        <h3 class="aside-heading">Music Archives</h3>
         <ul>
           <li>Jean-Jacques Perrey &amp; Gershon Kingsley "Kaleidoscopic Vibrations" (1967) Album Documentation</li>
           <li>The Bob Moog Foundation Synthesizer History Records</li>
         </ul>
-        <h4>Additional Research</h4>
+        <h3 class="aside-heading">Additional Research</h3>
         <ul>
           <li>ディズニーエンターテインメント・クリエイターインタビュー（ドン・ドーシー、グレゴリー・スミス対談集）</li>
           <li>世界各パーク現地のパンフレット、ガイドブック、ショースケジュール資料（1972年 - 2026年）</li>
@@ -1073,7 +1075,7 @@
     </details>
   </div>
 
-</div><!-- /content-box -->
+</main><!-- /content-box -->
 </div><!-- /site-wrap -->
 
 <!-- ===== MODAL ===== -->
@@ -1154,6 +1156,6 @@
 
 
 
-<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-tdlhistory.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Tokyo Disneyland</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-spatial-epic.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">TDS Spatial Epic</span></a></nav>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-tdlhistory.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Tokyo Disneyland</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-spatial-epic.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">TDS Spatial Epic</span></a></nav>
 </body>
 </html>

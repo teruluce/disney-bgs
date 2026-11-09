@@ -332,8 +332,8 @@
       border-left-color: var(--gold);
       background: rgba(138,104,32,0.06);
     }
-    .column-box--gold h4 { color: var(--gold-2); }
-    .column-box h4 {
+    .column-box--gold .aside-heading { color: var(--gold-2); }
+    .column-box .aside-heading {
       font-family: var(--f-jp); font-size: clamp(0.85rem, 2vw, 0.9rem);
       font-weight: 700; color: var(--bordeaux); margin-bottom: 16px; line-height: 1.5;
     }
@@ -426,11 +426,13 @@
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
   <link rel="stylesheet" href="print-notes.css">
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body class="article-page">
+<body class="article-page reading-page">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
 
 <div class="site-wrap">
-<div class="content-box">
+<main class="content-box">
 
   <div class="back-link-wrap reveal">
     <a href="index.html" class="back-link">← Back to Portal</a>
@@ -467,7 +469,7 @@
   </div>
 
   <section class="article-block reveal" id="prologue">
-    <h2 class="article-h2">I. 夢が現実になる場所</h2>
+    <h2 class="article-h2 reading-start" id="reading-start" tabindex="-1">I. 夢が現実になる場所</h2>
     <p class="article-p">ワールドバザールを抜け、どこまでも続く青空のもと、前方にそびえ立つ美しい「シンデレラ城」。一歩一歩近づくごとに、日常の騒がしさは遥か遠くへ消え去り、きらめく童話の世界に迎え入れられます。</p>
     <p class="article-p">このお城には、単なるランドマークとしての枠を超えた、イマジニアたちの細やかな「おもてなしの魔法」が散りばめられています。お城を見上げたときの高揚感、城門をくぐり抜けるときのどこか特別な空気。それらすべてが、私たちを物語の主人公へと優しく仕立て上げてくれます。</p>
   </section>
@@ -483,14 +485,14 @@
     <p class="article-p">また、これまでに実施された大規模な改修工事では、お城を覆う工事用シートに実物そっくりのシンデレラ城が描かれていました。パークを訪れたすべてのゲストの夢や思い出を、一瞬たりとも壊したくないというイマジニアたちによる「見えない優しさ」が、この美しいお城には息づいているのです。</p>
 
     <div class="column-box reveal">
-      <h4>🏰 【BGS Pick Up】城内レストラン計画とミステリーツアーの記憶</h4>
+      <h3 class="aside-heading">🏰 【BGS Pick Up】城内レストラン計画とミステリーツアーの記憶</h3>
       <p>実は開園当初、お城のなかに贅沢なレストランをオープンする計画がありました。しかし諸条件からそれは幻の計画となり、その代わりに数々の冒険を生んだ「シンデレラ城ミステリーツアー」が誕生しました。</p>
     <p>
       そして現在、城内は「シンデレラのフェアリーテイル・ホール」として生まれ変わり、美しいステンドグラスやシンデレラの物語を描いた数々の美術品が並ぶ、優雅なプリンセスの空間として私たちを歓迎してくれます。</p>
     </div>
 
     <div class="column-box column-box--gold reveal">
-      <h4>✦ 金色の塔に宿る、ウォルトの美学とファンのロマン</h4>
+      <h3 class="aside-heading">✦ 金色の塔に宿る、ウォルトの美学とファンのロマン</h3>
       <p>カリフォルニアの「眠れる森の美女の城」に小さな金色の塔が添えられた際、創始者ウォルト・ディズニーはそのデザインをとても気に入っていたと伝えられています。その美意識はその後のシンデレラ城にも受け継がれ、最も高くそびえる塔の頂へ、誇らしげに金色が採用されました。</p>
     <p>
       ファンの間では「空の上からパークを見守るウォルトが、自分のお城を見つけられるように」という温かなロマンが語り継がれています。物語の設定ではなく、あくまでファンたちが紡いだ夢の物語ですが、そう信じて空に向かってそびえる金の塔を見上げると、その輝きがいっそう特別なものに感じられるから不思議です。</p>
@@ -602,7 +604,7 @@
     </div>
 
     <div class="column-box reveal">
-      <h4>🌏 同じシンデレラ城なのに、なぜ印象が違うのか</h4>
+      <h3 class="aside-heading">🌏 同じシンデレラ城なのに、なぜ印象が違うのか</h3>
       <p>東京とフロリダの「シンデレラ城」は同じ物語をモチーフにしながら、並べてみると明らかに色の雰囲気が異なります。その理由の一つは、それぞれの土地の光にあります。</p>
     <p>
       日差しが強烈なフロリダでは、淡い色は強い紫外線に洗われてくすんで見えてしまうため、城の外壁はコントラストの高い深みのある白とグレーが採用されています。一方、穏やかな拡散光が多い東京では、より柔らかなクリームホワイトと青みがかった尖塔が採用されており、晴れた日には絵本から切り取られたような、夢見るような優しい印象を醸し出します。</p>
@@ -617,7 +619,7 @@
     <p class="article-p">お堀のほとりや、城内の大広間で聞こえる優しい笑い声。お城は、今この瞬間も、訪れるゲスト一人ひとりの「思い出」という名の魔法によって、きらきらと輝きを放ち続けています。</p>
 
     <div class="column-box reveal">
-      <h4>💙 キャストが紡ぐ、ガラスの靴のぬくもり</h4>
+      <h3 class="aside-heading">💙 キャストが紡ぐ、ガラスの靴のぬくもり</h3>
       <p>「シンデレラのフェアリーテイル・ホール」のガラスの靴や玉座の前では、毎日心温まる奇跡が生まれています。</p>
     <p>
       かつてここでお互いに愛を誓い、プロポーズを成功させたカップルが、数年後に嬉しそうにお子様を連れて「また来たよ！」と報告に来てくれたり、ドレスを着てちょっぴり緊張している小さなプリンセスに、キャストがそっと優しくロイヤルなおもてなしを届けたり。シンデレラ城は、訪れる人それぞれの思い出や願いを受け止める場所として、パークの中心に佇んでいます。</p>
@@ -636,7 +638,7 @@
     <a href="index.html" class="footer-link">← HOMEへ戻る</a>
   </div>
 
-</div>
+</main>
 </div>
 
 <!-- ============================================================
@@ -693,7 +695,7 @@
 </script>
 
 
-<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);font-size:.58rem;line-height:1.8;letter-spacing:.08em;text-align:left;opacity:.86;">最終編集日：<time datetime="2026-10-25">2026年10月25日</time></p>
-<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-worldbazaar.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">World Bazaar</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-tl.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Tomorrowland</span></a></nav>
+<p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);line-height:1.8;letter-spacing:.08em;text-align:left;">最終編集日：<time datetime="2026-10-25">2026年10月25日</time></p>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-worldbazaar.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">World Bazaar</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-tl.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Tomorrowland</span></a></nav>
 </body>
 </html>

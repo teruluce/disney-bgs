@@ -105,12 +105,14 @@
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
   </style>
   <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body>
+<body class="reading-page">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
   <main class="page">
     <header class="masthead">
       <div class="edition">TERU LUCE — DISNEY SITES</div>
-      <h1>ディズニーをめぐる、<br><span>ふたつの入口。</span></h1>
+      <h1 id="reading-start" tabindex="-1" class="reading-start">ディズニーをめぐる、<br><span>ふたつの入口。</span></h1>
       <p>知ることから、もっと深く楽しむことへ。</p>
     </header>
 
