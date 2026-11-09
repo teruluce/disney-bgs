@@ -31,6 +31,7 @@ class PageParser(HTMLParser):
         self.meta = {}
         self.canonical = None
         self.jsonld = []
+        self.archive_cards = []
         self._in_jsonld = False
         self._jsonld_buffer = []
         self.redirect = False
@@ -49,6 +50,8 @@ class PageParser(HTMLParser):
                 self.references.append(attrs[key])
         if attrs.get("srcset"):
             self.references.extend(part.strip().split()[0] for part in attrs["srcset"].split(",") if part.strip())
+        if tag == "a" and "card" in attrs.get("class", "").split() and attrs.get("href"):
+            self.archive_cards.append(attrs["href"])
         if tag == "p" and "last-edited" in attrs.get("class", "").split():
             self._in_edit_date = True
         if tag == "time" and self._in_edit_date and attrs.get("datetime"):
@@ -163,6 +166,33 @@ def validate_article_dates(path, parser, data, errors):
         errors.append(f"{path.name}: dateModified does not match displayed edit date")
 
 
+
+def validate_home_schema(path, parser, data, errors):
+    """Keep invisible archive metadata aligned with the actual home-page cards."""
+    if path.name != "index.html" or not parser.archive_cards:
+        return
+    graph = data.get("@graph", []) if isinstance(data, dict) else []
+    by_type = {item.get("@type"): item for item in graph if isinstance(item, dict) and isinstance(item.get("@type"), str)}
+    description = parser.meta.get(("name", "description"))
+    for kind in ("WebSite", "CollectionPage"):
+        item = by_type.get(kind, {})
+        if item.get("description") != description:
+            errors.append(f"index.html: {kind} description differs from page metadata")
+        if item.get("url") != parser.canonical:
+            errors.append(f"index.html: {kind} URL differs from canonical")
+    if by_type.get("CollectionPage", {}).get("name") != "".join(parser.title).strip():
+        errors.append("index.html: CollectionPage name differs from title")
+    items = by_type.get("ItemList", {}).get("itemListElement", [])
+    if not isinstance(items, list) or not all(isinstance(item, dict) for item in items):
+        errors.append("index.html: invalid ItemList entries")
+        return
+    expected = [BASE_URL + target for target in parser.archive_cards]
+    if [item.get("url") for item in items] != expected:
+        errors.append("index.html: ItemList must match archive cards in order")
+    if [item.get("position") for item in items] != list(range(1, len(expected) + 1)):
+        errors.append("index.html: ItemList positions must be consecutive")
+
+
 def main():
     errors = []
     warnings = []
@@ -205,6 +235,7 @@ def main():
             try:
                 data = json.loads(raw)
                 validate_article_dates(path, parser, data, errors)
+                validate_home_schema(path, parser, data, errors)
             except json.JSONDecodeError as exc:
                 errors.append(f"{label}: JSON-LD block {index} is invalid JSON ({exc})")
 
