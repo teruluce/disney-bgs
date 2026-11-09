@@ -1,0 +1,80 @@
+/* Reader-page quality layer. The approved R3 homepage does not load this file. */
+.reading-page { --reading-muted: #7a6048; }
+.reading-page > .skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  background: #f5edd8;
+  color: #30251c;
+  font: 400 14px/1.6 'Noto Serif JP', serif;
+  transform: translateY(calc(-100% - 16px));
+}
+.reading-page > .skip-link:focus {
+  transform: none;
+  outline: 2px solid #6b1e2a;
+  outline-offset: 2px;
+}
+.reading-page .reading-start { scroll-margin-top: 24px; }
+.reading-page .reading-start:focus,
+.reading-page .compare-table-wrap[tabindex]:focus-visible {
+  outline: 2px solid var(--bordeaux, #6b1e2a);
+  outline-offset: 4px;
+}
+.reading-page .last-edited,
+.reading-page .source-note,
+.reading-page .related-note {
+  opacity: 1;
+  color: var(--reading-muted);
+}
+.reading-page .last-edited,
+.reading-page .footer-copy,
+.reading-page .footer-note,
+.reading-page .site-share-note,
+.reading-page .related-note,
+.reading-page .modal-copyright {
+  font-size: max(11px, .64rem);
+}
+.reading-page .last-edited time { font-size: inherit; }
+.reading-page .photo-caption,
+.reading-page .compare-table .original,
+.reading-page .source-note ol li::before { color: var(--reading-muted); }
+.reading-page .plate-label { font-size: 11px; color: #80601d; }
+.reading-page .note-callout-label,
+.reading-page .gold-entry-banner-text,
+.reading-page .article-h2--gold,
+.reading-page .fact-box .aside-heading { color: #80601d; }
+.reading-page .fact-box .aside-heading { font-size: max(11px, .75rem); }
+.reading-page .sources-body .aside-heading { font-size: 12px; line-height: 1.8; }
+
+/* Keep the pastel illustration, geometric ornaments and creator cards intact. */
+.reading-smallworld { --reading-gold-ink: #80601d; }
+.reading-smallworld .section p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.95;
+}
+.reading-smallworld .section-heading { font-size: 20px; line-height: 1.6; }
+.reading-smallworld .sub-heading { font-size: 17px; line-height: 1.65; }
+.reading-smallworld .logo-sub,
+.reading-smallworld .toc-list a { color: var(--reading-gold-ink); }
+.reading-smallworld .logo-sub { font-size: 11px; }
+.reading-smallworld footer > p:nth-child(2) { color: #6d6470; font-size: 11px; }
+@media (min-width: 641px) {
+  .reading-smallworld .section p { font-size: 17px; line-height: 2; }
+  .reading-smallworld .section-heading { font-size: 24px; }
+  .reading-smallworld .sub-heading { font-size: 18px; }
+}
+
+/* Dark HUD, Orbitron and blue ornaments retain their existing colors. */
+.reading-tomorrowland .manifest-list .m-num,
+.reading-tomorrowland .sec-num,
+.reading-tomorrowland .manifest-list a,
+.reading-tomorrowland .manifest-list li:hover a,
+.reading-tomorrowland .back-btn:hover,
+.reading-tomorrowland .foot a:hover,
+.reading-tomorrowland .last-edited time { color: #285d75; }

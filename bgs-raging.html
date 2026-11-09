@@ -324,7 +324,7 @@
       padding: clamp(20px, 4vw, 28px);
       margin: 32px 0;
     }
-    .column-box h4 {
+    .column-box .aside-heading {
       font-family: var(--f-jp);
       font-size: clamp(0.85rem, 2vw, 0.9rem);
       font-weight: 700;
@@ -475,11 +475,13 @@
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
   <link rel="stylesheet" href="print-notes.css">
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body class="article-page">
+<body class="article-page reading-page">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
 
 <div class="site-wrap">
-<div class="content-box">
+<main class="content-box">
 
   <div class="back-link-wrap reveal">
     <a href="index.html" class="back-link">← Back to Portal</a>
@@ -515,22 +517,22 @@
 
   <!-- I. プロローグ -->
   <section class="article-block reveal" id="prologue">
-    <h2 class="article-h2">I. 放置された発掘調査キャンプ</h2>
+    <h2 class="article-h2 reading-start" id="reading-start" tabindex="-1">I. 放置された発掘調査キャンプ</h2>
     <p class="article-p">中央アメリカの失われた河のほとり「ロストリバーデルタ」。うっそうと生い茂るジャングルの最奥に、突如として現れる崩壊した古代遺跡の発掘現場、それこそが「レイジングスピリッツ」の舞台です。</p>
     <p class="article-p">アトラクションのキューライン（待ち列）を進むと、ゲストは<strong>「放置された考古学者たちの発掘調査キャンプ」</strong>を通過します。そこには、ランタンのほの暗い灯りに照らされたテーブルの上に、未完成の遺跡のスケッチ、無線機、そして調査日記が、まるで「つい数分前まで誰かがここにいた」かのような臨場感で遺されています。なぜ、学者たちは命よりも大切な発掘機材をすべて放り出して、この地から一瞬にして逃げ去ってしまったのでしょうか。</p>
 
     <div class="column-box reveal">
-      <h4>📜 祭祀場から発掘現場へ</h4>
+      <h3 class="aside-heading">📜 祭祀場から発掘現場へ</h3>
       <p>この場所はもともと神をまつる祭祀場でした。やがて文明が失われて遺跡となり、そこへ考古学者や発掘チームが訪れます。チームは残された資料をもとに、発掘とあわせて復元の作業を進めてきました。遺跡が見つかったとき、石像はすでに倒れていて、調べるうちに火の神と水の神の像だと分かりました。採石場にはレールが敷かれ、ホッパーカーや道具が集められました。高い場所での復元作業のため、現場にはたくさんのはしごが掛けられています。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>🌀 遺跡が姿を現したのは、1880年代のハリケーンのあと</h4>
+      <h3 class="aside-heading">🌀 遺跡が姿を現したのは、1880年代のハリケーンのあと</h3>
       <p>物語の年表をたどると、長いあいだジャングルの底に眠っていた祭祀場は、1880年代にロストリバーデルタを襲った大型ハリケーンで崩れ、遺跡の一部が露わになったことで再び歴史の表舞台に現れたとされています。知らせを受けた考古学者や調査隊が現地に入り、発掘と復元が始まりました。出土品を運ぶための鉄製レールが敷かれ、ホッパーカーや機材が持ち込まれた——ゲストが目にする発掘現場は、この時から続いているのです。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>🗺 現地の言葉が語る、現場のリアリティ</h4>
+      <h3 class="aside-heading">🗺 現地の言葉が語る、現場のリアリティ</h3>
       <p>発掘現場の立入禁止の注意書きには、英語だけでなくスペイン語（「¡ALTO! ENTRADA PROHIBIDA」＝止まれ！立入禁止）が添えられています。中央アメリカの現場で、外から来た調査隊と地元の作業員たちが一緒に働いていた——そんな当時の空気が、小さな看板の言葉にも染み込んでいます。</p>
     </div>
   </section>
@@ -548,14 +550,14 @@
     <p class="article-p">神殿の階段から流れ落ちる水の上では、本物の火炎が赤々と燃え盛るという、自然界の理を覆す怪奇現象が発生しました。水は激しく沸き立ち、炎は水面を這い回り、現在もこの不可思議な超自然現象が絶え間なく続いています。この神々の怒りの炎を目撃した調査隊は恐怖に駆られ、キャンプを捨ててジャングルへと逃げ去ってしまったのです。</p>
 
     <div class="column-box reveal">
-      <h4>🔥 神々の怒りが爆発するまで</h4>
+      <h3 class="aside-heading">🔥 神々の怒りが爆発するまで</h3>
       <p>祀られている火の神と水の神は、どちらも気性の荒い神でした。儀式を怠ると火山が噴火し、巨大な嵐が町を襲ったといわれています。古代の法典には、2体の神の顔を向かい合わせることを禁じる決まりがありました。復元作業がほぼ終わったと思われたとき、火の神と水の神が向かい合う形になり、神々の怒りが爆発して大量の蒸気が噴き上がります。法典の決まりに解読チームが気づいたときには、すでに手遅れでした。</p>
     <p>
          火の神「イクチュラコアトル」は高さ約16m、巨大な蛇の姿をした水の神は「アクトゥリクトゥリ」と呼ばれています。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>🐍 二柱の神の名前をめぐって</h4>
+      <h3 class="aside-heading">🐍 二柱の神の名前をめぐって</h3>
       <p>火の神の名前は、資料やファンの間では「イクチュアコアトル（Ixchuacoatl）」と表記されることもあり、カタカナの揺れがあります。メソアメリカ風の響きを持つこの名には、蛇を思わせる語感があり、水の神「アクトゥリクトゥリ」とともに、古代の祭祀場で祀られてきた二柱の気性の荒い神として語られています。火山を噴火させ太陽の熱を強める火の神と、巨大な嵐を呼び川を氾濫させる水の神——相反する力を持つ二柱だからこそ、「顔を向かい合わせてはならない」という禁忌が重く響くのです。</p>
     </div>
   </section>
@@ -572,7 +574,7 @@
     <p class="article-p">その結果、<strong>仮設の線路に「1回転（360度垂直ループ）」という、恐るべき超常現象の形が刻み込まれてしまった</strong>のです。現在、誰も運転士がいないはずのホッパーカーは、神々の怒りの渦中へ、そして重力を無視して逆さまに回転する垂直ループへと、凄まじいスピードで今もなお走り続けています。ゲストが乗り込むのは、神々の怒りに呑まれたまま走り続けるホッパーカーです。</p>
 
     <div class="column-box reveal">
-      <h4>🚃 ねじれたレールと暴走する鉱山列車</h4>
+      <h3 class="aside-heading">🚃 ねじれたレールと暴走する鉱山列車</h3>
       <p>神々の怒りの力はホッパーカーのレールにも及び、大きなレールが高く持ち上げられたままねじれてしまいました。蒸気が噴き上がったのと同じタイミングで、レールがねじ曲がったともいわれています。作業員を乗せたホッパーカーはそのねじれたレールを暴走し、神々の怒りは今も収まっていないとされています。</p>
     <p>
          見どころは、背の高い石像がある遺跡をかけめぐること、そして高い位置からの景色や360度の視界を楽しめること。体験は垂直方向の360度回転だけではなく、「ディズニーシー・トランジットスチーマーライン」の蒸気船が見えることもあるそうです。</p>
@@ -582,20 +584,20 @@
   <!-- IV. ハイタワー三世の影 -->
   <section class="article-block reveal" id="crossover">
     <h2 class="article-h2">IV. ハイタワー三世の探険を示す手がかり</h2>
-    <p class="article-p">レイジングスピリッツの発掘現場には、タワー・オブ・テラーのハリソン・ハイタワー三世につながる手がかりが残されています。</p><div class="column-box reveal"><h4>現場に残された手がかり：木箱とハイタワー三世</h4><p>発掘現場の木箱には「HOTEL HIGHTOWER」の表示があり、ホテル・ハイタワーのロビーにある壁画には、ハイタワー三世がロストリバーデルタを探険する姿が描かれています。レイジングスピリッツ付近に置かれたホテル・ハイタワー行きの荷物も、ハイタワー三世の探険を示す具体的な証拠です。木箱と絵画を合わせて見ると、ハイタワー三世とこの発掘現場のつながりは、パーク内に具体的な手がかりが残された物語として読み解けます。</p></div>
+    <p class="article-p">レイジングスピリッツの発掘現場には、タワー・オブ・テラーのハリソン・ハイタワー三世につながる手がかりが残されています。</p><div class="column-box reveal"><h3 class="aside-heading">現場に残された手がかり：木箱とハイタワー三世</h3><p>発掘現場の木箱には「HOTEL HIGHTOWER」の表示があり、ホテル・ハイタワーのロビーにある壁画には、ハイタワー三世がロストリバーデルタを探険する姿が描かれています。レイジングスピリッツ付近に置かれたホテル・ハイタワー行きの荷物も、ハイタワー三世の探険を示す具体的な証拠です。木箱と絵画を合わせて見ると、ハイタワー三世とこの発掘現場のつながりは、パーク内に具体的な手がかりが残された物語として読み解けます。</p></div>
 
     <div class="column-box reveal">
-      <h4>📦 荷札に残された宛先「THE HIGH TOWER TRUST」</h4>
+      <h3 class="aside-heading">📦 荷札に残された宛先「THE HIGH TOWER TRUST」</h3>
       <p>待ち列に置かれた木箱の荷札には、「TO: HIGHTOWER TRUST（ハイタワー財団宛）」という宛先が読み取れるとされています。ニューヨークの「1 Park Avenue」という住所が添えられているという声もあり、それはホテル・ハイタワーの所在地にあたると言われています。ハイタワー財団は、収集家でもあったハリソン・ハイタワー三世が設立したものと語られ、荷札はこの発掘現場と、アメリカンウォーターフロントのホテルとが、一本の線でつながっていることを物語ります。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>🖼 ロビーの壁画と、時代をまたぐ「略奪の線」</h4>
+      <h3 class="aside-heading">🖼 ロビーの壁画と、時代をまたぐ「略奪の線」</h3>
       <p>ホテル・ハイタワーのロビーの壁画には、ハイタワー三世がロストリバーデルタの遺跡を訪れ、貴重な遺物を運び出す様子が描かれていると読み解かれています。ファンの間では、その訪問は1880年代半ばごろと考えられており、1899年の大晦日に「シリキ・ウトゥンドゥ」の呪いで姿を消すより前の出来事です。のちの時代の発掘現場に財団宛の木箱が残されているのも、かつての買い取りや資金提供の痕跡だという見方があります。ニューヨークの富豪の強欲と、ロストリバーデルタに響く神々の怒り。ふたつの物語は、同じ歴史の線の上に並んでいるのです。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>🔎 インディ・ジョーンズ博士との対比</h4>
+      <h3 class="aside-heading">🔎 インディ・ジョーンズ博士との対比</h3>
       <p>すぐ隣にある「クリスタルスカルの魔宮」を探検しているインディ・ジョーンズ博士は、「歴史を守り、現地の文化や神聖なルールに最大の敬意を払いながら学術的に調査する」という<strong>「本物の考古学者」</strong>です。一方で、ハイタワー三世は「歴史を略奪し、自分の富を誇示する」という<strong>「強欲な略奪者」</strong>でした。</p>
     <p>
          同じロストリバーデルタに遺されたふたつの発掘現場は、<strong>「歴史への敬意（インディ）」</strong>と、<strong>「歴史への冒涜（ハイタワー三世）」</strong>という、ディズニーシー全体の光と影のメッセージとして描かれているのです。ハイタワーが犯した数々の略奪の罰は、のちに1899年のニューヨークで「シリキ・ウトゥンドゥ」の手によって下されることになります。</p>
@@ -617,12 +619,12 @@
     <p class="article-p">物語の骨組みを知ったあとは、現場に散りばめられた小さな仕掛けと、この暴走列車がどこから来たのかにも目を向けてみましょう。</p>
 
     <div class="column-box reveal">
-      <h4>🕖 止まったままの時計「7:17」</h4>
+      <h3 class="aside-heading">🕖 止まったままの時計「7:17」</h3>
       <p>キューラインの序盤、発掘調査隊の現場事務所のデスク近くにかかる時計の針は、7時17分を指して止まっているとされています。ファンの間では、この数字を、1955年7月17日にカリフォルニアのディズニーランドが開園した日付へのオマージュと見る声があります。放置されたキャンプの時間が止まっているという物語と、パークの原点への敬意が、一つの時計に重ねられているのです。</p>
     </div>
 
     <div class="column-box reveal">
-      <h4>🏛 火の神の造形に重なる、あの映画の宮殿</h4>
+      <h3 class="aside-heading">🏛 火の神の造形に重なる、あの映画の宮殿</h3>
       <p>火の神の鎮座する古代建築の、彫りの深い直線的な石造りの造形や怒りの表情は、2000年公開のディズニー映画『ラマになった王様』に登場する宮殿を思わせると語られています。一部のファンの間では、アニメーションとイマジニアリングの垣根を越えたオマージュではないかという受け止め方もあります。</p>
     </div>
 
@@ -631,7 +633,7 @@
     <p class="article-p">2005年7月21日に運行を始めたレイジングスピリッツは、Intaminが製造し、三生輸送機器（Sansei Technologies）が施工、設計はウォルト・ディズニー・イマジニアリングが手がけました。パリ版が遺跡を巡る発掘現場の探検ものだったのに対し、東京版は「神々の怒り」というディズニー・オリジナルの物語をまとい、火炎や蒸気の演出とともにまったく別のアトラクションへと生まれ変わっています。身長制限は117cm以上195cm以下。</p>
 
     <div class="column-box reveal">
-      <h4>🔥💧 パーク全体に流れる「火と水」のドラマ</h4>
+      <h3 class="aside-heading">🔥💧 パーク全体に流れる「火と水」のドラマ</h3>
       <p>メディテレーニアンハーバーのナイトショー『ブラヴィッシーモ！』は、水の精と火の精という相反する二つの元素の出会いを描いた作品でした。それからほどなく登場したレイジングスピリッツも、火の神と水の神の対立が物語の核にあります。ファンの間では、東京ディズニーシー全体で「火と水」という元素のドラマが響き合っていると見る向きもあり、ハーバーでの華やかな共演と、ロストリバーデルタでの激しい衝突を見比べてみるのも一興です。</p>
     </div>
 
@@ -648,7 +650,7 @@
   </div>
   
 
-</div><!-- /content-box -->
+</main><!-- /content-box -->
 </div><!-- /site-wrap -->
 
 <script>
@@ -679,6 +681,6 @@
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=%E6%B0%B4%E3%81%AE%E4%B8%8A%E3%81%A7%E7%87%83%E3%81%88%E3%82%8B%E7%82%8E%E3%80%81%E6%8D%BB%E3%81%98%E6%9B%B2%E3%81%92%E3%82%89%E3%82%8C%E3%81%9F%E7%99%BA%E6%8E%98%E7%8F%BE%E5%A0%B4%E3%80%82%E7%81%AB%E3%81%A8%E6%B0%B4%E3%81%AE%E7%A5%9E%E3%80%85%E3%82%92%E3%82%81%E3%81%90%E3%82%8B%E8%A8%AD%E5%AE%9A%E3%81%8B%E3%82%89%E8%AA%AD%E3%81%BF%E8%A7%A3%E3%81%8F%E3%80%81%E3%83%AC%E3%82%A4%E3%82%B8%E3%83%B3%E3%82%B0%E3%82%B9%E3%83%94%E3%83%AA%E3%83%83%E3%83%84%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC+%23%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%82%B7%E3%83%BC+%23%E3%83%AC%E3%82%A4%E3%82%B8%E3%83%B3%E3%82%B0%E3%82%B9%E3%83%94%E3%83%AA%E3%83%83%E3%83%84+%23BGS+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E5%A5%BD%E3%81%8D%E3%81%A8%E7%B9%8B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-raging.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
 <p class="last-edited">最終編集日：<time datetime="2026-10-17">2026年10月17日</time></p>
 
-<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-sea.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">S.E.A. Archives</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-indy.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Indiana Jones</span></a></nav>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-sea.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">S.E.A. Archives</span></a><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-indy.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Indiana Jones</span></a></nav>
 </body>
 </html>

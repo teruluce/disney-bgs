@@ -324,7 +324,7 @@
       padding: clamp(20px, 4vw, 28px);
       margin: 32px 0;
     }
-    .column-box h4 {
+    .column-box .aside-heading {
       font-family: var(--f-jp);
       font-size: clamp(0.85rem, 2vw, 0.9rem);
       font-weight: 700;
@@ -410,11 +410,13 @@
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
   <link rel="stylesheet" href="print-notes.css">
+  <link rel="stylesheet" href="reading.css">
 </head>
-<body class="article-page">
+<body class="article-page reading-page">
+<a class="skip-link" href="#reading-start">本文へ移動</a>
 
 <div class="site-wrap">
-<div class="content-box">
+<main class="content-box">
 
   <div class="back-link-wrap reveal">
     <a href="index.html" class="back-link">← Back to Portal</a>
@@ -451,7 +453,7 @@
 
   <!-- I. プロローグ -->
   <section class="article-block reveal" id="prologue">
-    <h2 class="article-h2">I. 密造酒が生んだ大洪水</h2>
+    <h2 class="article-h2 reading-start" id="reading-start" tabindex="-1">I. 密造酒が生んだ大洪水</h2>
     <p class="article-p">アメリカ河の最奥にひっそりと佇む、緑豊かでユーモラスな小動物たちの国「クリッターカントリー」。その象徴である「スプラッシュ・マウンテン」の頂から流れ落ちる激しい滝には、かつてのどかな丘だったこの地を襲った大洪水の歴史が刻まれています。</p>
     <p class="article-p">もともとこの山は「チカピンヒル」と呼ばれる穏やかな丘でした。しかしある日、丘の奥で密造酒を作っていたアライグマの「ラケッティ」が、調合を誤り自家製の蒸留器を大爆発させてしまいます。その衝撃でビーバーたちの頑丈なダムが決壊し、大量の水が一気に溢れ出してふもとを水浸しにしました。この大洪水以降、クリッターたちはこの丘を「スプラッシュ・マウンテン（水しぶきの山）」と呼ぶようになったのです。</p>
     <p class="article-p">大洪水により開拓途中だった人間たちは退去していきましたが、水分をたっぷり含んだ肥沃な泥地は、小動物たちにとって絶好のフロンティアとなりました。彼らは人間が残していった道具や大自然の木の根を再利用して家や作業場を作り始め、独自の文明を持つ小さな国が完成したのです。</p>
@@ -464,7 +466,7 @@
     <p class="article-p">旅の途中で彼を狙うのは、ずる賢い<strong>「きつねどん」</strong>と、力持ちだけど少し間抜けな<strong>「くまどん」</strong>。うさぎどんは持ち前の機転で罠を何度もかいくぐりますが、ついにきつねどんに捕まり、丘の頂上で絶体絶命の危機を迎えます。</p>
     
     <div class="column-box reveal">
-      <h4>💡 「うさぎどん」と「ブレア（Br'er）」：単なる直訳ではない名前の魔法</h4>
+      <h3 class="aside-heading">💡 「うさぎどん」と「ブレア（Br'er）」：単なる直訳ではない名前の魔法</h3>
       <p>私たちが親しみを持って呼んでいる「うさぎどん」「きつねどん」「くまどん」という名前。実は英語のオリジナル版では、それぞれ<strong>「Br'er Rabbit（ブレア・ラビット）」「Br'er Fox（ブレア・フォックス）」「Br'er Bear（ブレア・ベア）」</strong>と呼ばれています。</p>
     <p>
          この「ブレア（Br'er）」という言葉、実はアメリカ南部の方言（なまり）で<strong>「Brother（お兄さん・兄弟）」</strong>を意味する言葉が縮まったものです。</p>
@@ -521,7 +523,7 @@
   </div>
   
 
-</div><!-- /content-box -->
+</main><!-- /content-box -->
 </div><!-- /site-wrap -->
 
 <script>
@@ -552,6 +554,6 @@
 <section class="site-share" aria-label="この記事を共有"><a class="site-share-link" href="https://x.com/intent/tweet?text=%E3%81%82%E3%81%AE%E8%90%BD%E5%B7%AE%E3%81%AE%E5%85%88%E3%81%AB%E3%81%82%E3%82%8B%E3%81%AE%E3%81%AF%E3%80%81%E6%B0%B4%E3%81%97%E3%81%B6%E3%81%8D%E3%81%A0%E3%81%91%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84%E3%80%82%E5%A4%A7%E6%B4%AA%E6%B0%B4%E3%81%A8%E5%B0%8F%E5%8B%95%E7%89%A9%E3%81%9F%E3%81%A1%E3%81%AE%E6%9A%AE%E3%82%89%E3%81%97%E3%81%8B%E3%82%89%E8%BE%BF%E3%82%8B%E3%80%81%E3%82%B9%E3%83%97%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%83%BB%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%86%E3%83%B3%E3%81%AE%E7%89%A9%E8%AA%9E%E3%80%82%0A%0A%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC+%23%E6%9D%B1%E4%BA%AC%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89+%23%E3%82%B9%E3%83%97%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%86%E3%83%B3+%23BGS+%23%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC%E5%A5%BD%E3%81%8D%E3%81%A8%E7%B9%8B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84+%23BGSChronicles&amp;url=https%3A%2F%2Fteruluce.github.io%2Fdisney-bgs%2Fbgs-sm.html" target="_blank" rel="noopener noreferrer" aria-label="このページをXで共有する"><span class="site-share-mark" aria-hidden="true">𝕏</span><span>この記事をXで共有</span></a><p class="site-share-note">このページをシェアする</p></section>
 <p class="last-edited">最終編集日：<time datetime="2026-10-17">2026年10月17日</time></p>
 
-<nav class="article-pagination" aria-label="記事間ナビゲーション"><span class="pagination-prev is-empty" aria-hidden="true"></span><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事一覧へ</span></a><a class="pagination-next" href="bgs-btm.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Big Thunder Mountain</span></a></nav>
+<nav class="article-pagination" aria-label="記事間ナビゲーション"><span class="pagination-prev is-empty" aria-hidden="true"></span><a class="pagination-home" href="index.html#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-btm.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Big Thunder Mountain</span></a></nav>
 </body>
 </html>

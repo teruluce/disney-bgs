@@ -48,3 +48,38 @@ jobs:
       - name: Validate static SEO essentials
         run: |
           python scripts/check_site.py
+
+  reader-browser-check:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install development-only browser tools
+        run: |
+          npm install --prefix "$RUNNER_TEMP/bgs-browser-tests" --no-save playwright@1.62.1 axe-core@4.10.3
+          node "$RUNNER_TEMP/bgs-browser-tests/node_modules/playwright/cli.js" install --with-deps ${{ matrix.browser }}
+          sudo apt-get install -y fonts-noto-cjk
+      - name: Check reader layouts and keyboard access
+        env:
+          NODE_PATH: ${{ runner.temp }}/bgs-browser-tests/node_modules
+          BGS_BROWSER: ${{ matrix.browser }}
+          BGS_TEST_URL: http://127.0.0.1:8765/
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > "$RUNNER_TEMP/bgs-http.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          curl --fail --retry 5 --retry-delay 1 --retry-connrefused http://127.0.0.1:8765/ > /dev/null
+          if [ "$BGS_BROWSER" = chromium ]; then
+            export BGS_CHROMIUM="$(node -p 'require("playwright").chromium.executablePath()')"
+            node scripts/browser_smoke.cjs
+            node scripts/homepage_smoke.cjs
+          fi
+          node scripts/reading_smoke.cjs
