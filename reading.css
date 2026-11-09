@@ -58,7 +58,7 @@
   font-weight: 400;
   line-height: 1.95;
 }
-.reading-smallworld .section-heading { font-size: 20px; line-height: 1.6; }
+.reading-smallworld .section-heading { font-size: 20px; line-height: 1.6; text-wrap: balance; }
 .reading-smallworld .sub-heading { font-size: 17px; line-height: 1.65; }
 .reading-smallworld .logo-sub,
 .reading-smallworld .toc-list a { color: var(--reading-gold-ink); }
