@@ -561,7 +561,7 @@
 
   <div class="photo-frame reveal" style="--ar:1800/1012">
     <!-- 修正：decoding="sync" → "async"、loading="eager" を削除 -->
-    <img src="tot-exterior.jpg" alt="Tower of Terror Exterior" width="1800" height="1012" decoding="async" fetchpriority="high">
+    <img src="tot-exterior.jpg" srcset="tot-exterior-display-800.jpg 800w, tot-exterior-display-1200.jpg 1200w, tot-exterior.jpg 1800w" sizes="(max-width: 767px) calc(100vw - 42px), (max-width: 1099px) min(718px, calc(100vw - 254px)), 718px" alt="Tower of Terror Exterior" width="1800" height="1012" decoding="async" fetchpriority="high">
   </div>
 
   <section class="article-block reveal" id="prologue">
