@@ -52,7 +52,7 @@ async function focusPixels(page) {
         await document.fonts.ready;
         await Promise.all([...document.images].map(i => i.decode()));
       });
-      assert.equal(await page.locator('.card').count(), 22);
+      assert.equal(await page.locator('.card').count(), 23);
       const layout = await page.evaluate(() => {
         const box = s => { const r = document.querySelector(s).getBoundingClientRect(); return { x:r.x, y:r.y, w:r.width, h:r.height, bottom:r.bottom }; };
         const profile = box('.profile-link');
@@ -82,7 +82,7 @@ async function focusPixels(page) {
         assert.equal(await page.locator('.card:visible').count(), 0);
         await page.locator('[data-filter="all"]').click();
         await page.locator('#archive-query').fill('');
-        assert.equal(await page.locator('.card:visible').count(), 22);
+        assert.equal(await page.locator('.card:visible').count(), 23);
       }
     }
     const a = measured.get('1366x900'), b = measured.get('1366x901');

@@ -132,7 +132,7 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
       await page.goBack();
       await page.waitForFunction(() => document.querySelector('#tot-card').style.display !== 'none');
       await page.locator('[data-filter="all"]').click();
-      assert.equal(await page.locator('.card:visible').count(), 22);
+      assert.equal(await page.locator('.card:visible').count(), 23);
 
       for (const [source, target] of [['bgs-origins.html', 'bgs-spatial-epic.html'], ['bgs-tdlhistory.html', 'bgs-worldbazaar.html'], ['bgs-portdiscovery.html', 'bgs-tl.html']]) {
         await page.goto(base + source);
@@ -199,7 +199,7 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
       assert.equal(await page.locator('.reveal,.fade').first().evaluate(element => getComputedStyle(element).opacity), '1', `${file}: no-JS fallback`);
       if (file === 'index.html') {
         assert.equal(await page.locator('#archive-query').isVisible(), false, 'no-JS search is hidden');
-        assert.equal(await page.locator('.card:visible').count(), 22, 'no-JS archive remains readable');
+        assert.equal(await page.locator('.card:visible').count(), 23, 'no-JS archive remains readable');
       }
     }
     await nojs.close();
