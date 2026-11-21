@@ -2,6 +2,32 @@
 const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
+const fs = require('node:fs');
+const path = require('node:path');
+const archiveGroups = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'archive-order.json'), 'utf8')).groups;
+const expectedArchive = archiveGroups.flatMap(group => group.articles.map((article, i) => ({
+  ...article, category: group.category, number: group.prefix + String(i + 1).padStart(2, '0'),
+})));
+async function checkArchiveOrder(page) {
+  const actual = await page.evaluate(() => ({
+    toc: [...document.querySelectorAll('#toc .toc-links a')].map(a => ({id:a.hash.slice(1), number:a.querySelector('.toc-record-no')?.textContent})),
+    cards: [...document.querySelectorAll('.article-grid > .card')].map(a => ({id:a.id, url:a.getAttribute('href'), category:a.dataset.cat, number:a.querySelector('.card-cat').textContent.split(' · ')[0]})),
+    items: JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent)['@graph'].find(x=>x['@type']==='ItemList').itemListElement,
+  }));
+  assert.deepEqual(actual.toc, expectedArchive.map(({id,number})=>({id,number})));
+  assert.deepEqual(actual.cards, expectedArchive.map(({id,url,category,number})=>({id,url,category,number})));
+  assert.deepEqual(actual.items.map(x=>({url:x.url,position:x.position})), expectedArchive.map((x,i)=>({url:'https://teruluce.github.io/disney-bgs/'+x.url,position:i+1})));
+  const readable = await page.locator('#toc .toc-links a').evaluateAll(links => links.every(a => {
+    const r=a.getBoundingClientRect(), n=a.querySelector('.toc-record-no').getBoundingClientRect();
+    return r.left>=0 && r.right<=innerWidth && a.scrollWidth<=a.clientWidth+1 && n.width>0 && n.left>=r.left && n.right<=r.right;
+  }));
+  assert.equal(readable,true,'contents numbers/text must fit their links');
+}
+async function checkFilteredOrder(page, category) {
+  const visible = await page.locator('.card:visible').evaluateAll(cards => cards.map(a => ({id:a.id,number:a.querySelector('.card-cat').textContent.split(' · ')[0]})));
+  assert.deepEqual(visible, expectedArchive.filter(x=>category==='all'||x.category===category).map(({id,number})=>({id,number})));
+}
+
 
 // Compare rendered pixels, rather than trusting a computed outline that may be clipped.
 async function focusPixels(page) {
@@ -52,7 +78,8 @@ async function focusPixels(page) {
         await document.fonts.ready;
         await Promise.all([...document.images].map(i => i.decode()));
       });
-      assert.equal(await page.locator('.card').count(), 23);
+      await checkArchiveOrder(page);
+      assert.equal(await page.locator('.card').count(), expectedArchive.length);
       const layout = await page.evaluate(() => {
         const box = s => { const r = document.querySelector(s).getBoundingClientRect(); return { x:r.x, y:r.y, w:r.width, h:r.height, bottom:r.bottom }; };
         const profile = box('.profile-link');
@@ -83,6 +110,29 @@ async function focusPixels(page) {
         await page.locator('[data-filter="all"]').click();
         await page.locator('#archive-query').fill('');
         assert.equal(await page.locator('.card:visible').count(), 23);
+        for (const category of ['tdl','tds','history','all']) {
+          await page.locator(`[data-filter="${category}"]`).click();
+          await checkFilteredOrder(page, category);
+        }
+        await page.locator('#archive-query').fill('港');
+        const selected = await page.locator('.card:visible').evaluateAll(cards=>cards.map(a=>({id:a.id,number:a.querySelector('.card-cat').textContent.split(' · ')[0]})));
+        assert.ok(selected.length>1,'search must exercise multiple results');
+        assert.deepEqual(selected, expectedArchive.filter(x=>selected.some(y=>y.id===x.id)).map(({id,number})=>({id,number})));
+        await page.locator('[data-filter="tds"]').click();
+        const seaSelected = await page.locator('.card:visible').evaluateAll(cards=>cards.map(a=>a.id));
+        assert.deepEqual(seaSelected, expectedArchive.filter(x=>x.category==='tds'&&selected.some(y=>y.id===x.id)).map(x=>x.id));
+        // The S03 quick link must recover a target hidden by category and query.
+        await page.locator('[data-filter="tdl"]').click();
+        await page.locator('#archive-query').fill('セドナ');
+        await page.locator('#toc a[href="#miracosta-card"]').click();
+        await page.waitForFunction(()=>location.hash==='#miracosta-card');
+        assert.equal(await page.locator('#miracosta-card').isVisible(),true);
+        assert.equal(await page.locator('#archive-query').inputValue(),'');
+        assert.match(await page.locator('#miracosta-card .card-cat').textContent(),/^S03 ·/);
+        const target = await page.locator('#miracosta-card').boundingBox();
+        assert.ok(target.y>=-1 && target.y<height,'S03 anchor must land in viewport');
+        await checkArchiveOrder(page);
+
       }
     }
     const a = measured.get('1366x900'), b = measured.get('1366x901');
@@ -92,6 +142,14 @@ async function focusPixels(page) {
     assert.ok(await focusPixels(page) >= 200, 'keyboard focus invisible in forced colors');
     assert.deepEqual(errors, []);
     console.log(`R3 homepage passed: ${sizes.length} layouts, rendered keyboard focus, forced colors, navigation and search.`);
+    const nojs = await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:844}});
+    await nojs.route('https://fonts.**/*',route=>route.abort());
+    await nojs.goto(base);
+    await checkArchiveOrder(nojs);
+    await nojs.locator('#toc a[href="#miracosta-card"]').click();
+    assert.equal(new URL(nojs.url()).hash,'#miracosta-card');
+    assert.equal(await nojs.locator('.card:visible').count(),expectedArchive.length);
+    await nojs.close();
     await context.close();
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

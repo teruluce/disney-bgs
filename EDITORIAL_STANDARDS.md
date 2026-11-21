@@ -61,6 +61,8 @@ Shared styles live in `archive.css` (linked before `mobile.css`). Rolled out on 
 - Keep article URLs and link target IDs stable. Use stable article IDs for links because display numbers can change.
 - Extend the existing site checks with this implementation. Verify that the quick navigation, cards, and JSON-LD contain the same articles exactly once in the same order, that the display numbers are consecutive within each group, and that every quick navigation link resolves to its card.
 
+- **Implementation workflow:** Maintain park/order only in `archive-order.json`, then run `python scripts/build_archive.py` and commit the generated `index.html`. Card prose/media and ItemList names stay in the authored HTML; add a new article's card and ItemList entry before generating. `python scripts/check_site.py` detects stale output. Article pagination remains in permanent File No. order and is outside homepage reordering.
+
 ## Technical working rules
 
 - Preserve existing page structure and the established newspaper design unless a change is explicitly intended.
