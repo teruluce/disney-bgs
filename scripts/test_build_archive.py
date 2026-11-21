@@ -28,6 +28,17 @@ class StaticArchiveTests(unittest.TestCase):
         self.assertIn(f'"position": 1, "url": "https://teruluce.github.io/disney-bgs/{first["url"]}"', result)
         self.assertEqual(render(result, groups), result)
 
+    def test_group_move_updates_card_classification_too(self):
+        groups = copy.deepcopy(self.groups)
+        moved = groups[0]['articles'].pop()
+        groups[2]['articles'].append(moved)
+        result = render(self.source, groups)
+        card = next(m[0] for m in CARD.finditer(result) if m[1] == moved['url'])
+        self.assertIn('data-cat="history"', card)
+        self.assertIn('card-cat">W02 · Story · Worldwide</span>', card)
+        self.assertIn(f'href="#{moved["id"]}"><span class="toc-record-no">W02</span>', result)
+        self.assertEqual(render(result, groups), result)
+
     def test_missing_duplicate_or_reordered_contents_detected(self):
         links = re.findall(r'        <a href="#[^"]+"><span class="toc-record-no">.*?</a>', self.source)
         for replacement in ['', links[0] + links[0], links[1]]:

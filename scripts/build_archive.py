@@ -52,7 +52,10 @@ def render(source, groups):
             if re.search(r'\bid="([^"]+)"', card)[1] != article['id']:
                 raise ValueError(f'{article["url"]}: card ID differs from stable manifest ID')
             card = re.sub(r'\bdata-cat="[^"]+"', f'data-cat="{group["category"]}"', card, count=1)
-            card, count = re.subn(r'(<span class="card-cat">)(?:No\. \d{3}|[LSW]\d+) ·', rf'\g<1>{number} ·', card)
+            park = {'tdl': 'TDL', 'tds': 'TDS', 'history': 'Worldwide'}[group['category']]
+            card, count = re.subn(
+                r'(<span class="card-cat">)(?:No\. \d{3}|[LSW]\d+)( · [^<]+ · )(?:TDL|TDS|Worldwide)(</span>)',
+                rf'\g<1>{number}\g<2>{park}\g<3>', card)
             if count != 1:
                 raise ValueError(f'{article["url"]}: missing/invalid card display number')
             ordered.append(card)
