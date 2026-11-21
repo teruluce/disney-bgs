@@ -29,11 +29,12 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 
 ## Narrative immersion and written Japanese
 
-- The article's purpose is not merely to explain facts, but to help readers uncover the story carried by the place. Use verified facts as the foundation for a narrative that moves through architecture, props, landscape, history, and show details.
+- Write in calm Japanese 「です・ます」 form, like a guide walking beside the reader. Let the reader notice a scene or a detail before explaining its place in the story. Build the narrative on verified facts carried by architecture, objects, landscapes, and historical records.
+- Keep sentences about the same scene or observation together. Develop one point per paragraph, vary sentence length naturally, and use a visible detail or a change in viewpoint to lead into the next part.
 - Prefer composed written Japanese over casual conversational phrasing. In context, use forms such as 「しかし」「一方で」「ただし」 rather than casual 「けれど」「でも」. Do not mechanically replace every connector; choose the wording that best preserves the sentence's meaning and rhythm.
 - Avoid addressing readers with repeated opening questions or interrupting the narrative with meta headings and phrases such as 「この記事では〜を解説します」「この記事で辿ること」「写真でもわかるように」「解説によると」. Introduce the subject through a detail, a contrast, or a narrative question instead.
 - Keep interpretations legible as interpretations. Avoid turning a visual resemblance into a confirmed production intention, or calling a detail a 「伏線」「決定的な証拠」 unless the evidence supports that level of certainty. Atmospheric writing should deepen the story, not inflate the claim.
-- Favor precise, restrained endings over repeated emphatic formulations such as 「〜なのです」. Poetic language is welcome when it grows naturally from the place and its details; avoid generic sentiment or grand conclusions that could fit any article.
+- Use 「〜のです」 or 「〜なのです」 where the preceding details come together and the reader can see what they mean. For example, after describing the buildings along the harbor: 「その街並みのなかに、ホテルミラコスタがあるのです。」 Vary other endings naturally and avoid repeating this emphasis in nearby sentences. Keep genuine uncertainty clear in the wording. Poetic language is welcome where it grows from the place and its details.
 - Make small, local edits first. Preserve the existing article's facts, structure, voice, and design unless a specific inconsistency or clarity issue calls for a change.
 
 ## Visual typography
