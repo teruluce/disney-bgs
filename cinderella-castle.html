@@ -427,6 +427,7 @@
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
   <link rel="stylesheet" href="print-notes.css">
   <link rel="stylesheet" href="reading.css">
+  <link rel="stylesheet" href="land-reading.css">
 </head>
 <body class="article-page reading-page">
 <a class="skip-link" href="#reading-start">本文へ移動</a>
@@ -442,7 +443,8 @@
     <span class="masthead-kicker">Background Story</span>
     <h1 class="masthead-title">Cinderella Castle</h1>
     <span class="masthead-subtitle">時を刻む魔法と、青き尖塔のファンタジー</span>
-      <div class="file-strip">
+    <p class="masthead-lead">プラザの向こうで、青い尖塔が目印になります。堀のほとりから城壁を回り、ガラスの靴が待つ広間まで、シンデレラの城を歩きます。</p>
+    <div class="file-strip">
       <span class="file-no">File No. 006</span>
       <span>Story · TDL</span>
       <span>Reading · 4 min</span>
@@ -464,9 +466,12 @@
   </nav>
 
   <!-- 1枚目：晴れ渡る日の尖塔 → top で先端まで見せる -->
-  <div class="photo-frame photo-frame--top reveal" style="--ar:1013/760">
-    <img src="cinderella-castle-sunny.jpg" alt="Cinderella Castle on a Sunny Day" width="1013" height="760" decoding="sync" loading="eager" fetchpriority="high">
-  </div>
+  <figure class="land-photo">
+    <div class="photo-frame photo-frame--top reveal" style="--ar:1013/760">
+      <img src="cinderella-castle-sunny.jpg" alt="Cinderella Castle on a Sunny Day" width="1013" height="760" decoding="sync" loading="eager" fetchpriority="high">
+    </div>
+    <figcaption class="photo-caption">晴れた日のシンデレラ城。</figcaption>
+  </figure>
 
   <section class="article-block reveal" id="prologue">
     <h2 class="article-h2 reading-start" id="reading-start" tabindex="-1">I. 夢が現実になる場所</h2>
@@ -475,9 +480,12 @@
   </section>
 
   <!-- 2枚目：手前の城壁塔 → top で塔の全体を見せる -->
-  <div class="photo-frame photo-frame--top reveal" style="--ar:1350/1012">
-    <img src="cinderella-tower-front.jpg" alt="Castle Turret View" width="1350" height="1012" decoding="async" loading="lazy">
-  </div>
+  <figure class="land-photo">
+    <div class="photo-frame photo-frame--top reveal" style="--ar:1350/1012">
+      <img src="cinderella-tower-front.jpg" alt="Castle Turret View" width="1350" height="1012" decoding="async" loading="lazy">
+    </div>
+    <figcaption class="photo-caption">城壁から見上げた塔の色と窓の大きさ。</figcaption>
+  </figure>
 
   <section class="article-block reveal" id="history">
     <h2 class="article-h2">II. 絵本の世界へ誘う色彩と「優しい配慮」</h2>
@@ -499,9 +507,12 @@
   </section>
 
   <!-- 3枚目：昼のプラザ → center 35%（広場と城のバランス） -->
-  <div class="photo-frame reveal" style="--ar:1080/810">
-    <img src="cinderella-castle-plaza.jpg" alt="Lively Palace Plaza" width="1080" height="810" decoding="async" loading="lazy">
-  </div>
+  <figure class="land-photo">
+    <div class="photo-frame reveal" style="--ar:1080/810">
+      <img src="cinderella-castle-plaza.jpg" alt="Lively Palace Plaza" width="1080" height="810" decoding="async" loading="lazy">
+    </div>
+    <figcaption class="photo-caption">プラザから見渡す城とその広場。</figcaption>
+  </figure>
 
   <section class="article-block reveal" id="architecture">
     <h2 class="article-h2">III. 「空を近づける」視覚の魔法</h2>
@@ -510,9 +521,12 @@
   </section>
 
   <!-- 4枚目：水鏡リフレクション → 城+水面の対称 center 35% -->
-  <div class="photo-frame photo-frame--reflection reveal" style="--ar:1350/1012">
-    <img src="cinderella-castle-reflection.jpg" alt="Cinderella Castle Reflection in Moat" width="1350" height="1012" decoding="async" loading="lazy">
-  </div>
+  <figure class="land-photo">
+    <div class="photo-frame photo-frame--reflection reveal" style="--ar:1350/1012">
+      <img src="cinderella-castle-reflection.jpg" alt="Cinderella Castle Reflection in Moat" width="1350" height="1012" decoding="async" loading="lazy">
+    </div>
+    <figcaption class="photo-caption">堀の水面に映る、もうひとつのシンデレラ城。</figcaption>
+  </figure>
 
   <section class="article-block section--gold reveal" id="night-dress">
     <div class="gold-entry-banner">
@@ -527,9 +541,12 @@
   </section>
 
   <!-- 5枚目：40周年夜景 → night center 20%（城全体を確実に収める） -->
-  <div class="photo-frame photo-frame--night reveal" style="--ar:1188/891">
-    <img src="cinderella-castle-40th-night.jpg" alt="40th Anniversary Light Up" width="1188" height="891" decoding="async" loading="lazy">
-  </div>
+  <figure class="land-photo">
+    <div class="photo-frame photo-frame--night reveal" style="--ar:1188/891">
+      <img src="cinderella-castle-40th-night.jpg" alt="40th Anniversary Light Up" width="1188" height="891" decoding="async" loading="lazy">
+    </div>
+    <figcaption class="photo-caption">40周年の夜、ライトアップされた城。</figcaption>
+  </figure>
 
   <section class="article-block reveal" id="inside-castle">
     <h2 class="article-h2">V. お城の中に隠された、秘密の回廊と光のドーム</h2>
@@ -538,14 +555,20 @@
   </section>
 
   <!-- 6枚目：城内キューライン → interior center 15%（シャンデリアが頂上に来るよう） -->
-  <div class="photo-frame photo-frame--interior reveal" style="--ar:1350/1012">
-    <img src="cinderella-inside-queue.jpg" alt="Castle Corridor Queue" width="1350" height="1012" decoding="async" loading="lazy">
-  </div>
+  <figure class="land-photo">
+    <div class="photo-frame photo-frame--interior reveal" style="--ar:1350/1012">
+      <img src="cinderella-inside-queue.jpg" alt="Castle Corridor Queue" width="1350" height="1012" decoding="async" loading="lazy">
+    </div>
+    <figcaption class="photo-caption">城内の回廊を縁取る石のアーチ。</figcaption>
+  </figure>
 
   <!-- 7枚目：大広間天井ドーム → interior center 10%（八角形ドームを中央に） -->
-  <div class="photo-frame photo-frame--interior reveal" style="--ar:1350/1012">
-    <img src="cinderella-hall-ceiling.jpg" alt="Grand Ballroom Dome Ceiling" width="1350" height="1012" decoding="async" loading="lazy">
-  </div>
+  <figure class="land-photo">
+    <div class="photo-frame photo-frame--interior reveal" style="--ar:1350/1012">
+      <img src="cinderella-hall-ceiling.jpg" alt="Grand Ballroom Dome Ceiling" width="1350" height="1012" decoding="async" loading="lazy">
+    </div>
+    <figcaption class="photo-caption">大広間を見下ろすドーム天井。</figcaption>
+  </figure>
 
   <section class="article-block reveal" id="comparison">
     <h2 class="article-h2">VI. 世界のディズニー城 徹底比較</h2>
@@ -695,6 +718,7 @@
 
 
 <p class="last-edited" style="max-width:640px;margin:16px auto 22px;padding:12px clamp(16px,5vw,40px) 0;border-top:1px solid var(--border);color:var(--muted);font-family:var(--f-type);line-height:1.8;letter-spacing:.08em;text-align:left;">最終編集日：<time datetime="2026-11-22">2026年11月22日</time></p>
+<nav class="related-records" aria-label="関連する記録"><h2>RELATED RECORD / 関連する記録</h2><a href="bgs-worldbazaar.html">ガラス屋根の通りからシンデレラ城を望む</a></nav>
 <nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-worldbazaar.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">World Bazaar</span></a><a class="pagination-home" href="./#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-tl.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Tomorrowland</span></a></nav>
 </body>
 </html>
