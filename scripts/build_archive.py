@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Generate static homepage order/numbers from archive-order.json; --check detects drift.
+"""Generate static homepage order and article display numbers from archive-order.json; --check detects drift.
 
 Card prose/media remain authored in index.html. Edit park/order only in the JSON,
-then run python scripts/build_archive.py and commit both the JSON and HTML.
+then run python scripts/build_archive.py and commit the JSON and changed HTML.
 """
 import argparse
 from html import escape
@@ -78,17 +78,55 @@ def render(source, groups):
     return source[:schema.start(2)] + ',\n'.join(items) + source[schema.end(2):]
 
 
+# New articles may start with their permanent three-digit accession in the strip.
+FILE_STRIP = re.compile(
+    r'<span class="file-no"(?: data-accession="(?P<accession>[0-9]{3})")?>'
+    r'File No\. (?P<label>[LSW][0-9]+|[0-9]{3})</span>', re.I)
+
+
+def article_strip(source, url):
+    matches = list(FILE_STRIP.finditer(source))
+    if len(matches) != 1:
+        raise ValueError(f'{url}: expected exactly one File No. in the article')
+    match = matches[0]
+    accession = match['accession'] or match['label']
+    if not re.fullmatch(r'[0-9]{3}', accession):
+        raise ValueError(f'{url}: missing permanent accession')
+    return match, accession
+
+
+def render_article(source, url, number):
+    match, accession = article_strip(source, url)
+    if number.startswith('W'):
+        strip = f'<span class="file-no">File No. {accession}</span>'
+    else:
+        strip = f'<span class="file-no" data-accession="{accession}">FILE NO. {number}</span>'
+    source = source[:match.start()] + strip + source[match.end():]
+    label = accession if number.startswith('W') else number
+    return re.sub(r'(<div [^>]*\bdata-file-label>)[^<]*(</div>)',
+                  rf'\g<1>FILE NO. {label}\g<2>', source)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args()
     page = ROOT / 'index.html'
     source = page.read_text(encoding='utf-8')
-    generated = render(source, load_order(ROOT / 'archive-order.json'))
-    if args.check and source != generated:
-        raise SystemExit('Archive HTML differs from archive-order.json; run python scripts/build_archive.py')
-    if not args.check:
-        page.write_text(generated, encoding='utf-8')
+    groups = load_order(ROOT / 'archive-order.json')
+    outputs = [(page, source, render(source, groups))]
+    for group in groups:
+        for position, article in enumerate(group['articles'], 1):
+            page = ROOT / article['url']
+            source = page.read_text(encoding='utf-8')
+            number = f'{group["prefix"]}{position:02d}'
+            outputs.append((page, source, render_article(source, page.name, number)))
+
+    for page, source, generated in outputs:
+        if source != generated:
+            if args.check:
+                raise SystemExit(f'{page.name}: stale archive HTML; run python scripts/build_archive.py')
+            page.write_text(generated, encoding='utf-8')
     print('Static archive order and display numbers verified.' if args.check else 'Static archive HTML generated.')
 
 

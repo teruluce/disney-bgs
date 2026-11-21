@@ -1,0 +1,13 @@
+/* Both parks use the same fine rules on the newspaper pages. */
+@import url("disneysea-reading.css?v=20261121-left");
+
+.article-page .land-photo {
+  margin: 2rem 0;
+}
+.article-page .land-photo .photo-frame {
+  margin-block: 0;
+}
+.article-page .land-photo .photo-caption {
+  margin: .65rem 0 0;
+  text-align: center;
+}
