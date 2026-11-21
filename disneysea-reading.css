@@ -26,21 +26,3 @@
 .article-page .source-note[open] > :is(ol, ul) {
   margin-block: .6rem;
 }
-
-/* 左右同幅の余白をとり、左の余白だけを追従目次に使う。 */
-@media (min-width: 768px) {
-  .article-page .content-box {
-    --index-min: clamp(8rem, 14vw, 12rem);
-    --column-gap: clamp(1rem, 2vw, 2rem);
-    grid-template-columns:
-      minmax(var(--index-min), 1fr)
-      minmax(0, min(42.5rem, calc(100% - 2 * (var(--index-min) + var(--column-gap)))))
-      minmax(var(--index-min), 1fr);
-    column-gap: var(--column-gap);
-  }
-  .article-page .content-box > .toc-wrap {
-    width: 100%;
-    max-width: 15rem;
-    justify-self: end;
-  }
-}
