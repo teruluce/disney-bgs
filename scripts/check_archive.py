@@ -3,7 +3,7 @@
 from pathlib import Path
 import re
 
-from build_archive import load_order, render
+from build_archive import article_strip, load_order, render
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,12 +25,18 @@ def main():
         if not page.is_file():
             errors.append(f"index.html: missing article {target}")
             continue
-        strip = re.search(r'class="file-no"[^>]*>\s*File No\.\s*(\d{3})', page.read_text(encoding="utf-8"))
-        if not strip:
-            errors.append(f"{target}: missing permanent File No.")
+        try:
+            strip, accession = article_strip(page.read_text(encoding="utf-8"), target)
+        except ValueError as error:
+            errors.append(str(error))
             continue
+        card_number = re.search(r'<span class="card-cat">([LSW][0-9]+) ·', markup)
+        if not card_number:
+            errors.append(f"{target}: missing card number")
+        elif card_number[1].startswith(("L", "S")) and strip["label"] != card_number[1]:
+            errors.append(f"{target}: File No. {strip['label']} differs from card {card_number[1]}")
         files.append(target)
-        numbers.append(strip.group(1))
+        numbers.append(accession)
     if len(files) != len(set(files)):
         errors.append("index.html: duplicate article card")
     if len(numbers) != len(set(numbers)):

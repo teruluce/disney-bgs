@@ -6,7 +6,7 @@ import re
 import tempfile
 import unittest
 
-from build_archive import ROOT, CARD, load_order, render
+from build_archive import ROOT, CARD, load_order, render, render_article
 
 
 class StaticArchiveTests(unittest.TestCase):
@@ -27,6 +27,14 @@ class StaticArchiveTests(unittest.TestCase):
         self.assertRegex(CARD.search(result)[0], r'card-cat">L01 ·')
         self.assertIn(f'"position": 1, "url": "https://teruluce.github.io/disney-bgs/{first["url"]}"', result)
         self.assertEqual(render(result, groups), result)
+
+    def test_park_file_number_follows_card_and_keeps_accession(self):
+        original = '<span class="file-no">File No. 023</span>'
+        park = render_article(original, 'hotel.html', 'S03')
+        self.assertIn('data-accession="023">FILE NO. S03', park)
+        moved = render_article(park, 'hotel.html', 'L05')
+        self.assertIn('data-accession="023">FILE NO. L05', moved)
+        self.assertEqual(render_article(moved, 'hotel.html', 'W02'), original)
 
     def test_group_move_updates_card_classification_too(self):
         groups = copy.deepcopy(self.groups)
