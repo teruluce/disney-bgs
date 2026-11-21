@@ -3,7 +3,7 @@
 from pathlib import Path
 import re
 
-from build_archive import article_strip, load_order, render
+from build_archive import article_strip, load_order, render, render_article
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -26,7 +26,8 @@ def main():
             errors.append(f"index.html: missing article {target}")
             continue
         try:
-            strip, accession = article_strip(page.read_text(encoding="utf-8"), target)
+            source = page.read_text(encoding="utf-8")
+            strip, accession = article_strip(source, target)
         except ValueError as error:
             errors.append(str(error))
             continue
@@ -35,6 +36,8 @@ def main():
             errors.append(f"{target}: missing card number")
         elif card_number[1].startswith(("L", "S")) and strip["label"] != card_number[1]:
             errors.append(f"{target}: File No. {strip['label']} differs from card {card_number[1]}")
+        elif source != render_article(source, target, card_number[1]):
+            errors.append(f"{target}: stale article display number; run scripts/build_archive.py")
         files.append(target)
         numbers.append(accession)
     if len(files) != len(set(files)):

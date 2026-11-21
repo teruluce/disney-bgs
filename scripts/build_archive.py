@@ -101,7 +101,10 @@ def render_article(source, url, number):
         strip = f'<span class="file-no">File No. {accession}</span>'
     else:
         strip = f'<span class="file-no" data-accession="{accession}">FILE NO. {number}</span>'
-    return source[:match.start()] + strip + source[match.end():]
+    source = source[:match.start()] + strip + source[match.end():]
+    label = accession if number.startswith('W') else number
+    return re.sub(r'(<div [^>]*\bdata-file-label>)[^<]*(</div>)',
+                  rf'\g<1>FILE NO. {label}\g<2>', source)
 
 
 def main():
