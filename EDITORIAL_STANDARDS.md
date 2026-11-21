@@ -1,6 +1,6 @@
 # BGS Chronicles — Editorial & Collaboration Guide
 
-Updated: 2026-10-21
+Updated: 2026-11-21
 
 ## Product identity
 
@@ -48,10 +48,18 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 
 Shared styles live in `archive.css` (linked before `mobile.css`). Rolled out on 2026-10-17: `index.html` cards and all 19 articles have a File No.; only Port Discovery has a stamp so far. New articles should get the next File No. and a `file-strip`.
 
-- **File No.** is a permanent three-digit number per article, shown on the home cards ("No. 019 · Story · TDS") and in the article's `file-strip`. Numbers are never reused or renumbered. New articles take the next number. Current assignment (home-page order at the time of numbering): 001 Splash Mountain, 002 Big Thunder Mountain, 003 Haunted Mansion, 004 Beauty and the Beast, 005 World Bazaar, 006 Cinderella Castle, 007 Tomorrowland, 008 It's a Small World, 009 Tokyo Disneyland (chronicle), 010 Electrical Parade, 011 TDS Spatial Epic, 012 Tower of Terror, 013 Sindbad's Voyage, 014 Fantasy Springs, 015 Soarin', 016 S.E.A. Archives, 017 Raging Spirits, 018 Indiana Jones, 019 Port Discovery, 020 Birth of DisneySea, 021 Genesis of BGS.
+- **File No.** is a permanent three-digit number per article, recorded in the article's `file-strip`. Numbers are never reused or renumbered. New articles take the next number. Initial assignment (home-page order at the time of numbering): 001 Splash Mountain, 002 Big Thunder Mountain, 003 Haunted Mansion, 004 Beauty and the Beast, 005 World Bazaar, 006 Cinderella Castle, 007 Tomorrowland, 008 It's a Small World, 009 Tokyo Disneyland (chronicle), 010 Electrical Parade, 011 TDS Spatial Epic, 012 Tower of Terror, 013 Sindbad's Voyage, 014 Fantasy Springs, 015 Soarin', 016 S.E.A. Archives, 017 Raging Spirits, 018 Indiana Jones, 019 Port Discovery, 020 Birth of DisneySea, 021 Genesis of BGS.
 - **Stamps** (`file-stamp` / `card-stamp`) state only facts the article itself already supports (for example a closure date). Do not stamp anything that is unconfirmed.
 - **No per-article summary box.** The "File Brief" (要点欄) was removed on 2026-10-21 at the owner's request because it broke the in-world newspaper/archive feel. Do not add summary boxes to articles.
 - **Sources** stay in the folded `source-note` list, numbered `[1]`, `[2]`… with no external links (decision of 2026-10-15). Do not add in-text footnote numbers unless the claim-to-source mapping has been checked against the sources.
+
+## Homepage article order and display numbers
+
+- Group articles in this order: Tokyo Disneyland, Tokyo DisneySea, Worldwide. Within each park, put park-wide history and overviews first, place-specific articles in an order that follows a route from the entrance, and articles covering several areas at the end. Put articles covering multiple parks in Worldwide.
+- Show the same group-specific sequence on the homepage quick navigation and article cards: `L01` for the first Tokyo Disneyland article, `S01` for the first Tokyo DisneySea article, and `W01` for the first Worldwide article. Continue each sequence independently. When articles are added or reordered, recalculate the affected display numbers. For example, Hotel MiraCosta can be `S03` in the homepage sequence while retaining `File No. 023`.
+- Keep each article's park group and display order in one authoritative source. Derive the quick navigation, card order and display numbers, and the global JSON-LD `ItemList.position` sequence from that source. Include these in the published HTML so the quick navigation and card numbers are readable without JavaScript. Search and filters retain the displayed numbers and relative order.
+- Keep article URLs and link target IDs stable. Use stable article IDs for links because display numbers can change.
+- Extend the existing site checks with this implementation. Verify that the quick navigation, cards, and JSON-LD contain the same articles exactly once in the same order, that the display numbers are consecutive within each group, and that every quick navigation link resolves to its card.
 
 ## Technical working rules
 
