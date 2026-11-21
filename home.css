@@ -127,3 +127,15 @@ body .archive-search input::placeholder { opacity: 1; }
   .masthead-title { font-size: 3.2rem; }
   .front-page > .intro-col { padding-bottom: 6px; }
 }
+
+/* Static group numbers are shared by quick contents and cards (JS-independent). */
+.front-page .toc-links a::before { content: none; }
+.toc-record-no {
+  flex: 0 0 auto;
+  font-family: var(--f-type);
+  font-size: .66rem;
+  letter-spacing: .04em;
+  color: var(--bordeaux);
+}
+.toc-links a:hover .toc-record-no,
+.toc-links a:active .toc-record-no { color: inherit; }

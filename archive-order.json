@@ -1,0 +1,140 @@
+{
+  "groups": [
+    {
+      "category": "tdl",
+      "prefix": "L",
+      "label": "Tokyo Disneyland",
+      "articles": [
+        {
+          "url": "bgs-tdlhistory.html",
+          "id": "tdlhistory-card",
+          "tocTitle": "TDL History"
+        },
+        {
+          "url": "bgs-worldbazaar.html",
+          "id": "worldbazaar-card",
+          "tocTitle": "World Bazaar"
+        },
+        {
+          "url": "cinderella-castle.html",
+          "id": "cinderella-card",
+          "tocTitle": "Cinderella"
+        },
+        {
+          "url": "bgs-btm.html",
+          "id": "btm-card",
+          "tocTitle": "Big Thunder"
+        },
+        {
+          "url": "bgs-sm.html",
+          "id": "sm-card",
+          "tocTitle": "Splash Mt."
+        },
+        {
+          "url": "bgs-haunted.html",
+          "id": "haunted-card",
+          "tocTitle": "Haunted Mansion"
+        },
+        {
+          "url": "bgs-smallworld.html",
+          "id": "smallworld-card",
+          "tocTitle": "Small World"
+        },
+        {
+          "url": "bgs-bb.html",
+          "id": "bb-card",
+          "tocTitle": "Beauty & Beast"
+        },
+        {
+          "url": "bgs-tl.html",
+          "id": "tl-card",
+          "tocTitle": "Tomorrowland"
+        },
+        {
+          "url": "bgs-electricalparade.html",
+          "id": "ep-card",
+          "tocTitle": "Electrical Parade"
+        }
+      ]
+    },
+    {
+      "category": "tds",
+      "prefix": "S",
+      "label": "Tokyo DisneySea",
+      "articles": [
+        {
+          "url": "bgs-origins.html",
+          "id": "origins-card",
+          "tocTitle": "Birth of DisneySea"
+        },
+        {
+          "url": "bgs-spatial-epic.html",
+          "id": "spatial-epic-card",
+          "tocTitle": "Spatial Epic"
+        },
+        {
+          "url": "bgs-miracosta.html",
+          "id": "miracosta-card",
+          "tocTitle": "Hotel MiraCosta"
+        },
+        {
+          "url": "bgs-soarin.html",
+          "id": "soarin-card",
+          "tocTitle": "Soarin'"
+        },
+        {
+          "url": "bgs-tot.html",
+          "id": "tot-card",
+          "tocTitle": "Tower of Terror"
+        },
+        {
+          "url": "bgs-portdiscovery.html",
+          "id": "portdiscovery-card",
+          "tocTitle": "Port Discovery"
+        },
+        {
+          "url": "bgs-indy.html",
+          "id": "indy-card",
+          "tocTitle": "Indiana Jones"
+        },
+        {
+          "url": "bgs-raging.html",
+          "id": "raging-card",
+          "tocTitle": "Raging Spirits"
+        },
+        {
+          "url": "bgs-fs.html",
+          "id": "fs-card",
+          "tocTitle": "Fantasy Springs"
+        },
+        {
+          "url": "bgs-sindbad.html",
+          "id": "sindbad-card",
+          "tocTitle": "Sindbad's Voyage"
+        },
+        {
+          "url": "bgs-mysterious-island.html",
+          "id": "nemo-wireless-card",
+          "tocTitle": "Mysterious Island"
+        },
+        {
+          "url": "bgs-sea.html",
+          "id": "sea-card",
+          "tocTitle": "S.E.A. Archives"
+        }
+      ]
+    },
+    {
+      "category": "history",
+      "prefix": "W",
+      "label": "Worldwide / 世界のパーク",
+      "articles": [
+        {
+          "url": "bgs-genesis.html",
+          "id": "genesis-card",
+          "tocTitle": "A World of Stories"
+        }
+      ]
+    }
+  ]
+}
