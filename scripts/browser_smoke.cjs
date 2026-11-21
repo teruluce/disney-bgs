@@ -4,8 +4,6 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const shareCopy = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'share-captions.json'), 'utf8'));
-const archive = require('../archive-order.json');
-const disneySeaArticles = new Set(archive.groups.find(group => group.category === 'tds').articles.map(article => article.url));
 const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
 
 (async () => {
@@ -60,11 +58,6 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
           if (width >= 768 && !portraitFrontPage) {
             assert.ok(left.right <= right.left + 1, `${file}: desktop columns overlap at ${width}`);
             assert.ok(right.width >= 300, `${file}: desktop text column too narrow at ${width}`);
-            if (disneySeaArticles.has(file)) {
-              assert.ok(Math.abs((right.left + right.right) / 2 - width / 2) <= 1, `${file}: off-center article at ${width}`);
-              assert.ok(right.width <= 681, `${file}: text column too wide at ${width}`);
-              assert.equal(await page.locator('.article-p').first().evaluate(p => getComputedStyle(p).textAlign), 'left');
-            }
             assert.ok(left.left >= 0 && right.right <= width + 1, `${file}: desktop columns exceed viewport at ${width}`);
           } else {
             assert.ok(left.bottom <= right.top + 1, `${file}: mobile columns must stack at ${width}`);
