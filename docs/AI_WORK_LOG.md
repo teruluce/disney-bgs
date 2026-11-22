@@ -1450,6 +1450,17 @@
 - **未確認・保留**　Ⅷ章の色彩演出は東京版での適用確認待ちのため掲載保留。折りたたみ `source-note` は現行HTMLになく、出典は未提供のため未追記。章別の事実確認事項はPRの「未確認事項」を参照。実機、Google Fontsの配信書体、本番画面は未確認。
 - **状態**　実装とローカル検証を完了し、ドラフトPRを作成。マージと本番公開は運営者の明示承認待ち。[実装コミット](https://github.com/teruluce/disney-bgs/commit/deb3525cda8397c49aefa8b5dce1bf660d719788) ／ [PR #124](https://github.com/teruluce/disney-bgs/pull/124)
 
+## Codex-BGS-20261122 — 2026-11-22 インディ・ジョーンズとシンデレラ城の先行増補
+
+- 最新main `23ce42d`、AGENTS.md、AI_GOVERNANCE.md、EDITORIAL_STANDARDS.md、既存記事紙面、添付ZIPの掲載稿を照合。別件の参考資料表示PR #126と対象記事の差分は重複しない。
+- `bgs-indy.html`（S07）を4章から6章へ。考古学者の調査本部と焼き物、祭壇の壁画、ユカタンの発掘遺構を追加。既存コラムで東京のC-3POと映画のOB-CPOを区別し、制作上のオマージュとして記載。ハイタワー三世の章は番号のみ更新。
+- `cinderella-castle.html`（L03）を7章から9章へ。階ごとの役割、フェアリーテイル・ホールの由来と案内役、モザイクと右足のガラスの靴、ミステリーツアーを追加。Ⅱ章の重複箇所を短くし、金色の塔はファンの逸話と区別。色彩差は配色と見え方を記述。施設案内で2026年10月1日からの休止を確認し、11月22日時点の状態を記載。
+- 本文（リード・コラム含む、見出し・空白・写真説明・資料・表を除く）はインディ1,421→2,570字、シンデレラ城2,230→3,492字。600字／分で切り上げ、記事とトップの対象カードを4→5分、4→6分に同期。表示日・Article.dateModified・sitemap.lastmodは両記事とも2026-11-22。
+- 検証は `python scripts/check_site.py`、`python scripts/build_archive.py --check`、`git diff --check`、Chromiumの320・390・768・1024・1280px。全15目次項目、既存アンカー、12画像の読み込み、折りたたみ資料、比較表、カード、横はみ出しを確認。既存指定章、画像・属性、キャプション、比較表、関連リンク、CSSを差分で照合。静的検査の既存警告はsites.htmlのJSON-LD 1件。実機・映画本編の独立照合は未実施。
+- 元の資料URLを記録。記事末尾には番号付きの資料名を掲載。インディは[施設案内](https://www.tokyodisneyresort.jp/tds/attraction/detail/222/)・[キャストの紹介](https://www.tokyodisneyresort.jp/tdrblog/detail/200610/)・[壁画とユカタン](https://www.tokyodisneyresort.jp/tdrblog/detail/210816/)・[若さの泉の放送](https://www.tokyodisneyresort.jp/tdrblog/detail/120502/)。シンデレラ城は[施設案内](https://www.tokyodisneyresort.jp/tdl/attraction/detail/166/)・[城内の案内](https://www.tokyodisneyresort.jp/tdrblog/detail/210215/)・[右足の靴](https://www.tokyodisneyresort.jp/tdrblog/detail/190220/)・[モザイク](https://www.tokyodisneyresort.jp/tdl/shop/detail/546/)・[歴史写真](https://www.tokyodisneyresort.jp/tdrblog/detail/131030/)・[歴代アトラクション一覧（第三者資料）](https://www.tdlfun.com/history/Attraction.php)。
+- 運営者の追加指示で、問題がなければ今回のPRのマージまで承認済み。CIと公開結果は[対象PR](https://github.com/teruluce/disney-bgs/pulls?q=is%3Apr+head%3Acodex-bgs-20261122%2Findy-cinderella)と完了報告を参照。
+
+
 ## Codex-BGS-20261122 — 2026-11-22 ページ間リンクの紙面を統一
 
 - 最新main `1954282`、オープンPR 0件を確認。AGENTS.md、AI_GOVERNANCE.md、EDITORIAL_STANDARDS.md、作業ログの運営方針と関連記録を参照。運営者からBGS Chronicles内のページ間リンクを紙面になじむ形に統一し、青を使わないよう指示。マージの明示承認を受領。
