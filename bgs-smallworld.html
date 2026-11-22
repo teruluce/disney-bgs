@@ -90,7 +90,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="site-components.css">
+<link rel="stylesheet" href="site-components.css?v=20261122-record-links">
   <script src="site.js" defer></script>
   <style>
 /* ─── CSS 変数 ─── */
@@ -639,27 +639,6 @@ a:hover { text-decoration: underline; }
   line-height: 2.0;
 }
 
-/* ─── 関連ストーリー ─── */
-.related-links {
-  margin: 0 0 56px;
-  padding: 24px var(--pad);
-  background: rgba(255,255,255,.6);
-  border: 1px dashed var(--c-border2);
-}
-.related-title {
-  font-family: 'Cinzel', serif;
-  font-size: .65rem;
-  letter-spacing: .2em;
-  color: var(--accent-dark);
-  margin-bottom: 14px;
-}
-.related-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.related-list a {
-  font-family: 'Noto Serif JP', serif;
-  font-size: .8rem;
-  font-weight: 500;
-}
-
 /* ─── フッター ─── */
 .page-footer {
   text-align: center;
@@ -725,7 +704,7 @@ a:hover { text-decoration: underline; }
     </a>
   </div>
 
-  <a href="./" class="back-btn reveal">← Back to Archive Portal</a>
+  <a href="./" class="back-btn reveal record-return">← トップへ戻る</a>
 
   <header class="page-header reveal">
     <svg viewBox="0 0 500 60" class="header-facade-svg" aria-hidden="true">
@@ -972,12 +951,10 @@ a:hover { text-decoration: underline; }
   </section>
 
   <!-- 関連ストーリー: サイト内回遊のための内部リンクを追加 -->
-  <nav class="related-links reveal" aria-label="関連ストーリー">
-    <div class="related-title">RELATED ARCHIVES</div>
-    <ul class="related-list">
-      <li>→ <a href="bgs-tdlhistory.html">東京ディズニーランドが夢の王国として築かれた開拓史「Dream & Magic」を読む</a></li>
-      <li>→ <a href="bgs-electricalparade.html">夜のパークを彩るもう一つの名作「エレクトリカルパレード」の物語を読む</a></li>
-    </ul>
+  <nav class="record-group reveal" aria-label="関連する記録">
+    <h2 class="record-label">RELATED RECORD / 関連する記録</h2>
+    <a href="bgs-tdlhistory.html" class="record-link"><span class="record-link-title">東京ディズニーランドが夢の王国として築かれた開拓史「Dream & Magic」を読む</span></a>
+    <a href="bgs-electricalparade.html" class="record-link"><span class="record-link-title">夜のパークを彩るもう一つの名作「エレクトリカルパレード」の物語を読む</span></a>
   </nav>
 
   <div class="divider reveal" aria-hidden="true">
@@ -999,7 +976,7 @@ a:hover { text-decoration: underline; }
   <footer class="page-footer reveal">
     <p>&copy; 2026 TERU_LUCE_ — BGS Chronicles</p>
     <p style="margin-top:4px;">&copy; 1964–2026 Tokyo Disney Resort. All Archives Reserved.</p>
-    <a href="./" class="back-btn" style="margin-top:28px;margin-bottom:0;">← Back to Archive Portal</a>
+    <a href="./" class="back-btn record-return" style="margin-top:28px;margin-bottom:0;">← トップへ戻る</a>
   </footer>
 
 </main><!-- /wrap -->

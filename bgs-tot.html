@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap">
   </noscript>
 
-  <link rel="stylesheet" href="site-components.css">
+  <link rel="stylesheet" href="site-components.css?v=20261122-record-links">
   <style>
     /* ============================================================
        DESIGN TOKENS (Synced with index.html)
@@ -425,47 +425,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* ============================================================
-       RELATED LINK CARD
-    ============================================================ */
-    .related-link-card {
-      display: block;
-      text-decoration: none;
-      background: rgba(255,252,245,0.5);
-      border: 1px solid var(--border-strong);
-      border-left: 3px solid var(--bordeaux);
-      padding: clamp(16px, 3vw, 20px);
-      margin: 24px 0;
-      transition: all 0.25s;
-      min-height: 44px;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .related-link-card:hover {
-      background: var(--ink);
-      border-color: var(--ink);
-    }
-    .related-link-title {
-      display: block;
-      font-family: var(--f-jp);
-      font-weight: 700;
-      font-size: clamp(0.8rem, 2vw, 0.85rem);
-      color: var(--bordeaux);
-      margin-bottom: 6px;
-      transition: color 0.2s;
-    }
-    .related-link-desc {
-      display: block;
-      font-family: var(--f-jp);
-      font-weight: 300;
-      font-size: clamp(0.75rem, 2vw, 0.78rem);
-      color: var(--ink-soft);
-      line-height: 1.8;
-      transition: color 0.2s;
-    }
-    .related-link-card:hover .related-link-title,
-    .related-link-card:hover .related-link-desc {
-      color: var(--paper);
-    }
 
     /* ============================================================
        FOOTER LINK
@@ -534,7 +493,7 @@
 <main class="content-box">
 
   <div class="back-link-wrap reveal">
-    <a href="./" class="back-link">← Back to Portal</a>
+    <a href="./" class="back-link record-return">← トップへ戻る</a>
   </div>
 
   <header class="masthead reveal">
@@ -652,10 +611,10 @@
     <p class="article-p">失踪したハイタワー三世には、娘のヘイゼル・ルイーズ・ハイタワーがいます。1881年4月1日にエジプトで生まれた彼女は、父が消えたとき、ロンドンで大学に入る直前でした。父の行いのすべてには賛同できなくても、好奇心を追い、冒険することの価値を教えてくれた父を愛していました。</p>
     <p class="article-p">ところが、父と同じ学会に入ろうとしたヘイゼルは、ハイタワーの名を理由に拒まれます。彼女が選んだのは、父が持ち去った宝石を元の町へ返すことでした。自ら作った装置「タイムスキッパー」で時を越え、レインボーリッジの宝石を人々のもとへ戻す。父から受け継いだ冒険心を、父の過ちを正すために使いました。それでも、父がどこへ消えたのか、娘にも分かりません。</p>
 
-    <a href="bgs-sea.html" class="related-link-card reveal">
-      <span class="related-link-title">関連ストーリー：S.E.A. Archives</span>
-      <span class="related-link-desc">海を越え、時を越えてつながる探検家たち。ハイタワー父娘と学会の物語へ。</span>
-    </a>
+    <div class="record-group" role="group" aria-label="関連する記録">
+      <div class="record-label">RELATED RECORD / 関連する記録</div>
+      <a href="bgs-sea.html" class="record-link"><span class="record-link-title">S.E.A. Archives</span><span class="record-link-desc">海を越え、時を越えてつながる探検家たち。ハイタワー父娘と学会の物語へ。</span></a>
+    </div>
 
     <h3 class="article-h3">執事スメルディングの「異常な忠誠心」</h3>
     <p class="article-p">約30年にわたってハイタワーに仕え、膨大なコレクションの管理を任されていたアーチボルト・スメルディング。主人にとっては、執事であると同時に、ただ一人の友人でもありました。世界を巡る旅には常に付き添い、主人が偶像を嘲ると、偶像の怒りを鎮める役に回ります。</p>
@@ -687,10 +646,10 @@
     <p class="article-p">港に着いた大きな収集品は、地下通路を通るトロッコでホテルへ運ばれ、巻き上げ機と鎖で倉庫へ引き上げられていました。床の鉄製の跳ね上げ戸は、その搬入口です。今は通路が浸水しており、全体の構造は分かっていません。館内に積まれた未開封の木箱も、主人が集めたコレクションの膨大さを物語っています。</p>
     <p class="article-p">日本で鎧と刀を盗み、人力車で逃げる姿。インド象に乗り、大きな彫像を運ぶ姿。ロビーに描かれた冒険は、倉庫の品ともつながっています。インドの絵で運ばれていた彫像は、倉庫の天井から吊り下げられています。倉庫入口近くの撮影室には、シリキ・ウトゥンドゥの写真も。失踪当日の朝、主人が撮影させた偶像は、今も館内で見学者を待っています。</p>
 
-    <a href="bgs-raging.html" class="related-link-card reveal">
-      <span class="related-link-title">関連ストーリー：レイジングスピリッツ</span>
-      <span class="related-link-desc">水上で燃え盛る炎。ロストリバーデルタの発掘現場に残る、もう一つの異変へ。</span>
-    </a>
+    <div class="record-group" role="group" aria-label="関連する記録">
+      <div class="record-label">RELATED RECORD / 関連する記録</div>
+      <a href="bgs-raging.html" class="record-link"><span class="record-link-title">レイジングスピリッツ</span><span class="record-link-desc">水上で燃え盛る炎。ロストリバーデルタの発掘現場に残る、もう一つの異変へ。</span></a>
+    </div>
 
     <h3 class="article-h3">公園のベンチから、最上階へ</h3>
     <p class="article-p">1899年に落下したメインエレベーターと、見学者を乗せるエレベーターは別のものです。保存協会が使うのは、秘密の倉庫の隠し扉に通じる業務用エレベーター。絵画や鎧などを分けて収めた六つのコレクションルームの先で、見学者はそのかごへ乗り込みます。</p>
@@ -732,7 +691,7 @@
 
 
   <div class="footer-link-wrap reveal">
-    <a href="./" class="footer-link">← HOMEへ戻る</a>
+    <a href="./" class="footer-link record-return">← トップへ戻る</a>
   </div>
 
 </main><!-- /content-box -->

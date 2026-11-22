@@ -63,7 +63,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap">
   </noscript>
 
-  <link rel="stylesheet" href="site-components.css">
+  <link rel="stylesheet" href="site-components.css?v=20261122-record-links">
   <style>
     :root {
       --paper:         #F5EDD8;
@@ -474,82 +474,6 @@
       color: var(--ink);
     }
 
-    /* RELATED LINKS */
-    .related-section {
-      margin-top: 56px;
-      padding-top: 28px;
-      border-top: 3px double var(--border-strong);
-    }
-    .related-label {
-      font-family: var(--f-sc);
-      font-size: 0.62rem;
-      letter-spacing: 0.3em;
-      color: var(--muted);
-      display: block;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .related-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    @media (min-width: 560px) {
-      .related-grid { grid-template-columns: 1fr 1fr; }
-    }
-    .related-card {
-      display: block;
-      text-decoration: none;
-      border: 1px solid var(--border-strong);
-      padding: clamp(14px, 3vw, 18px);
-      background: rgba(255,252,245,0.5);
-      transition: all 0.22s;
-      min-height: 44px;
-      -webkit-tap-highlight-color: transparent;
-      position: relative;
-    }
-    .related-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; bottom: 0;
-      width: 2px;
-      background: var(--bordeaux);
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 0.25s var(--ease);
-    }
-    .related-card:hover::before { transform: scaleY(1); }
-    .related-card:hover { background: var(--ink); border-color: var(--ink); }
-    .related-card-tag {
-      font-family: var(--f-type);
-      font-size: 0.52rem;
-      letter-spacing: 0.12em;
-      color: var(--bordeaux);
-      display: block;
-      margin-bottom: 5px;
-      transition: color 0.2s;
-    }
-    .related-card-title {
-      font-family: var(--f-jp);
-      font-size: clamp(0.75rem, 2vw, 0.8rem);
-      font-weight: 700;
-      color: var(--ink-soft);
-      display: block;
-      margin-bottom: 4px;
-      line-height: 1.5;
-      transition: color 0.2s;
-    }
-    .related-card-desc {
-      font-family: var(--f-jp);
-      font-size: clamp(0.68rem, 1.8vw, 0.72rem);
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.7;
-      transition: color 0.2s;
-    }
-    .related-card:hover .related-card-tag,
-    .related-card:hover .related-card-title,
-    .related-card:hover .related-card-desc { color: var(--paper); }
-
     /* SHARE */
     .share-section {
       margin-top: 40px;
@@ -684,7 +608,7 @@
 <main class="content-box">
 
   <div class="back-link-wrap reveal">
-    <a href="./" class="back-link">← Back to Portal</a>
+    <a href="./" class="back-link record-return">← トップへ戻る</a>
   </div>
 
   <!-- ============ HEADER ============ -->
@@ -861,31 +785,13 @@
   </section>
 
   <!-- ============ RELATED ============ -->
-  <div class="related-section reveal">
-    <span class="related-label">Related Stories</span>
-    <div class="related-grid">
-      <a href="bgs-spatial-epic.html" class="related-card">
-        <span class="related-card-tag">Space Design</span>
-        <span class="related-card-title">ディズニーシーの空間設計</span>
-        <span class="related-card-desc">全8テーマポートの地政学的な繋がりと、パークを貫く壮大な空間コンセプトを解説。</span>
-      </a>
-      <a href="bgs-sea.html" class="related-card">
-        <span class="related-card-tag">Port Overview</span>
-        <span class="related-card-title">TDS 全テーマポート解説</span>
-        <span class="related-card-desc">各エリアの時代設定・地理的背景と、「海」をテーマにしたパーク全体の設計思想。</span>
-      </a>
-      <a href="bgs-sindbad.html" class="related-card">
-        <span class="related-card-tag">Arabian Coast</span>
-        <span class="related-card-title">シンドバッド・ストーリーブック・ヴォヤッジ</span>
-        <span class="related-card-desc">TDSオリジナルの物語世界と、世界的作曲家が生んだ主題歌の誕生秘話。</span>
-      </a>
-      <a href="bgs-tot.html" class="related-card">
-        <span class="related-card-tag">American Waterfront</span>
-        <span class="related-card-title">タワー・オブ・テラー</span>
-        <span class="related-card-desc">1912年ニューヨーク、ホテル・ハイタワーで起きたオーナー失踪事件とその謎。</span>
-      </a>
-    </div>
-  </div>
+  <nav class="record-group reveal" aria-label="関連する記録">
+    <h2 class="record-label">RELATED RECORD / 関連する記録</h2>
+    <a href="bgs-spatial-epic.html" class="record-link"><span class="record-link-tag">Space Design</span><span class="record-link-title">ディズニーシーの空間設計</span><span class="record-link-desc">全8テーマポートの地政学的な繋がりと、パークを貫く壮大な空間コンセプトを解説。</span></a>
+    <a href="bgs-sea.html" class="record-link"><span class="record-link-tag">Port Overview</span><span class="record-link-title">TDS 全テーマポート解説</span><span class="record-link-desc">各エリアの時代設定・地理的背景と、「海」をテーマにしたパーク全体の設計思想。</span></a>
+    <a href="bgs-sindbad.html" class="record-link"><span class="record-link-tag">Arabian Coast</span><span class="record-link-title">シンドバッド・ストーリーブック・ヴォヤッジ</span><span class="record-link-desc">TDSオリジナルの物語世界と、世界的作曲家が生んだ主題歌の誕生秘話。</span></a>
+    <a href="bgs-tot.html" class="record-link"><span class="record-link-tag">American Waterfront</span><span class="record-link-title">タワー・オブ・テラー</span><span class="record-link-desc">1912年ニューヨーク、ホテル・ハイタワーで起きたオーナー失踪事件とその謎。</span></a>
+  </nav>
 
   <!-- ============ SHARE ============ -->
 <p class="related-note" style="max-width:640px;margin:20px auto 0;padding:0 clamp(16px,5vw,40px);text-align:center;font-family:'Noto Serif JP',serif;letter-spacing:.06em;line-height:1.8;color:var(--muted);">関連記事（Disney Discovery）：<a href="https://teruluce.github.io/disney-discovery/articles/fantasy-springs-guide.html" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:underline;text-decoration-color:rgba(138,104,32,.35);text-underline-offset:3px;display:inline-block;padding:8px 2px">ファンタジースプリングスとは</a></p>
@@ -899,7 +805,7 @@
 
   <!-- ============ FOOTER ============ -->
   <div class="footer-link-wrap reveal">
-    <a href="./" class="footer-link">← HOMEへ戻る</a>
+    <a href="./" class="footer-link record-return">← トップへ戻る</a>
   </div>
   
 
