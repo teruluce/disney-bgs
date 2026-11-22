@@ -1506,6 +1506,16 @@
 - 静的検証と単体テスト26件、生成一致、トップの既存16画面条件が成功。ローカルChromiumの320〜1920pxの21画面条件で、Webフォントと代替書体の両方について全23件の折り返し・はみ出しがないことを確認。390／768／1280pxで目次を目視確認。実機と本番表示は未確認。
 - 状態はレビュー待ち。[実装コミット](https://github.com/teruluce/disney-bgs/commit/30a7a4128c129bc8b5d6853ddbf5082c50f3c3da)と[レビュー用PR・CI](https://github.com/teruluce/disney-bgs/pulls?q=is%3Apr+head%3Acodex%2Fhomepage-toc-titles-20261122)を参照。
 
+## 2026-11-22 — Codex-BGS-20261122-3 / 公開記事番号と前後リンクを目次順に統一
+
+- 最新main `4008b9c` と公開ミラコスタ記事を確認。AGENTS.md、運営憲章、編集基準、作業ログの運営方針・記事番号・ページ間リンクの関連記録を参照。オープンPRは0件。従来の前後リンクは永久資料番号順で、最大番号023のミラコスタには次の記事がなかった。
+- 全23記事の公開番号と前後リンクを `archive-order.json` から生成。リンクは同じグループ内の掲載順とし、表示番号と目次名を併記。S03の前はS02 Spatial Epic、次はS04 Soaring: Fantastic Flight。各グループの端からは目次に戻れる。Worldwideの記事・トップの装飾カード・SNS共有画像はW01に統一し、021を含む既存の永久資料番号は全件 `data-accession` に保持。運用規則と生成差分の検査も同期した。
+- 本文、資料、トップの掲載順、URL、SEO情報はmainと一致。共有画像の差分は番号の文字部分のみ。静的検査（警告0件、単体テスト29件）、生成一致、差分検査、Chromiumの320／390／768／1280pxで全23記事と40件の前後リンク、S03とS04の往復、W01の目次復帰を確認。390pxはJavaScript無効。
+- 実機と修正後の本番は未確認。運営者のレビュー待ち。[実装コミット](https://github.com/teruluce/disney-bgs/commit/fb7a4e4ed4cebcc3020dcbf1ec7dd70c078d3860) ／ [レビュー用PR・CI](https://github.com/teruluce/disney-bgs/pulls?q=is%3Apr+head%3Acodex%2Farchive-display-navigation-20261122)。
+
+- 追記（PR #130のマージ承認）　運営者から失敗した検査の修正とマージを指示。WebKitの比較表で、Tabによる到達は成功する一方、右矢印で横スクロールしないことをCIで確認。シンドバッド記事の比較表にフォーカスがあり横にあふれる場合だけ、左右矢印で表を動かす処理を追加。修飾キー付きの操作、Tab、タッチ操作は従来どおり。既存のキーボード回帰検査で再確認する。
+- PR #130は修正後のCI全4件成功を確認してmainへマージ。[PR #130](https://github.com/teruluce/disney-bgs/pull/130) ／ [CI](https://github.com/teruluce/disney-bgs/actions/runs/45028928980) ／ [マージコミット](https://github.com/teruluce/disney-bgs/commit/f3b657c9ddb06b46ba99d81a9680adf09d217f5a)。
+
 
 ## 2026-11-22 — Codex-BGS-20261122-4 / 校正確定稿4記事を統合
 
@@ -1522,3 +1532,4 @@
 - [ソアリンの展示・庭園](https://www.tokyodisneyresort.jp/tdrblog/detail/220408/)、[カメリアの伝記と噂](https://www.tokyodisneyresort.jp/tdrblog/detail/220728/)
 - [ピザ店の物語](https://www.tokyodisneyresort.jp/tdrblog/detail/171219/)、[PZ-5000](https://www.tokyodisneyresort.jp/tdrblog/detail/201120_2/)、[コズミック・エンカウンター](https://www.tokyodisneyresort.jp/tdl/shop/detail/560/)、[スターゲイザーサプライ](https://www.tokyodisneyresort.jp/tdl/shop/detail/576/)、[2027年特設サイト](https://www.tokyodisneyresort.jp/treasure/tomorrowland_2027/)、[ポッピングステーション](https://www.tokyodisneyresort.jp/tdl/restaurant/detail/378/)
 - [発掘・復元・眺望](https://www.tokyodisneyresort.jp/tdrblog/detail/220825/)、[禁忌とねじれたレール](https://www.tokyodisneyresort.jp/tdrblog/detail/180914/)
+- PR #130の公開番号・前後リンクとWebKit修正を取り込んだmain `f3b657c` に追従し、4記事の変更と作業ログの両方を保持。

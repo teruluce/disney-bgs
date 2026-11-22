@@ -6,7 +6,7 @@ import re
 import tempfile
 import unittest
 
-from build_archive import ROOT, CARD, load_order, render, render_article
+from build_archive import ROOT, CARD, load_order, render, render_archive_article, render_article
 
 
 class StaticArchiveTests(unittest.TestCase):
@@ -36,7 +36,31 @@ class StaticArchiveTests(unittest.TestCase):
         self.assertIn(hud.replace('S03', 'L05'), render_article(park + hud, 'hotel.html', 'L05'))
         moved = render_article(park, 'hotel.html', 'L05')
         self.assertIn('data-accession="023">FILE NO. L05', moved)
-        self.assertEqual(render_article(moved, 'hotel.html', 'W02'), original)
+        worldwide = render_article(moved, 'hotel.html', 'W02')
+        self.assertIn('data-accession="023">FILE NO. W02', worldwide)
+        self.assertEqual(render_article(worldwide, 'hotel.html', 'W02'), worldwide)
+
+    def test_pagination_follows_group_order_after_reordering(self):
+        group = copy.deepcopy(self.groups[1])
+        source = (ROOT / 'bgs-miracosta.html').read_text()
+        initial = render_archive_article(source, group, 2)
+        self.assertIn('class="pagination-next" href="bgs-soarin.html"', initial)
+        self.assertIn('S04 · Soaring: Fantastic Flight', initial)
+        group['articles'].insert(0, group['articles'].pop(2))
+        moved = render_archive_article(initial, group, 0)
+        self.assertIn('data-accession="023">FILE NO. S01', moved)
+        self.assertIn('class="pagination-prev is-empty"', moved)
+        self.assertIn('class="pagination-next" href="bgs-origins.html"', moved)
+        self.assertIn('S02 · TDS History', moved)
+        self.assertEqual(render_archive_article(moved, group, 0), moved)
+
+    def test_single_article_group_has_only_an_archive_link(self):
+        source = (ROOT / 'bgs-genesis.html').read_text()
+        result = render_archive_article(source, self.groups[2], 0)
+        self.assertIn('data-accession="021">FILE NO. W01', result)
+        self.assertIn('class="pagination-prev is-empty"', result)
+        self.assertIn('class="pagination-next is-empty"', result)
+        self.assertIn('class="pagination-home" href="./#toc"', result)
 
     def test_group_move_updates_card_classification_too(self):
         groups = copy.deepcopy(self.groups)
@@ -48,6 +72,11 @@ class StaticArchiveTests(unittest.TestCase):
         self.assertIn('card-cat">W02 · Story · Worldwide</span>', card)
         self.assertIn(f'href="#{moved["id"]}"><span class="toc-record-no">W02</span>', result)
         self.assertEqual(render(result, groups), result)
+
+    def test_worldwide_cover_follows_display_number(self):
+        groups = copy.deepcopy(self.groups)
+        groups[2]['articles'].insert(0, groups[0]['articles'].pop())
+        self.assertIn('class="stories-number">File No. W02 · Chronicle', render(self.source, groups))
 
     def test_missing_duplicate_or_reordered_contents_detected(self):
         links = re.findall(r'        <a href="#[^"]+"><span class="toc-record-no">.*?</a>', self.source)

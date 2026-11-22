@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate static homepage order and article display numbers from archive-order.json; --check detects drift.
+"""Generate the homepage, article display numbers and article navigation from archive-order.json.
 
 Card prose/media remain authored in index.html. Edit park/order only in the JSON,
 then run python scripts/build_archive.py and commit the JSON and changed HTML.
@@ -58,6 +58,8 @@ def render(source, groups):
                 rf'\g<1>{number}\g<2>{park}\g<3>', card)
             if count != 1:
                 raise ValueError(f'{article["url"]}: missing/invalid card display number')
+            card = re.sub(r'(<span class="stories-number">)File No\. (?:\d{3}|[LSW]\d+)( · )',
+                          rf'\g<1>File No. {number}\g<2>', card)
             ordered.append(card)
             toc.append(f'        <a href="#{article["id"]}"><span class="toc-record-no">{number}</span> <span>{escape(article["tocTitle"])}</span></a>')
         toc.append('      </div>\n    </div>')
@@ -97,14 +99,39 @@ def article_strip(source, url):
 
 def render_article(source, url, number):
     match, accession = article_strip(source, url)
-    if number.startswith('W'):
-        strip = f'<span class="file-no">File No. {accession}</span>'
-    else:
-        strip = f'<span class="file-no" data-accession="{accession}">FILE NO. {number}</span>'
+    strip = f'<span class="file-no" data-accession="{accession}">FILE NO. {number}</span>'
     source = source[:match.start()] + strip + source[match.end():]
-    label = accession if number.startswith('W') else number
     return re.sub(r'(<div [^>]*\bdata-file-label>)[^<]*(</div>)',
-                  rf'\g<1>FILE NO. {label}\g<2>', source)
+                  rf'\g<1>FILE NO. {number}\g<2>', source)
+
+
+PAGINATION = re.compile(r'(<nav class="article-pagination"[^>]*>).*?(</nav>)', re.S)
+
+
+def render_archive_article(source, group, position):
+    articles = group['articles']
+    url = articles[position]['url']
+    prefix = group['prefix']
+    source = render_article(source, url, f'{prefix}{position+1:02d}')
+    links = []
+    for direction, index, label in (('prev', position-1, '← 前の記事'),
+                                    ('next', position+1, '次の記事 →')):
+        if 0 <= index < len(articles):
+            article = articles[index]
+            title = f'{prefix}{index+1:02d} · {escape(article["tocTitle"])}'
+            links.append(
+                f'<a class="pagination-{direction}" href="{article["url"]}">'
+                f'<span class="pagination-label">{label}</span>'
+                f'<span class="pagination-title">{title}</span></a>')
+        else:
+            links.append(f'<span class="pagination-{direction} is-empty" aria-hidden="true"></span>')
+    home = ('<a class="pagination-home" href="./#toc"><span class="pagination-label">ARCHIVE</span>'
+            '<span class="pagination-title">記事目次へ</span></a>')
+    navigation = '\n  ' + '\n  '.join((links[0], home, links[1])) + '\n'
+    source, count = PAGINATION.subn(lambda match: match[1] + navigation + match[2], source)
+    if count != 1:
+        raise ValueError(f'{url}: expected exactly one article pagination')
+    return source
 
 
 def main():
@@ -116,18 +143,17 @@ def main():
     groups = load_order(ROOT / 'archive-order.json')
     outputs = [(page, source, render(source, groups))]
     for group in groups:
-        for position, article in enumerate(group['articles'], 1):
+        for position, article in enumerate(group['articles']):
             page = ROOT / article['url']
             source = page.read_text(encoding='utf-8')
-            number = f'{group["prefix"]}{position:02d}'
-            outputs.append((page, source, render_article(source, page.name, number)))
+            outputs.append((page, source, render_archive_article(source, group, position)))
 
     for page, source, generated in outputs:
         if source != generated:
             if args.check:
                 raise SystemExit(f'{page.name}: stale archive HTML; run python scripts/build_archive.py')
             page.write_text(generated, encoding='utf-8')
-    print('Static archive order and display numbers verified.' if args.check else 'Static archive HTML generated.')
+    print('Static archive order, display numbers and navigation verified.' if args.check else 'Static archive HTML generated.')
 
 
 if __name__ == '__main__':
