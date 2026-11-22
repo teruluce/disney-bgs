@@ -193,4 +193,5 @@ a.record-link:is(:hover,:focus-visible) .record-link-title,
     border-bottom:1px solid var(--record-rule,var(--border,rgba(80,55,30,.25)));
   }
   .article-pagination :is(.pagination-prev,.pagination-next) { min-height:58px; }
+  .article-pagination:not(:has(> a:is(.pagination-prev,.pagination-next))) > .is-empty { display:none; }
 }
