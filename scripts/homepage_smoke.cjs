@@ -10,18 +10,24 @@ const expectedArchive = archiveGroups.flatMap(group => group.articles.map((artic
 })));
 async function checkArchiveOrder(page) {
   const actual = await page.evaluate(() => ({
-    toc: [...document.querySelectorAll('#toc .toc-links a')].map(a => ({id:a.hash.slice(1), number:a.querySelector('.toc-record-no')?.textContent})),
+    toc: [...document.querySelectorAll('#toc .toc-links a')].map(a => ({id:a.hash.slice(1), number:a.querySelector('.toc-record-no')?.textContent, tocTitle:a.lastElementChild.textContent})),
     cards: [...document.querySelectorAll('.article-grid > .card')].map(a => ({id:a.id, url:a.getAttribute('href'), category:a.dataset.cat, number:a.querySelector('.card-cat').textContent.split(' · ')[0]})),
     items: JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent)['@graph'].find(x=>x['@type']==='ItemList').itemListElement,
   }));
-  assert.deepEqual(actual.toc, expectedArchive.map(({id,number})=>({id,number})));
+  assert.deepEqual(actual.toc, expectedArchive.map(({id,number,tocTitle})=>({id,number,tocTitle})));
   assert.deepEqual(actual.cards, expectedArchive.map(({id,url,category,number})=>({id,url,category,number})));
   assert.deepEqual(actual.items.map(x=>({url:x.url,position:x.position})), expectedArchive.map((x,i)=>({url:'https://teruluce.github.io/disney-bgs/'+x.url,position:i+1})));
-  const readable = await page.locator('#toc .toc-links a').evaluateAll(links => links.every(a => {
-    const r=a.getBoundingClientRect(), n=a.querySelector('.toc-record-no').getBoundingClientRect();
-    return r.left>=0 && r.right<=innerWidth && a.scrollWidth<=a.clientWidth+1 && n.width>0 && n.left>=r.left && n.right<=r.right;
-  }));
-  assert.equal(readable,true,'contents numbers/text must fit their links');
+  const unreadable = await page.locator('#toc .toc-links a').evaluateAll(links => links.filter(a => {
+    const box = a.getBoundingClientRect();
+    const number = a.querySelector('.toc-record-no').getBoundingClientRect();
+    const title = document.createRange();
+    title.selectNodeContents(a.lastElementChild);
+    const lines = [...title.getClientRects()];
+    return box.left < 0 || box.right > innerWidth || a.scrollWidth > a.clientWidth + 1
+      || number.width === 0 || number.left < box.left || number.right > box.right
+      || lines.length !== 1 || lines[0].left < box.left || lines[0].right > box.right;
+  }).map(a => a.textContent));
+  assert.deepEqual(unreadable, [], 'contents numbers and titles must fit on one line');
 }
 async function checkFilteredOrder(page, category) {
   const visible = await page.locator('.card:visible').evaluateAll(cards => cards.map(a => ({id:a.id,number:a.querySelector('.card-cat').textContent.split(' · ')[0]})));

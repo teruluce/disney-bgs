@@ -18,17 +18,17 @@
         {
           "url": "cinderella-castle.html",
           "id": "cinderella-card",
-          "tocTitle": "Cinderella"
+          "tocTitle": "Cinderella Castle"
         },
         {
           "url": "bgs-btm.html",
           "id": "btm-card",
-          "tocTitle": "Big Thunder"
+          "tocTitle": "Big Thunder Mountain"
         },
         {
           "url": "bgs-sm.html",
           "id": "sm-card",
-          "tocTitle": "Splash Mt."
+          "tocTitle": "Splash Mountain"
         },
         {
           "url": "bgs-haunted.html",
@@ -38,12 +38,12 @@
         {
           "url": "bgs-smallworld.html",
           "id": "smallworld-card",
-          "tocTitle": "Small World"
+          "tocTitle": "it’s a small world"
         },
         {
           "url": "bgs-bb.html",
           "id": "bb-card",
-          "tocTitle": "Beauty & Beast"
+          "tocTitle": "Beauty and the Beast"
         },
         {
           "url": "bgs-tl.html",
@@ -65,7 +65,7 @@
         {
           "url": "bgs-origins.html",
           "id": "origins-card",
-          "tocTitle": "Birth of DisneySea"
+          "tocTitle": "TDS History"
         },
         {
           "url": "bgs-spatial-epic.html",
@@ -80,7 +80,7 @@
         {
           "url": "bgs-soarin.html",
           "id": "soarin-card",
-          "tocTitle": "Soarin'"
+          "tocTitle": "Soaring: Fantastic Flight"
         },
         {
           "url": "bgs-tot.html",
@@ -95,7 +95,7 @@
         {
           "url": "bgs-indy.html",
           "id": "indy-card",
-          "tocTitle": "Indiana Jones"
+          "tocTitle": "Indiana Jones Adventure"
         },
         {
           "url": "bgs-raging.html",
@@ -110,7 +110,7 @@
         {
           "url": "bgs-sindbad.html",
           "id": "sindbad-card",
-          "tocTitle": "Sindbad's Voyage"
+          "tocTitle": "Sindbad’s Storybook Voyage"
         },
         {
           "url": "bgs-mysterious-island.html",

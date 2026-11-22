@@ -139,3 +139,28 @@ body .archive-search input::placeholder { opacity: 1; }
 }
 .toc-links a:hover .toc-record-no,
 .toc-links a:active .toc-record-no { color: inherit; }
+
+/* Move the whole entry to the next row when its title needs more room. */
+.front-page .toc-links a { max-width: 100%; }
+@media (max-width: 600px) {
+  .front-page .toc-links { display: flex; column-gap: 1px; }
+  .front-page .toc-links a {
+    flex: 1 0 max-content;
+    min-width: calc((100% - 1px) / 2);
+    gap: 6px;
+    padding-inline: 8px;
+  }
+  .front-page .toc-links a:nth-child(odd) { border-right: 0; }
+}
+@media (min-width: 768px) {
+  .front-page .toc-links { display: flex; }
+  .front-page .toc-group:not(.toc-group-worldwide) .toc-links a {
+    flex: 1 0 max-content;
+    min-width: calc((100% - 20px) / 2);
+  }
+}
+@media (min-width: 1200px) and (orientation: landscape) {
+  .front-page .toc-group:not(.toc-group-worldwide) .toc-links a {
+    min-width: calc((100% - 20px) / 3);
+  }
+}
