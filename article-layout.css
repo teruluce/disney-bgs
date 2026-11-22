@@ -127,9 +127,6 @@
   padding-right: var(--article-gutter);
   box-sizing: border-box;
 }
-.article-page .source-note { font-size: 12px; line-height: 1.85; }
-.article-page .source-note summary { min-height: 44px; padding: 10px 0; }
-
 @media (min-width: 641px) {
   .article-page .content-box { padding-top: 36px; padding-bottom: 72px; }
   .article-page .masthead { padding: 36px 0; margin-bottom: 40px; }

@@ -433,18 +433,11 @@
   
     .sub-heading { font-family:var(--f-jp); font-size:clamp(.88rem,2.2vw,.95rem); font-weight:500; padding-left:12px; margin:34px 0 14px; border-left:2px solid var(--gold); color:var(--bordeaux); letter-spacing:.03em; line-height:1.6; }
     .photo-cap { margin:-36px 0 40px; font-family:var(--f-type,'Courier New',monospace); font-size:clamp(.58rem,1.5vw,.66rem); line-height:1.8; letter-spacing:.05em; color:var(--muted); text-align:center; }
-    .source-note { margin-top:28px; padding-top:10px; border-top:1px solid var(--border); color:var(--muted); font-family:var(--f-type); font-size:clamp(.58rem,1.45vw,.64rem); line-height:1.8; letter-spacing:.035em; opacity:.82; }
-    .source-note summary { display:inline-block; cursor:pointer; list-style:none; padding:2px 0; border-bottom:1px dotted var(--border-strong); }
-    .source-note summary::-webkit-details-marker { display:none; }
-    .source-note summary::before { content:'＋ '; font-size:.8em; }
-    .source-note[open] summary::before { content:'－ '; }
-    .source-note ul { margin:8px 0 0 1.2em; padding:0; }
-    .source-note li { margin:3px 0; overflow-wrap:anywhere; }
     .real-timeline th:first-child, .real-timeline td:first-child { white-space:nowrap; }
     .data-table { min-width: 560px; }
     .article-block .photo-frame { margin:40px auto; }
 </style>
-  <link rel="stylesheet" href="archive.css">
+  <link rel="stylesheet" href="archive.css?v=20261122-sources">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
@@ -700,19 +693,19 @@
     <p class="article-p">夜になると、アクアトピアはまったく別の顔を見せました。管制塔のドームは金色に染まり、銅色の装置が影を伸ばし、ヴィークルの足元は青い光で縁取られる。水面にはその色が揺れて映り込む。昼の「実験プール」が、夜には「祝祭の会場」に変わるようでした。</p>
     <p class="article-p">レールを持たない乗り物は、決められた道をたどるのではなく、その場の状況を読みながら進みます。アクアトピアが積み重ねた25年は、そうした技術の進化と、ポートディスカバリーという物語の移り変わりを、水の上でそっと見届けた時間でもありました。その知見は、のちのトラックレス・ライドにも受け継がれていると言われています。</p>
     <p class="article-p">管制塔の灯りも、水面の波も、渦潮も、今は現地で見ることができません。しかし、この港が夢見た「科学が人を楽しませる未来」は、姿を変えながらも、この場所の風景に記憶として重なっています。</p>
-
-    <details class="source-note">
-      <summary>参考資料（6件）</summary>
-      <ol>
-        <li>note「Thank You Aquatopia」</li>
-        <li>「ポートディスカバリーのバックグラウンドストーリー」</li>
-        <li>Wikipedia「Port Discovery (Tokyo DisneySea)」</li>
-        <li>Disney Parks Wiki「Aquatopia」</li>
-        <li>note（ヤマコ）「Pooh's Hunny Hunt: How does it move without tracks?」</li>
-        <li>Parklore「Discovery Bay」</li>
-      </ol>
-    </details>
   </section>
+
+  <details class="source-note" id="sources">
+    <summary>参考資料</summary>
+    <ol>
+      <li>note「Thank You Aquatopia」</li>
+      <li>「ポートディスカバリーのバックグラウンドストーリー」</li>
+      <li>Wikipedia「Port Discovery (Tokyo DisneySea)」</li>
+      <li>Disney Parks Wiki「Aquatopia」</li>
+      <li>note（ヤマコ）「Pooh's Hunny Hunt: How does it move without tracks?」</li>
+      <li>Parklore「Discovery Bay」</li>
+    </ol>
+  </details>
 
   <div class="footer-link-wrap reveal">
     <a href="./" class="footer-link record-return">← トップへ戻る</a>

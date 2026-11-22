@@ -1467,3 +1467,24 @@
 - 全23記事とトップ・著者ページに適用。本文中の参照は点線の下線、記事中・記事末尾の関連記録は細罫・明朝体・右矢印、記事間ナビも同じ紙面の書式で統一。既存の関連記事カードとスモールワールドの別書式は共通CSS・静的HTMLへ移行。戻りリンクの表記を統一。墨色を基本に、えんじとスモールワールドの金茶で矢印・フォーカスを表示。
 - 静的検査と生成整合が成功。全25ページのリンク先・target・rel・ID・画像属性をmainと照合。Chromiumの320・390・768・1280pxで全25ページのリンクの幅・高さ、代表8経路のキーボード遷移とフォーカス、JavaScript無効時の遷移を検証。PCとスマホ幅で関連記録の見た目を確認。関連記事などの操作時の色を確認。既存 `sites.html` のJSON-LD警告1件。
 - レビュー用PRの最終コミットでCIを確認してからマージする。GitHub Pagesと公開HTML・CSSの確認結果はPRおよび完了報告を参照。
+
+## Codex-BGS-20261122 — 2026-11-22 参考資料欄の折りたたみを統一
+
+- 最新main `23ce42d`、オープンPR 0件。AGENTS.md、AI_GOVERNANCE.md、EDITORIAL_STANDARDS.md、本ログの運営方針と参考資料の先行記録を参照。
+- 資料掲載済みの13記事で、初期表示を「＋ 参考資料」の一行と細罫に統一。記事末尾の同じ位置に置き、開くと既存の資料名127件を元の順序で表示。エレクトリカルパレードの分類・案内文、既存の確認日・アンカーを保持。資料欄のない10記事への追加資料は今回の対象外。
+- S.E.A.とレイジングスピリッツの資料は既存の編集基準に沿って記事上では資料名を表示し、元のURLを以下に記録。
+- 静的検査とトップの生成整合が成功。Chromiumの320・390pxでタップ、768・1280pxでEnterとSpaceを確認。390pxのJavaScript無効時にも13記事の開閉を確認。資料名・順序、分類、確認日、既存リンクとアンカー、画像を差分で照合。既存 `sites.html` のJSON-LD警告1件。
+- 実装・ローカル検証済み。実機と本番画面は未確認。マージと公開は承認待ち。[実装コミット](https://github.com/teruluce/disney-bgs/commit/505ebf727b1742d2201452e5cdefe126da039ff8) ／ [PR #126](https://github.com/teruluce/disney-bgs/pull/126)
+
+- `bgs-raging.html` の移動前の参照先
+  - [【BGS】レイジング・スピリッツの解説（umezu0505.com）](https://umezu0505.com/bgs_ragingspirits/)
+  - [東京ディズニーリゾート公式ブログ](https://www.tokyodisneyresort.jp/tdrblog/detail/220825/)
+  - [Wikipedia「Raging Spirits」](https://en.wikipedia.org/wiki/Raging_Spirits)
+  - [Wikipedia「Indiana Jones and the Temple of Peril」](https://en.wikipedia.org/wiki/Indiana_Jones_and_the_Temple_of_Peril)
+- `bgs-sea.html` の移動前の参照先
+  - [Laughing Place「The Search Continues」](https://www.laughingplace.com/disney-parks/disney-sea-mystery-thief-clue-recap/)
+  - [Disney Parks Blog「The Society of Explorers and Adventurers at D23 Event 2026」](https://disneyparksblog.com/?p=392926)
+  - [Attractions Magazine「The story behind S.E.A.」](https://attractionsmagazine.com/story-behind-sea-disneys-society-of-explorers-and-adventurers)
+  - [Blog Mickey「Hazel Hightower Revealed as Newest S.E.A. Member」](https://blogmickey.com/2026/10/hazel-hightower-revealed-as-newest-s-e-a-member/)
+  - [WDWNT「Disneyland Expands S.E.A. Lore With Hazel Hightower」](https://wdwnt.com/2026/10/photos-disneyland-expands-s-e-a-lore-with-hazel-hightower-oar-ridge-jewel-souvenir-ticket/)
+  - [Main Street Library「Exploring the Skipper Canteen Library」](https://mainstreetlibrary.substack.com/p/exploring-the-skipper-canteen-library)

@@ -420,11 +420,6 @@
     @media(max-width:600px){.last-edited{margin-top:12px;padding-top:10px;font-size:.56rem;}}
   /* 写真の枠は各写真の縦横比に合わせる（中途半端な切り抜きを防ぐ）。縦長は幅を抑えて中央に置く */
   .photo-frame[style*="--ar"],.img-wrapper[style*="--ar"]{aspect-ratio:var(--ar);max-width:min(100%,var(--maxw,100%));margin-left:auto;margin-right:auto}
-    .source-note { margin-top:28px; padding-top:10px; border-top:1px solid var(--border); color:var(--muted); font-family:var(--f-type); font-size:clamp(.58rem,1.45vw,.64rem); line-height:1.8; letter-spacing:.035em; opacity:.82; }
-    .source-note summary { display:inline-block; cursor:pointer; list-style:none; padding:2px 0; border-bottom:1px dotted var(--border-strong); }
-    .source-note summary::-webkit-details-marker { display:none; }
-    .source-note summary::before { content:'＋ '; font-size:.8em; }
-    .source-note[open] summary::before { content:'－ '; }
   </style>
   <noscript><style>.reveal,.reveal *{opacity:1 !important;transform:none !important;}</style></noscript>
 
@@ -436,7 +431,7 @@
     .modal-copyright { color: var(--muted, #7A6048); }
 
   </style>
-  <link rel="stylesheet" href="archive.css">
+  <link rel="stylesheet" href="archive.css?v=20261122-sources">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
@@ -638,18 +633,18 @@
     <h2 class="article-h2">IX. 港に重なる3つの時代</h2>
     <p class="article-p">メディテレーニアンハーバーには、時代の異なる物語がいくつも重なっています。南欧の港町を思わせるポルト・パラディーゾ、大航海時代の空気をまとう要塞「フォートレス・エクスプロレーション」、そして19世紀の博物館であるファンタスティック・フライト・ミュージアム。なかでも要塞とミュージアムは、S.E.A.という一本の糸でつながっています。</p>
     <p class="article-p">海の向こうの未知を目指した探険家たちの精神は、時代が進むにつれて、やがて空を見上げる夢へと姿を変えました。ミュージアムの扉をくぐる前に港を一周してみると、「探険」が「飛翔」へ受け継がれていく流れが、エリア全体の景色として見えてきます。S.E.A.そのものの歴史は<a href="bgs-sea.html" class="record-inline">「S.E.A. Archives」</a>もあわせてご覧ください。</p>
-
-    <details class="source-note">
-      <summary>参考資料（5件）</summary>
-      <ol>
-        <li>東京ディズニーリゾート公式ブログ（2020年4月・2021年7月・2022年7月の記事）</li>
-        <li>ねとらぼ（ITmedia）「もっと『ソアリン』が楽しくなる！アトラクションに秘められた…」</li>
-        <li>Wikipedia「Soarin'」</li>
-        <li>Society of Explorers and Adventurers Wiki「Soaring: Fantastic Flight」</li>
-        <li>Jungle Skipper「Camellia Falco」</li>
-      </ol>
-    </details>
   </section>
+
+  <details class="source-note" id="sources">
+    <summary>参考資料</summary>
+    <ol>
+      <li>東京ディズニーリゾート公式ブログ（2020年4月・2021年7月・2022年7月の記事）</li>
+      <li>ねとらぼ（ITmedia）「もっと『ソアリン』が楽しくなる！アトラクションに秘められた…」</li>
+      <li>Wikipedia「Soarin'」</li>
+      <li>Society of Explorers and Adventurers Wiki「Soaring: Fantastic Flight」</li>
+      <li>Jungle Skipper「Camellia Falco」</li>
+    </ol>
+  </details>
 
   <div class="footer-link-wrap reveal">
     <a href="./" class="footer-link record-return">← トップへ戻る</a>

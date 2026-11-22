@@ -57,23 +57,62 @@
 }
 
 
-/* ---------- 出典欄：番号付きの一覧 ---------- */
-.source-note ol {
-  list-style: none;
-  margin: 8px 0 0;
+/* ---------- 参考資料 ---------- */
+.reading-page details.source-note {
+  margin: 0;
   padding: 0;
-  counter-reset: src;
+  border: 0;
+  border-block-start: 1px solid var(--border, rgba(60, 40, 15, .22));
+  color: #7a6048;
+  font-size: .75rem;
+  line-height: 1.85;
+  text-align: left;
 }
-.source-note ol li {
-  position: relative;
-  margin: 3px 0;
-  padding-left: 2.8em;
-  counter-increment: src;
+.reading-page details.source-note > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  min-height: 44px;
+  padding: 0 .4em 0 0;
+  list-style: none;
+  cursor: pointer;
+}
+.source-note > summary::-webkit-details-marker { display: none; }
+.source-note > summary::before {
+  content: '+';
+  content: '+' / '';
+  width: 1em;
+  text-align: center;
+}
+.source-note[open] > summary::before {
+  content: '−';
+  content: '−' / '';
+}
+.source-note > summary:is(:hover, :focus-visible) {
+  color: var(--bordeaux, #6b1e2a);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.source-note > summary:focus-visible {
+  outline: 2px solid var(--bordeaux, #6b1e2a);
+  outline-offset: 2px;
+}
+.reading-page details.source-note[open] > ol {
+  list-style: decimal;
+  margin: 0 0 .7rem;
+  padding-inline-start: 2.8em;
+}
+.source-note li {
+  padding-inline-start: .3em;
+  margin-block: .3em;
   overflow-wrap: anywhere;
 }
-.source-note ol li::before {
-  content: '[' counter(src) ']';
-  position: absolute;
-  left: 0;
-  color: var(--muted-2, #9C7E58);
+.source-note li::marker { content: '[' counter(list-item) ']'; }
+.source-note > p { margin: .35rem 0 .65rem; }
+.source-note > .source-group-title {
+  margin: .8rem 0 .2rem;
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: .06em;
+  color: var(--ink, #30251c);
 }
