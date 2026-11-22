@@ -10,14 +10,14 @@ python scripts/check_site.py
 
 The audit checks metadata, JSON-LD syntax, local HTML/asset references (including image variants and OGP images), anchors, duplicate IDs, existing Article modification dates against the displayed editorial date, and sitemap coverage/duplicates. It does not infer actual edit dates, validate external URLs, or measure Core Web Vitals. `sites.html` currently has an existing advisory warning for absent JSON-LD.
 
-The same command also checks X share copy, permanent File Nos, home-card coverage, article order/previous-next links, Python regression tests and the shared JavaScript syntax. The GitHub Actions workflow runs it for relevant pull requests.
+The same command also checks X share copy, internal accessions, home-card coverage, public File Nos and previous/next links, Python regression tests and the shared JavaScript syntax. The GitHub Actions workflow runs it for relevant pull requests.
 
 The home archive search filters article titles, descriptions and photo alt text together with the existing park buttons. It hides only when JavaScript is unavailable, leaving all cards readable. A table-of-contents link restores the target card if an active search or park filter had hidden it. Article footers can include a small related-record link; keep these links editorially relevant rather than adding them mechanically to every article.
 
 ## Adding an archive article
 
-1. Give the article its next unused three-digit permanent accession. Add its card to `index.html` with a useful title, description, category, photo and alt text. Set its position in `archive-order.json` and run `python scripts/build_archive.py` to synchronize the card and park article’s display number.
-2. Add the article's canonical/OGP data, article navigation and a folded source note following the editorial guide. Update the neighboring articles' previous/next links. Add the new page to `sitemap.xml` and `share-captions.json`, then run `python scripts/update_share_links.py`.
+1. Give the article its next unused three-digit permanent accession. Add its card to `index.html` with a useful title, description, category, photo and alt text. Set its position in `archive-order.json` and run `python scripts/build_archive.py` to synchronize the card and article display numbers and each group’s navigation.
+2. Add the article's canonical/OGP data, an `article-pagination` navigation landmark for the generator and a folded source note following the editorial guide. Add the new page to `sitemap.xml` and `share-captions.json`, then run `python scripts/update_share_links.py`.
 3. Run `python scripts/check_site.py` and the browser smoke check before the PR. Check the real page on mobile and desktop. Keep any new card photo's original for articles/OGP, and add a display copy using `scripts/optimize_archive_images.py` if the photo is large.
 
 ## Archive cover and card images
