@@ -1497,3 +1497,11 @@
   - https://umezu0505.com/bgs_ragingspirits/
 - タイトル21件と主要な説明を本文に合わせ、全23記事の著者をトップとプロフィールの同一人物に接続。サイト案内にWebPageを追加し、ソアリンからホテルの歴史へ関連リンクを追加。
 - 26ページの静的SEO検査（警告0）、記事一覧23件、共有リンク25件、単体テスト26件を確認。旧URLの転送とGoogle所有権確認ファイルも確認した。検索結果での表示と順位は公開後の再取得に依存する。
+
+## 2026-11-22 — Codex-BGS-20261122-2 / トップ目次の英語表記を統一
+
+- 最新main `9a8e3c5`、AGENTS.md、AI_GOVERNANCE.md、EDITORIAL_STANDARDS.md、本ログの運営方針・目次・直近の記録を確認。着手時のオープンPRは0件。
+- `archive-order.json` の目次表示名9件を指定表記に変更し、`scripts/build_archive.py` で `index.html` を再生成。全23件の番号・順序・カードID・記事URLをmainと照合。目次表示名を除いたトップのHTMLと全23記事のHTMLはmainと一致。同じ目次を表示する別ページは見当たらなかった。
+- `home.css` で目次の行配置を調整し、長いタイトルを含む項目が利用できる幅を確保。`scripts/homepage_smoke.cjs` で表示名、1行表示、リンク内の収まりを検査。
+- 静的検証と単体テスト26件、生成一致、トップの既存16画面条件が成功。ローカルChromiumの320〜1920pxの21画面条件で、Webフォントと代替書体の両方について全23件の折り返し・はみ出しがないことを確認。390／768／1280pxで目次を目視確認。実機と本番表示は未確認。
+- 状態はレビュー待ち。[実装コミット](https://github.com/teruluce/disney-bgs/commit/30a7a4128c129bc8b5d6853ddbf5082c50f3c3da)と[レビュー用PR・CI](https://github.com/teruluce/disney-bgs/pulls?q=is%3Apr+head%3Acodex%2Fhomepage-toc-titles-20261122)を参照。
