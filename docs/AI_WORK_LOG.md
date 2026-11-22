@@ -1514,3 +1514,22 @@
 - 実機と修正後の本番は未確認。運営者のレビュー待ち。[実装コミット](https://github.com/teruluce/disney-bgs/commit/fb7a4e4ed4cebcc3020dcbf1ec7dd70c078d3860) ／ [レビュー用PR・CI](https://github.com/teruluce/disney-bgs/pulls?q=is%3Apr+head%3Acodex%2Farchive-display-navigation-20261122)。
 
 - 追記（PR #130のマージ承認）　運営者から失敗した検査の修正とマージを指示。WebKitの比較表で、Tabによる到達は成功する一方、右矢印で横スクロールしないことをCIで確認。シンドバッド記事の比較表にフォーカスがあり横にあふれる場合だけ、左右矢印で表を動かす処理を追加。修飾キー付きの操作、Tab、タッチ操作は従来どおり。既存のキーボード回帰検査で再確認する。
+- PR #130は修正後のCI全4件成功を確認してmainへマージ。[PR #130](https://github.com/teruluce/disney-bgs/pull/130) ／ [CI](https://github.com/teruluce/disney-bgs/actions/runs/45028928980) ／ [マージコミット](https://github.com/teruluce/disney-bgs/commit/f3b657c9ddb06b46ba99d81a9680adf09d217f5a)。
+
+
+## 2026-11-22 — Codex-BGS-20261122-4 / 校正確定稿4記事を統合
+
+- 最新main `4008b9c` と、運営憲章・AGENTS.md・編集基準の語り口・作業ログの関連箇所を確認。「2026.11.22 BGS 4articles」ZIPの校正確定稿を部分増補として使用。別件のページ送りPR #130と分け、運営者の当チャットでの指示により今回の4記事PRのみ、検査後のマージまで承認済み。
+- Fantasy Springs（S09）は泉の造形を新II章へ加え、三つのエリアとイマジニアの既存章を増補。Soaring（S04）は庭園・常設展の絵画・特別展のランタンと伝承を追加し、噂と展示品を区別。Tomorrowland（L09）は宇宙港の店と2027年予定の2章を追加。Raging Spirits（S08）は発掘・復元・禁忌の重複と、ハイタワー三世が発掘に関わったかのように読める箇所を整理し、眺望を追加。V章は従来のまま。
+- 2027年予定を施設案内で再確認。ポッピングステーションは3月17日、シュガー・ラッシュとピクセル・プリズムは4月15日、アースライズ・広場・エレメント・エクスプレスは年のみ。コズミック・エンカウンターは2025年11月4日から休止中。ハイタワーの木箱・壁画は以前の記事にある観察の範囲で記載。既存記事全体の全主張を再調査したものではない。
+- 本文（リード・コラムを含み、見出し・資料・表・写真説明を除く）は順に4,389／4,938／5,652／2,985字。600字／分で切り上げ、記事とトップカードを8／9／10／5分に同期。表示編集日・Article.dateModified・sitemap.lastmodを2026-11-22に更新。既存アンカー、写真属性とクレジット、関連記事・ページ送り、SEOのタイトル・説明・URLは維持。追加資料は巻末の折りたたみに掲載。
+- 静的検査、単体テスト26件、生成一致、差分検査が成功。Chromiumの320／390／767／768／1024／1280pxと390pxのJavaScript無効時に、4記事の計29目次項目、代表アンカー、資料開閉、画像読み込み、横はみ出しの有無を確認。実機は未確認。最終CI・マージ・GitHub Pagesの状態は下記PRとActionsを参照。
+- [実装コミット](https://github.com/teruluce/disney-bgs/commit/089666bf002595b124c30c3925899688229c946a) ／ [PR #131・CI・公開結果](https://github.com/teruluce/disney-bgs/pull/131)。
+
+追加資料の参照先（2026-11-22に取得）。
+
+- [泉の岩山と音楽](https://disneyparksblog.com/tdr/fantasy-springs-rockwork-you-wont-take-for-granite/)、[ファンタジースプリングスの細部](https://disneyparksblog.com/tdr/10-hidden-details-at-fantasy-springs/)
+- [ソアリンの展示・庭園](https://www.tokyodisneyresort.jp/tdrblog/detail/220408/)、[カメリアの伝記と噂](https://www.tokyodisneyresort.jp/tdrblog/detail/220728/)
+- [ピザ店の物語](https://www.tokyodisneyresort.jp/tdrblog/detail/171219/)、[PZ-5000](https://www.tokyodisneyresort.jp/tdrblog/detail/201120_2/)、[コズミック・エンカウンター](https://www.tokyodisneyresort.jp/tdl/shop/detail/560/)、[スターゲイザーサプライ](https://www.tokyodisneyresort.jp/tdl/shop/detail/576/)、[2027年特設サイト](https://www.tokyodisneyresort.jp/treasure/tomorrowland_2027/)、[ポッピングステーション](https://www.tokyodisneyresort.jp/tdl/restaurant/detail/378/)
+- [発掘・復元・眺望](https://www.tokyodisneyresort.jp/tdrblog/detail/220825/)、[禁忌とねじれたレール](https://www.tokyodisneyresort.jp/tdrblog/detail/180914/)
+- PR #130の公開番号・前後リンクとWebKit修正を取り込んだmain `f3b657c` に追従し、4記事の変更と作業ログの両方を保持。
