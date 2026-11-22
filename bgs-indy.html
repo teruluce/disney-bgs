@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap">
   </noscript>
 
-  <link rel="stylesheet" href="site-components.css">
+  <link rel="stylesheet" href="site-components.css?v=20261122-record-links">
   <style>
     /* ============================================================
        DESIGN TOKENS (Synced with index.html)
@@ -341,47 +341,6 @@
       margin-bottom: 0;
     }
 
-    /* ============================================================
-       RELATED LINK CARD
-    ============================================================ */
-    .related-link-card {
-      display: block;
-      text-decoration: none;
-      background: rgba(255,252,245,0.5);
-      border: 1px solid var(--border-strong);
-      border-left: 3px solid var(--bordeaux);
-      padding: clamp(16px, 3vw, 20px);
-      margin: 24px 0;
-      transition: all 0.25s;
-      min-height: 44px;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .related-link-card:hover {
-      background: var(--ink);
-      border-color: var(--ink);
-    }
-    .related-link-title {
-      display: block;
-      font-family: var(--f-jp);
-      font-weight: 700;
-      font-size: clamp(0.8rem, 2vw, 0.85rem);
-      color: var(--bordeaux);
-      margin-bottom: 6px;
-      transition: color 0.2s;
-    }
-    .related-link-desc {
-      display: block;
-      font-family: var(--f-jp);
-      font-weight: 300;
-      font-size: clamp(0.75rem, 2vw, 0.78rem);
-      color: var(--ink-soft);
-      line-height: 1.8;
-      transition: color 0.2s;
-    }
-    .related-link-card:hover .related-link-title,
-    .related-link-card:hover .related-link-desc {
-      color: var(--paper);
-    }
 
     /* ============================================================
        FOOTER LINK
@@ -470,7 +429,7 @@
 <main class="content-box">
 
   <div class="back-link-wrap reveal">
-    <a href="./" class="back-link">← Back to Portal</a>
+    <a href="./" class="back-link record-return">← トップへ戻る</a>
   </div>
 
   <header class="masthead reveal">
@@ -559,19 +518,16 @@
     <div class="column-box reveal">
       <h3 class="aside-heading">🔎 二人の探険家が遺したもの</h3><p>古代文字を読むジョーンズ博士と、世界各地で収集した品々をホテルに並べたハイタワー三世。遺跡に残る足跡とホテルの収蔵品を見比べると、過去に触れた二人の手つきの違いが浮かびます。</p>
 
-      <a href="bgs-tot.html" class="related-link-card" style="margin-top: 24px;">
-        <span class="related-link-title">➔ 関連資料：</span>
-        <span class="related-link-desc">略奪者ハイタワー三世の最期。ホテル・ハイタワーの惨劇はこちら。</span>
-      </a>
-      <a href="bgs-indy.html" class="related-link-card" style="margin-top: 12px;">
-        <span class="related-link-title">➔ 関連資料：</span>
-        <span class="related-link-desc">インディ・ジョーンズ博士の魔宮探険記はこちら。</span>
-      </a>
+      <div class="record-group" role="group" aria-label="関連する記録">
+        <div class="record-label">RELATED RECORD / 関連する記録</div>
+        <a href="bgs-tot.html" class="record-link"><span class="record-link-title">略奪者ハイタワー三世の最期。ホテル・ハイタワーの惨劇はこちら。</span></a>
+        <a href="bgs-indy.html" class="record-link"><span class="record-link-title">インディ・ジョーンズ博士の魔宮探険記はこちら。</span></a>
+      </div>
     </div>
   </section>
 
   <div class="footer-link-wrap reveal">
-    <a href="./" class="footer-link">← HOMEへ戻る</a>
+    <a href="./" class="footer-link record-return">← トップへ戻る</a>
   </div>
   
 

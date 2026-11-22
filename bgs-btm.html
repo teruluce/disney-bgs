@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap">
   </noscript>
 
-  <link rel="stylesheet" href="site-components.css">
+  <link rel="stylesheet" href="site-components.css?v=20261122-record-links">
   <style>
     /* ============================================================
        DESIGN TOKENS (Synced with index.html)
@@ -403,47 +403,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* ============================================================
-       RELATED LINK CARD
-    ============================================================ */
-    .related-link-card {
-      display: block;
-      text-decoration: none;
-      background: rgba(255,252,245,0.5);
-      border: 1px solid var(--border-strong);
-      border-left: 3px solid var(--bordeaux);
-      padding: clamp(16px, 3vw, 20px);
-      margin: 24px 0;
-      transition: all 0.25s;
-      min-height: 44px;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .related-link-card:hover {
-      background: var(--ink);
-      border-color: var(--ink);
-    }
-    .related-link-title {
-      display: block;
-      font-family: var(--f-jp);
-      font-weight: 700;
-      font-size: clamp(0.8rem, 2vw, 0.85rem);
-      color: var(--bordeaux);
-      margin-bottom: 6px;
-      transition: color 0.2s;
-    }
-    .related-link-desc {
-      display: block;
-      font-family: var(--f-jp);
-      font-weight: 300;
-      font-size: clamp(0.75rem, 2vw, 0.78rem);
-      color: var(--ink-soft);
-      line-height: 1.8;
-      transition: color 0.2s;
-    }
-    .related-link-card:hover .related-link-title,
-    .related-link-card:hover .related-link-desc {
-      color: var(--paper);
-    }
 
     /* ============================================================
        FOOTER LINK
@@ -541,7 +500,7 @@
 <main class="content-box">
 
   <div class="back-link-wrap reveal">
-    <a href="./" class="back-link">← Back to Portal</a>
+    <a href="./" class="back-link record-return">← トップへ戻る</a>
   </div>
 
   <header class="masthead reveal">
@@ -688,7 +647,7 @@
   </details>
 
   <div class="footer-link-wrap reveal">
-    <a href="./" class="footer-link">← HOMEへ戻る</a>
+    <a href="./" class="footer-link record-return">← トップへ戻る</a>
   </div>
   
 
@@ -725,7 +684,10 @@
 
 
 
-<nav class="related-records" aria-label="関連する記録"><h2>RELATED RECORD / 関連する記録</h2><a href="bgs-sm.html">アメリカ河の向こう、小動物たちが暮らす丘へ</a></nav>
+<nav class="related-records" aria-label="関連する記録">
+  <h2 class="record-label">RELATED RECORD / 関連する記録</h2>
+  <a href="bgs-sm.html" class="record-link"><span class="record-link-title">アメリカ河の向こう、小動物たちが暮らす丘へ</span></a>
+</nav>
 <nav class="article-pagination" aria-label="記事間ナビゲーション"><a class="pagination-prev" href="bgs-sm.html"><span class="pagination-label">← 前の記事</span><span class="pagination-title">Splash Mountain</span></a><a class="pagination-home" href="./#toc"><span class="pagination-label">ARCHIVE</span><span class="pagination-title">記事目次へ</span></a><a class="pagination-next" href="bgs-haunted.html"><span class="pagination-label">次の記事 →</span><span class="pagination-title">Haunted Mansion</span></a></nav>
 </body>
 </html>

@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Playfair+Display+SC:wght@400;700&family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap">
   </noscript>
 
-  <link rel="stylesheet" href="site-components.css">
+  <link rel="stylesheet" href="site-components.css?v=20261122-record-links">
   <style>
     /* ============================================================
        DESIGN TOKENS (Synced with index.html)
@@ -450,47 +450,6 @@
       font-style: italic;
     }
 
-    /* ============================================================
-       RELATED LINK CARD
-    ============================================================ */
-    .related-link-card {
-      display: block;
-      text-decoration: none;
-      background: rgba(255,252,245,0.5);
-      border: 1px solid var(--border-strong);
-      border-left: 3px solid var(--bordeaux);
-      padding: clamp(16px, 3vw, 20px);
-      margin: 24px 0;
-      transition: all 0.25s;
-      min-height: 44px;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .related-link-card:hover {
-      background: var(--ink);
-      border-color: var(--ink);
-    }
-    .related-link-title {
-      display: block;
-      font-family: var(--f-jp);
-      font-weight: 700;
-      font-size: clamp(0.8rem, 2vw, 0.85rem);
-      color: var(--bordeaux);
-      margin-bottom: 6px;
-      transition: color 0.2s;
-    }
-    .related-link-desc {
-      display: block;
-      font-family: var(--f-jp);
-      font-weight: 300;
-      font-size: clamp(0.75rem, 2vw, 0.78rem);
-      color: var(--ink-soft);
-      line-height: 1.8;
-      transition: color 0.2s;
-    }
-    .related-link-card:hover .related-link-title,
-    .related-link-card:hover .related-link-desc {
-      color: var(--paper);
-    }
 
     /* ============================================================
        FOOTER LINK
@@ -553,7 +512,7 @@
 <main class="content-box">
 
   <div class="back-link-wrap reveal">
-    <a href="./" class="back-link">← Back to Portal</a>
+    <a href="./" class="back-link record-return">← トップへ戻る</a>
   </div>
 
   <header class="masthead reveal">
@@ -715,10 +674,10 @@
       <p class="article-p">一方で、常にハリケーンの脅威と向き合うケープコッドの静けさは、都市の喧騒とは対照的な、素朴で敬虔な海の生活を無言で教えてくれます。岸壁には頑丈な防波堤がそびえ、漁師小屋には使い込まれた道具が並んでいます。この港のケープコッドは、大海が「夢を運んでくる場所」であると同時に、「命をも飲み込む場所」であることを教えてくれる存在かもしれません。</p>
       <p class="article-p">ニューヨークとケープコッドという、同じ大西洋に面しながらもまったく異なる顔を持つ二つの場所が一つの港に共存していることは、人間の夢の多様性を表しているように見えます。大洋はすべての夢を等しく受け入れながら、時に容赦なく試練を与える——そんな「公平な残酷さ」を、この港は体現しているのかもしれません。</p>
 
-      <a href="bgs-tot.html" class="related-link-card reveal">
-          <span class="related-link-title">📖 関連ストーリー：</span>
-          <span class="related-link-desc">大富豪ハリソン・ハイタワー三世の呪われたホテル「タワー・オブ・テラー」の詳細を紐解く。</span>
-      </a>
+      <div class="record-group" role="group" aria-label="関連する記録">
+        <div class="record-label">RELATED RECORD / 関連する記録</div>
+        <a href="bgs-tot.html" class="record-link"><span class="record-link-title">大富豪ハリソン・ハイタワー三世の呪われたホテル「タワー・オブ・テラー」の詳細を紐解く。</span></a>
+      </div>
     </div>
 
     <!-- LRD -->
@@ -732,14 +691,11 @@
       <p class="article-p">密林のいたるところに配置された発掘現場の起重機、錆びついた道具類、未解読の石碑——これらは、一攫千金を狙う冒険家や考古学者たちが押し寄せ、歴史の謎に挑んだ剥き出しの探求心の証です。同時にこの空間には、遺跡が簡単に人間を歓迎していないような緊張感も読み取れます。その両義的な雰囲気が、この港特有の引力を生み出しているように感じられます。</p>
       <p class="article-p">水は時に、人間が忘れていた真実を地上に押し上げます。ロストリバーデルタの河は、その象徴として読み取ることができる場所です。</p>
 
-      <a href="bgs-raging.html" class="related-link-card reveal">
-          <span class="related-link-title">📖 関連ストーリー：</span>
-          <span class="related-link-desc">水の上で炎が燃え盛る古代遺跡「レイジング・スピリッツ」の歴史調査書はこちら。</span>
-      </a>
-      <a href="bgs-indy.html" class="related-link-card reveal">
-          <span class="related-link-title">📖 関連ストーリー：</span>
-          <span class="related-link-desc">若さの泉を守る守護神の怒りと、謎の魔宮。「インディ・ジョーンズ・アドベンチャー」の調査書はこちら。</span>
-      </a>
+      <div class="record-group" role="group" aria-label="関連する記録">
+        <div class="record-label">RELATED RECORD / 関連する記録</div>
+        <a href="bgs-raging.html" class="record-link"><span class="record-link-title">水の上で炎が燃え盛る古代遺跡「レイジング・スピリッツ」の歴史調査書はこちら。</span></a>
+        <a href="bgs-indy.html" class="record-link"><span class="record-link-title">若さの泉を守る守護神の怒りと、謎の魔宮。「インディ・ジョーンズ・アドベンチャー」の調査書はこちら。</span></a>
+      </div>
     </div>
 
     <!-- PD -->
@@ -824,14 +780,11 @@
 
     <p class="article-p">重要なのは、S.E.A.があくまで「東京ディズニーシーという空間そのもの」の魅力の一要素に過ぎないという点です。S.E.A.の存在を知らなくても、この場所は十二分に美しい。その背景を知れば、各港の隅々に目を凝らし、別の時代に生きた冒険家たちの「文通」を読み解くような楽しみも加わります。</p>
     
-    <a href="bgs-sea.html" class="related-link-card reveal">
-        <span class="related-link-title">📖 関連ストーリー：</span>
-        <span class="related-link-desc">世界中のパークを結ぶ巨大な冒険家ギルド「S.E.A. Archives」の完全解剖。</span>
-    </a>
-    <a href="bgs-soarin.html" class="related-link-card reveal">
-        <span class="related-link-title">📖 関連ストーリー：</span>
-        <span class="related-link-desc">空を飛ぶ夢を追い求めたカメリア・ファルコの情熱。「ソアリン」の冒険譚。</span>
-    </a>
+    <div class="record-group" role="group" aria-label="関連する記録">
+      <div class="record-label">RELATED RECORD / 関連する記録</div>
+      <a href="bgs-sea.html" class="record-link"><span class="record-link-title">世界中のパークを結ぶ巨大な冒険家ギルド「S.E.A. Archives」の完全解剖。</span></a>
+      <a href="bgs-soarin.html" class="record-link"><span class="record-link-title">空を飛ぶ夢を追い求めたカメリア・ファルコの情熱。「ソアリン」の冒険譚。</span></a>
+    </div>
   </section>
 
   <!-- V. 時空を調停する -->
@@ -860,7 +813,7 @@
   </section>
 
   <div class="footer-link-wrap reveal">
-    <a href="./" class="footer-link">← HOMEへ戻る</a>
+    <a href="./" class="footer-link record-return">← トップへ戻る</a>
   </div>
   
 

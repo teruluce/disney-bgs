@@ -48,114 +48,149 @@
   letter-spacing:.04em;
   line-height:1.7
 }
+/* Links between published BGS pages. */
+.reading-smallworld {
+  --record-accent:#80601d;
+  --record-rule:var(--c-border);
+}
+.reading-tomorrowland {
+  --record-ink:var(--text);
+}
+a.record-inline {
+  color:var(--record-accent,var(--bordeaux,#6b1e2a));
+  text-decoration:underline dotted;
+  text-underline-offset:.2em;
+}
+a.record-inline:hover,a.record-inline:focus-visible,
+a.record-return:hover,a.record-return:focus-visible {
+  text-decoration:underline;
+  text-underline-offset:.2em;
+}
+a.record-return {
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  color:var(--record-ink,var(--ink,#30251c));
+}
+body.reading-page a.record-return:is(:hover,:focus-visible) {
+  color:var(--record-accent,var(--bordeaux,#6b1e2a));
+}
+a.record-return.back-btn::before { content:none; }
+:is(.record-inline,.record-return,.record-link,.article-pagination a,.profile-link,a.card):focus-visible {
+  outline:2px solid var(--record-accent,var(--bordeaux,#6b1e2a));
+  outline-offset:3px;
+}
 .related-records {
   max-width:1040px;
   margin:22px auto 0;
   padding:0 clamp(12px,3vw,24px);
-  color:var(--muted,#7a6048);
 }
-.related-records h2 {
-  margin:0 0 8px;
-  font:400 .64rem var(--f-type,monospace);
-  letter-spacing:.12em;
+.record-group { margin-block:1.5rem; }
+.record-label {
+  margin:0;
+  padding:0 0 .5rem;
+  border-bottom:1px solid var(--record-rule,var(--border,rgba(80,55,30,.25)));
+  color:var(--record-accent,var(--bordeaux,#6b1e2a));
+  font:400 .75rem/1.65 var(--f-type,'Special Elite','Noto Serif JP',serif);
+  letter-spacing:.06em;
 }
-.related-records a {
-  display:inline-flex;
-  align-items:center;
+a.record-link {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:.2rem;
   min-height:44px;
-  border-top:1px solid var(--border,rgba(80,55,30,.25));
-  color:var(--ink,#30251c);
-  font:400 .8rem/1.6 var(--f-jp,serif);
+  padding:.65rem 2rem .65rem 0;
+  border-bottom:1px solid var(--record-rule,var(--border,rgba(80,55,30,.25)));
+  color:var(--record-ink,var(--ink,#30251c));
+  font:400 .875rem/1.65 var(--f-jp,'Noto Serif JP',serif);
   text-decoration:none;
+  overflow-wrap:anywhere;
 }
-.related-records a::after { content:' →'; margin-left:8px; color:var(--bordeaux,#8a2535); }
-.related-records a:hover,.related-records a:focus-visible { text-decoration:underline; text-underline-offset:4px; }
+a.record-link::after {
+  content:"→";
+  content:"→" / "";
+  position:absolute;
+  right:.35rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--record-accent,var(--bordeaux,#6b1e2a));
+}
+.record-link-tag {
+  color:var(--record-accent,var(--bordeaux,#6b1e2a));
+  font:400 .72rem/1.5 var(--f-type,monospace);
+  letter-spacing:.06em;
+}
+.record-link-title { font-weight:500; }
+.record-link-desc { font-size:.8125rem; }
+a.record-link:is(:hover,:focus-visible) .record-link-title,
+.article-pagination a:is(:hover,:focus-visible) .pagination-title,
+.card:focus-visible .card-cta {
+  text-decoration:underline;
+  text-underline-offset:.2em;
+}
 .article-pagination {
   max-width:1040px;
   margin:30px auto 26px;
   padding:14px clamp(12px,3vw,24px);
   display:grid;
   grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
-  gap:10px;
+  gap:12px;
   align-items:stretch;
-  border-top:3px double var(--border-strong,rgba(80,55,30,.45));
-  border-bottom:1px solid var(--border,rgba(80,55,30,.25));
-  font-family:var(--f-type,monospace)
+  border-top:3px double var(--record-rule,var(--border-strong,rgba(80,55,30,.45)));
+  border-bottom:1px solid var(--record-rule,var(--border,rgba(80,55,30,.25)));
+  font-family:var(--f-type,'Special Elite','Noto Serif JP',serif);
 }
 .article-pagination a {
   min-width:0;
+  min-height:44px;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:5px;
-  padding:10px 12px;
-  color:var(--ink,#30251c);
+  gap:.2rem;
+  padding:.55rem .65rem;
+  color:var(--record-ink,var(--ink,#30251c));
   text-decoration:none;
-  border:1px solid var(--border,rgba(80,55,30,.25));
-  background:rgba(245,237,216,.45);
-  transition:background .2s,color .2s
-}
-.article-pagination a:hover,.article-pagination a:focus-visible {
-  background:var(--ink,#30251c);
-  color:var(--paper,#f5edd8)
 }
 .article-pagination .pagination-home {
   text-align:center;
   align-items:center;
   min-width:104px;
-  border-color:var(--border-strong,rgba(80,55,30,.45))
+  border-inline:1px solid var(--record-rule,var(--border,rgba(80,55,30,.25)));
 }
 .pagination-label {
-  font-size:.58rem;
+  color:var(--record-accent,var(--bordeaux,#6b1e2a));
+  font-size:.72rem;
   letter-spacing:.08em;
-  opacity:.8
 }
 .pagination-title {
-  font-family:var(--f-jp,serif);
-  font-size:.76rem;
-  line-height:1.5;
-  overflow-wrap:anywhere
+  font:400 .875rem/1.55 var(--f-jp,'Noto Serif JP',serif);
+  overflow-wrap:anywhere;
 }
 .pagination-prev {
   text-align:left;
-  align-items:flex-start
+  align-items:flex-start;
 }
 .pagination-next {
   text-align:right;
-  align-items:flex-end
+  align-items:flex-end;
 }
-.article-pagination .is-empty {
-  visibility:hidden;
-  border:0;
-  background:transparent
-}
+.article-pagination .is-empty { visibility:hidden; }
 @media(max-width:600px) {
   .related-records { margin:18px 10px 0; padding:0; }
   .article-pagination {
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:8px;
     margin:22px 10px;
-    padding:12px 0
+    padding:12px 0;
   }
   .article-pagination .pagination-home {
     grid-column:1/-1;
     grid-row:1;
     min-width:0;
-    min-height:44px
+    border-inline:0;
+    border-bottom:1px solid var(--record-rule,var(--border,rgba(80,55,30,.25)));
   }
-  .article-pagination .pagination-prev,.article-pagination .pagination-next {
-    min-height:58px;
-    padding:9px
-  }
-  .pagination-title {
-    font-size:.7rem
-  }
-  .pagination-label {
-    font-size:.56rem
-  }
-}
-@media(prefers-reduced-motion:reduce) {
-  .article-pagination a {
-    transition:none
-  }
+  .article-pagination :is(.pagination-prev,.pagination-next) { min-height:58px; }
 }
