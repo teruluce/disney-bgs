@@ -1488,3 +1488,12 @@
   - [Blog Mickey「Hazel Hightower Revealed as Newest S.E.A. Member」](https://blogmickey.com/2026/10/hazel-hightower-revealed-as-newest-s-e-a-member/)
   - [WDWNT「Disneyland Expands S.E.A. Lore With Hazel Hightower」](https://wdwnt.com/2026/10/photos-disneyland-expands-s-e-a-lore-with-hazel-hightower-oar-ridge-jewel-souvenir-ticket/)
   - [Main Street Library「Exploring the Skipper Canteen Library」](https://mainstreetlibrary.substack.com/p/exploring-the-skipper-canteen-library)
+
+## 2026-11-22 — Codex-BGS-20261122-SEO / 全26ページの検索表示
+
+- 最新main 50e9307、開始時のオープンPRは0件。運営憲章・編集基準・既存SEO監査と記事の各章を確認。
+- 公式タワー・オブ・テラーの施設案内と、梅酢ブログのレイジングスピリッツ解説を比較。利用情報や物語の概要を重ねるより、各記事で読める人物・現地の意匠・歴史を検索タイトルに採用した。比較先は下記2ページ。検索順位・検索量は測定していない。
+  - https://www.tokyodisneyresort.jp/tds/attraction/detail/243/
+  - https://umezu0505.com/bgs_ragingspirits/
+- タイトル21件と主要な説明を本文に合わせ、全23記事の著者をトップとプロフィールの同一人物に接続。サイト案内にWebPageを追加し、ソアリンからホテルの歴史へ関連リンクを追加。
+- 26ページの静的SEO検査（警告0）、記事一覧23件、共有リンク25件、単体テスト26件を確認。旧URLの転送とGoogle所有権確認ファイルも確認した。検索結果での表示と順位は公開後の再取得に依存する。
