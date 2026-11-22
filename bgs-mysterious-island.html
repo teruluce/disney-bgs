@@ -433,13 +433,6 @@
   
     .sub-heading { font-family:var(--f-jp); font-size:clamp(.88rem,2.2vw,.95rem); font-weight:500; padding-left:12px; margin:34px 0 14px; border-left:2px solid var(--gold); color:var(--bordeaux); letter-spacing:.03em; line-height:1.6; }
     .photo-cap { margin:-36px 0 40px; font-family:var(--f-type,'Courier New',monospace); font-size:clamp(.58rem,1.5vw,.66rem); line-height:1.8; letter-spacing:.05em; color:var(--muted); text-align:center; }
-    .source-note { margin-top:28px; padding-top:10px; border-top:1px solid var(--border); color:var(--muted); font-family:var(--f-type); font-size:clamp(.58rem,1.45vw,.64rem); line-height:1.8; letter-spacing:.035em; opacity:.82; }
-    .source-note summary { display:inline-block; cursor:pointer; list-style:none; padding:2px 0; border-bottom:1px dotted var(--border-strong); }
-    .source-note summary::-webkit-details-marker { display:none; }
-    .source-note summary::before { content:'＋ '; font-size:.8em; }
-    .source-note[open] summary::before { content:'－ '; }
-    .source-note ul { margin:8px 0 0 1.2em; padding:0; }
-    .source-note li { margin:3px 0; overflow-wrap:anywhere; }
     .real-timeline th:first-child, .real-timeline td:first-child { white-space:nowrap; }
     .data-table { min-width: 560px; }
     .article-block .photo-frame { margin:40px auto; }
@@ -449,15 +442,10 @@
     .nemo-plate img { display:block; width:100%; height:auto; border:1px solid var(--border-strong); }
     .nemo-plate figcaption { margin-top:12px; color:var(--muted); font-family:var(--f-jp); font-size:.75rem; line-height:1.9; text-align:center; }
     .nemo-plate .plate-label { display:block; margin-bottom:4px; font-family:var(--f-type); color:var(--gold); font-size:.65rem; letter-spacing:.12em; }
-    .nemo-sources { margin-bottom:44px; opacity:1; }
-    .nemo-sources summary { min-height:44px; padding:10px 0; }
-    .nemo-sources ol { list-style:none; padding:0; margin:12px 0; }
-    .nemo-sources li { margin:10px 0; font-family:var(--f-jp); font-size:.75rem; }
-    .nemo-sources p { font-family:var(--f-jp); font-size:.7rem; }
     .article-h2 { font-family:var(--f-jp); font-style:normal; line-height:1.7; }
     @media(max-width:640px) { .masthead-subtitle { line-height:1.9; } .nemo-plate { margin:30px 0 36px; } }
   </style>
-  <link rel="stylesheet" href="archive.css">
+  <link rel="stylesheet" href="archive.css?v=20261122-sources">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
@@ -561,21 +549,27 @@
     <h2 class="article-h2" id="imagineering-title">余録：イマジニアが刻んだ岩肌</h2>
     <p class="article-p">ミステリアスアイランドの景観には、ウォルト・ディズニー・イマジニアリングの造形の仕事が息づいています。岩や仕上げの専門家であるZsolt Hormayも、このテーマポートの制作に携わりました。巨大な岩壁の表情までつくり込む仕事が、火山と研究設備の織りなす風景を支えています。</p>
   </aside>
-  <details class="source-note nemo-sources"><summary>参考資料（13件）</summary><ol>
-    <li>東京ディズニーリゾート「8つのテーマポート」／“Tokyo DisneySea Overview”（日本語・英語）</li>
-    <li>Disney Vacation Channel “Disney Sea — Mysterious Island”（英語）</li>
-    <li>東京ディズニーリゾート・ブログ「ネモ船長の秘密基地のヒミツ！」（2016年9月30日）</li>
-    <li>東京ディズニーリゾート・ブログ「ミステリアスアイランドに関するちょっと細かいストーリー：その1」（2021年6月24日）</li>
-    <li>東京ディズニーリゾート・ブログ「ミステリアスアイランドに関するちょっと細かいストーリー：その2」（2021年7月30日）</li>
-    <li>東京ディズニーリゾート・ブログ「時間や季節によって変わる、東京ディズニーリゾートのいろんな表情。～ミステリアスアイランド編～」（2017年2月9日）</li>
-    <li>東京ディズニーリゾート「ヴォルケイニア・レストラン」／“Vulcania Restaurant”（日本語・英語）</li>
-    <li>東京ディズニーリゾート「ノーチラスギャレー」／“Nautilus Galley”（日本語・英語）</li>
-    <li>東京ディズニーリゾート「リフレッシュメント・ステーション」／“Refreshment Station”（日本語・英語）</li>
-    <li>東京ディズニーリゾート「ノーチラスギフト」／“Nautilus Gifts”（日本語・英語）</li>
-    <li>D23 “20,000 Leagues Under the Sea: 70 Years of the Mightiest Motion Picture of Them All!”（2024年、英語）</li>
-    <li>Themed Entertainment Association “Zsolt Hormay (2019)”（英語）</li>
-    <li>DEJIKI “Tokyo DisneySea – Mysterious Island”（2014年4月29日、英語・現地写真による景観確認）</li>
-  </ol><p>資料確認日：2026年10月30日</p></details>
+
+  <details class="source-note" id="sources">
+    <summary>参考資料</summary>
+    <ol>
+      <li>東京ディズニーリゾート「8つのテーマポート」／“Tokyo DisneySea Overview”（日本語・英語）</li>
+      <li>Disney Vacation Channel “Disney Sea — Mysterious Island”（英語）</li>
+      <li>東京ディズニーリゾート・ブログ「ネモ船長の秘密基地のヒミツ！」（2016年9月30日）</li>
+      <li>東京ディズニーリゾート・ブログ「ミステリアスアイランドに関するちょっと細かいストーリー：その1」（2021年6月24日）</li>
+      <li>東京ディズニーリゾート・ブログ「ミステリアスアイランドに関するちょっと細かいストーリー：その2」（2021年7月30日）</li>
+      <li>東京ディズニーリゾート・ブログ「時間や季節によって変わる、東京ディズニーリゾートのいろんな表情。～ミステリアスアイランド編～」（2017年2月9日）</li>
+      <li>東京ディズニーリゾート「ヴォルケイニア・レストラン」／“Vulcania Restaurant”（日本語・英語）</li>
+      <li>東京ディズニーリゾート「ノーチラスギャレー」／“Nautilus Galley”（日本語・英語）</li>
+      <li>東京ディズニーリゾート「リフレッシュメント・ステーション」／“Refreshment Station”（日本語・英語）</li>
+      <li>東京ディズニーリゾート「ノーチラスギフト」／“Nautilus Gifts”（日本語・英語）</li>
+      <li>D23 “20,000 Leagues Under the Sea: 70 Years of the Mightiest Motion Picture of Them All!”（2024年、英語）</li>
+      <li>Themed Entertainment Association “Zsolt Hormay (2019)”（英語）</li>
+      <li>DEJIKI “Tokyo DisneySea – Mysterious Island”（2014年4月29日、英語・現地写真による景観確認）</li>
+    </ol>
+    <p>資料確認日：2026年10月30日</p>
+  </details>
+
   <div class="footer-link-wrap reveal"><a href="./" class="footer-link record-return">← トップへ戻る</a></div>
 </main>
 </div>

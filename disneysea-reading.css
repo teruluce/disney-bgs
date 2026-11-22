@@ -18,11 +18,3 @@
 .article-page .photo-frame + :is(.photo-cap, .photo-caption) {
   margin-top: .65rem;
 }
-
-.article-page .source-note {
-  border-block: 1px solid var(--border);
-  padding-block: .6rem;
-}
-.article-page .source-note[open] > :is(ol, ul) {
-  margin-block: .6rem;
-}

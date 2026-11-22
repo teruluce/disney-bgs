@@ -532,67 +532,6 @@
       border-bottom-color: var(--bordeaux);
     }
 
-    .sources-wrap {
-      margin-top: 48px;
-      border-top: 1px dashed var(--border-strong);
-      padding-top: 32px;
-      text-align: center;
-    }
-    .sources-details {
-      border: 1px solid var(--border-strong);
-      background: rgba(245,237,216,0.4);
-      max-width: 600px;
-      margin: 20px auto 0;
-      text-align: left;
-    }
-    .sources-summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 16px;
-      text-align: center;
-      user-select: none;
-      outline: none;
-      font-family: var(--f-sc);
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      color: var(--muted);
-      border-bottom: 1px solid transparent;
-      transition: background 0.2s, color 0.2s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .sources-summary::-webkit-details-marker { display: none; }
-    .sources-summary:hover { background: rgba(107,30,42,0.04); color: var(--bordeaux); }
-    details[open] .sources-summary {
-      border-bottom-color: var(--border-strong);
-    }
-    .sources-body {
-      padding: 24px;
-      font-family: var(--f-jp);
-      font-size: 0.72rem;
-      line-height: 1.85;
-      color: var(--ink-soft);
-    }
-    .sources-body .aside-heading {
-      font-family: var(--f-sc);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      color: var(--bordeaux);
-      margin-top: 20px;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 4px;
-    }
-    .sources-body .aside-heading:first-child { margin-top: 0; }
-    .sources-body ul {
-      list-style-type: square;
-      padding-left: 18px;
-      margin-bottom: 12px;
-    }
-    .sources-body li {
-      margin-bottom: 6px;
-    }
-    
     /* ============================================================
        FOCUS STYLES
     ============================================================ */
@@ -637,7 +576,7 @@
     .modal-copyright { color: var(--muted, #7A6048); }
 
   </style>
-  <link rel="stylesheet" href="archive.css">
+  <link rel="stylesheet" href="archive.css?v=20261122-sources">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
@@ -1004,43 +943,36 @@
     </div>
   </section>
 
-  <!-- ===== ARCHIVE SOURCES (Historical Materials & References) ===== -->
-  <div class="sources-wrap reveal">
-    <p style="font-family: var(--f-jp); font-size: 0.72rem; color: var(--muted); line-height: 1.9; margin-bottom: 20px; font-style: italic;">
-      本アーカイブは、公式資料、歴史的記録、関係者インタビュー、音楽資料、および公開されている各種参考文献をもとに構成されています。
-    </p>
-    <details class="sources-details source-note">
-      <summary class="sources-summary">Archive Sources<br>[ Open Library ]</summary>
-      <div class="sources-body">
-        <h3 class="aside-heading">Official Sources</h3>
-        <ul>
-          <li>Disney Parks &amp; Resorts Historical Release Documents</li>
-          <li>D23 — The Official Disney Fan Club Archives</li>
-          <li>Walt Disney Imagineering Technical &amp; Design Briefs</li>
-        </ul>
-        <h3 class="aside-heading">Tokyo Disney Resort</h3>
-        <ul>
-          <li>東京ディズニーリゾート公式プレスリリース（2001年 - 2026年）</li>
-          <li>株式会社オリエンタルランド公開資料・年次報告書</li>
-        </ul>
-        <h3 class="aside-heading">Historical Archives</h3>
-        <ul>
-          <li>Disney History Institute Collection Records</li>
-          <li>The Walt Disney Family Museum Archival Exhibits</li>
-        </ul>
-        <h3 class="aside-heading">Music Archives</h3>
-        <ul>
-          <li>Jean-Jacques Perrey &amp; Gershon Kingsley "Kaleidoscopic Vibrations" (1967) Album Documentation</li>
-          <li>The Bob Moog Foundation Synthesizer History Records</li>
-        </ul>
-        <h3 class="aside-heading">Additional Research</h3>
-        <ul>
-          <li>ディズニーエンターテインメント・クリエイターインタビュー（ドン・ドーシー、グレゴリー・スミス対談集）</li>
-          <li>世界各パーク現地のパンフレット、ガイドブック、ショースケジュール資料（1972年 - 2026年）</li>
-        </ul>
-      </div>
-    </details>
-  </div>
+  <details class="source-note" id="sources">
+    <summary>参考資料</summary>
+    <p>本アーカイブは、公式資料、歴史的記録、関係者インタビュー、音楽資料、および公開されている各種参考文献をもとに構成されています。</p>
+    <h3 class="source-group-title">Official Sources</h3>
+    <ol>
+      <li>Disney Parks &amp; Resorts Historical Release Documents</li>
+      <li>D23 — The Official Disney Fan Club Archives</li>
+      <li>Walt Disney Imagineering Technical &amp; Design Briefs</li>
+    </ol>
+    <h3 class="source-group-title">Tokyo Disney Resort</h3>
+    <ol start="4">
+      <li>東京ディズニーリゾート公式プレスリリース（2001年 - 2026年）</li>
+      <li>株式会社オリエンタルランド公開資料・年次報告書</li>
+    </ol>
+    <h3 class="source-group-title">Historical Archives</h3>
+    <ol start="6">
+      <li>Disney History Institute Collection Records</li>
+      <li>The Walt Disney Family Museum Archival Exhibits</li>
+    </ol>
+    <h3 class="source-group-title">Music Archives</h3>
+    <ol start="8">
+      <li>Jean-Jacques Perrey &amp; Gershon Kingsley "Kaleidoscopic Vibrations" (1967) Album Documentation</li>
+      <li>The Bob Moog Foundation Synthesizer History Records</li>
+    </ol>
+    <h3 class="source-group-title">Additional Research</h3>
+    <ol start="10">
+      <li>ディズニーエンターテインメント・クリエイターインタビュー（ドン・ドーシー、グレゴリー・スミス対談集）</li>
+      <li>世界各パーク現地のパンフレット、ガイドブック、ショースケジュール資料（1972年 - 2026年）</li>
+    </ol>
+  </details>
 
   <div class="footer-link-wrap reveal">
     <a href="./" class="footer-link record-return">← トップへ戻る</a>

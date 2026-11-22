@@ -433,18 +433,11 @@
   
     .sub-heading { font-family:var(--f-jp); font-size:clamp(.88rem,2.2vw,.95rem); font-weight:500; padding-left:12px; margin:34px 0 14px; border-left:2px solid var(--gold); color:var(--bordeaux); letter-spacing:.03em; line-height:1.6; }
     .photo-cap { margin:-36px 0 40px; font-family:var(--f-type,'Courier New',monospace); font-size:clamp(.58rem,1.5vw,.66rem); line-height:1.8; letter-spacing:.05em; color:var(--muted); text-align:center; }
-    .source-note { margin-top:28px; padding-top:10px; border-top:1px solid var(--border); color:var(--muted); font-family:var(--f-type); font-size:clamp(.58rem,1.45vw,.64rem); line-height:1.8; letter-spacing:.035em; opacity:.82; }
-    .source-note summary { display:inline-block; cursor:pointer; list-style:none; padding:2px 0; border-bottom:1px dotted var(--border-strong); }
-    .source-note summary::-webkit-details-marker { display:none; }
-    .source-note summary::before { content:'＋ '; font-size:.8em; }
-    .source-note[open] summary::before { content:'－ '; }
-    .source-note ul { margin:8px 0 0 1.2em; padding:0; }
-    .source-note li { margin:3px 0; overflow-wrap:anywhere; }
     .real-timeline th:first-child, .real-timeline td:first-child { white-space:nowrap; }
     .data-table { min-width: 560px; }
     .article-block .photo-frame { margin:40px auto; }
 </style>
-  <link rel="stylesheet" href="archive.css">
+  <link rel="stylesheet" href="archive.css?v=20261122-sources">
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop-article.css?v=9b3e83fc82" media="(min-width: 768px)">
   <link rel="stylesheet" href="article-layout.css?v=e10c64549e">
@@ -749,25 +742,25 @@
     <p class="article-p">世界のディズニーパークの歴史は、映画の二次元の視覚技術を、三次元の建築と都市のインフラへ翻訳しようとする試みから始まりました。そして「BGS」という物語の骨格を手にしたとき、テーマパークは、アトラクションを並べただけの場所から、ゲスト自身が物語の一部になる、生きた虚構の空間へと変わっていきます。</p>
     <p class="article-p">外の現実を遮り、没入を守るというウォルトの構想は、アナハイムの開園から始まり、フロリダのユーティリドールという巨大な都市インフラで技術として完成しました。マーティ・スカラーの十の戒律やジョン・ヘンチの色彩の知恵は、空間の細部がゲストの無意識や行動を左右することを示しています。そしてパリのディスカバリーランド、東京ディズニーシーから世界へ広がったS.E.A.は、BGSが一つの施設の説明を超え、パークの網を結ぶ物語のネットワークになったことを物語ります。</p>
     <p class="article-p">「ディズニーランドは永遠に完成しない」。ウォルトの言葉として知られるこの一言は、技術の革新と時代の変化に合わせてBGSを組み直し続ける世界のパークで、今も確かめられ続けています。</p>
-
-    <details class="source-note">
-      <summary>参考資料（12件）</summary>
-      <ol>
-        <li>D23「Disney History」</li>
-        <li>The Walt Disney Family Museum「Former Imagineer Tom Morris Explains Just Who Built the Original Disneyland」</li>
-        <li>Wikipedia「EPCOT (concept)」</li>
-        <li>Fanboy Planet「D23: Marty Sklar's One Little Spark!」</li>
-        <li>Marty Sklar『Dream It! Do It!』（要約版）</li>
-        <li>DisneylandParis News「D23 - The Ultimate Disney Fan Event 2026」</li>
-        <li>Julie Ears「D23 2026 Disneyland Paris: Space Mountain, Lion King, parade」</li>
-        <li>Wandering in Disney「D23 Expo: Original Space Mountain Theme Coming Back to Disneyland Paris」</li>
-        <li>Arcades and Avenues「Disneyland Paris: Space Mountain's Jules Verne Return」</li>
-        <li>Magic Wait Paris「10 Fascinating Facts About Phantom Manor」</li>
-        <li>Parklore「The Heartbreaking Haunting of Disneyland Paris' Phantom Manor」</li>
-        <li>運営者によるリサーチ資料「世界のディズニーパークにおける主題化空間の創出と空間叙述（BGS）の進化史」</li>
-      </ol>
-    </details>
   </section>
+
+  <details class="source-note" id="sources">
+    <summary>参考資料</summary>
+    <ol>
+      <li>D23「Disney History」</li>
+      <li>The Walt Disney Family Museum「Former Imagineer Tom Morris Explains Just Who Built the Original Disneyland」</li>
+      <li>Wikipedia「EPCOT (concept)」</li>
+      <li>Fanboy Planet「D23: Marty Sklar's One Little Spark!」</li>
+      <li>Marty Sklar『Dream It! Do It!』（要約版）</li>
+      <li>DisneylandParis News「D23 - The Ultimate Disney Fan Event 2026」</li>
+      <li>Julie Ears「D23 2026 Disneyland Paris: Space Mountain, Lion King, parade」</li>
+      <li>Wandering in Disney「D23 Expo: Original Space Mountain Theme Coming Back to Disneyland Paris」</li>
+      <li>Arcades and Avenues「Disneyland Paris: Space Mountain's Jules Verne Return」</li>
+      <li>Magic Wait Paris「10 Fascinating Facts About Phantom Manor」</li>
+      <li>Parklore「The Heartbreaking Haunting of Disneyland Paris' Phantom Manor」</li>
+      <li>運営者によるリサーチ資料「世界のディズニーパークにおける主題化空間の創出と空間叙述（BGS）の進化史」</li>
+    </ol>
+  </details>
 
   <div class="footer-link-wrap reveal">
     <a href="./" class="footer-link record-return">← トップへ戻る</a>
