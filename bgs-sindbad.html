@@ -699,6 +699,17 @@
 
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  const comparisonTable = document.querySelector('.compare-table-wrap');
+  comparisonTable.addEventListener('keydown', event => {
+    if (event.target !== comparisonTable || event.altKey || event.ctrlKey
+        || event.metaKey || event.shiftKey || event.defaultPrevented) return;
+    const direction = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+    if (!direction || comparisonTable.scrollWidth <= comparisonTable.clientWidth) return;
+    // Keep both arrows available when native scrolling does not move the focused region.
+    event.preventDefault();
+    comparisonTable.scrollLeft += direction * 40;
+  });
+
   setTimeout(() => {
     document.querySelectorAll('.reveal').forEach((el, index) => {
       if (index < 3) el.classList.add('on');

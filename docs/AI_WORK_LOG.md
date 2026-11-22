@@ -1512,3 +1512,5 @@
 - 全23記事の公開番号と前後リンクを `archive-order.json` から生成。リンクは同じグループ内の掲載順とし、表示番号と目次名を併記。S03の前はS02 Spatial Epic、次はS04 Soaring: Fantastic Flight。各グループの端からは目次に戻れる。Worldwideの記事・トップの装飾カード・SNS共有画像はW01に統一し、021を含む既存の永久資料番号は全件 `data-accession` に保持。運用規則と生成差分の検査も同期した。
 - 本文、資料、トップの掲載順、URL、SEO情報はmainと一致。共有画像の差分は番号の文字部分のみ。静的検査（警告0件、単体テスト29件）、生成一致、差分検査、Chromiumの320／390／768／1280pxで全23記事と40件の前後リンク、S03とS04の往復、W01の目次復帰を確認。390pxはJavaScript無効。
 - 実機と修正後の本番は未確認。運営者のレビュー待ち。[実装コミット](https://github.com/teruluce/disney-bgs/commit/fb7a4e4ed4cebcc3020dcbf1ec7dd70c078d3860) ／ [レビュー用PR・CI](https://github.com/teruluce/disney-bgs/pulls?q=is%3Apr+head%3Acodex%2Farchive-display-navigation-20261122)。
+
+- 追記（PR #130のマージ承認）　運営者から失敗した検査の修正とマージを指示。WebKitの比較表で、Tabによる到達は成功する一方、右矢印で横スクロールしないことをCIで確認。シンドバッド記事の比較表にフォーカスがあり横にあふれる場合だけ、左右矢印で表を動かす処理を追加。修飾キー付きの操作、Tab、タッチ操作は従来どおり。既存のキーボード回帰検査で再確認する。
