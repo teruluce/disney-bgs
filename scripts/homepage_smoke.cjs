@@ -115,10 +115,14 @@ async function focusPixels(page) {
         assert.equal(await page.locator('.card:visible').count(), 0);
         await page.locator('[data-filter="all"]').click();
         await page.locator('#archive-query').fill('');
-        assert.equal(await page.locator('.card:visible').count(), 23);
+        assert.equal(await page.locator('.card:visible').count(), expectedArchive.length);
         for (const category of ['tdl','tds','history','all']) {
           await page.locator(`[data-filter="${category}"]`).click();
           await checkFilteredOrder(page, category);
+        }
+        for (const query of ['American Waterfront', 'アメリカンウォーターフロント']) {
+          await page.locator('#archive-query').fill(query);
+          assert.equal(await page.locator('#american-waterfront-card').isVisible(), true, query);
         }
         await page.locator('#archive-query').fill('港');
         const selected = await page.locator('.card:visible').evaluateAll(cards=>cards.map(a=>({id:a.id,number:a.querySelector('.card-cat').textContent.split(' · ')[0]})));

@@ -83,6 +83,11 @@
           "tocTitle": "Soaring: Fantastic Flight"
         },
         {
+          "url": "bgs-americanwaterfront.html",
+          "id": "american-waterfront-card",
+          "tocTitle": "American Waterfront"
+        },
+        {
           "url": "bgs-tot.html",
           "id": "tot-card",
           "tocTitle": "Tower of Terror"
