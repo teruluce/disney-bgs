@@ -1,6 +1,6 @@
 # BGS Chronicles — Editorial & Collaboration Guide
 
-Updated: 2026-11-21
+Updated: 2026-11-23
 
 ## Product identity
 
@@ -77,6 +77,7 @@ Shared styles live in `archive.css` (linked before `mobile.css`). Rolled out on 
 ## Technical working rules
 
 - Preserve existing page structure and the established newspaper design unless a change is explicitly intended.
+- Before publishing article photographs, confirm the credit and choose crops that keep relevant signs legible and identifiable bystanders out of the foreground. Remove EXIF and GPS from every published variant, including card and social preview images.
 - Prefer focused, reviewable changes. For larger refactors, create a branch and pull request rather than making a broad unreviewed edit directly on `main`.
 - Check desktop and mobile layouts, article navigation, canonical/OGP metadata, and JavaScript interactions after relevant changes.
 - Do not claim a visual/live deployment check unless it was actually performed. Distinguish source-level verification from browser-level verification in internal reports.
