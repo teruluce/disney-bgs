@@ -73,7 +73,10 @@
 - S01・S02・S10は旧英語H1を副題へ移した。S06はホテル名を日本語の副題に残し、「傲慢なる略奪の果てと、影の忠臣」を維持。L07の独自の見出しとL09のHUD、W01の装飾表紙を保存。歴史記事の名称はPR #129指定のTDL/TDS表記を踏襲。
 - L07・S03・S05の関連欄で、英語の記事名をリンク先と統一。S10からS.E.A. Archivesへの案内がテーマポート総覧を指していたため、同じリンク先に学会の名称と既存の副題を添えた。文脈を伝える日本語リンク、写真内・表紙の題字、検索用の見出しは個別の役割を保つ。
 - 再生成と生成一致検査、サイト検査（27ページ、SEO警告0件）、単体テスト31件、サイト内リンク431件が成功。トップと24記事のheadを変更前とバイト単位で照合。本文、写真、出典、URL・アンカー、前後リンク、各番号も照合。Chromiumのトップ16条件で検索とキーボード操作を確認。実機と検索順位は未測定。
-- 状態はマージ前。CI・デプロイの確定結果は公開後に追記する。[作業ブランチのPR](https://github.com/teruluce/disney-bgs/pulls?q=is%3Apr+head%3Acodex%2Farchive-titles-20261124)
+- 2026-11-24 00:28 JST、運営者の条件付き承認に従い、最終ヘッド `ac1ac5c` の静的SEO・Chromium・Firefox・WebKitのCI全4件成功、21ファイルの差分の自己レビュー、既存PR #133との試験マージ成功を確認してPR #134をマージ。マージ後のツリーは検証済みのヘッドと同一。[実装コミット](https://github.com/teruluce/disney-bgs/commit/ac1ac5c78d126ca551d9962d6cb990504845a464) / [PR #134](https://github.com/teruluce/disney-bgs/pull/134) / [マージコミット](https://github.com/teruluce/disney-bgs/commit/b6295275addc36d492364e917f685f832ea61f0b) / [PRのCI](https://github.com/teruluce/disney-bgs/actions/runs/45203186351)
+- ローカルChromiumの既存ブラウザー検査は243ページ・画面幅、トップ16条件、読者ページ182条件で成功。390・1280pxおよびJavaScript無効の320pxで毎回目次→カード→記事を開き、各条件の全24経路でH1・番号・永久資料番号、横方向の収まりを検査。390・1280pxでは5記事の題字を画像でも確認した。
+- 公開確認済み。00:29 JST、Pages APIの対象コミットが `built` となり、Actionsのビルド・デプロイ・結果報告が成功。HTTPSでトップと全24記事、掲載順JSON、共通JS、サイトマップ、旧URLの転送HTML、robots.txtの計30点がHTTP 200でマージコミットとバイト単位で一致した。公開Chromiumでも同じ3条件で計72経路が成功。ブラウザーでは実行環境の証明書エラーを許容し、独立のHTTPS取得で証明書検証を有効にした。[Pages](https://github.com/teruluce/disney-bgs/actions/runs/45205697295) / [公開目次](https://teruluce.github.io/disney-bgs/#toc)
+- マージコミットにも静的SEO・Chromium・Firefox・WebKitの4件が成功。公開記録のみの追記は既存のCIのパス指定の対象外。追記後も生成一致・サイト検査・単体テスト31件・差分検査に成功した。[mainのCI](https://github.com/teruluce/disney-bgs/actions/runs/45205697654) / [公開確認記録のPR #135](https://github.com/teruluce/disney-bgs/pull/135)
 
 ### 2026-10-10 — PR #10「4記事の公式設定とファン考察を整理」
 
