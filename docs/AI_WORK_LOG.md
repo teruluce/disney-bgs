@@ -76,6 +76,7 @@
 - 2026-11-24 00:28 JST、運営者の条件付き承認に従い、最終ヘッド `ac1ac5c` の静的SEO・Chromium・Firefox・WebKitのCI全4件成功、21ファイルの差分の自己レビュー、既存PR #133との試験マージ成功を確認してPR #134をマージ。マージ後のツリーは検証済みのヘッドと同一。[実装コミット](https://github.com/teruluce/disney-bgs/commit/ac1ac5c78d126ca551d9962d6cb990504845a464) / [PR #134](https://github.com/teruluce/disney-bgs/pull/134) / [マージコミット](https://github.com/teruluce/disney-bgs/commit/b6295275addc36d492364e917f685f832ea61f0b) / [PRのCI](https://github.com/teruluce/disney-bgs/actions/runs/45203186351)
 - ローカルChromiumの既存ブラウザー検査は243ページ・画面幅、トップ16条件、読者ページ182条件で成功。390・1280pxおよびJavaScript無効の320pxで毎回目次→カード→記事を開き、各条件の全24経路でH1・番号・永久資料番号、横方向の収まりを検査。390・1280pxでは5記事の題字を画像でも確認した。
 - 公開確認済み。00:29 JST、Pages APIの対象コミットが `built` となり、Actionsのビルド・デプロイ・結果報告が成功。HTTPSでトップと全24記事、掲載順JSON、共通JS、サイトマップ、旧URLの転送HTML、robots.txtの計30点がHTTP 200でマージコミットとバイト単位で一致した。公開Chromiumでも同じ3条件で計72経路が成功。ブラウザーでは実行環境の証明書エラーを許容し、独立のHTTPS取得で証明書検証を有効にした。[Pages](https://github.com/teruluce/disney-bgs/actions/runs/45205697295) / [公開目次](https://teruluce.github.io/disney-bgs/#toc)
+- マージコミットにも静的SEO・Chromium・Firefox・WebKitの4件が成功。公開記録のみの追記は既存のCIのパス指定の対象外。追記後も生成一致・サイト検査・単体テスト31件・差分検査に成功した。[mainのCI](https://github.com/teruluce/disney-bgs/actions/runs/45205697654) / [公開確認記録のPR #135](https://github.com/teruluce/disney-bgs/pull/135)
 
 ### 2026-10-10 — PR #10「4記事の公式設定とファン考察を整理」
 
