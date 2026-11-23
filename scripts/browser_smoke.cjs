@@ -4,6 +4,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const shareCopy = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'share-captions.json'), 'utf8'));
+const archive = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'archive-order.json'), 'utf8')).groups;
+const articleCount = archive.reduce((count, group) => count + group.articles.length, 0);
 const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
 
 (async () => {
@@ -132,11 +134,11 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
       await page.goBack();
       await page.waitForFunction(() => document.querySelector('#tot-card').style.display !== 'none');
       await page.locator('[data-filter="all"]').click();
-      assert.equal(await page.locator('.card:visible').count(), 23);
+      assert.equal(await page.locator('.card:visible').count(), articleCount);
 
       for (const [source, target] of [['bgs-origins.html', 'bgs-spatial-epic.html'], ['bgs-tdlhistory.html', 'bgs-worldbazaar.html'], ['bgs-portdiscovery.html', 'bgs-tl.html']]) {
         await page.goto(base + source);
-        assert.equal(await page.locator('.related-records a').getAttribute('href'), target);
+        assert.equal(await page.locator(`.related-records a[href="${target}"]`).count(), 1);
       }
 
       for (const file of ['index.html', 'bgs-electricalparade.html', 'bgs-sea.html', 'bgs-tdlhistory.html', 'bgs-smallworld.html']) {
@@ -194,12 +196,12 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
     const nojs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 900 } });
     const page = await nojs.newPage();
     await page.route('https://fonts.**/*', route => route.abort());
-    for (const file of ['index.html', 'bgs-smallworld.html', 'bgs-tl.html', 'bgs-bb.html']) {
+    for (const file of ['index.html', 'bgs-smallworld.html', 'bgs-tl.html', 'bgs-bb.html', 'bgs-americanwaterfront.html']) {
       await page.goto(base + file);
       assert.equal(await page.locator('.reveal,.fade').first().evaluate(element => getComputedStyle(element).opacity), '1', `${file}: no-JS fallback`);
       if (file === 'index.html') {
         assert.equal(await page.locator('#archive-query').isVisible(), false, 'no-JS search is hidden');
-        assert.equal(await page.locator('.card:visible').count(), 23, 'no-JS archive remains readable');
+        assert.equal(await page.locator('.card:visible').count(), articleCount, 'no-JS archive remains readable');
       }
     }
     await nojs.close();
