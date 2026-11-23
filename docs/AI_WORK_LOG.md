@@ -1533,3 +1533,13 @@
 - [ピザ店の物語](https://www.tokyodisneyresort.jp/tdrblog/detail/171219/)、[PZ-5000](https://www.tokyodisneyresort.jp/tdrblog/detail/201120_2/)、[コズミック・エンカウンター](https://www.tokyodisneyresort.jp/tdl/shop/detail/560/)、[スターゲイザーサプライ](https://www.tokyodisneyresort.jp/tdl/shop/detail/576/)、[2027年特設サイト](https://www.tokyodisneyresort.jp/treasure/tomorrowland_2027/)、[ポッピングステーション](https://www.tokyodisneyresort.jp/tdl/restaurant/detail/378/)
 - [発掘・復元・眺望](https://www.tokyodisneyresort.jp/tdrblog/detail/220825/)、[禁忌とねじれたレール](https://www.tokyodisneyresort.jp/tdrblog/detail/180914/)
 - PR #130の公開番号・前後リンクとWebKit修正を取り込んだmain `f3b657c` に追従し、4記事の変更と作業ログの両方を保持。
+
+## 2026-11-23 — Codex-BGS-20261123 / American Waterfront の新規掲載
+
+- 最新main `aff75a8` でAGENTS.md、AI_GOVERNANCE.md、EDITORIAL_STANDARDS.md、本ログ、掲載順と関連記事を確認。目次の英語表記を統一したPR #129は反映済み。オープンPRは0件。専用ブランチ `codex/american-waterfront-20261123` で作業。
+- 運営者提供ZIPの設定に基づき、確定稿の全7章・小見出し5件・リードを含む73段落を `bgs-americanwaterfront.html` に反映。本文8,504字、読了15分。ソアリンとタワー・オブ・テラーの間に挿入し、表示番号S05と永久資料番号024を付与。 `archive-order.json` からトップ `index.html` の目次・カード・ItemList、全24記事のFILE NO.と前後ナビを生成。検索・件数、最新2件のNew表示、サイトマップ、X共有文も同期。
+- 本文のリンク3件を保持し、巻末に5件の関連記録を掲載。タワー・オブ・テラー、ミラコスタ、ポートディスカバリー、Spatial Epic、TDS Historyの各関連欄から新記事へ戻れる。既存23記事の本文と永久資料番号、トップの既存目次名を比較して保持を確認。
+- 台帳01・02・04・05・06・07を掲載。台帳03はトイビルの場面が重なり、来園者の写り込みも多いため保留。04は本文の縦構図に加え、煙突と港の倉庫が残る4:3カード・1200×630のOGP用も作成。05は広告と船を残して手前の人物を除外。06は25周年バナーを除外し、07は高架と駅舎へ画角を限定。運営者撮影のクレジットを写真ごとに記載。JPEG15ファイルのEXIF・GPSなしを確認。巻末資料用に既存の日本語補助書体も再生成。
+- 東京ディズニーリゾートの参考22件を取得し、公式本文の主要箇所と資料名を確認。研究・取材の説明が本文に入っていないことを検索し、資料は巻末の折りたたみに整理。確認に使った資料には[エンディコット家とハイタワー](https://www.tokyodisneyresort.jp/tdrblog/detail/210826/)、[鉄道と灯り](https://www.tokyodisneyresort.jp/tdrblog/detail/210224/)、[トイビルの終点と引き込み線](https://www.tokyodisneyresort.jp/tdrblog/detail/170920/)、[ケープコッドの郷土芸術](https://www.tokyodisneyresort.jp/tdrblog/detail/190313/)が含まれる。
+- 静的検査（SEO 27ページ・警告0件、単体テスト29件）、生成差分、原稿・リンク照合が成功。Chromiumの320・390・768・1280pxでトップ検索、新記事カード、全7章、写真6枚、資料22件の折りたたみ、本文3件・巻末5件と戻りリンク5件、前後ナビを操作。320・390pxのJavaScript無効時にも目次・カード・本文・資料を確認。既存ブラウザー検査もChromiumで、243ページ・画面幅の組み合わせ、トップ16条件、読者ページ182条件が成功。
+- レビュー待ち。実機・本番環境・現地の展示現況は未確認。マージ・本番公開は未実施。[実装コミット](https://github.com/teruluce/disney-bgs/commit/cd18c9a) ／ [PR #132・CI](https://github.com/teruluce/disney-bgs/pull/132)。
