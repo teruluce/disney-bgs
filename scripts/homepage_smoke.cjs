@@ -124,6 +124,10 @@ async function focusPixels(page) {
           await page.locator('#archive-query').fill(query);
           assert.equal(await page.locator('#american-waterfront-card').isVisible(), true, query);
         }
+        for (const query of ["Soarin'", 'Soaring: Fantastic Flight']) {
+          await page.locator('#archive-query').fill(query);
+          assert.equal(await page.locator('#soarin-card').isVisible(), true, query);
+        }
         await page.locator('#archive-query').fill('港');
         const selected = await page.locator('.card:visible').evaluateAll(cards=>cards.map(a=>({id:a.id,number:a.querySelector('.card-cat').textContent.split(' · ')[0]})));
         assert.ok(selected.length>1,'search must exercise multiple results');

@@ -7,6 +7,7 @@ import tempfile
 import unittest
 
 from build_archive import ROOT, CARD, load_order, render, render_archive_article, render_article
+from check_archive import check_article_title
 
 
 class StaticArchiveTests(unittest.TestCase):
@@ -16,6 +17,26 @@ class StaticArchiveTests(unittest.TestCase):
 
     def test_generated_html_is_stable(self):
         self.assertEqual(render(self.source, self.groups), self.source)
+
+    def test_title_change_updates_card_contents_and_neighbor_but_preserves_seo(self):
+        groups = copy.deepcopy(self.groups)
+        first = groups[0]['articles'][0]
+        first['tocTitle'] = 'Dream & Magic'
+        result = render(self.source, groups)
+        self.assertIn('<h3 class="card-title">Dream &amp; Magic</h3>', CARD.search(result)[0])
+        self.assertIn('L01</span> <span>Dream &amp; Magic</span>', result)
+        self.assertEqual(result.split('</head>')[0], self.source.split('</head>')[0])
+        neighbor = (ROOT / groups[0]['articles'][1]['url']).read_text()
+        self.assertIn('L01 · Dream &amp; Magic</span>', render_archive_article(neighbor, groups[0], 1))
+        self.assertEqual(render(result, groups), result)
+
+    def test_h1_text_allows_authored_layout_and_rejects_title_drift(self):
+        article = {'url': 'story.html', 'tocTitle': 'Dream & Magic'}
+        h1 = '<h1 class="page-title"><em>Dream</em><br>&amp; Magic</h1>'
+        check_article_title(h1, article)
+        for source in ['', h1 + h1, h1.replace('Dream', 'dream')]:
+            with self.subTest(source=source), self.assertRaisesRegex(ValueError, 'story.html'):
+                check_article_title(source, article)
 
     def test_one_order_change_updates_all_three_views(self):
         groups = copy.deepcopy(self.groups)

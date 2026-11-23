@@ -50,6 +50,31 @@
 
 ## 作業履歴
 
+### 2026-11-24（JST）— Codex-BGS-20261124 / 全24記事の基本タイトルの統一
+
+- 最新main `6509177` の必読5文書、目次を確定したPR #129、番号と前後リンクのPR #130、最新記事PR #132を確認。既存PR #133は別件の公開記録を末尾へ追加するため、本件は作業履歴の先頭に記録した。
+- 24記事の目次・カード・H1・副題・検索タイトルと説明・OGP・X Card・JSON-LD・番号・前後リンク・関連記事を照合。10記事のH1と7枚のカードを、承認済みの目次名に合わせた。番号・掲載順・永久資料番号は従来どおり。
+- `archive-order.json` の既存の `tocTitle` から目次・カード主見出し・同じグループ内の前後リンク名を生成する。新しい記事では、この値と同じ英語名をその記事のH1に記し、生成後に `python scripts/check_site.py` で確認する。基本タイトルが変わっても、小説的な副題や日本語の検索名を個別に編集できる。旧カード名でも引き続き検索できる。
+
+| 番号 | 変更前のカード | 変更前のH1 | 目次・カード・H1の統一表記 |
+|---|---|---|---|
+| L01 | Tokyo Disneyland | Tokyo Disneyland | TDL History |
+| L07 | It's a Small World | It's a Small World | it’s a small world |
+| L10 | Electrical Parade | Tokyo Disneyland Electrical Parade | Electrical Parade |
+| S01 | Birth of DisneySea | Birth of DisneySea | TDS History |
+| S02 | TDS Spatial Epic | Sea of Adventure & Imagination | Spatial Epic |
+| S04 | Soarin' | Soarin' | Soaring: Fantastic Flight |
+| S06 | Tower of Terror | Hotel Hightower | Tower of Terror |
+| S08 | Indiana Jones | Indiana Jones | Indiana Jones Adventure |
+| S10 | Fantasy Springs | The Spring of Remembrance | Fantasy Springs |
+| S11 | Sindbad's Voyage | Storybook Voyage | Sindbad’s Storybook Voyage |
+
+- 表記が一致していた14記事は L02 World Bazaar、L03 Cinderella Castle、L04 Big Thunder Mountain、L05 Splash Mountain、L06 Haunted Mansion、L08 Beauty and the Beast、L09 Tomorrowland、S03 Hotel MiraCosta、S05 American Waterfront、S07 Port Discovery、S09 Raging Spirits、S12 Mysterious Island、S13 S.E.A. Archives、W01 A World of Stories。
+- S01・S02・S10は旧英語H1を副題へ移した。S06はホテル名を日本語の副題に残し、「傲慢なる略奪の果てと、影の忠臣」を維持。L07の独自の見出しとL09のHUD、W01の装飾表紙を保存。歴史記事の名称はPR #129指定のTDL/TDS表記を踏襲。
+- L07・S03・S05の関連欄で、英語の記事名をリンク先と統一。S10からS.E.A. Archivesへの案内がテーマポート総覧を指していたため、同じリンク先に学会の名称と既存の副題を添えた。文脈を伝える日本語リンク、写真内・表紙の題字、検索用の見出しは個別の役割を保つ。
+- 再生成と生成一致検査、サイト検査（27ページ、SEO警告0件）、単体テスト31件、サイト内リンク431件が成功。トップと24記事のheadを変更前とバイト単位で照合。本文、写真、出典、URL・アンカー、前後リンク、各番号も照合。Chromiumのトップ16条件で検索とキーボード操作を確認。実機と検索順位は未測定。
+- 状態はマージ前。CI・デプロイの確定結果は公開後に追記する。[作業ブランチのPR](https://github.com/teruluce/disney-bgs/pulls?q=is%3Apr+head%3Acodex%2Farchive-titles-20261124)
+
 ### 2026-10-10 — PR #10「4記事の公式設定とファン考察を整理」
 
 - **作業AI：** GitHub PR の記録からは特定できず（ChatGPT/Claude のどちらが作業したか未確認）

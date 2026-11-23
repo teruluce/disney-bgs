@@ -10,7 +10,10 @@
     const empty = document.getElementById('archive-search-empty');
     let activeCategory = 'all';
     const normalize = value => value.normalize('NFKC').toLocaleLowerCase('ja').replace(/[\s・.．]/g, '');
-    const cardTerms = new Map(cards.map(card => [card, normalize(card.textContent + ' ' + (card.querySelector('img')?.alt || ''))]));
+    const cardTerms = new Map(cards.map(card => {
+      const terms = [card.textContent, card.querySelector('img')?.alt, card.dataset.searchAlias];
+      return [card, normalize(terms.join(' '))];
+    }));
     function updateCards() {
       const query = normalize(search?.value.trim() || '');
       let shown = 0;
