@@ -3,8 +3,17 @@
 from pathlib import Path
 
 from build_archive import article_strip, load_order, render, render_archive_article
+from seo_audit import PageParser
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def check_article_title(source, article):
+    parser = PageParser()
+    parser.feed(source)
+    title = " ".join("".join(parser.h1_text).split())
+    if parser.h1_count != 1 or title != article["tocTitle"]:
+        raise ValueError(f'{article["url"]}: expected one H1 reading {article["tocTitle"]!r}, found {title!r}')
 
 
 def main():
@@ -30,6 +39,7 @@ def main():
                 continue
             source = page.read_text(encoding="utf-8")
             try:
+                check_article_title(source, article)
                 _, accession = article_strip(source, url)
                 if accession in accessions:
                     errors.append(f"{url}: duplicate accession {accession} also used by {accessions[accession]}")

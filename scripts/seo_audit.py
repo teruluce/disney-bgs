@@ -28,6 +28,8 @@ class PageParser(HTMLParser):
         self.title = []
         self.in_title = False
         self.h1_count = 0
+        self.h1_text = []
+        self.in_h1 = False
         self.meta = {}
         self.canonical = None
         self.jsonld = []
@@ -62,6 +64,9 @@ class PageParser(HTMLParser):
             self.in_title = True
         elif tag == "h1":
             self.h1_count += 1
+            self.in_h1 = True
+        elif tag == "br" and self.in_h1:
+            self.h1_text.append(" ")
         elif tag == "meta":
             name = attrs.get("name", "").lower()
             prop = attrs.get("property", "").lower()
@@ -84,12 +89,16 @@ class PageParser(HTMLParser):
             self._in_edit_date = False
         if tag == "title":
             self.in_title = False
+        elif tag == "h1":
+            self.in_h1 = False
         elif tag == "script" and self._in_jsonld:
             self.jsonld.append("".join(self._jsonld_buffer).strip())
             self._in_jsonld = False
             self._jsonld_buffer = []
 
     def handle_data(self, data):
+        if self.in_h1:
+            self.h1_text.append(data)
         if self.in_title:
             self.title.append(data)
         if self._in_jsonld:

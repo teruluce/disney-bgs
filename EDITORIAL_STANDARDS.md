@@ -1,6 +1,6 @@
 # BGS Chronicles — Editorial & Collaboration Guide
 
-Updated: 2026-11-23
+Updated: 2026-11-24
 
 ## Product identity
 
@@ -72,7 +72,9 @@ Shared styles live in `archive.css` (linked before `mobile.css`). Rolled out on 
 - Keep article URLs and link target IDs stable. Use stable article IDs for links because display numbers can change.
 - Extend the existing site checks with this implementation. Verify that the quick navigation, cards, and JSON-LD contain the same articles exactly once in the same order, that the display numbers are consecutive within each group, and that every quick navigation link resolves to its card.
 
-- **Implementation workflow:** Maintain park/order only in `archive-order.json`, then run `python scripts/build_archive.py` and commit the generated `index.html` and affected article HTML. Card prose/media and ItemList names stay in the authored HTML; add a new article's card and ItemList entry before generating. `python scripts/check_site.py` detects stale output. The generator also updates article numbers and previous/next links. Those links use the same group’s display order and titles. Readers can return to the archive at either end of a group.
+- **Implementation workflow:** Maintain park, order and basic English title (`tocTitle`) in `archive-order.json`, then run `python scripts/build_archive.py` and commit the generated `index.html` and affected article HTML. Card prose/media and ItemList names stay in the authored HTML; add a new article's card and ItemList entry before generating. `python scripts/check_site.py` detects stale output. The generator also updates article numbers and previous/next links. Those links use the same group’s display order and titles. Readers can return to the archive at either end of a group.
+
+- Use the same basic English title for the contents, main card heading, article H1 and previous/next labels. Use the established attraction, place or chronicle title that identifies the subject. The generator supplies the card heading. Author the H1 in the article’s own layout; the check compares its text, allowing line breaks and inline typography. Keep literary wording in the subtitle and descriptive Japanese links in context. Keep search titles, social metadata and JSON-LD names tailored to their readers. When renaming an existing card, retain its former search term in `data-search-alias` if needed.
 
 ## Technical working rules
 

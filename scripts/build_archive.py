@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the homepage, article display numbers and article navigation from archive-order.json.
 
-Card prose/media remain authored in index.html. Edit park/order only in the JSON,
+Card prose/media remain authored in index.html. Edit the park, order and basic title in the JSON,
 then run python scripts/build_archive.py and commit the JSON and changed HTML.
 """
 import argparse
@@ -60,6 +60,10 @@ def render(source, groups):
                 raise ValueError(f'{article["url"]}: missing/invalid card display number')
             card = re.sub(r'(<span class="stories-number">)File No\. (?:\d{3}|[LSW]\d+)( · )',
                           rf'\g<1>File No. {number}\g<2>', card)
+            card, count = re.subn(r'(<h3 class="card-title">)[^<]*(</h3>)',
+                                  lambda m: m[1] + escape(article['tocTitle'], quote=False) + m[2], card)
+            if count != 1:
+                raise ValueError(f'{article["url"]}: expected one plain-text card title')
             ordered.append(card)
             toc.append(f'        <a href="#{article["id"]}"><span class="toc-record-no">{number}</span> <span>{escape(article["tocTitle"])}</span></a>')
         toc.append('      </div>\n    </div>')
