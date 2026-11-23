@@ -1596,3 +1596,14 @@
   - 画像。 `aw-cape-cod-lighthouse-520.jpg`、`aw-cape-cod-lighthouse-820.jpg`、`aw-elevated-railway-1200.jpg`、`aw-elevated-railway-640.jpg`、`aw-harbor-card-1200.jpg`、`aw-harbor-card-800.jpg`、`aw-harbor-dusk-560.jpg`、`aw-harbor-dusk-960.jpg`、`aw-harbor-og.jpg`、`aw-steamship-advert-480.jpg`、`aw-steamship-advert-692.jpg`、`aw-subway-entrance-560.jpg`、`aw-subway-entrance-840.jpg`、`aw-toyville-rails-1000.jpg`、`aw-toyville-rails-560.jpg`
   - 書体・検査・文書。 `fonts/press-mincho.woff2`、`scripts/browser_smoke.cjs`、`scripts/homepage_smoke.cjs`、`EDITORIAL_STANDARDS.md`、`docs/AI_WORK_LOG.md`
 - 本記録の時点では公開前。追記後のPRヘッドでCI全件を再確認してからマージする。実際のマージSHA、Pagesの結果、公開URLの確認結果は、実測後に同じ作業ログへ追記する。[PR #132の検査結果](https://github.com/teruluce/disney-bgs/pull/132/checks)
+
+### 2026-11-24（JST）— Codex-BGS-20261124-3 / Haunted Mansion の v4 全13章
+
+- 最新main `f6fadd2` のAGENTS.md、AI_GOVERNANCE.md、EDITORIAL_STANDARDS.md、本ログ、既存記事と掲載順の生成規則を確認。v2のPR #136はマージ済み。オープンのPR #133は別件の作業ログのみ。両PRの差分を試験的に比較すると、末尾追記が同じ箇所で競合する。双方の履歴を残す調整は統合時に必要。本件は `codex/haunted-mansion-v4` で実施した。
+- ZIPの00・02を実装指示、03〜05を照合資料として使用。単体添付と同一の正本 `01.Haunted.Mansion.原稿.v4.md` から、英語題・副題、リード5段落、全13章の見出しと本文163段落を反映。HTMLの文字列・段落境界・順序を正本と照合し、8,619字を確認した。第IV章の「彼の墓碑によれば」は作中の碑文を指す表現として保持。
+- `bgs-haunted.html` の専用の導入配置を共通の新聞紙面に揃え、左の索引と右の本文をPCで、単列をスマホで使用。章目次13件と既存ID13件を確認。第I章の `#entrance` は風見鶏の段落、第X章は旧 `#magic`、第XI章は旧 `#graveyard` を使用。第XIII章の学会名からS.E.A. Archivesへつなぎ、既存の関連記事・前後記事・戻りリンクを保持した。
+- `index.html` の対象カード説明と読了目安15分、`share-captions.json` とX共有リンク、検索メタデータ・OGP・X Card・Article JSON-LDを同期。掲載番号L06、永久資料番号003、前後L05／L07、canonical、サイトマップと最終編集日を照合した。共通CSS、掲載順JSON、他の記事本文に差分はない。
+- 既存の外観写真とカード派生画像2点の運営者名義のアップロードと掲載履歴を確認。バイト一致、デコード、EXIF・GPSの不在を検証。外観・キャプションはホリデーナイトメアー期間を示す。写真の原撮影者・利用許諾の記録は未確認。巻末資料14件を既存の折りたたみに収録し、補助書体 `fonts/press-mincho.woff2` を既存の配布元・ライセンスと再生成手順で更新した。
+- 静的SEO検証27ページ、警告0件。Python単体テスト31件、共有リンク26件、アーカイブ生成一致、差分検査が成功。ローカルChromiumの320・390・640・767・768・1024・1440pxで、写真、章目次と旧アンカー、キー操作、資料の開閉、関連記事・前後・トップの導線、横はみ出し、コンソールエラーを確認。320pxのJavaScript無効時も検証。320・1440pxのaxe対象4ルールは違反・判定保留0件。390pxで外部書体・巻末の補助書体の実描画と代替描画を確認した。既存のChromiumで243ページ・画面幅とトップの16条件が成功。最終CIの結果はPRのChecksに記録。
+- フラッフィーは墓碑写真・転記の9件と本文にある具体日付6件を照合。残り3日を本文に列挙するか、2023・2024年の公式謎解き原文と詳細な人物伝、東京の花嫁と海外の婚姻譚の結びつけ方、墓碑・展示・写真の原記録確認をPRの未確認事項とした。本文は正本を保持。スマートフォン・タブレット実機、現地、検索インデックス、X実投稿は未検証。
+- レビュー待ち。mainへマージ・本番公開は未実施。[実装コミット](https://github.com/teruluce/disney-bgs/commit/f5b2480f38d2f4846b781c3b916fd917da89512d) ／ [PR #137](https://github.com/teruluce/disney-bgs/pull/137) ／ [PRの検証結果](https://github.com/teruluce/disney-bgs/pull/137/checks)。
