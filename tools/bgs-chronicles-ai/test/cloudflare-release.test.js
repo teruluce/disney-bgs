@@ -12,7 +12,7 @@ const env = {
 const gemini = { name: "GEMINI_API_KEY", type: "secret_text", text: "untrusted-fixture-secret" };
 const privateLogin = { name: "PILOT_ACCESS_TOKEN", type: "secret_text" };
 
-function fixture(states) {
+function fixture(states, inference = false) {
   const writes = [];
   const reports = [];
   const requests = [];
@@ -43,6 +43,8 @@ function fixture(states) {
       if (target) {
         const trial = JSON.parse(readFileSync(target, "utf8"));
         assert.deepEqual(trial, { ...config, workers_dev: true,
+          vars: inference ? { ...config.vars, FREE_TIER_VERIFIED: "true", PILOT_ENABLED: "true",
+            AI_STUDIO_VERIFIED_MODEL: "gemini-3.8-flash" } : config.vars,
           secrets: { required: ["GEMINI_API_KEY", "PILOT_ACCESS_TOKEN"] } });
       }
       writes.push(target ? "open" : "deploy");
@@ -140,4 +142,19 @@ test("private URL requires login Secret, keeps inference off, and closes on an a
   const stop = fixture([opened, closed]);
   await release("close-private", env, config, stop);
   assert.deepEqual(stop.writes, ["deploy"]);
+});
+
+test("inference needs the verified project and a protected existing URL", async () => {
+  const state = { secrets: [gemini, privateLogin], enabled: true };
+  const confirmed = { ...env, GEMINI_FREE_CONFIRMED: "true" };
+  const deps = fixture([state, state], true);
+  await assert.rejects(release("enable-inference", env, config, deps), /Confirm the key project/);
+  await assert.rejects(release("enable-inference", confirmed, config,
+    fixture([{ ...state, enabled: false }])), /existing private URL/);
+  const exposed = fixture([{ ...state, anonymous: 200 }]);
+  await assert.rejects(release("enable-inference", confirmed, config, exposed), /Anonymous check/);
+  assert.deepEqual(exposed.writes, []);
+  await release("enable-inference", confirmed, config, deps);
+  assert.deepEqual(deps.writes, ["open"]);
+  assert.match(deps.reports.at(-1), /Inference enabled/);
 });

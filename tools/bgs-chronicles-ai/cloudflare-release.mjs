@@ -124,7 +124,7 @@ export async function release(operation, env, config, {
   request = fetch, deploy = runWrangler, report = console.log,
   pause = ms => new Promise(resolve => setTimeout(resolve, ms)),
 } = {}) {
-  if (!["preflight", "deploy", "open-private", "close-private"].includes(operation)) throw new ReleaseError("Unknown workflow operation.");
+  if (!["preflight", "deploy", "open-private", "enable-inference", "close-private"].includes(operation)) throw new ReleaseError("Unknown workflow operation.");
   validateClosedConfig(config);
 
   const before = await inspectWorker(env, request);
@@ -136,7 +136,12 @@ export async function release(operation, env, config, {
   if (env.CLOSED_FREE_CONFIRMED !== "true") {
     throw new ReleaseError("Confirm Workers Free and the absence of custom routes before deploying.");
   }
-  const opening = operation === "open-private";
+  const inference = operation === "enable-inference";
+  const opening = operation === "open-private" || inference;
+  if (inference && (!before.workersDev || env.GEMINI_FREE_CONFIRMED !== "true" ||
+      config.vars.GEMINI_MODEL !== "gemini-3.8-flash")) {
+    throw new ReleaseError("Confirm the key project, unlinked billing, 3.8 Flash quota and existing private URL.");
+  }
   if (opening && !before.pilotSecret) throw new ReleaseError("Private login Secret is required.");
   if ((before.workersDev && operation === "deploy") || before.previews) {
     throw new ReleaseError("Close the existing workers.dev and preview URLs before deploying the pilot.");
@@ -151,6 +156,9 @@ export async function release(operation, env, config, {
       throw new ReleaseError("Unexpected workers.dev subdomain.");
     }
     origin = `https://${workerName}.${data.subdomain}.workers.dev`;
+    if (inference) {
+      for (const path of ["/", "/api/question"]) await verifyDenial(origin, path, request, pause);
+    }
     if (env.URL_PUBLIC_KEY) {
       deliveryKey = createPublicKey({ key: Buffer.from(env.URL_PUBLIC_KEY, "base64"), type: "spki", format: "der" });
       if (deliveryKey.asymmetricKeyType !== "rsa" || deliveryKey.asymmetricKeyDetails.modulusLength < 2048) {
@@ -159,6 +167,8 @@ export async function release(operation, env, config, {
     }
     const target = new URL("./wrangler.trial.json", import.meta.url);
     writeFileSync(target, JSON.stringify({ ...config, workers_dev: true,
+      vars: inference ? { ...config.vars, PILOT_ENABLED: "true", FREE_TIER_VERIFIED: "true",
+        AI_STUDIO_VERIFIED_MODEL: config.vars.GEMINI_MODEL } : config.vars,
       secrets: { required: [requiredSecret, "PILOT_ACCESS_TOKEN"] } }), { flag: "wx" });
     try { deploy(env, target); } finally { unlinkSync(target); }
   } else {
@@ -184,7 +194,7 @@ export async function release(operation, env, config, {
     throw new ReleaseError("Private URL verification failed. The private URL was closed.");
   }
   if (opening) {
-    report("Private URL verified: anonymous UI, assets and API denied. Inference disabled. Existing Secrets retained.");
+    report(`Private URL verified: anonymous UI, assets and API denied. Inference ${inference ? "enabled" : "disabled"}. Existing Secrets retained.`);
     if (deliveryKey) report("Operator URL (RSA-OAEP): " +
       publicEncrypt({ key: deliveryKey, oaepHash: "sha256" }, Buffer.from(origin)).toString("base64"));
     return;
