@@ -14,6 +14,13 @@ The same command also checks X share copy, internal accessions, home-card covera
 
 The home archive search filters article titles, descriptions and photo alt text together with the existing park buttons. It hides only when JavaScript is unavailable, leaving all cards readable. A table-of-contents link restores the target card if an active search or park filter had hidden it. Article footers can include a small related-record link; keep these links editorially relevant rather than adding them mechanically to every article.
 
+## Private AI pilot
+
+The separate Cloudflare Worker has its own checks in `tools/bgs-chronicles-ai`. Run
+`npm test` for the corpus, grounding, authentication and quota checks, and
+`npm run test:runtime` for the bundled Worker against a simulated Gemini response.
+See the [pilot runbook](BGS_AI_PILOT.md) for the loopback UI and approval steps.
+
 ## Adding an archive article
 
 1. Give the article its next unused three-digit permanent accession. Add its card to `index.html` with a useful title, description, category, photo and alt text. Set its position in `archive-order.json` and run `python scripts/build_archive.py` to synchronize the card and article display numbers and each group’s navigation.
