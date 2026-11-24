@@ -44,8 +44,8 @@ const base = process.env.BGS_TEST_URL || 'http://127.0.0.1:8765/';
               ? ['.content-box > .toc-wrap', '.content-box > .article-block']
               : document.querySelector('.wrap > .manifest')
                 ? ['.wrap > .manifest', '.wrap > .article']
-                : document.querySelector('.wrap > .toc')
-                  ? ['.wrap > .toc', '.wrap > .section'] : null;
+                : document.body.classList.contains('reading-smallworld')
+                  ? ['.reading-layout > .toc', '.reading-layout > .chapters'] : null;
           if (!pair) return null;
           const elements = pair.map(selector => document.querySelector(selector));
           if (elements.some(element => !element)) throw new Error(`Missing layout column: ${pair}`);
