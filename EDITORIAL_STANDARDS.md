@@ -29,7 +29,7 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 ## Narrative immersion and written Japanese
 
 - The authoritative detailed writing-style rules, model passages, article-specific tone, and proofreading checklist are in [docs/WRITING_STYLE.md](docs/WRITING_STYLE.md). Read and apply that document before article writing, expansion, revision or proofreading.
-- The guiding principle is historical and cultural feature narration, not sightseeing-guide narration. The American Waterfront article is the primary style reference; the other model articles are selected according to subject.
+- Avoid generic sightseeing-guide narration. The American Waterfront article is a shared quality reference, not a single compulsory voice. Select the primary and, where useful, secondary narrative style according to the five subject-based categories in WRITING_STYLE.md; consult the owner's actual edits in [docs/WRITING_EXAMPLES.md](docs/WRITING_EXAMPLES.md).
 - The factual accuracy, sourcing, in-world narration, design and publication requirements in this guide remain in force. Apply the in-world rule above instead of older fan-attribution examples in narrative articles. The work log records historical decisions; current normative instructions are this guide and WRITING_STYLE.md.
 - Preserve approved article text in implementation; any substantive editorial change requires the owner's instruction. See the writing-style document for the distinction between writing, proofreading and implementing a final manuscript.
 
