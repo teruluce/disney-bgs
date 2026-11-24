@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>資料室（仮称） — BGS Chronicles</title>
+  <link rel="stylesheet" href="/pilot.css">
+  <script src="/chat.js" defer></script>
+</head>
+<body>
+  <div class="sheet">
+    <header class="masthead">
+      <div class="masthead-line">
+        <p data-copy="trial">非公開試験</p>
+        <label class="language"><span class="visually-hidden" data-copy="language">表示・回答言語</span>
+          <select id="language"><option value="ja" lang="ja">日本語</option><option value="en" lang="en">English</option></select>
+        </label>
+      </div>
+      <p class="publication" lang="en">BGS Chronicles</p>
+      <h1 data-copy="title">資料室（仮称）</h1>
+      <p class="dek" data-copy="dek">パークに息づく物語を、記事の記録からひもとく。</p>
+    </header>
+    <main class="columns">
+      <section class="query" aria-labelledby="question-label">
+        <form id="question-form" method="post" action="/api/question" autocomplete="off">
+          <h2><label for="question" id="question-label" data-copy="question">質問を書く</label></h2>
+          <p id="usage" class="notice" data-copy="privacy">質問と関連する記事の抜粋を Google Gemini に送信します。Google は無料枠の入出力をサービス改善に使うことがあります。個人情報は入力しないでください。</p>
+          <textarea id="question" name="question" required maxlength="500" rows="5" aria-describedby="usage count" placeholder="例：ハイタワー三世が失踪したのはいつですか？"></textarea>
+          <div class="controls">
+            <span class="count" id="count">0 / 500</span>
+            <button class="submit" type="submit" data-copy="ask">質問を送る</button>
+          </div>
+        </form>
+        <div class="examples">
+          <p data-copy="examples">質問の例</p>
+          <button type="button" class="example" data-example="0">ホテル・ハイタワーの見学ツアーはいつ始まりましたか？</button>
+          <button type="button" class="example" data-example="1">レイジングスピリッツで神々が怒ったのはなぜですか？</button>
+        </div>
+        <noscript><p>利用には JavaScript が必要です。 JavaScript is required.</p></noscript>
+      </section>
+      <section class="response" aria-labelledby="response-title">
+        <div class="response-heading">
+          <h2 id="response-title" data-copy="answer">回答</h2>
+          <span data-copy="ai">AI による回答</span>
+        </div>
+        <p id="state" class="answer-state" role="status" data-copy="empty">質問を送ると、ここに回答と記事へのリンクが表示されます。</p>
+        <div id="result" aria-live="polite" aria-atomic="true"></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

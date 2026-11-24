@@ -1,0 +1,179 @@
+:root {
+  color-scheme: light;
+  --paper: #f5edd8;
+  --paper-light: #fbf5e7;
+  --ink: #2e1f10;
+  --muted: #634c37;
+  --bordeaux: #6b1e2a;
+  --rule: #9c7e58;
+  --display: "Playfair Display", Georgia, "Noto Serif CJK JP", "Yu Mincho", serif;
+  --body: "Libre Baskerville", Georgia, "Noto Serif CJK JP", "Yu Mincho", serif;
+  --type: "Special Elite", "Courier New", "Noto Serif CJK JP", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: radial-gradient(ellipse at 45% 12%, var(--paper-light), var(--paper) 64%, #e9dbbc);
+  font: 1rem/1.7 var(--body);
+}
+
+.sheet {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: clamp(1.15rem, 4vw, 3.5rem) clamp(1rem, 5vw, 4rem) 3rem;
+}
+
+.masthead {
+  border-block: 4px double var(--rule);
+  text-align: center;
+  padding: 0 0 clamp(1rem, 4vw, 2.1rem);
+}
+
+.masthead-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule);
+  text-transform: uppercase;
+  gap: 0.75rem;
+}
+
+.masthead-line p, .language, .count, .response-heading span, .examples > p, .category {
+  font-family: var(--type);
+  color: var(--muted);
+  font-size: 0.84rem;
+  letter-spacing: 0.035em;
+}
+
+.masthead-line p { margin: 0; }
+.language select {
+  padding: 0.35rem 0.2rem;
+  min-height: 44px;
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+}
+
+.publication {
+  margin: 0.8rem 0 0;
+  color: var(--bordeaux);
+  font-family: var(--type);
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+h1, h2, p { margin: 0; }
+h1, h2 { font-family: var(--display); }
+h1 {
+  margin: 0.2rem auto 0.35rem;
+  font-size: clamp(2rem, 7vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.dek { color: var(--muted); text-wrap: balance; }
+.columns {
+  display: grid;
+  gap: 1.55rem;
+  padding: clamp(1.3rem, 3vw, 2.55rem) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.query, .response { min-width: 0; }
+h2 { font-size: clamp(1.22rem, 2.8vw, 1.65rem); }
+.notice {
+  color: var(--muted);
+  margin: 0.4rem 0 0.8rem;
+  font-size: 0.875rem;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 8rem;
+  padding: 0.7rem 0.8rem;
+  resize: vertical;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  background: var(--paper-light);
+  border-radius: 0;
+  font: inherit;
+}
+
+textarea::placeholder { color: var(--muted); }
+.controls, .response-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  flex-wrap: wrap;
+}
+
+.controls { margin-top: 0.65rem; }
+button { cursor: pointer; font: inherit; }
+.submit {
+  min-height: 44px;
+  padding: 0.4rem 1.05rem;
+  border: 1px solid var(--bordeaux);
+  background: var(--bordeaux);
+  color: var(--paper-light);
+}
+.submit:hover:enabled { background: #531320; }
+.submit:disabled { cursor: wait; opacity: 0.74; }
+.examples {
+  margin-top: 1.45rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.55rem;
+}
+
+.example {
+  display: block;
+  text-align: start;
+  min-height: 44px;
+  padding: 0.3rem 0;
+  border: 0;
+  background: none;
+  color: var(--bordeaux);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  font-size: 0.9rem;
+}
+
+.response { border-top: 4px double var(--rule); padding-top: 1rem; }
+.response-heading { border-bottom: 1px solid var(--rule); padding-bottom: 0.5rem; }
+.answer-state { margin: 0.8rem 0; color: var(--muted); overflow-wrap: anywhere; }
+.answer-state:empty { display: none; }
+.answer-state[data-error="true"] { color: var(--bordeaux); }
+.entry { margin: 0; padding: 0.8rem 0; overflow-wrap: anywhere; }
+.entry + .entry { border-top: 1px solid var(--rule); }
+.entry .text { margin: 0.25rem 0 0.45rem; }
+.entry details { margin: 0.4rem 0; color: var(--muted); font-size: 0.9rem; }
+.entry summary { cursor: pointer; padding: 0.42rem 0; }
+.entry a { color: var(--bordeaux); text-underline-offset: 0.2em; }
+:focus-visible { outline: 2px solid var(--bordeaux); outline-offset: 3px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (min-width: 48rem) {
+  .columns { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 0; }
+  .query { padding-right: clamp(1rem, 3.2vw, 2.5rem); }
+  .response {
+    border-top: 0;
+    padding-top: 0;
+    border-left: 1px solid var(--rule);
+    padding-left: clamp(1rem, 3.2vw, 2.5rem);
+  }
+}

@@ -1,0 +1,35 @@
+name: BGS AI pilot checks
+
+on:
+  pull_request:
+    paths:
+      - 'tools/bgs-chronicles-ai/**'
+      - '.github/workflows/bgs-ai-deploy.yml'
+      - '.github/workflows/bgs-ai-checks.yml'
+      - 'archive-order.json'
+      - '*.html'
+
+permissions:
+  contents: read
+
+jobs:
+  pilot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: tools/bgs-chronicles-ai
+    env:
+      WRANGLER_SEND_METRICS: 'false'
+      WRANGLER_WRITE_LOGS: 'false'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: npm ci
+      - run: npm test
+      - run: npm run test:runtime

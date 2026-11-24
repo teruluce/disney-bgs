@@ -1,0 +1,19 @@
+{
+  "name": "bgs-chronicles-ai-pilot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python3 build.py && node build-search.js",
+    "test": "npm run build && node --test test/*.test.js",
+    "preview": "npm run build && node preview.js",
+    "check:bundle": "npm run build && wrangler deploy --dry-run --outdir .generated/bundle",
+    "test:runtime": "npm run check:bundle && node --test test/worker-runtime.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "wrangler": "4.167.0",
+    "miniflare": "5.20261123.0-beta"
+  }
+}
