@@ -6,7 +6,7 @@ import { retrieve } from "./search.js";
 
 const MAX_BODY_BYTES = 4096;
 const encoder = new TextEncoder();
-const TOKEN = /^[0-9a-f]{64}$/;
+const TOKEN = /^[!-~]{20,64}$/;
 const DEFAULT_HEADERS = {
   "cache-control": "no-store",
   "content-security-policy": "default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'",
@@ -41,7 +41,7 @@ function authorized(request, secret) {
   try {
     const credentials = atob(encoded);
     const token = credentials.slice("editor:".length);
-    return credentials.startsWith("editor:") && TOKEN.test(token) &&
+    return credentials.startsWith("editor:") && TOKEN.test(token) && token.length === secret.length &&
       timingSafeEqual(encoder.encode(token), encoder.encode(secret));
   } catch {
     return false;

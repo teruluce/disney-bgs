@@ -20,20 +20,33 @@ function fixture(states) {
   return {
     writes, reports, requests,
     async request(url, options) {
+      const state = states[phase];
+      if (new URL(url).hostname === "bgs-chronicles-ai.example.workers.dev") {
+        assert.equal(options.headers, undefined);
+        return Response.json({ kind: "denied" }, { status: state.anonymous ?? 401 });
+      }
       assert.equal(new URL(url).hostname, "api.cloudflare.com");
       assert.equal(options.method, "GET");
       assert.equal(options.headers.authorization, "Bearer token-fixture");
       assert.equal(options.redirect, "error");
       requests.push(new URL(url).pathname);
+      if (url.endsWith("/workers/subdomain")) return Response.json({ success: true, result: { subdomain: "example" } });
       assert.match(new URL(url).pathname, /\/workers\/scripts\/bgs-chronicles-ai\//);
-      const state = states[phase];
       if (state.status) {
         return Response.json({ errors: [{ message: "untrusted-fixture-secret" }] }, { status: state.status });
       }
       const result = url.endsWith("/secrets") ? state.secrets : { enabled: state.enabled, previews_enabled: state.previews ?? false };
       return Response.json({ success: true, result });
     },
-    deploy() { writes.push("deploy"); phase++; },
+    deploy(_env, target) {
+      if (target) {
+        const trial = JSON.parse(readFileSync(target, "utf8"));
+        assert.deepEqual(trial, { ...config, workers_dev: true,
+          secrets: { required: ["GEMINI_API_KEY", "PILOT_ACCESS_TOKEN"] } });
+      }
+      writes.push(target ? "open" : "deploy");
+      phase++;
+    },
     report(message) { reports.push(message); },
   };
 }
@@ -109,4 +122,21 @@ test("a closed deployment checks route state and retention of all existing Secre
   const missing = fixture([closed, { secrets: [gemini, privateLogin], enabled: false }]);
   await assert.rejects(release("deploy", env, config, missing), /expected closed URLs and Secret state/);
   assert.deepEqual(missing.writes, ["deploy"]);
+});
+
+test("private URL requires login Secret, keeps inference off, and closes on an anonymous probe failure", async () => {
+  const closed = { secrets: [gemini, privateLogin], enabled: false };
+  const opened = { ...closed, enabled: true };
+  const missing = fixture([{ ...closed, secrets: [gemini] }]);
+  await assert.rejects(release("open-private", env, config, missing), /login Secret/);
+  assert.deepEqual(missing.writes, []);
+  const ok = fixture([closed, opened]);
+  await release("open-private", env, config, ok);
+  assert.deepEqual(ok.writes, ["open"]);
+  const failure = fixture([closed, { ...opened, anonymous: 200 }, closed]);
+  await assert.rejects(release("open-private", env, config, failure), /was closed/);
+  assert.deepEqual(failure.writes, ["open", "deploy"]);
+  const stop = fixture([opened, closed]);
+  await release("close-private", env, config, stop);
+  assert.deepEqual(stop.writes, ["deploy"]);
 });

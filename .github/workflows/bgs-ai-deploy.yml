@@ -4,11 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       operation:
-        description: Read-only check or deployment with the pilot closed
+        description: Check, deploy closed, open authenticated UI with inference off, or close
         type: choice
-        options: [preflight, deploy]
+        options: [preflight, deploy, open-private, close-private]
         default: preflight
         required: true
+      url_public_key:
+        description: Optional RSA public key (base64 DER SPKI) for private URL delivery
+        type: string
+        required: false
       closed_free_confirmed:
         description: Workers Free and no custom routes or domains on this Worker (deployment only)
         type: boolean
@@ -51,6 +55,7 @@ jobs:
       - run: npm run test:runtime
       - name: Verify or release the closed Worker
         env:
+          URL_PUBLIC_KEY: ${{ inputs.url_public_key }}
           WORKFLOW_OPERATION: ${{ inputs.operation }}
           CLOSED_FREE_CONFIRMED: ${{ inputs.closed_free_confirmed }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

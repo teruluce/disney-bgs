@@ -1,6 +1,6 @@
-export const DEFAULT_MODEL = "gemini-3.1-flash-lite";
+export const DEFAULT_MODEL = "gemini-3.8-flash";
 const THINKING_LEVELS = Object.freeze({
-  [DEFAULT_MODEL]: "minimal",
+  "gemini-3.1-flash-lite": "minimal",
   "gemini-3.8-flash": "low",
 });
 export const MAX_OUTPUT_TOKENS = 640;

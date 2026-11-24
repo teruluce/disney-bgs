@@ -1,6 +1,6 @@
 # BGS Chronicles 資料室（仮称） 非公開試験
 
-確認日 2026-11-24（JST）
+確認日 2026-11-25（JST）
 
 担当 Codex-BGS-20261124-9
 
@@ -20,7 +20,7 @@ Gemini の無料サービスでは、Google が入力・出力をサービス改
 4. API 応答は型と候補 ID を確認し、最大3件を返す。日本語は選択された記事の文をそのまま表示し、英語は原文も確認できる。参照元 URL と分類はサーバーが付ける。公式資料と照合した箇所だけを `official-passages.json` に記録する。記事内の考察や不明を示す表現は索引の分類に反映し、ほかの箇所は「記事の記述」と表示する。根拠が足りない場合は回答を控える。
 5. 単一の SQLite Durable Object が、全リクエストの利用回数・トークン予約・同時実行・上流429による停止を管理する。永続データはカウンター、時刻、処理中の予約 ID のみ。Worker の Observability は無効にし、キー、質問、回答、上流エラー本文をログへ出力しない。Gemini のキーは Worker Secret から取得し、Google 公式エンドポイントへの HTTPS ヘッダーにだけ使う。
 
-認証には、試験専用に生成した32バイトのランダム値をパスワードにする HTTPS Basic 認証を使う。画面・CSS・JavaScript・API の各ルートに同じ認証がかかる。認証情報には通常のアカウントパスワードを使わず、運営者本人だけが保管する。API は同一オリジンの JSON POST のみ受け付ける。Worker のリージョン判定は接続元 IP に基づく。Cloudflare Zero Trust は Free の新規設定にも支払い情報登録を求めるため、試験の依存先から外した。 [Cloudflare One 初期設定](https://developers.cloudflare.com/cloudflare-one/setup/) ／ [workers.dev の Browser Integrity Check](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/)
+認証は HTTPS Basic。パスワードには Apple のパスワードアプリなどで生成した試験専用のランダム値を使う。空白を除く印字可能な ASCII 20〜64文字に対応し、従来の64桁の16進数も使える。画面・CSS・JavaScript・API の各ルートに同じ認証がかかる。認証情報には通常のアカウントパスワードを使わず、運営者本人だけが保管する。API は同一オリジンの JSON POST のみ受け付ける。Worker のリージョン判定は接続元 IP に基づく。Cloudflare Zero Trust は Free の新規設定にも支払い情報登録を求めるため、試験の依存先から外した。 [Cloudflare One 初期設定](https://developers.cloudflare.com/cloudflare-one/setup/) ／ [workers.dev の Browser Integrity Check](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/)
 
 英語の固有名詞・言い換えへの対応範囲は対訳辞書と記事中の英語表記に依存する。候補 ID の検証は、訳がすべて忠実であることや、選択文が質問に完全に答えることまでは保証できない。公式照合の対象は現時点で3箇所。その他の記事に公式由来の内容があっても、個別に照合するまでは「記事の記述」と表示する。
 
@@ -28,7 +28,7 @@ Gemini の無料サービスでは、Google が入力・出力をサービス改
 
 | 対象 | 公表値・条件 | 試験設定 |
 | --- | --- | --- |
-| Gemini 3.1 Flash-Lite / 3.8 Flash | Free の標準生成は両モデルとも入力・出力が無料。実効 RPM・TPM・RPD はプロジェクトとモデルに依存し、AI Studio に表示。RPD は米国太平洋時間の午前0時に更新。 | 状態未確認のため初期値は **0回**。確認後も、毎分は実効 RPM と3の小さい方、毎日は実効 RPD と20の小さい方。プロジェクトは試験専用とする。 |
+| Gemini 3.1 Flash-Lite / 3.8 Flash | Free の標準生成は両モデルとも入力・出力が無料。実効 RPM・TPM・RPD はプロジェクトとモデルに依存し、AI Studio に表示。RPD は米国太平洋時間の午前0時に更新。 | キーの所属プロジェクト照合待ちのため現在は **0回**。確認後も、毎分は実効 RPM と3の小さい方、毎日は実効 RPD と20の小さい方。プロジェクトは試験専用とする。 |
 | Cloudflare Workers Free | アカウント合計100,000リクエスト／日、毎日 UTC 00:00（JST 09:00）更新。CPU は10 ms／リクエスト。 | Worker は Free のまま使用。限度超過時は Cloudflare がリクエストを拒否。 |
 | SQLite Durable Objects Free | 100,000リクエスト／日、13,000 GB秒／日、500万行読み取り／日、10万行書き込み／日、5 GB保存。 | 一つのオブジェクトだけに小さな利用枠カウンターを保存。 |
 
@@ -40,8 +40,8 @@ Gemini への入力予約は UTF-8 バイト数に固定の余裕を加えて算
 
 | モデル | 位置づけ | 試験の思考レベル |
 | --- | --- | --- |
-| `gemini-3.1-flash-lite` | 既定値。低遅延で、根拠の選択と翻訳の比較基準にする。 | `minimal` |
-| `gemini-3.8-flash` | 回答品質を重視する採用候補。Google は複雑な処理向けの Flash モデルと位置づけている。 | `low` |
+| `gemini-3.1-flash-lite` | 比較用。低遅延で、根拠の選択と翻訳の比較基準にする。 | `minimal` |
+| `gemini-3.8-flash` | 今回の試験モデル。Google は複雑な処理向けの Flash モデルと位置づけている。 | `low` |
 
 `GEMINI_MODEL` でこの2モデルを選ぶ。対象プロジェクトの AI Studio で選択したモデルの実効上限を確認し、`AI_STUDIO_VERIFIED_MODEL` に同じモデル ID を設定する。モデル ID が一致しない場合は推論を停止する。自動で別モデルへ切り替える仕組みは設けていない。
 
@@ -52,7 +52,7 @@ Gemini への入力予約は UTF-8 バイト数に固定の余裕を加えて算
 | 観点 | Gemini 3.1 Flash-Lite / 3.8 Flash | Cloudflare Workers AI の候補 |
 | --- | --- | --- |
 | 無料枠 | Free プロジェクトのモデル別 RPM・TPM・RPD。実効値は AI Studio。 | Workers Free で10,000 Neurons／日。UTC 00:00 更新。超過時はエラー。 |
-| 候補モデル | `gemini-3.1-flash-lite` が既定。比較候補に `gemini-3.8-flash` を設定できる。 | `@cf/google/gemma-4-26b-a4b-it`。入力1Mトークン9,091 Neurons、出力1Mトークン27,273 Neurons。入力2,500・出力640なら約40.18 Neurons／回、約248回／日の計算例。実数は使用トークンとアカウント内の共有利用量による。 |
+| 候補モデル | 試験モデルは `gemini-3.8-flash`。比較用に 3.1 Flash-Lite を選択可能。 | `@cf/google/gemma-4-26b-a4b-it`。入力1Mトークン9,091 Neurons、出力1Mトークン27,273 Neurons。入力2,500・出力640なら約40.18 Neurons／回、約248回／日の計算例。実数は使用トークンとアカウント内の共有利用量による。 |
 | データ | 無料枠の入出力を製品改善に使用する場合がある。 | 通常のステートレス推論は原則として入出力を保持せず、学習に使わない。安全、セキュリティ、法律上の例外と運用メタデータの扱いあり。 |
 | 一般公開の条件 | 未成年の利用が見込まれる公開サイトには採用しない。 | Gemma 4 のモデルライセンスは Apache 2.0。Cloudflare のプライバシーポリシーは同社のサイト・サービスを18歳未満向けとしておらず、顧客サイトの法令遵守は顧客の責任とする。未成年が利用する顧客サイトへの適用、個人情報の扱い、日英の品質を公開判断前に確認する。 |
 
@@ -87,10 +87,20 @@ npm run preview
 
 ## 別途承認後の試験有効化
 
-1. AI Studio でキーの属するプロジェクトが Free、請求先が未リンク、試験専用であることを確認する。選択するモデルの RPM、TPM、RPD、表示される場合は TPD を記録する。 [AI Studio Projects](https://aistudio.google.com/projects) ／ [AI Studio Rate limits](https://aistudio.google.com/rate-limit)
-2. `PILOT_ACCESS_TOKEN` が未登録の場合は `openssl rand -hex 32` で32バイトの試験専用トークンを手元で生成し、運営者のパスワード管理ツールと Worker の Secret に保管する。すでに登録済みなら既存の値を維持する。 [Workers Secret](https://developers.cloudflare.com/workers/configuration/secrets/)
-3. `wrangler.jsonc` を同じディレクトリの非追跡ファイル `wrangler.trial.json` にコピーする。`secrets.required` に `GEMINI_API_KEY` と `PILOT_ACCESS_TOKEN` を指定する。値は Worker の既存 Secret に置く。運営者が試験専用 URL を開く承認をした後、`workers_dev: true`、`preview_urls: false`、`PILOT_ENABLED: "false"`、`FREE_TIER_VERIFIED: "false"` で `npm run build` と `npx wrangler deploy --config wrangler.trial.json` を行う。日本からの未認証アクセスが401、認証後でも質問 API が503であることを確認する。
-4. 無料枠と公開記事の送信可否を確認した後、同じ非追跡設定に `GEMINI_MODEL` と同じ ID を `AI_STUDIO_VERIFIED_MODEL` として設定する。`AI_STUDIO_RPM`、`AI_STUDIO_TPM`、`AI_STUDIO_RPD` と、表示される場合は `AI_STUDIO_TPD` を整数の文字列で指定する。`FREE_TIER_VERIFIED: "true"` と `PILOT_ENABLED: "true"` にして再デプロイし、日本から専用 URL を開く。ユーザー名は `editor`、パスワードは試験トークン。
+運営者が AI Studio の Default Gemini Project で Free と請求先未リンクを確認した。11月25日に報告された上限は次のとおり。
+
+| モデル | RPM | TPM | RPD | 用途 |
+| --- | ---: | ---: | ---: | --- |
+| Gemini 3.8 Flash | 5 | 250,000 | 20 | 試験採用。独自上限は毎分3回・毎日20回 |
+| Gemini 4 Hydrogen | 5 | 250,000 | 20 | 将来の比較候補 |
+| Gemini 3.6 Flash | 5 | 250,000 | 20 | 確認値の記録 |
+| Gemini 3.5 Flash Lite | 15 | 250,000 | 500 | 将来の比較候補 |
+| Gemini 3.1 Flash Lite | 15 | 250,000 | 500 | 比較基準 |
+
+1. 両 Secret の存在を preflight で確認し、手動の `open-private` で運営者用 URL を開く。推論・プレビューは停止したまま、4つのルートで匿名拒否を照合する。URL は Cloudflare の対象 Worker の **Settings → Domains & Routes** で確認できる。任意の `url_public_key` を指定した場合は受取人の RSA 公開鍵で URL だけを暗号化して返す。
+2. 日本国内の回線から iPad の Safari で HTTPS の試験 URL を開き、ユーザー名 `editor` とパスワードアプリに保存した試験用パスワードでログインする。停止中に質問を送ると受付停止が表示される。手動の `close-private` で URL も閉じる。
+3. 推論には、登録した Gemini キーが確認済みの無料プロジェクトに属する証拠が必要。Cloudflare では Secret の値を再表示できない。所属を特定できない場合、運営者が AI Studio で対象プロジェクトを明示してキーを発行し、Cloudflare の既存 `GEMINI_API_KEY` を管理画面でそのキーに更新する。値はチャットや作業記録に貼らず、所属確認と更新完了のみ報告する。
+4. 所属を確認後、同じモデルを `AI_STUDIO_VERIFIED_MODEL` に設定し、確認済み上限を保持して `PILOT_ENABLED` と `FREE_TIER_VERIFIED` を有効にする。稼働後は下記の日英の回答、出典、上限を検証する。
 
 ## 有効化後の確認と停止
 

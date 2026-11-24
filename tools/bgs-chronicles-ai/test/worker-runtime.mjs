@@ -5,7 +5,7 @@ import { Miniflare, convertV4MiniflareOptions } from "miniflare";
 for (const model of ["gemini-3.1-flash-lite", "gemini-3.8-flash"]) {
   test(`the bundled Worker authenticates and persists a quota stop for ${model}`, async () => {
     const origin = "https://pilot.example.invalid";
-    const token = "f".repeat(64);
+    const token = model === "gemini-3.8-flash" ? ["sample", "TEST12", "abcDEF"].join("-") : "f".repeat(64);
     const fakeKey = "runtime-fixture";
     const authorization = "Basic " + btoa("editor:" + token);
     const bindings = {
