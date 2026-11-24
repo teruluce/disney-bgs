@@ -54,6 +54,16 @@
 
 ## 作業履歴
 
+### 2026-11-24（JST）— Codex-BGS-20261124-7 / 文体品質改善・第1期
+
+- レビュー待ち。main `63d4f3c` の `AGENTS.md`、`AI_GOVERNANCE.md`、`EDITORIAL_STANDARDS.md`、`docs/WRITING_STYLE.md`、`docs/WRITING_EXAMPLES.md` と本ログの運営方針・対象記事の履歴・直近の引き継ぎを確認。PR #143・#144の文体基準と運営者の添削例に従い、題材ごとの主・副文体を維持した。着手時のオープンPRは0件。L07はマージ済みのPR #145で対応済みのため、第2期の記事とともに今回の差分から除外した。
+- 指定文と関連表示をL10で28箇所、S02で22箇所、L01で16箇所反映。隣接段落を一括置換した場合は1箇所として集計。L10は工程表の4セル、人物紹介5件を含む。S02の水を軸にした考察、S.E.A.の考察注記と結びを維持。S.E.A.は現行の関連資料と公式案内に合わせて学会とし、本文・見出し・目次・記事内の説明メタデータを整合。アメリカンウォーターフロントとタワー・オブ・テラーの関連リンクは各リンク先と一致。L01は第I章の小見出しと目次、人物紹介4件、役職表示2件を更新。高橋政知の既存の長い引用、L02へのリンク、浦安の海とパレードを結ぶ最終段落を保持した。
+- 照合・保留。A03は蓄電池の採用とスタジオでの用途を確認したが、その用途向けに開発されたという根拠は未確認。A07のボブ・ジャニの選曲案、A12の停止時の変身、A18のロン・ミジカーのカードの建物への衝突と衣装の火花は、具体的な情報を残すため原文を保持。A06の区画別音響同期は確認できたが地中機器の設置は未確認。A15の英語の逐語出典とA13の取材記録は未確認のため、指定の代替文を採用。A16のウォルトの既存訳と話者はD23と照合して保持。LED・光ファイバーの採用は確認し、全面移行の時期は断定していない。 [Don Dorseyの制作記録](https://www.dondorseyconsulting.com/dscoop-ep.htm) ／ [Mizikerの取材記事](https://www.latimes.com/travel/themeparks/la-tr-disneyland-main-street-electrical-parade-20161212-story.html) ／ [光源の変遷](https://magazine.atnavi.net/articles/35793) ／ [D23](https://d23.com/65-years-later-disneyland-59-shows-company-at-the-forefront-of-innovation/)
+- B05は一攫千金を狙う来訪者を、B07の第3段落はセンター・オブ・ジ・アースの固有名と硫黄臭の描写を保持。B08の冒頭は公式の物語が記憶を刻んだ先を「泉」と記すため保留。B12は公式の一般的な音響工夫と境界の滝の現地記録を照合して指定文を採用。C02は1980年12月の着工式と1981年1月の本格工事開始を区別する公式沿革を確認して保留。高橋政知の長い引用の逐語一致は未確認。C07はL02の資料と照合し、屋根を名称の理由とする断定を指定の描写に置換。各項目の出典・保留の詳細はPRに記録。 [ファンタジースプリングス公式案内](https://www.tokyodisneyresort.jp/special/fantasysprings/index.html) ／ [音響の公式解説](https://www.tokyodisneyresort.jp/tdrblog/detail/190607/) ／ [オリエンタルランド沿革](https://www.olc.co.jp/ja/company/history/history03.html) ／ [ワールドバザールの掲載資料](https://shuchi.php.co.jp/amp/article/1944)
+- 全文差分を目視し、66箇所の置換を元HTMLから再現してバイト単位で一致。指定段落の段落分けと明示したラベル・メタデータ以外の要素と属性を比較。HTML5のパース診断は各3ページとも基準版から増加なし（既存の文字参照診断が各10件）。タイトル・副題、章番号・アンカー、記事番号・URL、画像・出典、表の行列、カードの操作コードを保持。インラインJavaScript3件の構文検査が成功。変更した本文に調査手順や出典注記は含めていない。
+- `python scripts/check_site.py` 成功（SEO 27ページ・警告0、共有26件、台帳24記事、単体31件）、`git diff --check` 成功。ローカルChromiumで全体243件、トップ16件、読者ページ182件が通過。3記事を320・390・768・1440pxで確認し、目次、表、画像、人物カード10件の文章とキーボード操作・フォーカス復帰、横はみ出しとJavaScriptエラーがないことを検証。
+- [記事の実装コミット](https://github.com/teruluce/disney-bgs/commit/af0a6a2b9006b28148d6aefb51169dd247d60696) ／ [PR #146](https://github.com/teruluce/disney-bgs/pull/146) ／ [CI](https://github.com/teruluce/disney-bgs/pull/146/checks)。運営者のレビュー・マージ承認待ち。公開前の確認事項は上記の保留項目を参照。
+
 ### 2026-11-24（JST）— Codex-BGS-20261124-6 / スモールワールド本文の部分校正
 
 - main `b068de5` から作業ブランチを作成。着手前に `AGENTS.md`、`AI_GOVERNANCE.md`、`EDITORIAL_STANDARDS.md`、`docs/WRITING_STYLE.md`、`docs/WRITING_EXAMPLES.md`、本ログの運営方針・対象記事の履歴・直近の引き継ぎ、PR #140・#144を確認。着手時のオープンPRは0件。主文体は制作史・理念型、副文体は幻想・情景型とした。
