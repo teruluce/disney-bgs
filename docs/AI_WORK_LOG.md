@@ -61,6 +61,9 @@
 
 - [PR #151](https://github.com/teruluce/disney-bgs/pull/151) は CI 5件成功後にマージ。[初回開通検証](https://github.com/teruluce/disney-bgs/actions/runs/45422442923) は匿名拒否を確認できず自動で URL を閉鎖。開通直後の一時的なネットワーク・エラー応答を再検査し、安全な診断情報を残すようにした。
 
+- [PR #152](https://github.com/teruluce/disney-bgs/pull/152) は CI 5件成功後にマージ。[再実行](https://github.com/teruluce/disney-bgs/actions/runs/45423329324) で試験 URL 有効、プレビュー無効、両 Secret 保持を確認。画面、CSS、JavaScript、質問 API の4経路で匿名拒否。別の接続から画面 GET と質問 POST がともに HTTP 401。推論は停止中。iPad の保存済み実パスワードでのログインと、所属を確認できたキーによる日英の実回答検証は未実施。
+- GitHub Pages のトップとタワー・オブ・テラー記事はデプロイ前後とも取得成功、各本文の SHA-256 が一致。試験 URL は運営者に直接通知した。
+
 ### 2026-11-24（JST）— Codex-BGS-20261124-12 / 資料室の閉鎖状態での初回デプロイ
 
 - 運営者が Workers Free、支払い方法未登録、カスタムドメイン・追加ルートなし、両 URL の無効を管理画面で確認。PR #149 は最新 `main` `dd24a72` と競合せず、差分は本ログのみ。ファイル条件により PR の自動 CI は対象外。手元で `python3 scripts/check_site.py` と `git diff --check` が成功。GitHub のマージが処理中の間に独立した実機確認・デプロイを進め、PR #149 は `f2b221d` でマージした。 [PR #149](https://github.com/teruluce/disney-bgs/pull/149) ／ [マージコミット](https://github.com/teruluce/disney-bgs/commit/f2b221d17f29365cbf57040b92f70720cc410423)
