@@ -97,8 +97,32 @@ function runWrangler(env, target = configFile) {
   }
 }
 
+async function verifyDenial(origin, path, request, pause) {
+  let reason = "network error";
+  for (let attempt = 0; attempt < 6; attempt++) {
+    if (attempt) await pause(5000);
+    try {
+      const response = await request(origin + path, {
+        headers: { "user-agent": "BGS-Chronicles-Operator-Check/1.0", accept: "application/json" },
+        method: path === "/api/question" ? "POST" : "GET", redirect: "error", signal: AbortSignal.timeout(8000),
+      });
+      reason = `HTTP ${response.status}`;
+      if (response.status === 401 || response.status === 403) {
+        const body = await response.json().catch(() => null);
+        if (body?.kind === "denied") return;
+        reason += " without Worker denial";
+      }
+      if (response.ok) break;
+    } catch {
+      reason = "network error";
+    }
+  }
+  throw new ReleaseError(`Anonymous check for ${path} failed (${reason}).`);
+}
+
 export async function release(operation, env, config, {
   request = fetch, deploy = runWrangler, report = console.log,
+  pause = ms => new Promise(resolve => setTimeout(resolve, ms)),
 } = {}) {
   if (!["preflight", "deploy", "open-private", "close-private"].includes(operation)) throw new ReleaseError("Unknown workflow operation.");
   validateClosedConfig(config);
@@ -148,16 +172,12 @@ export async function release(operation, env, config, {
     }
     if (opening) {
       for (const path of ["/", "/pilot.css", "/chat.js", "/api/question"]) {
-        const response = await request(origin + path, {
-          method: path === "/api/question" ? "POST" : "GET", redirect: "error", signal: AbortSignal.timeout(12000),
-        });
-        if (![401, 403].includes(response.status) || (await response.json()).kind !== "denied") {
-          throw new ReleaseError("Anonymous request did not receive the Worker denial.");
-        }
+        await verifyDenial(origin, path, request, pause);
       }
     }
   } catch (error) {
     if (!opening) throw error;
+    if (error instanceof ReleaseError) report(error.message);
     deploy(env);
     const closed = await inspectWorker(env, request);
     if (closed.workersDev || closed.previews) throw new ReleaseError("Urgent: check failed and closure is unverified.");
