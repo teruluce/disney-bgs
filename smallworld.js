@@ -6,7 +6,7 @@
     const summary = entry.querySelector('summary');
     members[key] = {
       en: summary.querySelector('.card-en').textContent,
-      ja: summary.querySelector('.card-ja').textContent,
+      ja: summary.querySelector('.card-ja [lang]').textContent,
       desc: entry.querySelector('p').textContent,
     };
     const button = document.createElement('button');

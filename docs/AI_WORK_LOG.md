@@ -1667,3 +1667,12 @@
 30. WDW News Today, “PHOTOS, VIDEO: ‘it’s a small world with Groot’ Premieres at Tokyo Disneyland” (2025).　[参照](https://wdwnt.com/2025/01/its-a-small-world-with-groot-at-tokyo-disneyland/)
 
 </details>
+
+### 2026-11-24（JST）— Codex-BGS-20261124-5 / スモールワールド確定稿v2の反映
+
+- 運営者確定原稿 `bgs-smallworld-proofread-v2.md` を `bgs-smallworld.html` の既存紙面に反映。着手前に main `468cc91` の必読4文書、既存PR #138・#139、記事のHTML・CSS・JSを確認。競合する未マージPRなし。
+- 平和理念の増補は、第I章の人形の共通性・子供の視点・太陽、第II章の「相互理解を通じた平和」とキューバ危機後の歌、第III章のギブソン紹介、第VI章のホワイト・ルームと最後の一節、第VII章の結び。既存巻末資料のDisney Parks BlogとThe Walt Disney Family Museumの解説で万博のテーマ、制作背景、リチャード・シャーマンの説明、米国2パークの新しい一節を照合。巻末の30件と出典URL記録を継承。
+- 変更ファイルは `bgs-smallworld.html`、`index.html`、`share-captions.json`、`smallworld.js`、本ログ。章目次、トップカード、meta・OGP・X Card・Article JSON-LD・X共有文を同期。読了目安は本文8,679字、600字／分で切り上げて15分。サイトマップの更新日と表示の最終編集日は作業日と同日の2026-11-24。既存の表紙写真ラベル、写真配置、関連記事と前後ナビ、L07／008を継承。
+- ブラウザDOMで、HTMLタグ・空白・Markdownの配置指示を除き、題・副題と135ブロックを原稿と順序・文字単位で照合。内訳は7章見出し、小見出し22件、本文95段落、人物カードの見出しと紹介文4組、写真キャプション3件。キーボードで開いた4件の紹介文も原稿と一致。
+- `python scripts/check_site.py` 成功（SEO 27ページ・警告0、共有26件、台帳24記事、単体31件）。HTML5構文、専用JS構文、差分検査も成功。Chromiumは320・375・390・768・1100・1280・1440pxで章リンク、写真4点、人物カードの操作・フォーカス復帰、横はみ出し・JSエラーを確認。320px・1440pxで記事と人物ダイアログのaxe検査を実行し、対象WCAG A／AAルールの違反0件。
+- [PR #140](https://github.com/teruluce/disney-bgs/pull/140)。マージおよび公開後の検証結果は公開確認後に追記する。
