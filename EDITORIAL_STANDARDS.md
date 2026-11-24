@@ -11,8 +11,7 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 ## Editorial voice and uncertainty
 
 - Write with narrative flow, curiosity, and a sense of discovery. Do not interrupt articles with repeated defensive disclaimers such as “公式では確認できませんでした” unless the distinction is essential to avoid misleading readers.
-- Keep official story material, observable park details, and fan interpretation distinct through natural wording. For example: “ファンの間では、こうした意匠から○○を想起する考察もあります。” or “一部のファンの間では、○○という解釈も語られています。”
-- Never present speculation as confirmed canon. Use subtle attribution (“〜と考察するファンもいます”, “〜という見方もあります”) rather than repeated warning boxes.
+- Keep verified story material, observable park details and interpretation distinct through natural wording. Never present speculation as confirmed canon. In narrative prose, follow the in-world narration rule below: omit unsupported material instead of breaking immersion with fan-attribution language. In relevant Imagineer discussions, distinguish evidence and interpretation without inventing intent.
 - Prefer official sources for hard factual claims. If a point is uncertain, qualify only that point gracefully and continue the story; do not make the whole page read like a reference database.
 - Never invent sources, quotes, production history, dates, or designer intent. Separate verified facts from interpretation by phrasing, not disruptive disclaimers.
 - Keep research and sourcing out of the narrative voice (owner's rule, 2026-10-25). Do not write "公式ブログによると", "公式サイトでは〜と紹介されています", "今回確認した範囲では見つかりませんでした" or similar phrases about how the facts were checked. Say it in the story's own voice, and put sources in the folded source note at the end. Details and exceptions are in `docs/AI_WORK_LOG.md`.
@@ -29,23 +28,10 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 
 ## Narrative immersion and written Japanese
 
-- Write in calm Japanese 「です・ます」 form, like a guide walking beside the reader. Let the reader notice a scene or a detail before explaining its place in the story. Build the narrative on verified facts carried by architecture, objects, landscapes, and historical records.
-- Keep sentences about the same scene or observation together. Develop one point per paragraph, vary sentence length naturally, and use a visible detail or a change in viewpoint to lead into the next part.
-- Prefer composed written Japanese over casual conversational phrasing. In context, use forms such as 「しかし」「一方で」「ただし」 rather than casual 「けれど」「でも」. Do not mechanically replace every connector; choose the wording that best preserves the sentence's meaning and rhythm.
-- Avoid addressing readers with repeated opening questions or interrupting the narrative with meta headings and phrases such as 「この記事では〜を解説します」「この記事で辿ること」「写真でもわかるように」「解説によると」. Introduce the subject through a detail, a contrast, or a narrative question instead.
-- Keep interpretations legible as interpretations. Avoid turning a visual resemblance into a confirmed production intention, or calling a detail a 「伏線」「決定的な証拠」 unless the evidence supports that level of certainty. Atmospheric writing should deepen the story, not inflate the claim.
-- Use 「〜のです」 or 「〜なのです」 where the preceding details come together and the reader can see what they mean. Vary other endings naturally and avoid repeating this emphasis in nearby sentences. Keep genuine uncertainty clear in the wording. Poetic language is welcome where it grows from the place and its details.
-- Make small, local edits first. Preserve the existing article's facts, structure, voice, and design unless a specific inconsistency or clarity issue calls for a change.
-
-### 基準原稿　ミラコスタのガリオン船と天井画
-
-以下は運営者が校正した基準原稿です。BGS Chroniclesの記事を書くときは、読者の視線に沿って進む順序、前の場面で見たものに再び出会うつなぎ方、文末で余韻を残す流れを手本にしてください。語尾は場面に合わせて選び、「〜のです」は、それまでに描いたものの意味が見えてくるところで使います。
-
-> ミラコスタのロビーに入ると、まず吹き抜けの空間の中央に大きなガリオン船が見えてきます。帆を張った船の甲板には、船長のミッキーとその仲間たちがいます。船のそばから天井を見上げてみると、八角形の天井を囲むように8枚の絵が並んでいるのが見えるでしょう。
->
-> そのうち7枚に描かれているのは、開園当初の七つの港です。一枚ずつ見ていくと、背景の街並みや水辺の風景から、旅の記憶がよみがえります。残る8枚目には、まだ知らない海へ向かう者たちの「発見の精神」が描かれています。
->
-> ロビーのガリオン船は、カピターノ・ミッキー・スーペリアルームでも姿を確認することができます。壁の絵を眺めていると、先ほどはロビーにいた船が海の上を進んでいます。その部屋には航海図があり、天井には仲間たちの姿をかたどった星座が描かれています。窓辺から離れても、部屋の中にはまだ見知らぬ世界への航海の続きが残っているのです。
+- The authoritative detailed writing-style rules, model passages, article-specific tone, and proofreading checklist are in [docs/WRITING_STYLE.md](docs/WRITING_STYLE.md). Read and apply that document before article writing, expansion, revision or proofreading.
+- The guiding principle is historical and cultural feature narration, not sightseeing-guide narration. The American Waterfront article is the primary style reference; the other model articles are selected according to subject.
+- The factual accuracy, sourcing, in-world narration, design and publication requirements in this guide remain in force. Apply the in-world rule above instead of older fan-attribution examples in narrative articles. The work log records historical decisions; current normative instructions are this guide and WRITING_STYLE.md.
+- Preserve approved article text in implementation; any substantive editorial change requires the owner's instruction. See the writing-style document for the distinction between writing, proofreading and implementing a final manuscript.
 
 ## Visual typography
 
