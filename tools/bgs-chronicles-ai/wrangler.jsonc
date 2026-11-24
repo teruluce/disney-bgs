@@ -10,7 +10,10 @@
   "vars": {
     "PILOT_ENABLED": "false",
     "FREE_TIER_VERIFIED": "false",
-    "GEMINI_MODEL": "gemini-3.1-flash-lite"
+    "GEMINI_MODEL": "gemini-3.8-flash",
+    "AI_STUDIO_RPM": "5",
+    "AI_STUDIO_TPM": "250000",
+    "AI_STUDIO_RPD": "20"
   },
   "secrets": { "required": ["GEMINI_API_KEY"] },
   "durable_objects": {

@@ -54,6 +54,11 @@
 
 ## 作業履歴
 
+### 2026-11-25（JST）— Codex-BGS-20261125 / 資料室の運営者用ログイン
+
+- [事前確認](https://github.com/teruluce/disney-bgs/actions/runs/45421111125)で両 Secret の登録と両 URL の閉鎖を確認。Default Gemini Project の Free と請求先未リンクは運営者確認済み。登録済みキーの所属を特定できず、推論は停止。実回答検証は所属確認後に行う。
+- Apple の生成パスワード形式と従来の64桁の形式に対応。3.8 Flash と実効上限を設定し、手動操作で認証付き画面を開閉できるようにした。運用手順に比較候補と iPad ログイン方法を記録。
+
 ### 2026-11-24（JST）— Codex-BGS-20261124-12 / 資料室の閉鎖状態での初回デプロイ
 
 - 運営者が Workers Free、支払い方法未登録、カスタムドメイン・追加ルートなし、両 URL の無効を管理画面で確認。PR #149 は最新 `main` `dd24a72` と競合せず、差分は本ログのみ。ファイル条件により PR の自動 CI は対象外。手元で `python3 scripts/check_site.py` と `git diff --check` が成功。GitHub のマージが処理中の間に独立した実機確認・デプロイを進め、PR #149 は `f2b221d` でマージした。 [PR #149](https://github.com/teruluce/disney-bgs/pull/149) ／ [マージコミット](https://github.com/teruluce/disney-bgs/commit/f2b221d17f29365cbf57040b92f70720cc410423)

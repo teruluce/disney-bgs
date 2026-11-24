@@ -190,7 +190,7 @@ test("Gemini uses only the server key header, a bounded schema and no external t
     const submitted = JSON.parse(options.body);
     assert.equal(submitted.generationConfig.maxOutputTokens, MAX_OUTPUT_TOKENS);
     assert.equal(submitted.generationConfig.responseMimeType, "application/json");
-    assert.equal(submitted.generationConfig.thinkingConfig.thinkingLevel, "minimal");
+    assert.equal(submitted.generationConfig.thinkingConfig.thinkingLevel, "low");
     assert.ok(!Object.hasOwn(submitted, "tools"));
     return Response.json({ candidates: [{ finishReason: "STOP", content: {
       parts: [{ text: '{"selections":[]}' }],
@@ -205,7 +205,7 @@ test("Gemini uses only the server key header, a bounded schema and no external t
 
 test("changing models requires the selected model's Free verification and compatible thinking level", async () => {
   const flash = "gemini-3.8-flash";
-  assert.equal(getLimits({ ...vars, GEMINI_MODEL: flash }), null);
+  assert.equal(getLimits({ ...vars, GEMINI_MODEL: flash, AI_STUDIO_VERIFIED_MODEL: "gemini-3.1-flash-lite" }), null);
   assert.equal(getLimits({ ...vars, AI_STUDIO_VERIFIED_MODEL: undefined }), null);
   assert.equal(getLimits({ ...vars, GEMINI_MODEL: "other", AI_STUDIO_VERIFIED_MODEL: "other" }), null);
   assert.equal(getLimits({ ...vars, GEMINI_MODEL: flash, AI_STUDIO_VERIFIED_MODEL: flash }).model, flash);

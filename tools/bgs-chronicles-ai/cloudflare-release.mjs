@@ -1,5 +1,6 @@
 import { spawnSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { publicEncrypt, createPublicKey } from "node:crypto";
+import { readFileSync, writeFileSync, unlinkSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { isDeepStrictEqual } from "node:util";
 import { isSupportedModel } from "./src/gemini.js";
@@ -23,7 +24,8 @@ const closedWorker = {
 export function validateClosedConfig(config) {
   const { $schema, compatibility_date, compatibility_flags, vars, ...deployment } = config;
   const model = vars?.GEMINI_MODEL;
-  const disabledVars = { PILOT_ENABLED: "false", FREE_TIER_VERIFIED: "false", GEMINI_MODEL: model };
+  const disabledVars = { PILOT_ENABLED: "false", FREE_TIER_VERIFIED: "false", GEMINI_MODEL: model,
+    AI_STUDIO_RPM: "5", AI_STUDIO_TPM: "250000", AI_STUDIO_RPD: "20" };
   if (!isDeepStrictEqual(deployment, closedWorker) || !isDeepStrictEqual(vars, disabledVars) ||
       !isSupportedModel(model)) {
     throw new ReleaseError("Tracked Wrangler configuration is outside the closed Workers Free deployment.");
@@ -83,9 +85,9 @@ export async function inspectWorker(env, request = fetch) {
   };
 }
 
-function runWrangler(env) {
+function runWrangler(env, target = configFile) {
   const cli = fileURLToPath(new URL("./node_modules/wrangler/bin/wrangler.js", import.meta.url));
-  const result = spawnSync(process.execPath, [cli, "deploy", "--config", fileURLToPath(configFile)], {
+  const result = spawnSync(process.execPath, [cli, "deploy", "--config", fileURLToPath(target)], {
     cwd: fileURLToPath(new URL(".", import.meta.url)),
     env: { ...env, CI: "true", WRANGLER_SEND_METRICS: "false", WRANGLER_WRITE_LOGS: "false" },
     stdio: "ignore",
@@ -98,7 +100,7 @@ function runWrangler(env) {
 export async function release(operation, env, config, {
   request = fetch, deploy = runWrangler, report = console.log,
 } = {}) {
-  if (operation !== "preflight" && operation !== "deploy") throw new ReleaseError("Unknown workflow operation.");
+  if (!["preflight", "deploy", "open-private", "close-private"].includes(operation)) throw new ReleaseError("Unknown workflow operation.");
   validateClosedConfig(config);
 
   const before = await inspectWorker(env, request);
@@ -110,14 +112,62 @@ export async function release(operation, env, config, {
   if (env.CLOSED_FREE_CONFIRMED !== "true") {
     throw new ReleaseError("Confirm Workers Free and the absence of custom routes before deploying.");
   }
-  if (before.workersDev || before.previews) {
+  const opening = operation === "open-private";
+  if (opening && !before.pilotSecret) throw new ReleaseError("Private login Secret is required.");
+  if ((before.workersDev && operation === "deploy") || before.previews) {
     throw new ReleaseError("Close the existing workers.dev and preview URLs before deploying the pilot.");
   }
-  deploy(env);
-  const after = await inspectWorker(env, request);
-  if (after.workersDev || after.previews || (before.pilotSecret && !after.pilotSecret) ||
-      [...before.secretNames].some(name => !after.secretNames.has(name))) {
-    throw new ReleaseError("The deployed Worker does not match the expected closed URLs and Secret state. Inspect it before retrying.");
+  let origin;
+  let deliveryKey;
+  if (opening) {
+    const account = env.CLOUDFLARE_ACCOUNT_ID;
+    const data = await readCloudflare(`https://api.cloudflare.com/client/v4/accounts/${account}/workers/subdomain`,
+      env.CLOUDFLARE_API_TOKEN, "Account workers.dev subdomain", request);
+    if (typeof data.subdomain !== "string" || !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(data.subdomain)) {
+      throw new ReleaseError("Unexpected workers.dev subdomain.");
+    }
+    origin = `https://${workerName}.${data.subdomain}.workers.dev`;
+    if (env.URL_PUBLIC_KEY) {
+      deliveryKey = createPublicKey({ key: Buffer.from(env.URL_PUBLIC_KEY, "base64"), type: "spki", format: "der" });
+      if (deliveryKey.asymmetricKeyType !== "rsa" || deliveryKey.asymmetricKeyDetails.modulusLength < 2048) {
+        throw new ReleaseError("URL delivery requires an RSA public key of at least 2048 bits.");
+      }
+    }
+    const target = new URL("./wrangler.trial.json", import.meta.url);
+    writeFileSync(target, JSON.stringify({ ...config, workers_dev: true,
+      secrets: { required: [requiredSecret, "PILOT_ACCESS_TOKEN"] } }), { flag: "wx" });
+    try { deploy(env, target); } finally { unlinkSync(target); }
+  } else {
+    deploy(env);
+  }
+  try {
+    const after = await inspectWorker(env, request);
+    if (after.workersDev !== opening || after.previews || (before.pilotSecret && !after.pilotSecret) ||
+        [...before.secretNames].some(name => !after.secretNames.has(name))) {
+      throw new ReleaseError("The deployed Worker does not match the expected closed URLs and Secret state. Inspect it before retrying.");
+    }
+    if (opening) {
+      for (const path of ["/", "/pilot.css", "/chat.js", "/api/question"]) {
+        const response = await request(origin + path, {
+          method: path === "/api/question" ? "POST" : "GET", redirect: "error", signal: AbortSignal.timeout(12000),
+        });
+        if (![401, 403].includes(response.status) || (await response.json()).kind !== "denied") {
+          throw new ReleaseError("Anonymous request did not receive the Worker denial.");
+        }
+      }
+    }
+  } catch (error) {
+    if (!opening) throw error;
+    deploy(env);
+    const closed = await inspectWorker(env, request);
+    if (closed.workersDev || closed.previews) throw new ReleaseError("Urgent: check failed and closure is unverified.");
+    throw new ReleaseError("Private URL verification failed. The private URL was closed.");
+  }
+  if (opening) {
+    report("Private URL verified: anonymous UI, assets and API denied. Inference disabled. Existing Secrets retained.");
+    if (deliveryKey) report("Operator URL (RSA-OAEP): " +
+      publicEncrypt({ key: deliveryKey, oaepHash: "sha256" }, Buffer.from(origin)).toString("base64"));
+    return;
   }
   report("Closed deployment verified. Existing Secret names are retained.");
 }
