@@ -1597,6 +1597,13 @@
   - 書体・検査・文書。 `fonts/press-mincho.woff2`、`scripts/browser_smoke.cjs`、`scripts/homepage_smoke.cjs`、`EDITORIAL_STANDARDS.md`、`docs/AI_WORK_LOG.md`
 - 本記録の時点では公開前。追記後のPRヘッドでCI全件を再確認してからマージする。実際のマージSHA、Pagesの結果、公開URLの確認結果は、実測後に同じ作業ログへ追記する。[PR #132の検査結果](https://github.com/teruluce/disney-bgs/pull/132/checks)
 
+### 2026-11-23（JST）— Codex-BGS-20261123-2 / PR #132 のマージと公開検証
+
+- 作業ログ・編集基準を含む最終PRヘッド `8d7a5acfd0ad62afecf3f6d6faf74ffb121df87d` で静的SEO・Chromium・Firefox・WebKitの4件が成功。最新main `aff75a8` と競合がないことを再確認して、22:00:17 JSTにPR #132をマージ。マージSHAは `650917761f24d34dbd4e0324a14b06e28300dc6d`、変更37ファイル。マージ後のツリーは承認済みヘッドと一致。[PR #132](https://github.com/teruluce/disney-bgs/pull/132) / [マージコミット](https://github.com/teruluce/disney-bgs/commit/650917761f24d34dbd4e0324a14b06e28300dc6d) / [マージ前CI](https://github.com/teruluce/disney-bgs/actions/runs/45179054374)
+- GitHub Pagesのビルド・デプロイ・結果報告が成功。Pages APIのビルド `1395722115` でも同じSHAが22:00:45 JSTに `built` となったことを確認。キャッシュ回避クエリ付きのHTTPS取得で対象のHTML・JPEG15件・補助書体・サイトマップの計31点と、共通JS・CSS・英字補助書体の5点がHTTP 200かつマージコミットとバイト単位で一致。公開canonical、OGP、24記事のItemList、S05・永久資料番号024、新記事のサイトマップ掲載も確認。[Pagesの実行記録](https://github.com/teruluce/disney-bgs/actions/runs/45179627859) / [公開サイトマップ](https://teruluce.github.io/disney-bgs/sitemap.xml)
+- 公開Chromiumの390・1280pxでトップの検索・カード遷移、章目次7件、小見出しを含む本文、写真6点、巻末資料22件、本文リンク3件、関連記事5件と各記事からの戻りリンク、ソアリンS04とタワー・オブ・テラーS06への前後移動を操作。320・390・1280pxでカード画像の遅延読み込み後の表示も確認し、390pxのJavaScript無効時はトップの目次・カード、記事本文と資料が利用できた。公開サイトに修正を要する問題は検出されなかった。実機・現地の展示現況は未確認。[トップ](https://teruluce.github.io/disney-bgs/) / [公開記事](https://teruluce.github.io/disney-bgs/bgs-americanwaterfront.html)
+- マージコミットに対するmainの静的SEO・Chromium・Firefox・WebKitの4件も成功。既存のActionsにはNode.js 20の廃止警告があるため、依存アクションの更新を今後の保守候補とする。[mainのCI](https://github.com/teruluce/disney-bgs/actions/runs/45179627808)
+
 ### 2026-11-24（JST）— Codex-BGS-20261124-3 / Haunted Mansion の v4 全13章
 
 - 最新main `f6fadd2` のAGENTS.md、AI_GOVERNANCE.md、EDITORIAL_STANDARDS.md、本ログ、既存記事と掲載順の生成規則を確認。v2のPR #136はマージ済み。オープンのPR #133は別件の作業ログのみ。両PRの差分を試験的に比較すると、末尾追記が同じ箇所で競合する。双方の履歴を残す調整は統合時に必要。本件は `codex/haunted-mansion-v4` で実施した。
@@ -1607,3 +1614,5 @@
 - 静的SEO検証27ページ、警告0件。Python単体テスト31件、共有リンク26件、アーカイブ生成一致、差分検査が成功。ローカルChromiumの320・390・640・767・768・1024・1440pxで、写真、章目次と旧アンカー、キー操作、資料の開閉、関連記事・前後・トップの導線、横はみ出し、コンソールエラーを確認。320pxのJavaScript無効時も検証。320・1440pxのaxe対象4ルールは違反・判定保留0件。390pxで外部書体・巻末の補助書体の実描画と代替描画を確認した。既存のChromiumで243ページ・画面幅とトップの16条件が成功。最終CIの結果はPRのChecksに記録。
 - フラッフィーは墓碑写真・転記の9件と本文にある具体日付6件を照合。残り3日を本文に列挙するか、2023・2024年の公式謎解き原文と詳細な人物伝、東京の花嫁と海外の婚姻譚の結びつけ方、墓碑・展示・写真の原記録確認をPRの未確認事項とした。本文は正本を保持。スマートフォン・タブレット実機、現地、検索インデックス、X実投稿は未検証。
 - レビュー待ち。mainへマージ・本番公開は未実施。[実装コミット](https://github.com/teruluce/disney-bgs/commit/f5b2480f38d2f4846b781c3b916fd917da89512d) ／ [PR #137](https://github.com/teruluce/disney-bgs/pull/137) ／ [PRの検証結果](https://github.com/teruluce/disney-bgs/pull/137/checks)。
+
+- 追記（Codex-BGS-20261124-3）　運営者の統合指示を受け、最新main `49c7032` にあるPR #133の記録に続けて本節を配置し、末尾追記の競合を解消した。競合解消前後で記事・一覧・共有設定・書体がバイト単位で同一であることを照合。原稿照合、静的SEOと単体検査を再実施した。[PR #137の検証](https://github.com/teruluce/disney-bgs/pull/137/checks)
