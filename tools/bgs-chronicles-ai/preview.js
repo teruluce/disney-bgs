@@ -3,6 +3,7 @@ import { createServer } from "node:http";
 import { Readable } from "node:stream";
 import { setTimeout } from "node:timers/promises";
 import { createHandler } from "./src/handler.js";
+import { DEFAULT_MODEL } from "./src/gemini.js";
 
 const port = Number(process.env.PORT ?? 8789);
 const origin = `http://127.0.0.1:${port}`;
@@ -11,7 +12,7 @@ const handler = createHandler();
 const token = "f".repeat(64);
 const env = {
   PILOT_ACCESS_TOKEN: token,
-  PILOT_ENABLED: "true", FREE_TIER_VERIFIED: "true",
+  PILOT_ENABLED: "true", FREE_TIER_VERIFIED: "true", AI_STUDIO_VERIFIED_MODEL: DEFAULT_MODEL,
   AI_STUDIO_RPM: "1", AI_STUDIO_RPD: "1", AI_STUDIO_TPM: "10000",
   QUOTA: {
     getByName() {

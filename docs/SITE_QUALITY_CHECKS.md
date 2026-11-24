@@ -17,9 +17,11 @@ The home archive search filters article titles, descriptions and photo alt text 
 ## Private AI pilot
 
 The separate Cloudflare Worker has its own checks in `tools/bgs-chronicles-ai`. Run
-`npm test` for the corpus, grounding, authentication and quota checks, and
-`npm run test:runtime` for the bundled Worker against a simulated Gemini response.
-See the [pilot runbook](BGS_AI_PILOT.md) for the loopback UI and approval steps.
+`npm test` for the corpus, grounding, authentication, quota and Cloudflare
+preflight checks, and `npm run test:runtime` to exercise the bundled Worker
+against simulated responses for both Gemini models. The **BGS AI pilot checks**
+workflow runs those checks on relevant PRs. The [pilot runbook](BGS_AI_PILOT.md)
+covers local preview and the separate manual Cloudflare release.
 
 ## Adding an archive article
 

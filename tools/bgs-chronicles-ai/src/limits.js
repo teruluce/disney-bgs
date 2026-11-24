@@ -1,4 +1,4 @@
-import { MAX_OUTPUT_TOKENS } from "./gemini.js";
+import { DEFAULT_MODEL, isSupportedModel, MAX_OUTPUT_TOKENS } from "./gemini.js";
 
 const pacific = new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit",
@@ -14,12 +14,14 @@ function positive(value) {
 
 export function getLimits(env) {
   if (env.PILOT_ENABLED !== "true" || env.FREE_TIER_VERIFIED !== "true") return null;
+  const model = env.GEMINI_MODEL ?? DEFAULT_MODEL;
+  if (!isSupportedModel(model) || env.AI_STUDIO_VERIFIED_MODEL !== model) return null;
   const rpm = Math.min(3, positive(env.AI_STUDIO_RPM));
   const rpd = Math.min(20, positive(env.AI_STUDIO_RPD));
   const tpm = positive(env.AI_STUDIO_TPM);
   const tpd = positive(env.AI_STUDIO_TPD);
   if (!rpm || !rpd || !tpm || (env.AI_STUDIO_TPD && !tpd)) return null;
-  return { rpm, rpd, tpm, tpd: tpd || null };
+  return { model, rpm, rpd, tpm, tpd: tpd || null };
 }
 
 export function pacificDay(now) {

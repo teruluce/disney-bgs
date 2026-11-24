@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import index from "../.generated/index.js";
 import { createHandler } from "../src/handler.js";
-import { buildPrompt, generate, groundedAnswer, MAX_OUTPUT_TOKENS, MODEL } from "../src/gemini.js";
+import { buildPrompt, generate, groundedAnswer, MAX_OUTPUT_TOKENS, DEFAULT_MODEL } from "../src/gemini.js";
 import { finishQuota, getLimits, pacificDay, reserveQuota } from "../src/limits.js";
 import { retrieve } from "../src/search.js";
 
@@ -12,7 +12,7 @@ const token = "f".repeat(64);
 const authorization = "Basic " + btoa("editor:" + token);
 const vars = {
   PILOT_ACCESS_TOKEN: token,
-  PILOT_ENABLED: "true", FREE_TIER_VERIFIED: "true",
+  PILOT_ENABLED: "true", FREE_TIER_VERIFIED: "true", AI_STUDIO_VERIFIED_MODEL: DEFAULT_MODEL,
   AI_STUDIO_RPM: "10", AI_STUDIO_RPD: "200", AI_STUDIO_TPM: "50000",
 };
 const handler = createHandler();
@@ -105,9 +105,9 @@ test("unverified quota, missing metrics or disabled settings are closed", async 
   assert.equal(getLimits({ ...vars, FREE_TIER_VERIFIED: "false" }), null);
   assert.equal(getLimits({ ...vars, AI_STUDIO_TPM: undefined }), null);
   assert.equal(getLimits({ ...vars, AI_STUDIO_TPD: "0" }), null);
-  assert.deepEqual(getLimits(vars), { rpm: 3, rpd: 20, tpm: 50000, tpd: null });
+  assert.deepEqual(getLimits(vars), { model: DEFAULT_MODEL, rpm: 3, rpd: 20, tpm: 50000, tpd: null });
   assert.deepEqual(getLimits({ ...vars, AI_STUDIO_RPM: "1", AI_STUDIO_RPD: "5" }),
-    { rpm: 1, rpd: 5, tpm: 50000, tpd: null });
+    { model: DEFAULT_MODEL, rpm: 1, rpd: 5, tpm: 50000, tpd: null });
   const response = await handler(request(), { ...vars, PILOT_ENABLED: "false" });
   assert.equal(response.status, 503);
   assert.deepEqual(await response.json(), { kind: "disabled" });
@@ -182,22 +182,45 @@ test("Gemini uses only the server key header, a bounded schema and no external t
   assert.ok(prompt.cost <= 8400);
   assert.equal(buildPrompt(question, "ja", retrieve(question), 100, null), null);
   const secret = "unit-test-secret";
-  const call = await generate(prompt.input, secret, async (url, options) => {
-    assert.equal(url, `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`);
+  const call = await generate(prompt.input, secret, DEFAULT_MODEL, async (url, options) => {
+    assert.equal(url, `https://generativelanguage.googleapis.com/v1beta/models/${DEFAULT_MODEL}:generateContent`);
     assert.equal(options.headers["x-goog-api-key"], secret);
     assert.equal(options.redirect, "manual");
     assert.ok(!options.body.includes(secret));
     const submitted = JSON.parse(options.body);
     assert.equal(submitted.generationConfig.maxOutputTokens, MAX_OUTPUT_TOKENS);
     assert.equal(submitted.generationConfig.responseMimeType, "application/json");
+    assert.equal(submitted.generationConfig.thinkingConfig.thinkingLevel, "minimal");
     assert.ok(!Object.hasOwn(submitted, "tools"));
     return Response.json({ candidates: [{ finishReason: "STOP", content: {
       parts: [{ text: '{"selections":[]}' }],
     } }] });
   });
   assert.deepEqual(call, { kind: "selection", data: { selections: [] } });
-  assert.deepEqual(await generate(prompt.input, secret, async () =>
+  assert.deepEqual(await generate(prompt.input, secret, DEFAULT_MODEL, async () =>
     new Response("sensitive upstream details", { status: 429 })), { kind: "limit" });
-  assert.deepEqual(await generate(prompt.input, secret, async () =>
+  assert.deepEqual(await generate(prompt.input, secret, DEFAULT_MODEL, async () =>
     new Response("sensitive upstream details", { status: 401 })), { kind: "unavailable" });
+});
+
+test("changing models requires the selected model's Free verification and compatible thinking level", async () => {
+  const flash = "gemini-3.8-flash";
+  assert.equal(getLimits({ ...vars, GEMINI_MODEL: flash }), null);
+  assert.equal(getLimits({ ...vars, AI_STUDIO_VERIFIED_MODEL: undefined }), null);
+  assert.equal(getLimits({ ...vars, GEMINI_MODEL: "other", AI_STUDIO_VERIFIED_MODEL: "other" }), null);
+  assert.equal(getLimits({ ...vars, GEMINI_MODEL: flash, AI_STUDIO_VERIFIED_MODEL: flash }).model, flash);
+
+  const requestBody = JSON.stringify({ question, language: "ja", evidence: [] });
+  const result = await generate(requestBody, "fixture", flash, async (url, options) => {
+    assert.equal(new URL(url).pathname, "/v1beta/models/gemini-3.8-flash:generateContent");
+    const body = JSON.parse(options.body);
+    assert.equal(body.generationConfig.thinkingConfig.thinkingLevel, "low");
+    assert.equal(body.generationConfig.maxOutputTokens, MAX_OUTPUT_TOKENS);
+    return Response.json({ candidates: [{ finishReason: "MAX_TOKENS" }] });
+  });
+  assert.deepEqual(result, { kind: "unavailable" });
+  const blocked = await generate(requestBody, "fixture", "unsupported", () => {
+    assert.fail("Unknown model must not reach Gemini.");
+  });
+  assert.deepEqual(blocked, { kind: "disabled" });
 });

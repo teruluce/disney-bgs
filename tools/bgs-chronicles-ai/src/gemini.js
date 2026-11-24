@@ -1,4 +1,8 @@
-export const MODEL = "gemini-3.1-flash-lite";
+export const DEFAULT_MODEL = "gemini-3.1-flash-lite";
+const THINKING_LEVELS = Object.freeze({
+  [DEFAULT_MODEL]: "minimal",
+  "gemini-3.8-flash": "low",
+});
 export const MAX_OUTPUT_TOKENS = 640;
 export const MAX_QUESTION = 500;
 const MAX_PROMPT_RESERVATION = 8400;
@@ -54,9 +58,14 @@ export function buildPrompt(question, language, passages, tokensPerMinute, token
   return selected.length ? { input, cost, selected } : null;
 }
 
-export async function generate(input, key, fetchApi = fetch) {
+export function isSupportedModel(model) {
+  return Object.hasOwn(THINKING_LEVELS, model);
+}
+
+export async function generate(input, key, model, fetchApi = fetch) {
+  if (!isSupportedModel(model)) return { kind: "disabled" };
   const response = await fetchApi(
-    `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
     {
       method: "POST",
       headers: { "content-type": "application/json", "x-goog-api-key": key },
@@ -68,7 +77,7 @@ export async function generate(input, key, fetchApi = fetch) {
         generationConfig: {
           temperature: 0,
           maxOutputTokens: MAX_OUTPUT_TOKENS,
-          thinkingConfig: { thinkingLevel: "minimal" },
+          thinkingConfig: { thinkingLevel: THINKING_LEVELS[model] },
           responseMimeType: "application/json",
           responseJsonSchema: RESPONSE_SCHEMA,
         },

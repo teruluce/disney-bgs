@@ -34,7 +34,7 @@ export class PilotQuota extends DurableObject {
 
     let result = { kind: "unavailable" };
     try {
-      result = await generate(input, this.env.GEMINI_API_KEY);
+      result = await generate(input, this.env.GEMINI_API_KEY, limits.model);
     } catch {
       // Provider errors and malformed replies must never be logged or forwarded.
     } finally {
