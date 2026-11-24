@@ -54,6 +54,14 @@
 
 ## 作業履歴
 
+### 2026-11-24（JST）— Codex-BGS-20261124-10 / 資料室の手動デプロイ準備
+
+- PR #148 の `bc64043` から再開。最新 `main` は `2a7ae3e`。運営憲章、`AGENTS.md`、編集・AI連携ガイド、関連する運用文書と引き継ぎを確認。差分は資料室の実装・テスト、Actions、運用文書に限定。
+- `bgs-ai-deploy.yml` に運営者が `main` から手動で実行する `preflight` と閉鎖状態の `deploy` を追加。`preflight` は GitHub Actions の既存 Secrets を用いて対象 Worker、`GEMINI_API_KEY` と試験用 Secret の登録、URL の状態を読み取る。デプロイは Workers Free・追加ルートがないことの確認と既存 URL の閉鎖を条件とし、反映後に URL と Secret 名を再確認する。PR 検証は別ワークフローで模擬テストとドライランを実行する。
+- Google の公式料金表で Gemini 3.8 Flash と 3.1 Flash-Lite の標準生成を両方 Free 対象と確認。3.8 Flash を品質比較候補とし、設定で選択可能にした。選択モデルと無料枠の確認済みモデル ID が一致するまでは推論停止。日英の実モデル比較と実効上限の確認は承認後の試験に残る。 [運用手順](BGS_AI_PILOT.md)
+- ローカルで `npm test` 15件、`npm run test:runtime` 2件、`actionlint`、`python3 scripts/check_site.py` が成功。Cloudflare 認証失敗、Secret 欠損、公開 URL が有効な場合の停止と閉鎖デプロイの条件を模擬検証した。両モデルで試験認証・引用と Gemini の429後の停止を確認した。
+- 運営者から Workers Free と既存 Worker・Secrets の準備完了の報告あり。開発環境からの GitHub Secrets 一覧の取得は権限不足で403。手動ワークフローは `main` に存在せず、GitHub の初回登録仕様により Cloudflare 実機の `preflight` はマージ承認待ち。Secrets の変更、実環境デプロイ、Gemini への実送信、公開作業は未実施。 [実装コミット](https://github.com/teruluce/disney-bgs/commit/5a07b2b227ae83dd59a41cc989e70c55cce8a64b) ／ [PR #148](https://github.com/teruluce/disney-bgs/pull/148) ／ [CI](https://github.com/teruluce/disney-bgs/pull/148/checks)
+
 ### 2026-11-24（JST）— Codex-BGS-20261124-9 / 資料室（仮称）の非公開AI試験
 
 - 起点は最新の `main` `2a7ae3e`（PR #147マージ済み）。`AGENTS.md`、`AI_GOVERNANCE.md`、`EDITORIAL_STANDARDS.md`、文体の正本・運営者の添削例・本ログ・サイト品質検査文書を確認。記事台帳の24記事から2,888件の候補を再生成する構成と、日英の検索・出典付き回答画面を `tools/bgs-chronicles-ai/` に追加した。公式資料と照合した3箇所を「公式設定」と表示する。
