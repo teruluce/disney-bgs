@@ -61,6 +61,8 @@
 - [PR #154](https://github.com/teruluce/disney-bgs/pull/154) の CI 5件、ローカル単体17件・Workers ランタイム2件が成功。最新 main と差分を照合してマージ。[事前確認](https://github.com/teruluce/disney-bgs/actions/runs/45424867110)および[有効化](https://github.com/teruluce/disney-bgs/actions/runs/45425759464)成功。両 Secret 保持、プレビュー無効。4経路の匿名拒否を照合し、別接続から画面・質問 API が HTTP 401。運営者が iPad の保存済みパスワードで資料室を開けたことを確認。
 - 確認済み設定を使ったローカル検査では毎分の3回目・毎日の20回目を受付、4回目／分・21回目／日を拒否。上流429後の停止は Workers ランタイムで模擬検証。公開ページ・記事本文・配信構成の差分なし。
 
+- iPad から日本語・英語を各1回送る実機検証を依頼。実際の回答本文、参照リンク、実消費数の確認待ち。Worker は会話履歴を保存しない。
+
 ### 2026-11-25（JST）— Codex-BGS-20261125 / 資料室の運営者用ログイン
 
 - [事前確認](https://github.com/teruluce/disney-bgs/actions/runs/45421111125)で両 Secret の登録と両 URL の閉鎖を確認。Default Gemini Project の Free と請求先未リンクは運営者確認済み。登録済みキーの所属を特定できず、推論は停止。実回答検証は所属確認後に行う。
