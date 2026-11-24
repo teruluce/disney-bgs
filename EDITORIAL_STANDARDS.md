@@ -29,7 +29,10 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 
 ## Narrative immersion and written Japanese
 
-- Write in calm Japanese 「です・ます」 form, like a guide walking beside the reader. Let the reader notice a scene or a detail before explaining its place in the story. Build the narrative on verified facts carried by architecture, objects, landscapes, and historical records.
+- Write in calm, natural Japanese 「です・ます」 form, in the voice of a historical and cultural feature rather than a sightseeing guide. Describe the world, its people, history, architecture, objects and landscapes through verified details. Let readers discover their meaning without repeatedly directing their gaze or telling them what to feel.
+- 運営者の文体指定（2026-11-24）：基本は「案内する」のではなく「描写する」。街や人々が実在する世界の歴史を記録するように語る。歴史紀行・文化誌・新聞の特集記事を手本とし、観光ガイド・攻略記事・百科事典調・過剰な詩的表現は避ける。イマジニアの制作史を扱う場合も、具体的な事実から制作意図へ自然につなげる。
+- 「見てみてください」「探してみましょう」「注目してみましょう」「〜に気づくでしょう」などの読者への呼びかけを常用しない。場面そのものを描写し、必要な場合にだけ視線の移動を示す。事実や情景が十分に意味を伝えるときは、感動や評価を説明し直さない。
+- 確認できた制作理念・意図は根拠の範囲で明確に述べ、単なる読者の感想のような表現に弱めない。一方、根拠のない意図や史実を断定しない。翻訳調の日本語、不自然な係り受け、過剰な比喩、抽象語や同じ結論の反復を避ける。
 - Keep sentences about the same scene or observation together. Develop one point per paragraph, vary sentence length naturally, and use a visible detail or a change in viewpoint to lead into the next part.
 - Prefer composed written Japanese over casual conversational phrasing. In context, use forms such as 「しかし」「一方で」「ただし」 rather than casual 「けれど」「でも」. Do not mechanically replace every connector; choose the wording that best preserves the sentence's meaning and rhythm.
 - Avoid addressing readers with repeated opening questions or interrupting the narrative with meta headings and phrases such as 「この記事では〜を解説します」「この記事で辿ること」「写真でもわかるように」「解説によると」. Introduce the subject through a detail, a contrast, or a narrative question instead.
@@ -37,9 +40,19 @@ The owner's visual reference is an early-20th-century American newspaper in the 
 - Use 「〜のです」 or 「〜なのです」 where the preceding details come together and the reader can see what they mean. Vary other endings naturally and avoid repeating this emphasis in nearby sentences. Keep genuine uncertainty clear in the wording. Poetic language is welcome where it grows from the place and its details.
 - Make small, local edits first. Preserve the existing article's facts, structure, voice, and design unless a specific inconsistency or clarity issue calls for a change.
 
-### 基準原稿　ミラコスタのガリオン船と天井画
+### 第一基準原稿　アメリカンウォーターフロント（2026-11-24 運営者指定）
 
-以下は運営者が校正した基準原稿です。BGS Chroniclesの記事を書くときは、読者の視線に沿って進む順序、前の場面で見たものに再び出会うつなぎ方、文末で余韻を残す流れを手本にしてください。語尾は場面に合わせて選び、「〜のです」は、それまでに描いたものの意味が見えてくるところで使います。
+運営者が示した以下の文体を、今後の新規執筆・増補・校正の第一基準とする。具体的な街並みや生活の痕跡から歴史・人々の暮らしへ自然につなげる。以下は運営者が示した第I章の抜粋であり、他の記事に文言を転用するためのものではない。
+
+> アメリカンウォーターフロントには、異なる時間の流れを感じさせる二つの町があります。ひとつは、大西洋を行き来する客船と、世界中から訪れた人々でにぎわうニューヨーク。もうひとつは、ニューイングランドの海辺に広がる漁村ケープコッドです。
+>
+> ニューヨークでは、建物が道に沿って高く立ち並びます。劇場の看板は遠くからでも目に入り、路面には線路が埋め込まれ、鉄骨の高架橋が通りを横切っています。岸壁へ近づけば、倉庫や船会社の建物、荷を運ぶための設備が集まっています。船から降りた品物が、ここから街の店や鉄道へ運ばれていくのでしょう。
+>
+> 一方、ケープコッドの道は低い木造の家々のあいだを通り、海へ向かって緩やかに開けています。通りの看板には魚や船の姿が描かれ、家々の庭には手仕事の気配が残っています。大都市のように新しい建物が次々と建つ場所ではなく、住民が顔を知る町です。
+
+### 補助基準原稿　ミラコスタのガリオン船と天井画
+
+以下は運営者が校正した補助基準原稿です。前の場面で見たものに再び出会うつなぎ方、文末で余韻を残す流れを手本にしてください。読者への直接的な案内は第一基準の方針に従い、必要な箇所に限ります。語尾は場面に合わせて選び、「〜のです」は、それまでに描いたものの意味が見えてくるところで使います。
 
 > ミラコスタのロビーに入ると、まず吹き抜けの空間の中央に大きなガリオン船が見えてきます。帆を張った船の甲板には、船長のミッキーとその仲間たちがいます。船のそばから天井を見上げてみると、八角形の天井を囲むように8枚の絵が並んでいるのが見えるでしょう。
 >
