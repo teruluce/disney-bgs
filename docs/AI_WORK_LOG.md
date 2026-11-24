@@ -54,6 +54,14 @@
 
 ## 作業履歴
 
+### 2026-11-24（JST）— Codex-BGS-20261124-6 / スモールワールド本文の部分校正
+
+- main `b068de5` から作業ブランチを作成。着手前に `AGENTS.md`、`AI_GOVERNANCE.md`、`EDITORIAL_STANDARDS.md`、`docs/WRITING_STYLE.md`、`docs/WRITING_EXAMPLES.md`、本ログの運営方針・対象記事の履歴・直近の引き継ぎ、PR #140・#144を確認。着手時のオープンPRは0件。主文体は制作史・理念型、副文体は幻想・情景型とした。
+- `bgs-smallworld.html` に指定の21項目をそのまま反映。04の2段落を含め本文22箇所を置換し、うち4箇所は人物カード紹介文。制作史・理念は既存の巻末資料と過去の検証記録を照合。キューバ危機後の作曲はThe Walt Disney Family Museum、移設・開業日はDisneyland Resort、ファサードでのブレアとクランプの役割はThe Walt Disney CompanyとImagination Skyway、最後の一節はDisney Parks Blogの記載を確認。反映保留は0件。本文に調査手順や出典注記の追加はない。
+- 全文差分を目視し、22箇所の逆置換で元HTMLとバイト単位で一致。HTML5の厳密パースと全要素・属性の比較でも一致し、7章、強調表示、人物カード4件の構造を確認。万博と合唱の後続文、画像・アニメーション、出典、URL、L07／008を維持。前回の8,679字から48字増で、600字／分を切り上げた読了目安は15分。最終編集日、構造化データ、サイトマップの更新日は作業日と同じ2026年11月24日。
+- `python scripts/check_site.py` 成功（SEO 27ページ・警告0、共有26件、台帳24記事、単体テスト31件）。`node --check smallworld.js` と `git diff --check` も成功。
+- [記事の実装コミット](https://github.com/teruluce/disney-bgs/commit/1490627d1dd988b280c5aabe185d82db2b8e5dcb) ／ [PR #145](https://github.com/teruluce/disney-bgs/pull/145) ／ [PRのチェック](https://github.com/teruluce/disney-bgs/pull/145/checks)。この記録の作成時点ではCI確認中。マージ承認済み。最終のCI・マージ後の公開確認結果はPRに記録する。
+
 ### 2026-11-24（JST）— ChatGPT-BGS-20261124-3 / 題材別文体と運営者添削例
 
 - 運営者の指示により文体の正本 `docs/WRITING_STYLE.md` の第6節を5分類（歴史記録・事件、歴史紀行・文化、物語・昔話、幻想・情景、制作史・理念）へ改定。主文体・副文体を新規執筆・大幅改稿前に選ぶ方式とし、共通の品質基準と題材ごとの語り口を区別した。
