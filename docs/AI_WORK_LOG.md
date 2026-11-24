@@ -1616,3 +1616,52 @@
 - レビュー待ち。mainへマージ・本番公開は未実施。[実装コミット](https://github.com/teruluce/disney-bgs/commit/f5b2480f38d2f4846b781c3b916fd917da89512d) ／ [PR #137](https://github.com/teruluce/disney-bgs/pull/137) ／ [PRの検証結果](https://github.com/teruluce/disney-bgs/pull/137/checks)。
 
 - 追記（Codex-BGS-20261124-3）　運営者の統合指示を受け、最新main `49c7032` にあるPR #133の記録に続けて本節を配置し、末尾追記の競合を解消した。競合解消前後で記事・一覧・共有設定・書体がバイト単位で同一であることを照合。原稿照合、静的SEOと単体検査を再実施した。[PR #137の検証](https://github.com/teruluce/disney-bgs/pull/137/checks)
+
+### 2026-11-24（JST）— Codex-BGS-20261124-4 / it’s a small world 増補改訂・専用紙面
+
+- レビュー待ち。最新main `d176b86` から専用ブランチを作成。着手時のオープンPRは0件。AGENTS.md、AI_GOVERNANCE.md、EDITORIAL_STANDARDS.mdの語り口・資料欄・掲載順、本ログの冒頭・Small Worldの写真・PC版・最新引き継ぎ、台帳、既存記事・関連記事、共通JS・CSSと検査手順を確認。[実装コミット](https://github.com/teruluce/disney-bgs/commit/3eb9602036d218a5fcad3ef56ecee6515ec1ed39) ／ [比較画像とトップ編集日](https://github.com/teruluce/disney-bgs/commit/49aa6b64ebbd501eb1df8ff44f5ff8566bcb703d) ／ [デザイン確認用PR #138](https://github.com/teruluce/disney-bgs/pull/138)
+- 提供資料第3節の7章・24小見出し・本文84段落を掲載。10段落は下記の局所修正、残る74段落は原稿と文字列が一致。人物カード4件は別掲。本文7,698字、600字／分で13分（見出し・カード詳細・写真説明・参考資料を除く）。資料の作業指示・調査経緯を本文へ転載していない。
+- 第I章は共通の顔から読み取る思い、子供・動物が主役の岸辺、太陽の探し方を限定。第II章の1,000万人超は展示館の入場者。バラードとテンポ変更はシャーマン本人のインタビューと博物館解説で裏付けられたため保持した。長い直接引用と歌詞転載はない。
+- 第III章の選択案内をカード表示に同期。ギブソンのカードは大統領の人形とブロンズ像の作品を区別し、平等への思いを読者が読み取る表現とした。第IV章はプンバァの表記を修正。登場人物の地域、2018年当時の東京独自の顔ぶれ、ベリーメリーホリデーのアジアの新年を当時の記録と照合した。
+- 第V章は二度の開催日と写真を照合。共に歌うという全員への帰属を限定し、写真の青いハート形の植物と手、雪景色での盾のそりを描写。「熱帯」「南極」とキリンとの位置関係は断定していない。第VI章はブレアの美術とクランプのファサード・時計の仕事を区別。1966年5月28日の再開、塔が移設されなかったこと、3つのランドマークを照合した。フィナーレの白は船上からの印象、2025年7月17日の追加歌詞は米国2パークの出来事として掲載。
+- 1964年の博覧会記念冊子を軸に、クリームの紙、既存の時計写真、章色、太陽と幾何学帯を組み直した。PC・タブレットは追従索引、スマホはネイティブの開閉索引。4件の人物紹介カード（うち1件はシャーマン兄弟）は既存の共有ダイアログで操作でき、JS無効時はHTMLの折りたたみで同じ文を読める。装飾のみが動き、動きを減らす設定に対応。写真4点と既存の権利表記を継承し、画像データの加工は行っていない。
+- 記事・専用CSS／JS／SVG、index.html、sitemap.xml、既存ブラウザ検査の2カラムセレクターを更新。旧ID全件、URL・canonical・H1、L07／008、共有先、前後L06／L08を照合。既存関連2件にシンドバッド記事の音楽章を追加。トップ検索、カード、ItemList、Article、パンくず、OGP・X Card、編集日・サイトマップを同期し、非表示の旧FAQを削除。台帳の生成結果に差分なし。
+- 静的SEO 27ページ・警告0、共有26件、台帳24記事、単体テスト31件、専用JSの構文と差分検査が成功。ローカルChromiumで1440／1280／1100／768／390／375／320pxの7幅を検証。横はみ出し、JSエラーなし。全章ジャンプ・現在章・キーボード操作・フォーカス復帰、全画像デコード、資料・関連記事・前後とトップ検索を確認。320／768pxはJS無効でも確認。既存回帰検査はサイト全体243条件、トップ16条件、読者ページ182条件が成功。
+- 7幅すべてで実書体と代替書体のレイアウトを検査。ブラウザの直接取得は環境の証明書エラーがあるため、実書体の撮影時はシステムのTLS検証を通したGoogle Fontsの同じ応答を使用。本文／紙面は10.74:1、章見出しのアクセントは5.33:1以上。320／1440pxの本文・モーダルでaxe対象4ルールに違反なし。自動判定保留を含む配色は実色からも検算。1440／768／390pxの表紙とPC・スマホの人物紹介、計5対の比較画像をPRに掲載。[CIの結果](https://github.com/teruluce/disney-bgs/pull/138/checks)
+- 実機、現地の展示現況、検索エンジンの再取得、Xへの実投稿、原写真の許諾原票は今回再確認していない。東京の旧外観の変更年や風の塔の処分先は本文に加えていない。デザインは運営者確認待ち。依頼はPRまでのため本番未公開。
+
+<details>
+<summary>巻末資料の確認用URL（本文の掲載順・2026年11月24日）</summary>
+
+1. Disney Parks Blog, “The 60th Anniversary of ‘it’s a small world’: A Celebration of Unity” (2024).　[参照](https://disneyparksblog.com/disney-experiences/the-60th-anniversary-of-its-a-small-world-a-celebration-of-unity/)
+2. The Walt Disney Family Museum, “it’s a small world” turns 60: A Global Celebration at The World’s Fair (2024)　[参照](https://www.waltdisney.org/blog/its-small-world-turns-60-global-celebration-worlds-fair)
+3. National Endowment for the Arts, Richard Sherman interview (2010)　[参照](https://www.arts.gov/stories/podcast/richard-sherman)
+4. The Walt Disney Family Museum, Mary Blair: Mid-Century Magic　[参照](https://www.waltdisney.org/mary-blair)
+5. The Walt Disney Family Museum, Walt’s Family & Friends: Alice Davis　[参照](https://www.waltdisney.org/blog/walts-family-friends-alice-davis)
+6. The Walt Disney Family Museum, Marc and Alice Davis: The Dynamic Duo of Disney　[参照](https://www.waltdisney.org/blog/marc-and-alice-davis)
+7. 東京ディズニーリゾート・ブログ「東京ディズニーランドのアトラクション「イッツ・ア・スモールワールド」がリニューアル！さらに幸せな船旅に。」（2016年11月24日）。　[参照](https://www.tokyodisneyresort.jp/tdrblog/detail/pr161124/)
+8. 東京ディズニーリゾート・ブログ「【いよいよ開幕！】東京ディズニーリゾート35周年“Happiest Celebration! ”」（2018年1月18日）。　[参照](https://www.tokyodisneyresort.jp/tdrblog/detail/pr180118/)
+9. 東京ディズニーリゾート・ブログ「大幅リニューアルした「イッツ・ア・スモールワールド」の見どころをご紹介！」（2018年9月12日）。　[参照](https://www.tokyodisneyresort.jp/tdrblog/detail/180912/)
+10. 東京ディズニーリゾート・ブログ「アトラクションキャストが教える！見どころ紹介 〜「イッツ・ア・スモールワールド」編〜」（2019年11月27日）。　[参照](https://www.tokyodisneyresort.jp/tdrblog/detail/191127/)
+11. 東京ディズニーリゾート・ブログ「「イッツ・ア・スモールワールド」をご紹介！」（2021年4月20日）。　[参照](https://www.tokyodisneyresort.jp/tdrblog/detail/210420/)
+12. 東京ディズニーリゾート「イッツ・ア・スモールワールド」（東京ディズニーランドの施設案内）。　[参照](https://www.tokyodisneyresort.jp/tdl/attraction/detail/172/)
+13. 東京ディズニーリゾート・ブログ「今シーズンが最後のお披露目！ “世界で1番幸せなクリスマスクルーズ”」（2014年11月27日）。　[参照](https://www.tokyodisneyresort.co.jp/tdrblog/detail/141127/)
+14. 東京ディズニーリゾート「イベント／プログラム」2024年8月29日（グルート初回の開催期間）。　[参照](https://www.tokyodisneyresort.jp/tdr/news/update/program/202408)
+15. 東京ディズニーリゾート「サイト更新情報」2025年10月28日・12月26日（再演期間）。　[参照1](https://www.tokyodisneyresort.jp/tdr/news/update/program/202510) ／ [参照2](https://www.tokyodisneyresort.jp/tdr/news/update/program/202512)
+16. Hong Kong Disneyland, it’s a small world　[参照](https://www.hongkongdisneyland.com/en/attractions/its-a-small-world/)
+17. Disneyland Paris News, The attraction “it’s a small world” gets dazzling new costumes from February 2025　[参照](https://news.disneylandparis.com/en/the-attraction-its-a-small-world-gets-dazzling-new-costumes-from-february-2025/)
+18. Disney Parks Blog, Disney World and Disneyland to Debut “it’s a small world” Finale Scene Lyrics (2025)　[参照](https://disneyparksblog.com/disney-experiences/disney-world-and-disneyland-to-debut-its-a-small-world-finale-scene-lyrics/)
+19. TIME, What’s the Most Played Song Ever? (2014)　[参照](https://time.com/82493/its-a-small-world-50th-anniversary/)
+20. Designing Disney, Designing “it’s a small world” – The 1964 New York World’s Fair　[参照](https://www.designingdisney.com/parks/disneyland-paris/disneyland-park/fantasyland/designing-its-small-world-1964-new-york-worlds-fair/)
+21. Yesterland, “it’s a small world” Times Six　[参照](https://yesterland.com/smallworld.html)
+22. D23, “Blaine Gibson” （ディズニー・レジェンド人物紹介）。　[参照](https://d23.com/walt-disney-legend/blaine-gibson/)
+23. The Walt Disney Family Museum, “Small World, Big Message: The Music of ‘it’s a small world’” (2017).　[参照](https://www.waltdisney.org/blog/small-world-big-message-music-its-small-world)
+24. San Diego Reader, “Interview: A Sweet Spoonful of Legendary Disney Composer Richard M. Sherman” (2012).　[参照](https://www.sandiegoreader.com/weblogs/big-screen/2012/aug/28/interview-a-sweet-spoonful-of-legendary-disney-com/)
+25. Disneyland Resort, “it’s a small world”（カリフォルニアの施設案内・開業日）。　[参照](https://disneyland.disney.go.com/en_CA/attractions/disneyland/its-a-small-world/)
+26. The Walt Disney Company, “Remembering Disney Legend Rolly Crump” (2023).　[参照](https://thewaltdisneycompany.com/news/remembering-disney-legend-rolly-crump/)
+27. Imagination Skyway, “it’s a small world | Disneyland | 1964–1965 World’s Fair”（人形造形とファサード）。　[参照](https://imaginationskyway.com/its-a-small-world-disneyland-1964-1965-worlds-fair/2/)
+28. 東京ディズニーリゾート・ブログ「世界中の子どもたちからみなさんへ『ハッピーホリデー！』」（2014年12月25日）。　[参照](https://www.tokyodisneyresort.jp/tdrblog/detail/141225/)
+29. All About「『東京ディズニーリゾート35周年』を徹底レポート！」（2018年、各地のキャラクター）。　[参照](https://allabout.co.jp/gm/gc/474579/)
+30. WDW News Today, “PHOTOS, VIDEO: ‘it’s a small world with Groot’ Premieres at Tokyo Disneyland” (2025).　[参照](https://wdwnt.com/2025/01/its-a-small-world-with-groot-at-tokyo-disneyland/)
+
+</details>
