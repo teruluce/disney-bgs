@@ -35,8 +35,10 @@ export class PilotQuota extends DurableObject {
     let result = { kind: "unavailable" };
     try {
       result = await generate(input, this.env.GEMINI_API_KEY, limits.model);
-    } catch {
-      // Provider errors and malformed replies must never be logged or forwarded.
+    } catch (error) {
+      const diagnostic = error?.name === "TimeoutError" || error?.name === "AbortError" ? "GEMINI_TIMEOUT" :
+        error instanceof SyntaxError ? "GEMINI_JSON" : "GEMINI_TRANSPORT";
+      result = { kind: "unavailable", diagnostic };
     } finally {
       this.storage.transactionSync(() => {
         this.writeState(finishQuota(this.readState(), Date.now(), id, result.kind === "limit"));
