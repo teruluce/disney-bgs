@@ -54,6 +54,13 @@
 
 ## 作業履歴
 
+### 2026-11-24（JST）— Codex-BGS-20261124-12 / 資料室の閉鎖状態での初回デプロイ
+
+- 運営者が Workers Free、支払い方法未登録、カスタムドメイン・追加ルートなし、両 URL の無効を管理画面で確認。PR #149 は最新 `main` `dd24a72` と競合せず、差分は本ログのみ。ファイル条件により PR の自動 CI は対象外。手元で `python3 scripts/check_site.py` と `git diff --check` が成功。GitHub のマージが処理中の間に独立した実機確認・デプロイを進め、PR #149 は `f2b221d` でマージした。 [PR #149](https://github.com/teruluce/disney-bgs/pull/149) ／ [マージコミット](https://github.com/teruluce/disney-bgs/commit/f2b221d17f29365cbf57040b92f70720cc410423)
+- `bgs-chronicles-ai` の再 `preflight` が成功。Cloudflare 認証、`GEMINI_API_KEY` の登録、`workers.dev` とプレビュー URL がともに無効であることを確認。試験用の `PILOT_ACCESS_TOKEN` は未登録。 [再 preflight](https://github.com/teruluce/disney-bgs/actions/runs/45418837024)
+- 承認された閉鎖デプロイを GitHub Actions の `operation=deploy`、`closed_free_confirmed=true` で実行し、成功。反映後の API 照合で既存 Secret 名の保持と両 URL の閉鎖を確認。推論は停止設定で、Gemini の実呼び出しは未実施。既存サイトのトップページとタワー・オブ・テラー記事はデプロイ前後で HTTP 200、本文ハッシュ一致。 [閉鎖デプロイ結果](https://github.com/teruluce/disney-bgs/actions/runs/45419037885)
+- 次の非公開試験までの残作業は、運営者専用の `PILOT_ACCESS_TOKEN` の登録、AI Studio での対象プロジェクトの Free・請求先未リンク・選択モデルの実効上限の確認、試験専用 URL を開く承認。URL 有効化時はまず回答を停止したまま認証を検証し、無料枠と記事の送信可否を確認してから推論を有効にする。 [試験有効化手順](BGS_AI_PILOT.md#別途承認後の試験有効化)
+
 ### 2026-11-24（JST）— Codex-BGS-20261124-11 / 資料室のマージと読み取り専用 preflight
 
 - 運営者の承認を受け、最新 `main` `2a7ae3e` と PR #148 の先端 `f42a5e1` を照合。競合なし、CI 5件成功、差分26ファイルは資料室のコード・テスト、専用 Actions 2本、関連運用文書3本に限定。既存の公開ページ・記事・デザインに差分がないことを確認し、`dd24a72` でマージした。 [PR #148](https://github.com/teruluce/disney-bgs/pull/148) ／ [マージコミット](https://github.com/teruluce/disney-bgs/commit/dd24a72adc819db4495321612d003312430f4107) ／ [CI](https://github.com/teruluce/disney-bgs/pull/148/checks)
