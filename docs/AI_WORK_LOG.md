@@ -54,6 +54,13 @@
 
 ## 作業履歴
 
+### 2026-11-24（JST）— Codex-BGS-20261124-9 / 資料室（仮称）の非公開AI試験
+
+- 起点は最新の `main` `2a7ae3e`（PR #147マージ済み）。`AGENTS.md`、`AI_GOVERNANCE.md`、`EDITORIAL_STANDARDS.md`、文体の正本・運営者の添削例・本ログ・サイト品質検査文書を確認。記事台帳の24記事から2,888件の候補を再生成する構成と、日英の検索・出典付き回答画面を `tools/bgs-chronicles-ai/` に追加した。公式資料と照合した3箇所を「公式設定」と表示する。
+- 試験は成人の運営者1名・日本からの接続に限定。HTTPS の試験認証、質問500文字、出力640トークン、同時推論1件、日次・60秒の利用枠を実装した。無料枠の確認前は推論停止。Google 側の429受信後は米国太平洋時間の翌日午前0時まで受付を停止する。Cloudflare One Free の初期登録に支払い情報が必要なため、Worker 自体で認証する構成を選んだ。
+- 検証は試験の単体9件とローカル Workers ランタイム1件、Wrangler のドライランに成功。Chromium 320・390・768・1024・1440px で日英の模擬回答、出典、生成待ち、上限・エラー、履歴なしを確認。`python3 scripts/check_site.py` はSEO 27ページ・警告0、共有26件、台帳24記事、単体31件。既存 Chromium は全体243件、トップ16件、読者ページ182件が通過。価格と規約の確認、運用手順、Workers AI 比較は [試験運用文書](BGS_AI_PILOT.md) を参照。
+- Cloudflare と AI Studio の管理画面はサインインが必要。実効無料枠と課金状態、`GEMINI_API_KEY` の登録状態、Gemini への実接続と日英品質は未確認。運営者の確認・承認後に既存 Worker で非公開試験を検証する。状態はレビュー待ち、デプロイ・公開確認は未実施。 [実装コミット](https://github.com/teruluce/disney-bgs/commit/383b21ededcbe69e49b032a5c047e04133b67469) ／ [ドラフト PR #148](https://github.com/teruluce/disney-bgs/pull/148) ／ [CI](https://github.com/teruluce/disney-bgs/pull/148/checks)
+
 ### 2026-11-24（JST）— Codex-BGS-20261124-8 / 文体品質改善・第2期
 
 - 起点は最新の `main` `23312f8`。着手時のオープンPRは0件。AGENTS.md、AI_GOVERNANCE.md、EDITORIAL_STANDARDS.md、WRITING_STYLE.md、WRITING_EXAMPLES.md、本ログの運営方針・対象記事・直近の引き継ぎ、SITE_QUALITY_CHECKS.mdを確認した。手本はファンタジースプリングス、タワー・オブ・テラー、アメリカンウォーターフロント。第1期の変更と文体基準を先行PRの差分で確認した。 [PR #143](https://github.com/teruluce/disney-bgs/pull/143) ／ [PR #144](https://github.com/teruluce/disney-bgs/pull/144) ／ [PR #145](https://github.com/teruluce/disney-bgs/pull/145) ／ [PR #146](https://github.com/teruluce/disney-bgs/pull/146)
