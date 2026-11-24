@@ -54,6 +54,12 @@
 
 ## 作業履歴
 
+### 2026-11-24（JST）— Codex-BGS-20261124-11 / 資料室のマージと読み取り専用 preflight
+
+- 運営者の承認を受け、最新 `main` `2a7ae3e` と PR #148 の先端 `f42a5e1` を照合。競合なし、CI 5件成功、差分26ファイルは資料室のコード・テスト、専用 Actions 2本、関連運用文書3本に限定。既存の公開ページ・記事・デザインに差分がないことを確認し、`dd24a72` でマージした。 [PR #148](https://github.com/teruluce/disney-bgs/pull/148) ／ [マージコミット](https://github.com/teruluce/disney-bgs/commit/dd24a72adc819db4495321612d003312430f4107) ／ [CI](https://github.com/teruluce/disney-bgs/pull/148/checks)
+- `main` の **BGS AI pilot Cloudflare release** を `operation=preflight`、`closed_free_confirmed=false` で手動実行し、成功。Cloudflare API の認証と `bgs-chronicles-ai` の存在、`GEMINI_API_KEY` が Secret として登録済みであることを確認。`PILOT_ACCESS_TOKEN` は未登録。`workers.dev` は有効、プレビュー URL は無効。Secret の値や URL のホスト名は記録対象外。カスタムドメイン・追加ルートと URL の実際の配信内容は今回の確認範囲外。 [preflight 実行結果](https://github.com/teruluce/disney-bgs/actions/runs/45413020897)
+- 実環境へのデプロイ、Secret・課金・公開設定の変更は未実施。閉鎖状態での初回デプロイ前に、運営者の承認を得て `workers.dev` を閉じ、Cloudflare で Workers Free と、カスタムドメイン・追加ルートがないことを確認する。試験用 URL を有効にする段階では `PILOT_ACCESS_TOKEN` を登録し、回答の有効化前に AI Studio で選択モデルの実効無料枠を確認する。 [運用手順](BGS_AI_PILOT.md)
+
 ### 2026-11-24（JST）— Codex-BGS-20261124-10 / 資料室の手動デプロイ準備
 
 - PR #148 の `bc64043` から再開。最新 `main` は `2a7ae3e`。運営憲章、`AGENTS.md`、編集・AI連携ガイド、関連する運用文書と引き継ぎを確認。差分は資料室の実装・テスト、Actions、運用文書に限定。
