@@ -19,11 +19,12 @@ function fixture(states) {
   let phase = 0;
   return {
     writes, reports, requests,
+    pause: async () => {},
     async request(url, options) {
       const state = states[phase];
       if (new URL(url).hostname === "bgs-chronicles-ai.example.workers.dev") {
-        assert.equal(options.headers, undefined);
-        return Response.json({ kind: "denied" }, { status: state.anonymous ?? 401 });
+        assert.equal(options.headers.authorization, undefined);
+        return Response.json({ kind: "denied" }, { status: state.transient?.shift() ?? state.anonymous ?? 401 });
       }
       assert.equal(new URL(url).hostname, "api.cloudflare.com");
       assert.equal(options.method, "GET");
@@ -130,7 +131,7 @@ test("private URL requires login Secret, keeps inference off, and closes on an a
   const missing = fixture([{ ...closed, secrets: [gemini] }]);
   await assert.rejects(release("open-private", env, config, missing), /login Secret/);
   assert.deepEqual(missing.writes, []);
-  const ok = fixture([closed, opened]);
+  const ok = fixture([closed, { ...opened, transient: [404, 503] }]);
   await release("open-private", env, config, ok);
   assert.deepEqual(ok.writes, ["open"]);
   const failure = fixture([closed, { ...opened, anonymous: 200 }, closed]);
