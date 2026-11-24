@@ -108,3 +108,7 @@ npm run preview
 - 「野獣が呪いをかけられた年齢は？」は記事の考察として扱い、正確な年齢を断定しない。「ハイタワー三世が翌朝見つかった港はどこですか？」は根拠不足として扱う。モデルの信頼性を判断するため、固有名詞の別表記でも試す。
 - 実 API を使った動作確認では、1日の独自上限を意図的に小さくして消費できるよう、`AI_STUDIO_RPD` を確認済みの上限以下の小さい値に下げる。上限後の画面、モックで確認済みの上流429での停止、Workers の CPU 使用時間とエラー状況を区別して記録する。本番の無料枠を意図して使い切る必要はない。
 - 推論だけを止めるには手動操作 `open-private` を実行する。試験画面への入口も閉じるには `workers_dev: false` に戻す。試験トークンが漏れた場合は再発行する。GitHub Pages に変更を反映する操作はこの手順に含まれない。
+
+## 質問送信時の診断
+
+運営者用画面では、失敗した段階を括弧内に表示する。GEMINI_HTTP と数字は上流のHTTPステータス。GEMINI_200_MAX_TOKENS は生成打ち切り、GEMINI_JSON はJSON解析失敗、GEMINI_TIMEOUT は上流の待機期限、CLIENT_TIMEOUT はブラウザ側の期限を示す。CF_1102 はCloudflareエラーページにあるリソース超過コード。Workers FreeのCPU上限は1要求10 msで、外部通信の待機はCPU時間に含まれない。問い合わせ時は診断コードだけを共有する。 [Workers limits](https://developers.cloudflare.com/workers/platform/limits/)

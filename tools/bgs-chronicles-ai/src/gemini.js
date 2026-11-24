@@ -85,17 +85,27 @@ export async function generate(input, key, model, fetchApi = fetch) {
     },
   );
   if (response.status === 429) return { kind: "limit" };
-  if (!response.ok) return { kind: "unavailable" };
+  if (!response.ok) {
+    const body = await response.json().catch(() => null);
+    const allowed = new Set(["API_KEY_INVALID", "API_KEY_SERVICE_BLOCKED", "API_KEY_HTTP_REFERRER_BLOCKED",
+      "API_KEY_IP_ADDRESS_BLOCKED", "SERVICE_DISABLED", "PERMISSION_DENIED", "INVALID_ARGUMENT", "NOT_FOUND"]);
+    const details = body?.error?.details;
+    const reason = Array.isArray(details) && details.find(item => allowed.has(item?.reason))?.reason;
+    const label = reason || (allowed.has(body?.error?.status) ? body.error.status : "");
+    return { kind: "unavailable", diagnostic: `GEMINI_HTTP_${response.status}${label ? "_" + label : ""}` };
+  }
   const result = await response.json();
+  if (!result || !Array.isArray(result.candidates) && !result.promptFeedback) return { kind: "unavailable", diagnostic: "GEMINI_200_ENVELOPE" };
   const candidate = result.candidates?.[0];
   if (result.promptFeedback?.blockReason || candidate?.finishReason === "SAFETY") {
     return { kind: "unknown" };
   }
-  if (candidate?.finishReason !== "STOP") return { kind: "unavailable" };
+  if (candidate?.finishReason !== "STOP") return { kind: "unavailable",
+    diagnostic: candidate?.finishReason === "MAX_TOKENS" ? "GEMINI_200_MAX_TOKENS" : "GEMINI_200_FINISH" };
   const parts = candidate.content?.parts ?? [];
   const payload = parts.filter(part => !part.thought && typeof part.text === "string")
     .map(part => part.text).join("");
-  if (!payload || payload.length > 5000) return { kind: "unavailable" };
+  if (!payload || payload.length > 5000) return { kind: "unavailable", diagnostic: "GEMINI_200_PAYLOAD" };
   return { kind: "selection", data: JSON.parse(payload) };
 }
 
@@ -103,7 +113,7 @@ export function groundedAnswer(result, passages, language) {
   if (result.kind !== "selection") return result;
   const selections = result.data?.selections;
   if (!Array.isArray(selections) || selections.length > MAX_ANSWER_ITEMS) {
-    return { kind: "unavailable" };
+    return { kind: "unavailable", diagnostic: "GEMINI_200_EVIDENCE" };
   }
   if (!selections.length) return { kind: "unknown" };
   const known = new Map(passages.map(passage => [passage.id, passage]));
@@ -112,7 +122,7 @@ export function groundedAnswer(result, passages, language) {
   for (const item of selections) {
     const passage = known.get(item?.id);
     if (!passage || used.has(item.id) || typeof item.translation !== "string") {
-      return { kind: "unavailable" };
+      return { kind: "unavailable", diagnostic: "GEMINI_200_EVIDENCE" };
     }
     used.add(item.id);
     let text = passage.text;
@@ -123,7 +133,7 @@ export function groundedAnswer(result, passages, language) {
       if (!text || text.length > 640 || !/[a-z]{2}/i.test(text) ||
           /[<>\p{C}]|https?:|www\.|\[[^\]]*\]\(/iu.test(text) ||
           replyNumbers.some(number => !sourceNumbers.includes(number))) {
-        return { kind: "unavailable" };
+        return { kind: "unavailable", diagnostic: "GEMINI_200_EVIDENCE" };
       }
     }
     answer.push({

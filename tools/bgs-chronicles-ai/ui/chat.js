@@ -156,19 +156,27 @@ form.addEventListener("submit", async event => {
       body: JSON.stringify({ question, language: language.value }),
       signal: AbortSignal.timeout(25000),
     });
-    const data = await response.json().catch(() => null);
+    const body = await response.text();
+    let data;
+    try { data = JSON.parse(body); } catch { /* Edge errors may return HTML. */ }
     if (response.ok && data?.kind === "answer") {
       message("");
       renderAnswer(data.answer);
     } else if (typeof data?.kind === "string" && Object.hasOwn(copy[language.value], data.kind)) {
       message(data.kind);
+      if (typeof data.diagnostic === "string" && /^[A-Z0-9_]{1,80}$/.test(data.diagnostic)) {
+        state.textContent += ` (${data.diagnostic})`;
+      }
     } else if (response.status === 429 || response.status === 503 && !data) {
       message("edge_limit");
+      state.textContent += /\b1102\b/.test(body) ? " (CF_1102)" : ` (HTTP_${response.status})`;
     } else {
       message(response.redirected || response.status === 403 ? "denied" : "unavailable");
+      state.textContent += ` (HTTP_${response.status})`;
     }
-  } catch {
+  } catch (error) {
     message("unavailable");
+    state.textContent += error?.name === "TimeoutError" ? " (CLIENT_TIMEOUT)" : " (CLIENT_REQUEST)";
   } finally {
     submit.disabled = false;
     language.disabled = false;

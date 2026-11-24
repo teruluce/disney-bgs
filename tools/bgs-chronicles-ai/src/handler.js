@@ -137,7 +137,7 @@ export function createHandler() {
         headers: { ...DEFAULT_HEADERS, "content-type": type },
       });
     } catch {
-      return json({ kind: "unavailable" });
+      return json({ kind: "unavailable", diagnostic: "WORKER_INTERNAL" });
     }
   };
 }

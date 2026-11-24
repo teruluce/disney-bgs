@@ -200,7 +200,7 @@ test("Gemini uses only the server key header, a bounded schema and no external t
   assert.deepEqual(await generate(prompt.input, secret, DEFAULT_MODEL, async () =>
     new Response("sensitive upstream details", { status: 429 })), { kind: "limit" });
   assert.deepEqual(await generate(prompt.input, secret, DEFAULT_MODEL, async () =>
-    new Response("sensitive upstream details", { status: 401 })), { kind: "unavailable" });
+    new Response("sensitive upstream details", { status: 401 })), { kind: "unavailable", diagnostic: "GEMINI_HTTP_401" });
 });
 
 test("changing models requires the selected model's Free verification and compatible thinking level", async () => {
@@ -218,7 +218,7 @@ test("changing models requires the selected model's Free verification and compat
     assert.equal(body.generationConfig.maxOutputTokens, MAX_OUTPUT_TOKENS);
     return Response.json({ candidates: [{ finishReason: "MAX_TOKENS" }] });
   });
-  assert.deepEqual(result, { kind: "unavailable" });
+  assert.deepEqual(result, { kind: "unavailable", diagnostic: "GEMINI_200_MAX_TOKENS" });
   const blocked = await generate(requestBody, "fixture", "unsupported", () => {
     assert.fail("Unknown model must not reach Gemini.");
   });
