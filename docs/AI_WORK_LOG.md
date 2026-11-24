@@ -1676,3 +1676,6 @@
 - ブラウザDOMで、HTMLタグ・空白・Markdownの配置指示を除き、題・副題と135ブロックを原稿と順序・文字単位で照合。内訳は7章見出し、小見出し22件、本文95段落、人物カードの見出しと紹介文4組、写真キャプション3件。キーボードで開いた4件の紹介文も原稿と一致。
 - `python scripts/check_site.py` 成功（SEO 27ページ・警告0、共有26件、台帳24記事、単体31件）。HTML5構文、専用JS構文、差分検査も成功。Chromiumは320・375・390・768・1100・1280・1440pxで章リンク、写真4点、人物カードの操作・フォーカス復帰、横はみ出し・JSエラーを確認。320px・1440pxで記事と人物ダイアログのaxe検査を実行し、対象WCAG A／AAルールの違反0件。
 - [PR #140](https://github.com/teruluce/disney-bgs/pull/140)。マージおよび公開後の検証結果は公開確認後に追記する。
+- 公開確認追記。最終ヘッド `e394a27` の [PR CI](https://github.com/teruluce/disney-bgs/actions/runs/45329725832) は静的SEO・Chromium・Firefox・WebKitの4件すべて成功。2026年11月24日13:58 JSTにマージ。マージコミットは [`7b65e26`](https://github.com/teruluce/disney-bgs/commit/7b65e2648792c6f8e9235213cc5737e215d7c9df)。
+- [GitHub Pagesのビルド・デプロイ](https://github.com/teruluce/disney-bgs/actions/runs/45330026873) 成功。HTTPSで取得した記事・トップ・サイトマップ・専用CSS／JSはマージ済みファイルとバイト単位で一致。[公開記事](https://teruluce.github.io/disney-bgs/bgs-smallworld.html) のDOMを確定稿と再照合し、題・副題・135ブロックすべてが一致。公開ページの7画面幅で目次、写真4点、人物カード4件、キーボード操作とフォーカス復帰を確認。JSエラー、横スクロールなし。320pxと1440pxで記事・人物ダイアログのaxe対象ルール違反なし。PC・タブレット・スマートフォンはブラウザの画面幅で検証。実機とXへの実投稿は対象外。
+- ローカル回帰検査はサイト全体243条件、トップ16条件、読者ページ182条件が成功。Pagesの自動ワークフローには `actions/upload-artifact@v4` のNode.js 20非推奨通知があり、ビルドとデプロイはいずれも成功。
