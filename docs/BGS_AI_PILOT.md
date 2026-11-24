@@ -43,9 +43,9 @@ Gemini への入力予約は UTF-8 バイト数に固定の余裕を加えて算
 | 無料枠 | Free プロジェクトのモデル別 RPM・TPM・RPD。実効値は AI Studio。 | Workers Free で10,000 Neurons／日。UTC 00:00 更新。超過時はエラー。 |
 | 候補モデル | `gemini-3.1-flash-lite` を試験実装で使用。 | `@cf/google/gemma-4-26b-a4b-it`。入力1Mトークン9,091 Neurons、出力1Mトークン27,273 Neurons。入力2,500・出力640なら約40.18 Neurons／回、約248回／日の計算例。実数は使用トークンとアカウント内の共有利用量による。 |
 | データ | 無料枠の入出力を製品改善に使用する場合がある。 | 通常のステートレス推論は原則として入出力を保持せず、学習に使わない。安全、セキュリティ、法律上の例外と運用メタデータの扱いあり。 |
-| 一般公開の条件 | 未成年の利用が見込まれる公開サイトには採用しない。 | 調査した Workers AI 条件には Gemini と同文の制限は見当たらない。モデルのライセンス・利用方針、対象利用者とデータの扱い、日英の品質を公開の判断前に確認する。 |
+| 一般公開の条件 | 未成年の利用が見込まれる公開サイトには採用しない。 | 調査した Workers AI 条件には Gemini と同文の制限は見当たらない。Gemma 4 のモデルライセンスは Apache 2.0。Cloudflare の利用条件、対象利用者とデータの扱い、日英の品質を公開の判断前に確認する。 |
 
-Workers AI は比較のみ。モデル変更には運営者の承認が必要。 [Workers AI 料金](https://developers.cloudflare.com/workers-ai/platform/pricing/) ／ [Gemma 4 モデル仕様](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) ／ [Workers AI のデータ利用](https://developers.cloudflare.com/workers-ai/platform/data-usage/) ／ [Gemma 利用規約](https://ai.google.dev/gemma/terms)
+Workers AI は比較のみ。モデル変更には運営者の承認が必要。 [Workers AI 料金](https://developers.cloudflare.com/workers-ai/platform/pricing/) ／ [Gemma 4 モデル仕様](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) ／ [Workers AI のデータ利用](https://developers.cloudflare.com/workers-ai/platform/data-usage/) ／ [Gemma 4 の Apache 2.0 ライセンス](https://ai.google.dev/gemma/apache_2)
 
 ## ローカル確認
 
