@@ -59,6 +59,7 @@
 - iPadでは認証成功後に汎用エラーを確認。Google公式モデル仕様で 3.8 Flash のID、low、構造化出力を確認。原因の切り分けのため、認証済み画面で上流HTTP・生成打ち切り・JSON・通信・Workerの診断コードを区別する。質問・回答・キーのログは追加しない。
 - 実通信は3回とも `GEMINI_HTTP_403_PERMISSION_DENIED`。Googleが生成設定を処理する前の権限拒否であり、thinking level、640出力トークン、15秒タイムアウト、JSON解析、Workers CPUの原因候補を除外。生成を消費しないモデルメタデータ診断を追加し、Google側のAPI・キー・モデル権限を再確認する。
 - モデルメタデータ診断は `provider_ok`。APIキー認証、Generative Language API、`gemini-3.8-flash` のモデルIDを確認。生成権限と資料室固有の構造化リクエストを切り分けるため、固定入力・16出力トークン・構造化出力なしの最小生成診断を追加。通常の利用回数制限に算入する。
+- 最小生成も `GEMINI_HTTP_403_BILLING_REQUIRED`。記事、構造化JSON、640トークン、15秒期限、Workers CPUと無関係に、このDefault Gemini Projectでは請求先未リンクの生成が許可されないことを確定。課金禁止を守るため [手動実行](https://github.com/teruluce/disney-bgs/actions/runs/45599134337) で推論を停止。認証付きURLと両Secretを維持し、プレビューURLは無効。再開には、請求先未リンクで最小生成に成功する別プロジェクト、または運営者が別途承認したWorkers AIへの切り替えが必要。
 
 ### 2026-11-25（JST）— Codex-BGS-20261125-2 / 資料室の非公開推論
 
