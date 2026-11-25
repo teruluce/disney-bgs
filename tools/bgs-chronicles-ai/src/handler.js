@@ -17,7 +17,8 @@ const DEFAULT_HEADERS = {
   "x-robots-tag": "noindex, nofollow, noarchive",
 };
 const STATUS = {
-  answer: 200, unknown: 200, provider_ok: 200, disabled: 503, unavailable: 503,
+  answer: 200, unknown: 200, provider_ok: 200, generation_ok: 200,
+  disabled: 503, unavailable: 503,
   daily_limit: 429, minute_limit: 429, busy: 429, invalid: 400,
   denied: 403, method: 405, too_large: 413, sensitive: 400, restricted: 400,
 };
@@ -115,6 +116,12 @@ async function providerCheck(request, env) {
   return json(result);
 }
 
+async function generationCheck(request, env) {
+  if (request.method !== "GET") return json({ kind: "method" });
+  const result = await env.QUOTA.getByName("gemini-project").checkGeneration();
+  return json(result);
+}
+
 const pages = {
   "/": ["page.html.in", "text/html; charset=utf-8"],
   "/pilot.css": ["pilot.css", "text/css; charset=utf-8"],
@@ -131,6 +138,7 @@ export function createHandler() {
       }
       if (!authorized(request, env.PILOT_ACCESS_TOKEN)) return json({ kind: "denied" }, true);
       if (url.pathname === "/api/provider-check") return await providerCheck(request, env);
+      if (url.pathname === "/api/generation-check") return await generationCheck(request, env);
       if (url.pathname === "/api/question") return await ask(request, env, url);
       if (request.method !== "GET" && request.method !== "HEAD") return json({ kind: "method" });
       if (url.pathname === "/robots.txt") {

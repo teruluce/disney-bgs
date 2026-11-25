@@ -1,6 +1,6 @@
 import { DurableObject } from "cloudflare:workers";
 import { createHandler } from "./handler.js";
-import { checkProvider, generate } from "./gemini.js";
+import { checkGeneration, checkProvider, generate } from "./gemini.js";
 import { finishQuota, getLimits, reserveQuota } from "./limits.js";
 
 export class PilotQuota extends DurableObject {
@@ -57,6 +57,31 @@ export class PilotQuota extends DurableObject {
         "GEMINI_TIMEOUT" : "GEMINI_TRANSPORT";
       return { kind: "unavailable", diagnostic };
     }
+  }
+
+  async checkGeneration() {
+    const limits = getLimits(this.env);
+    if (!limits || !this.env.GEMINI_API_KEY) return { kind: "disabled" };
+    const id = crypto.randomUUID();
+    const reservation = this.storage.transactionSync(() => {
+      const result = reserveQuota(this.readState(), Date.now(), limits, 128, id);
+      if (result.kind === "reserved") this.writeState(result.state);
+      return result;
+    });
+    if (reservation.kind !== "reserved") return { kind: reservation.kind };
+    let result;
+    try {
+      result = await checkGeneration(this.env.GEMINI_API_KEY, limits.model);
+    } catch (error) {
+      const diagnostic = error?.name === "TimeoutError" || error?.name === "AbortError" ?
+        "GEMINI_TIMEOUT" : "GEMINI_TRANSPORT";
+      result = { kind: "unavailable", diagnostic };
+    } finally {
+      this.storage.transactionSync(() => {
+        this.writeState(finishQuota(this.readState(), Date.now(), id, result?.kind === "limit"));
+      });
+    }
+    return result?.kind === "limit" ? { kind: "daily_limit" } : result;
   }
 }
 
