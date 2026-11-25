@@ -1,6 +1,6 @@
 import { DurableObject } from "cloudflare:workers";
 import { createHandler } from "./handler.js";
-import { generate } from "./gemini.js";
+import { checkProvider, generate } from "./gemini.js";
 import { finishQuota, getLimits, reserveQuota } from "./limits.js";
 
 export class PilotQuota extends DurableObject {
@@ -45,6 +45,18 @@ export class PilotQuota extends DurableObject {
       });
     }
     return result.kind === "limit" ? { kind: "daily_limit" } : result;
+  }
+
+  async checkProvider() {
+    const limits = getLimits(this.env);
+    if (!limits || !this.env.GEMINI_API_KEY) return { kind: "disabled" };
+    try {
+      return await checkProvider(this.env.GEMINI_API_KEY, limits.model);
+    } catch (error) {
+      const diagnostic = error?.name === "TimeoutError" || error?.name === "AbortError" ?
+        "GEMINI_TIMEOUT" : "GEMINI_TRANSPORT";
+      return { kind: "unavailable", diagnostic };
+    }
   }
 }
 
