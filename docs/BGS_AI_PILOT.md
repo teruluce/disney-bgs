@@ -112,3 +112,5 @@ npm run preview
 ## 質問送信時の診断
 
 運営者用画面では、失敗した段階を括弧内に表示する。GEMINI_HTTP と数字は上流のHTTPステータス。GEMINI_200_MAX_TOKENS は生成打ち切り、GEMINI_JSON はJSON解析失敗、GEMINI_TIMEOUT は上流の待機期限、CLIENT_TIMEOUT はブラウザ側の期限を示す。CF_1102 はCloudflareエラーページにあるリソース超過コード。Workers FreeのCPU上限は1要求10 msで、外部通信の待機はCPU時間に含まれない。問い合わせ時は診断コードだけを共有する。 [Workers limits](https://developers.cloudflare.com/workers/platform/limits/)
+
+認証済みの `/api/provider-check` は、保存済みキーを使って選択モデルのメタデータだけをGoogleから取得する。質問や生成指示を送らず、生成回数を消費しない。`provider_ok` ならキー、API、モデルIDの組み合わせは利用可能。403なら、APIの無効、キー制限、請求条件、地域、モデルアクセスを機密性のない分類コードで返す。Googleのエラー本文、キー、プロジェクト番号は返さない。

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import index from "../.generated/index.js";
 import { createHandler } from "../src/handler.js";
-import { buildPrompt, generate, groundedAnswer, MAX_OUTPUT_TOKENS, DEFAULT_MODEL } from "../src/gemini.js";
+import { buildPrompt, checkProvider, generate, groundedAnswer, MAX_OUTPUT_TOKENS, DEFAULT_MODEL } from "../src/gemini.js";
 import { finishQuota, getLimits, pacificDay, reserveQuota } from "../src/limits.js";
 import { retrieve } from "../src/search.js";
 
@@ -200,7 +200,23 @@ test("Gemini uses only the server key header, a bounded schema and no external t
   assert.deepEqual(await generate(prompt.input, secret, DEFAULT_MODEL, async () =>
     new Response("sensitive upstream details", { status: 429 })), { kind: "limit" });
   assert.deepEqual(await generate(prompt.input, secret, DEFAULT_MODEL, async () =>
-    new Response("sensitive upstream details", { status: 401 })), { kind: "unavailable", diagnostic: "GEMINI_HTTP_401" });
+    new Response("sensitive upstream details", { status: 401 })),
+  { kind: "unavailable", diagnostic: "GEMINI_HTTP_401_UNKNOWN" });
+});
+
+test("the provider check verifies model metadata without generation or leaking error text", async () => {
+  const key = "provider-check-fixture";
+  const ok = await checkProvider(key, DEFAULT_MODEL, async (url, options) => {
+    assert.equal(url, `https://generativelanguage.googleapis.com/v1beta/models/${DEFAULT_MODEL}`);
+    assert.equal(options.headers["x-goog-api-key"], key);
+    assert.equal(options.method, undefined);
+    return Response.json({ name: `models/${DEFAULT_MODEL}` });
+  });
+  assert.deepEqual(ok, { kind: "provider_ok", model: DEFAULT_MODEL });
+  const denied = await checkProvider(key, DEFAULT_MODEL, async () => Response.json({
+    error: { status: "PERMISSION_DENIED", message: "API key restriction blocks this request" },
+  }, { status: 403 }));
+  assert.deepEqual(denied, { kind: "unavailable", diagnostic: "GEMINI_HTTP_403_KEY_RESTRICTION" });
 });
 
 test("changing models requires the selected model's Free verification and compatible thinking level", async () => {
