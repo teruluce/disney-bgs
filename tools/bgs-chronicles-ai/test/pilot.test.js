@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import index from "../.generated/index.js";
 import { createHandler } from "../src/handler.js";
-import { buildPrompt, checkProvider, generate, groundedAnswer, MAX_OUTPUT_TOKENS, DEFAULT_MODEL } from "../src/gemini.js";
+import { buildPrompt, checkGeneration, checkProvider, generate, groundedAnswer, MAX_OUTPUT_TOKENS, DEFAULT_MODEL } from "../src/gemini.js";
 import { finishQuota, getLimits, pacificDay, reserveQuota } from "../src/limits.js";
 import { retrieve } from "../src/search.js";
 
@@ -217,6 +217,22 @@ test("the provider check verifies model metadata without generation or leaking e
     error: { status: "PERMISSION_DENIED", message: "API key restriction blocks this request" },
   }, { status: 403 }));
   assert.deepEqual(denied, { kind: "unavailable", diagnostic: "GEMINI_HTTP_403_KEY_RESTRICTION" });
+});
+
+test("the minimal generation check distinguishes project access from archive request options", async () => {
+  const key = "generation-check-fixture";
+  const ok = await checkGeneration(key, DEFAULT_MODEL, async (url, options) => {
+    assert.match(url, /:generateContent$/);
+    assert.equal(options.headers["x-goog-api-key"], key);
+    const body = JSON.parse(options.body);
+    assert.equal(body.contents[0].parts[0].text, "Reply with OK.");
+    assert.equal(body.generationConfig.maxOutputTokens, 16);
+    assert.equal(body.generationConfig.thinkingConfig.thinkingLevel, "low");
+    assert.equal(body.systemInstruction, undefined);
+    assert.equal(body.generationConfig.responseJsonSchema, undefined);
+    return Response.json({ candidates: [{ finishReason: "STOP", content: { parts: [{ text: "OK" }] } }] });
+  });
+  assert.deepEqual(ok, { kind: "generation_ok", model: DEFAULT_MODEL });
 });
 
 test("changing models requires the selected model's Free verification and compatible thinking level", async () => {
