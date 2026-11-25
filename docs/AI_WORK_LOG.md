@@ -54,6 +54,26 @@
 
 ## 作業履歴
 
+### 2026-11-25（JST）— Codex-BGS-20261125-4 / ワールドバザール L02 の増補改訂
+
+- 最新 main `9b178e6` の `AGENTS.md`、`AI_GOVERNANCE.md`、`EDITORIAL_STANDARDS.md`、`docs/WRITING_STYLE.md`、本ログの運営方針・対象記事の記録・直近の引き継ぎを確認。関連するPR #112はマージ済みで、着手時に競合するオープンPRはなかった。専用ブランチは `codex/worldbazaar-l02-20261125`。
+- 運営者提供のClaude校正済み全文を反映。本文変更は指定の第II・IV・V・VII・VIII・IX章に限定し、第VI章は原稿にある「アメリカンウォーターフロント」を本文リンクにした。第VII章の営業終了予定は本文直後の注記にし、第VIII章の窓の2段落は髙橋政知の窓の前、第IX章の水晶宮の由来は2施設の紹介に続けて配置。題・副題、9章、13小見出し、リードを含む本文82段落、注記1件を校正済み原稿と指定の確定修正から作ったテキストと照合。本文5,787字（見出し・注記を除く）、600字／分で切り上げて読了目安10分。
+- `bgs-worldbazaar.html` の旧アンカーを全件保持し、`#trivia` は第VIII章、`#comparison` は第II章、`#seasons` は第IV章に対応。L02、永久資料番号005、記事URL、前後ナビ、既存の画像素材と外部スタイルシートの参照を継承。関連記事にアメリカンウォーターフロントを追加。トップの対象カード、meta・OGP・X Card・共有文・Article JSON-LD、記事とトップの最終編集日およびサイトマップを同期。サイトの画像ファイルと他の記事は差分なし。[実装コミット](https://github.com/teruluce/disney-bgs/commit/cfb8ebd20bbbc615a5b1f3c6fb23634af70bd565)
+- 既存資料12件を継承し、指定資料を統合して巻末に計26件。東京ディズニーリゾート資料とウレぴあ総研の指定ページは取得でき、店舗の由来、閉店日、格言等の該当箇所を照合。マイウェイは今回の直接取得でHTTP 403のため、先行記録を参照した。**2階の窓の記述は過去の写真資料に基づき、現地での最新確認は行っていない。** テープカットの当初の正確な予定地点とライマン原画の十字路は、先行記録の未確認事項を引き継ぐ。[先行調査記録](WORLDBAZAAR_REVISION_20261120.md)
+- `python scripts/check_site.py` が成功。SEO 27ページ・警告0、共有26件、台帳24記事、Python単体31件。ローカルChromiumのPC幅1440pxとスマートフォン幅390pxで本文照合、目次9件のジャンプ、旧ID、参考資料のキーボード開閉、内部リンク、X共有画面を開くURLと共有文を確認。JSエラー、横はみ出しなし。既存 `browser_smoke.cjs` の243条件も成功。
+- レビュー待ち。マージ・本番公開・本番表示・実機確認・Xへの実投稿は未実施。静的SEO・読者ブラウザ3種・BGS AI pilotの既存CIと最終結果は当該PRを参照。[作業ブランチのPR](https://github.com/teruluce/disney-bgs/pulls?q=is%3Apr+head%3Acodex%2Fworldbazaar-l02-20261125)
+
+<details>
+<summary>今回指定された巻末資料の確認用URL</summary>
+
+- コンフェクショナリー [店舗案内](https://www.tokyodisneyresort.jp/tdl/shop/detail/500/) ／ [サイラスとミッキーたち](https://www.tokyodisneyresort.jp/tdrblog/detail/220628/)
+- 店主たち [ホームストア](https://www.tokyodisneyresort.jp/tdl/shop/detail/512/) ／ [ハリントンズ](https://www.tokyodisneyresort.jp/tdl/shop/detail/523/) ／ [スウィートハート・カフェ](https://www.tokyodisneyresort.jp/tdrblog/detail/220210/) ／ [ペイストリーパレス](https://www.tokyodisneyresort.jp/tdl/shop/detail/522/) ／ [イーストサイド・カフェ](https://www.tokyodisneyresort.jp/tdrblog/detail/170828/)
+- 街の暮らし [トイ・ステーション](https://www.tokyodisneyresort.jp/tdl/shop/detail/524/) ／ [ペニーアーケード](https://www.tokyodisneyresort.jp/tdl/attraction/detail/191/) ／ [ハウス・オブ・グリーティング](https://www.tokyodisneyresort.jp/tdl/shop/detail/508/) ／ [メールボックス](https://www.tokyodisneyresort.jp/tdl/service/detail/580.html) ／ [センターストリート・コーヒーハウス](https://www.tokyodisneyresort.jp/tdl/restaurant/detail/306)
+- 2階の窓 [ウレぴあ総研 2ページ](https://ure.pia.co.jp/articles/-/26851?page=2) ／ [3ページ](https://ure.pia.co.jp/articles/-/26851?page=3) ／ [マイウェイ](https://maiway.jp/blog/tdr-guide/tdl-world-bazaar/)
+- 街並みの境界 [テーマランド間の建築](https://www.tokyodisneyresort.jp/tdrblog/detail/180220/) ／ [クリスタルパレス・レストラン](https://www.tokyodisneyresort.jp/tdl/restaurant/detail/323/)
+
+</details>
+
 ### 2026-11-25（JST）— Codex-BGS-20261125-3 / 質問送信エラーの調査
 
 - iPadでは認証成功後に汎用エラーを確認。Google公式モデル仕様で 3.8 Flash のID、low、構造化出力を確認。原因の切り分けのため、認証済み画面で上流HTTP・生成打ち切り・JSON・通信・Workerの診断コードを区別する。質問・回答・キーのログは追加しない。
