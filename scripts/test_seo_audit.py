@@ -9,6 +9,7 @@ import seo_audit as audit
 
 META = ''.join(f'<meta {key}="{name}" content="{audit.BASE_URL}photo.jpg">'
                for key, name in audit.REQUIRED_META if name != 'og:url')
+META += '<meta property="og:image:alt" content="Photo"><meta name="twitter:image:alt" content="Photo">'
 PAGE = ('<title>Archive</title><h1>Archive</h1>'
         '<meta name="description" content="Story">' + META +
         f'<meta property="og:url" content="{audit.BASE_URL}">'
@@ -29,7 +30,7 @@ class AuditTests(unittest.TestCase):
             (self.root / name).write_bytes(b'fixture')
         (self.root / 'sitemap.xml').write_text(
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-            f'<url><loc>{audit.BASE_URL}</loc></url></urlset>')
+            f'<url><loc>{audit.BASE_URL}</loc><lastmod>2026-10-21</lastmod></url></urlset>')
         (self.root / 'robots.txt').write_text('Sitemap: ' + audit.BASE_URL + 'sitemap.xml')
 
     def run_audit(self):
@@ -70,6 +71,50 @@ class AuditTests(unittest.TestCase):
     def test_date_mismatch(self):
         self.change('datetime="2026-10-21"', 'datetime="2026-10-09"')
         self.assertIn('dateModified does not match', self.run_audit()[1])
+
+    def test_displayed_date_text_mismatch(self):
+        self.change('2026年10月21日', '2026年10月9日')
+        self.assertIn('displayed edit date text does not match its datetime', self.run_audit()[1])
+
+    def test_missing_modified_date(self):
+        self.change(',"dateModified":"2026-10-21"', '')
+        self.assertIn('missing Article.dateModified', self.run_audit()[1])
+
+    def test_sitemap_lastmod_is_required_and_matches(self):
+        sitemap = self.root / 'sitemap.xml'
+        valid = sitemap.read_text()
+        for old, new, error in [
+            ('<lastmod>2026-10-21</lastmod>', '', 'missing sitemap lastmod'),
+            ('2026-10-21', '2026-10-20', 'sitemap lastmod does not match'),
+            ('2026-10-21', '2026-10-21wrong', 'invalid sitemap lastmod'),
+        ]:
+            with self.subTest(error=error):
+                sitemap.write_text(valid.replace(old, new))
+                self.assertIn(error, self.run_audit()[1])
+
+    def test_legacy_exception_only_matches_the_recorded_day(self):
+        self.change(',"dateModified":"2026-10-21"', '')
+        with patch.dict(audit.LEGACY_ARTICLE_DATES, {'index.html': audit.date(2026, 10, 21)}):
+            self.assertEqual(self.run_audit()[0], 0)
+            self.change('2026-10-21', '2026-10-22')
+            self.change('2026年10月21日', '2026年10月22日')
+            sitemap = self.root / 'sitemap.xml'
+            sitemap.write_text(sitemap.read_text().replace('2026-10-21', '2026-10-22'))
+            self.assertIn('missing Article.dateModified', self.run_audit()[1])
+
+    def test_profile_is_exempt_from_article_dates(self):
+        self.change('"@type":"Article"', '"@type":"ProfilePage"')
+        self.change(',"dateModified":"2026-10-21"', '')
+        sitemap = self.root / 'sitemap.xml'
+        sitemap.write_text(sitemap.read_text().replace('<lastmod>2026-10-21</lastmod>', ''))
+        self.assertEqual(self.run_audit()[0], 0)
+
+    def test_each_share_image_requires_its_own_alt(self):
+        for platform in ('og', 'twitter'):
+            with self.subTest(platform=platform):
+                self.change(f'{platform}:image:alt" content="Photo"', f'{platform}:image:alt" content=" "')
+                self.assertIn(f'{platform}:image:alt for shared image', self.run_audit()[1])
+                self.change(f'{platform}:image:alt" content=" "', f'{platform}:image:alt" content="Photo"')
 
     def test_modified_before_published(self):
         self.change('"dateModified":"2026-10-21"', '"dateModified":"2025-01-01"')

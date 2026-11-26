@@ -8,9 +8,9 @@ Maintainer: **Codex-BGS-20261027**. These checks complement the editorial guide;
 python scripts/check_site.py
 ```
 
-The audit checks metadata, JSON-LD syntax, local HTML/asset references (including image variants and OGP images), anchors, duplicate IDs, existing Article modification dates against the displayed editorial date, and sitemap coverage/duplicates. It does not infer actual edit dates, validate external URLs, or measure Core Web Vitals. `sites.html` currently has an existing advisory warning for absent JSON-LD.
+The audit checks metadata, JSON-LD syntax, local HTML/asset references, anchors, duplicate IDs and sitemap coverage. It checks the displayed Article edit date and its `datetime` against `Article.dateModified` and sitemap `lastmod`. It also requires a non-empty alt for each OGP and X share image. External URLs, actual edit dates and Core Web Vitals require separate verification.
 
-The same command also checks X share copy, internal accessions, home-card coverage, public File Nos and previous/next links, Python regression tests and the shared JavaScript syntax. The GitHub Actions workflow runs it for relevant pull requests.
+The same command checks X share copy, internal accessions, home-card coverage, matching reading estimates, public File Nos and previous/next links. It also runs the Python regression tests and the shared JavaScript syntax check. GitHub Actions runs it for relevant pull requests.
 
 The home archive search filters article titles, descriptions and photo alt text together with the existing park buttons. It hides only when JavaScript is unavailable, leaving all cards readable. A table-of-contents link restores the target card if an active search or park filter had hidden it. Article footers can include a small related-record link; keep these links editorially relevant rather than adding them mechanically to every article.
 
@@ -26,14 +26,18 @@ covers local preview and the separate manual Cloudflare release.
 ## Adding an archive article
 
 1. Give the article its next unused three-digit permanent accession. Add its card to `index.html` with a useful title, description, category, photo and alt text. Set its position in `archive-order.json` and run `python scripts/build_archive.py` to synchronize the card and article display numbers and each group’s navigation.
-2. Add the article's canonical/OGP data, an `article-pagination` navigation landmark for the generator and a folded source note following the editorial guide. Add the new page to `sitemap.xml` and `share-captions.json`, then run `python scripts/update_share_links.py`.
+2. Add the article's canonical and social metadata, an `article-pagination` navigation landmark and a folded source note. Use `og:image:alt` and `twitter:image:alt` to describe the actual image selected for each platform. Add the new page to `sitemap.xml` and `share-captions.json`, then run `python scripts/update_share_links.py`. Record the editorial date and reading estimate using the instructions below.
 3. Run `python scripts/check_site.py` and the browser smoke check before the PR. Check the real page on mobile and desktop. Keep any new card photo's original for articles/OGP, and add a display copy using `scripts/optimize_archive_images.py` if the photo is large.
 
 ## Archive cover and card images
 
 `index.html` uses a 1200px display JPEG for the cover and 800/1200px responsive JPEGs for 16 photo cards. `scripts/optimize_archive_images.py` regenerates them from originals with Pillow. The Fantasy Springs card keeps the same 4:3 crop and 20% vertical position. `tds-map.jpg` is already small; `origins-card.png` remains its original illustration. OGP and article photography continue to use their existing originals. Check the actual crop after changing a source image.
 
-When updating an article's content, record its actual editorial date in the displayed `last-edited` time and any existing Article `dateModified` and sitemap `lastmod`. Do not substitute the date of unrelated technical maintenance. Do not add unsupported publication dates.
+## Article dates and reading estimates
+
+- When publishing or revising article content, record the actual editorial date in the visible `last-edited` time and its `datetime`, `Article.dateModified` and sitemap `lastmod`. Retain that date for unrelated maintenance. Record `datePublished` when the publication date is supported.
+- The three existing Article records listed in `LEGACY_ARTICLE_DATES` in `scripts/seo_audit.py` may retain the recorded day without `dateModified` until their next editorial revision. Their visible date and sitemap date still have to agree. At the next editorial revision synchronize all three dates and remove the entry. Pages without Article markup follow their own date conventions.
+- Estimate reading time at 600 characters per minute, rounded up. Count the introductory and article prose, including column paragraphs. Exclude whitespace, headings, captions, tables, source notes and separate interactive biographies. Put the same estimate in the top card and the article's File No. strip. The static check compares the two labels.
 
 ## Browser checks
 

@@ -96,6 +96,23 @@ async function changedPixels(page, before, after, rect) {
           const focused=(await page.screenshot()).toString('base64');await region.evaluate(e=>e.blur());const blurred=(await page.screenshot()).toString('base64');
           record.focusPixels=await changedPixels(page,focused,blurred,rect);assert.ok(record.focusPixels>100,`${engine}: table focus visible`);
         }
+        if (file === 'bgs-sea.html') {
+          const member = page.locator('[data-member="hightower"]');
+          await member.press('Enter');
+          const close = page.locator('#modalClose');
+          await close.waitFor({state:'visible'});
+          assert.ok(await page.locator('#modal-name-en').evaluate(name => {
+            const range = document.createRange();
+            range.selectNodeContents(name);
+            const button = document.querySelector('#modalClose').getBoundingClientRect();
+            const lines = [...range.getClientRects()];
+            return lines.length > 0 && lines.every(line =>
+              line.right <= button.left || line.left >= button.right ||
+              line.bottom <= button.top || line.top >= button.bottom);
+          }), `${engine}: S.E.A. member name overlaps close button at ${width}px`);
+          await page.keyboard.press('Escape');
+          assert.ok(await member.evaluate(e => e === document.activeElement), `${engine}: S.E.A. member focus restored`);
+        }
         if (screenshots && [390,768,1366].includes(width)) {
           await page.evaluate(()=>document.activeElement.blur());
           await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(150);

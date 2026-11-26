@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 from build_archive import ROOT, CARD, load_order, render, render_archive_article, render_article
-from check_archive import check_article_title
+from check_archive import check_article_title, check_reading_minutes
 
 
 class StaticArchiveTests(unittest.TestCase):
@@ -37,6 +37,23 @@ class StaticArchiveTests(unittest.TestCase):
         for source in ['', h1 + h1, h1.replace('Dream', 'dream')]:
             with self.subTest(source=source), self.assertRaisesRegex(ValueError, 'story.html'):
                 check_article_title(source, article)
+
+    def test_reading_minutes_match_even_with_file_strip_language(self):
+        card = '<span class="card-time">15 min</span>'
+        article = '<div class="file-strip" lang="en"><span>Reading · 15 min</span></div>'
+        check_reading_minutes(card, article, 'story.html')
+        with self.assertRaisesRegex(ValueError, 'differs from article'):
+            check_reading_minutes(card.replace('15', '5'), article, 'story.html')
+
+    def test_reading_minutes_require_labels_in_their_own_sections(self):
+        card = '<span class="card-time">8 min</span>'
+        reading = '<span>Reading · 8 min</span>'
+        for bad_card, article in [
+            (card + card, '<div class="file-strip">' + reading + '</div>'),
+            (card, '<div class="file-strip"></div>' + reading),
+        ]:
+            with self.subTest(card=bad_card, article=article), self.assertRaisesRegex(ValueError, 'expected one'):
+                check_reading_minutes(bad_card, article, 'story.html')
 
     def test_one_order_change_updates_all_three_views(self):
         groups = copy.deepcopy(self.groups)
