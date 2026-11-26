@@ -184,8 +184,6 @@ def validate_article_dates(path, parser, data, lastmod, errors):
         types = [types]
     if not isinstance(types, list) or "Article" not in types:
         return
-    if not parser.edit_dates and "dateModified" not in data and lastmod is None:
-        return
     if len(parser.edit_dates) != 1:
         errors.append(f"{path.name}: expected one displayed edit date")
         return

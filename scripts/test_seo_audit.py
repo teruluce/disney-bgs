@@ -80,6 +80,13 @@ class AuditTests(unittest.TestCase):
         self.change(',"dateModified":"2026-10-21"', '')
         self.assertIn('missing Article.dateModified', self.run_audit()[1])
 
+    def test_article_cannot_omit_all_edit_dates(self):
+        self.change(',"dateModified":"2026-10-21"', '')
+        self.change('<p class="last-edited"><time datetime="2026-10-21">2026年10月21日</time></p>', '')
+        sitemap = self.root / 'sitemap.xml'
+        sitemap.write_text(sitemap.read_text().replace('<lastmod>2026-10-21</lastmod>', ''))
+        self.assertIn('expected one displayed edit date', self.run_audit()[1])
+
     def test_sitemap_lastmod_is_required_and_matches(self):
         sitemap = self.root / 'sitemap.xml'
         valid = sitemap.read_text()
