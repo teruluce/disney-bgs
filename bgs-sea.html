@@ -15,6 +15,7 @@
   <meta property="og:title" content="ディズニーのS.E.A.（探検家・冒険家学会）とは｜メンバーと世界の拠点 — BGS Chronicles">
   <meta property="og:description" content="ディズニーの架空組織S.E.A.（探検家・冒険家学会）の歴史と理念、著名メンバー、世界各地の関連施設を紹介。東京ディズニーシーのアトラクションをつなぐ背景設定を読み解きます。">
   <meta property="og:image" content="https://teruluce.github.io/disney-bgs/tds-map.jpg">
+  <meta property="og:image:alt" content="東京ディズニーシーの8つのテーマポートの位置を示す地図">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="BGS Chronicles">
 
@@ -22,11 +23,14 @@
   <meta name="twitter:title" content="ディズニーのS.E.A.（探検家・冒険家学会）とは｜メンバーと世界の拠点 — BGS Chronicles">
   <meta name="twitter:description" content="ディズニーの架空組織S.E.A.（探検家・冒険家学会）の歴史と理念、著名メンバー、世界各地の関連施設を紹介。東京ディズニーシーのアトラクションをつなぐ背景設定を読み解きます。">
   <meta name="twitter:image" content="https://teruluce.github.io/disney-bgs/tds-map.jpg">
+  <meta name="twitter:image:alt" content="東京ディズニーシーの8つのテーマポートの位置を示す地図">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
+    "dateModified": "2026-11-24",
+    "image": "https://teruluce.github.io/disney-bgs/tds-map.jpg",
     "headline": "S.E.A. Archives — 探検家・冒険家学会の記録",
     "description": "ディズニーの架空組織S.E.A.（探検家・冒険家学会）の歴史と理念、著名メンバー、世界各地の関連施設を紹介。東京ディズニーシーのアトラクションをつなぐ背景設定を読み解きます。",
     "inLanguage": "ja",
@@ -632,6 +636,11 @@
       margin-top: 8px;
       padding-right: 40px; /* close buttonと重ならないように */
     }
+    @media (max-width: 600px) {
+      /* Reserve the top row for the close button and its tap area. */
+      .modal-panel { padding-top: 56px; }
+      .modal-name-en { padding-right: 0; }
+    }
     .modal-name-ja {
       font-family: var(--f-jp);
       font-size: 0.8rem;
@@ -758,7 +767,7 @@
       <div class="file-strip">
       <span class="file-no" data-accession="016">FILE NO. S13</span>
       <span>Special · TDS</span>
-      <span>Reading · 12 min</span>
+      <span>Reading · 13 min</span>
     </div>
   </header>
 
